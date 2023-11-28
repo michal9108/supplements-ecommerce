@@ -1,4 +1,3 @@
-
 import ActionButton from "@/shared/ActionButton";
 import HText from "@/shared/HText";
 import { BenefitType, SelectedPage } from "@/shared/types";
@@ -163,4 +162,3 @@ const Benefits = ({ setSelectedPage }: Props) => {
 };
 
 export default Benefits;
-
