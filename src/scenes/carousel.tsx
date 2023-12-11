@@ -1,9 +1,9 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { SelectedPage } from "@/shared/types";
 
-import slide1 from "@/assets/Slide1.jpg";
-import slide2 from "@/assets/Slide2.jpg";
-import slide3 from "@/assets/Slide3.jpg";
+import slide1 from "@/assets/image4.png";
+import slide2 from "@/assets/image5.png";
+import slide3 from "@/assets/image6.png";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
