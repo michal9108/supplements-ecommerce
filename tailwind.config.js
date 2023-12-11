@@ -3,6 +3,9 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      gridTemplateRows: {
+        '[auto,auto,1fr]': 'auto auto 1fr',
+      },
       colors: {
         "gray-20": "#F8F4EB",
         "gray-50": "#EFE6E6",
@@ -36,5 +39,6 @@ module.exports = {
       md: "1060px",
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio'),
+],
 };

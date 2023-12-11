@@ -8,8 +8,77 @@ html,
 body,
 #root,
 .app {
-  height: 100%;
   width: 100%;
+height:100%;
   font-family: "DM Sans", sans-serif;
   @apply text-gray-500;
+  box-sizing: border-box;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.each-slide-effect > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-size: cover; */
+  object-fit: contain;
+  /* or
+    object-fit: cover; */
+
+  /* height: 350px; */
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 28s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 50px;
+  margin: 0 10px;
+  display: inline;
 }
