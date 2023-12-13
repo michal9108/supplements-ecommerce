@@ -1,4 +1,4 @@
-import { Offcanvas, Stack } from "react-bootstrap";
+import { Offcanvas, Stack, Button } from "react-bootstrap";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItem } from "@/scenes/cart//CartItem";
@@ -30,9 +30,11 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             )}
           </div>
         </Stack>
-        <ActionButton className="d-flex align-items-center">
+        <button
+                        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-base font-medium text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                >
           Checkout
-        </ActionButton>
+        </button>
       </Offcanvas.Body>
     </Offcanvas>
   );

@@ -294,14 +294,14 @@ export default function ProductPage({ id, price }: StoreItemProps) {
                       </RadioGroup>
                     </div>
                     {quantity === 0 ? (
-                      <Button
-                        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      <button
+                        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-base font-medium text-white bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
                         onClick={() => { increaseCartQuantity(id);
                            openCart(); }}
                        
                       >
-                        + Add To Cart
-                      </Button>
+                        BUY
+                      </button>
                     ) : (
                       <div
                         className="d-flex align-items-center flex-column"
@@ -321,13 +321,7 @@ export default function ProductPage({ id, price }: StoreItemProps) {
                             +
                           </Button>
                         </div>
-                        <Button
-                          onClick={() => removeFromCart(id)}
-                          variant="danger"
-                          size="sm"
-                        >
-                          Remove
-                        </Button>
+                       
                       </div>
                     )}
                   </form>
