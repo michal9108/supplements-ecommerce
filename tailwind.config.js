@@ -11,19 +11,25 @@ module.exports = {
         "gray-50": "#EFE6E6",
         "gray-100": "#DFCCCC",
         "gray-500": "#5E0000",
-        "primary-100": "#FFE1E0",
-        "primary-300": "#FFA6A3",
-        "primary-500": "#FF6B66",
-        "secondary-400": "#FFCD5B",
-        "secondary-500": "#FFC132",
+
+        "primary-100": "#FFFFFF",
+        "primary-300": "#f29b6d",
+        "primary-400":  "#FFFFFF",
+        "primary-500": "#000000",
+
+        "secondary-400": "#2eea86",
+        "secondary-500": "#ec702f",
+
+        
       },
       backgroundImage: (theme) => ({
         "gradient-yellowred":
           "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",
         "mobile-home": "url('./assets/HomePageGraphic.png')",
       }),
+      // TO DO 
       fontFamily: {
-        dmsans: ["DM Sans", "sans-serif"],
+        dmsans: [ "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
       },
       content: {

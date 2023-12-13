@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { SelectedPage } from "@/shared/types";
 import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import HText from "@/shared/HText";
-
+import ActionButton from "@/shared/ActionButton";
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
@@ -30,7 +30,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
         {/* HEADER */}
         <div className="md:w-3/5">
           <HText>
-            <span className="text-primary-500">JOIN NOW</span> TO GET IN SHAPE
+            <span className="text-primary-300">JOIN NOW</span> TO GET IN SHAPE
           </HText>
           <p className="my-5">
             Congue adipiscing risus commodosd placerat. Tellus et in feugiat
@@ -101,12 +101,9 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 </p>
               )}
 
-              <button
-                type="submit"
-                className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
-              >
-                SUBMIT
-              </button>
+<ActionButton setSelectedPage={setSelectedPage}>
+                  Join Now
+                </ActionButton>
             </form>
           </div>
 

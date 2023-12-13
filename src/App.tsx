@@ -9,7 +9,6 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import { ShoppingCartProvider } from "@/scenes/cart/ShoppingCartContext";
 
 export default function App({
   isTopOfPage = false,
@@ -26,5 +25,7 @@ export default function App({
       <Outlet />
       <Footer />
     </div>
+    
+
   );
 }

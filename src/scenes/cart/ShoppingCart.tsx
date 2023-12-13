@@ -2,37 +2,11 @@ import { Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItem } from "@/scenes/cart//CartItem";
-
+import storeItems from "@//data/items.json";
+import ActionButton from "@/shared/ActionButton";
 type ShoppingCartProps = {
   isOpen: boolean;
 };
-
-const storeItems = [
-  {
-    id: 1,
-    name: "Book",
-    price: 10.99,
-    imgUrl: "/imgs/book.jpg",
-  },
-  {
-    id: 2,
-    name: "Computer",
-    price: 1199,
-    imgUrl: "/imgs/computer.jpg",
-  },
-  {
-    id: 3,
-    name: "Banana",
-    price: 1.05,
-    imgUrl: "/imgs/banana.jpg",
-  },
-  {
-    id: 4,
-    name: "Car",
-    price: 14000,
-    imgUrl: "/imgs/car.jpg",
-  },
-];
 
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems } = useShoppingCart();
@@ -56,6 +30,9 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             )}
           </div>
         </Stack>
+        <ActionButton className="d-flex align-items-center">
+          Checkout
+        </ActionButton>
       </Offcanvas.Body>
     </Offcanvas>
   );

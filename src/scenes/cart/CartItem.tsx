@@ -1,44 +1,30 @@
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
+import { formatCurrency } from "@/scenes/cart/formatCurrency";
+import storeItems from "@//data/items.json"
 
 type CartItemProps = {
   id: number;
   quantity: number;
+ 
 };
 
-const storeItems = [
-  {
-    id: 1,
-    name: "Book",
-    price: 10.99,
-  },
-  {
-    id: 2,
-    name: "Computer",
-    price: 1199,
-  },
-  {
-    id: 3,
-    name: "Banana",
-    price: 1.05,
-  },
-  {
-    id: 4,
-    name: "Car",
-    price: 14000,
-  },
-];
 
 export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeFromCart } = useShoppingCart();
-  const item = storeItems.find((i) => i.id === id);
-  if (item == null) return null;
+  const { removeFromCart } = useShoppingCart()
+  const item = storeItems.find(i => i.id === id)
+  if (item == null) return null
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
+      <img
+       src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg"
+
+        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+      />
       <div className="me-auto">
         <div>
-          {item.name}{" "}
+          Hirt
           {quantity > 1 && (
             <span className="text-muted" style={{ fontSize: ".65rem" }}>
               x{quantity}
@@ -46,10 +32,10 @@ export function CartItem({ id, quantity }: CartItemProps) {
           )}
         </div>
         <div className="text-muted" style={{ fontSize: ".75rem" }}>
-          {item.price}
+          {formatCurrency(item.price)}
         </div>
       </div>
-      <div> {item.price * quantity}</div>
+      <div> {formatCurrency(item.price * quantity)}</div>
       <Button
         variant="outline-danger"
         size="sm"
@@ -58,5 +44,5 @@ export function CartItem({ id, quantity }: CartItemProps) {
         &times;
       </Button>
     </Stack>
-  );
+  )
 }
