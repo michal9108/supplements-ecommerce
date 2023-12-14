@@ -30,7 +30,7 @@ app.post("/checkout", async (req, res) => {
     console.log(req.body);
     const items = req.body.items;
     let lineItems = [];
-    items.forEach((item)=> {
+    items.forEach((item) => {
         lineItems.push(
             {
                 price: item.id,
@@ -42,8 +42,8 @@ app.post("/checkout", async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: "https://supplements-ecommerce-git-structure-mikes-projects-b8b6e248.vercel.app/",
-        cancel_url:  "https://supplements-ecommerce-git-structure-mikes-projects-b8b6e248.vercel.app/",
+        success_url: "https://supplements-ecommerce-git-structure3-mikes-projects-b8b6e248.vercel.app/",
+        cancel_url: "https://supplements-ecommerce-git-structure3-mikes-projects-b8b6e248.vercel.app/",
     });
 
     res.send(JSON.stringify({
