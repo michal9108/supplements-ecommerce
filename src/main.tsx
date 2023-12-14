@@ -8,7 +8,8 @@ import { Store } from "@/scenes/cart/Store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "@/pages/ProductPage";
-import storeItems from "@//data/items.json"
+// @ts-ignore
+import storeItems from "@//data/items.json";
 import { ShoppingCartProvider } from "@/scenes/cart/ShoppingCartContext";
 
 const router = createBrowserRouter([
@@ -22,13 +23,13 @@ const router = createBrowserRouter([
       },
       {
         path: "productpage",
-        element: <ProductPage id={1} price={11.77}        
-       />
+        element: (
+          <ProductPage id={"price_1ONBwjH9dKBRlDkrsJgc1u8X"} price={11.77} />
+        ),
       },
 
       {
         path: "coaching",
-       
       },
       {
         path: "contact",
@@ -43,10 +44,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-      <ShoppingCartProvider>
-
-    <RouterProvider router={router} />
+    <ShoppingCartProvider>
+      <RouterProvider router={router} />
     </ShoppingCartProvider>
-
   </React.StrictMode>,
 );

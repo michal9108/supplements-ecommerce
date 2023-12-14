@@ -12,54 +12,48 @@ import image1 from "@/assets/image1.png";
 // import { data, Product } from "@/data/data";
 
 type StoreItemProps = {
-  id: number;
+  id: string;
   price: number;
 };
 
-const product = 
-  {
-    id: 1,
-    name: "Basic Tee 6-Pack",
-    price: 192.77,
-    href: "#",
-    images: [
-      {
-        src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-        alt: "Model wearing plain white basic tee.",
-      },
-    ],
-    colors: [
-      { name: "White", className: "bg-white", selectedClass: "ring-gray-400" },
-      { name: "Gray", className: "bg-gray-200", selectedClass: "ring-gray-400" },
-      { name: "Black", className: "bg-gray-900", selectedClass: "ring-gray-900" },
-    ],
-    sizes: [
-      { name: "XXS", inStock: true },
-      { name: "XS", inStock: true },
-      { name: "S", inStock: true },
-      { name: "M", inStock: true },
-      { name: "L", inStock: true },
-      { name: "XL", inStock: true },
-      { name: "2XL", inStock: true },
-      { name: "3XL", inStock: true },
-    ],
-    description:
-      'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
-    highlights: [
-      "Hand cut and sewn locally",
-      "Dyed with our proprietary colors",
-      "Pre-washed & pre-shrunk",
-      "Ultra-soft 100% cotton",
-    ],
-    details:
-      'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
-  };
-  // Add more products if needed
-
-
-
-
-
+const product = {
+  id: 1,
+  name: "Basic Tee 6-Pack",
+  price: 192.77,
+  href: "#",
+  images: [
+    {
+      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
+      alt: "Model wearing plain white basic tee.",
+    },
+  ],
+  colors: [
+    { name: "White", className: "bg-white", selectedClass: "ring-gray-400" },
+    { name: "Gray", className: "bg-gray-200", selectedClass: "ring-gray-400" },
+    { name: "Black", className: "bg-gray-900", selectedClass: "ring-gray-900" },
+  ],
+  sizes: [
+    { name: "XXS", inStock: true },
+    { name: "XS", inStock: true },
+    { name: "S", inStock: true },
+    { name: "M", inStock: true },
+    { name: "L", inStock: true },
+    { name: "XL", inStock: true },
+    { name: "2XL", inStock: true },
+    { name: "3XL", inStock: true },
+  ],
+  description:
+    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+  highlights: [
+    "Hand cut and sewn locally",
+    "Dyed with our proprietary colors",
+    "Pre-washed & pre-shrunk",
+    "Ultra-soft 100% cotton",
+  ],
+  details:
+    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+};
+// Add more products if needed
 
 {
   /* Reviews function*/
@@ -71,9 +65,6 @@ function classNames(...classes: (string | undefined | null | false)[]): string {
 }
 
 export default function ProductPage({ id, price }: StoreItemProps) {
-
-
-
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -81,7 +72,7 @@ export default function ProductPage({ id, price }: StoreItemProps) {
     removeFromCart,
     openCart,
   } = useShoppingCart();
-  
+
   const quantity = getItemQuantity(id);
 
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
@@ -293,12 +284,15 @@ export default function ProductPage({ id, price }: StoreItemProps) {
                         </div>
                       </RadioGroup>
                     </div>
+
+                    {/* CART LOGIC */}
                     {quantity === 0 ? (
                       <button
                         className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-base font-medium text-white bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                        onClick={() => { increaseCartQuantity(id);
-                           openCart(); }}
-                       
+                        onClick={() => {
+                          increaseCartQuantity(id);
+                          openCart();
+                        }}
                       >
                         BUY
                       </button>
@@ -311,17 +305,18 @@ export default function ProductPage({ id, price }: StoreItemProps) {
                           className="d-flex align-items-center justify-content-center"
                           style={{ gap: ".5rem" }}
                         >
-                          <Button onClick={() => decreaseCartQuantity(id)}>
+                          <Button onClick={() => {decreaseCartQuantity(id);
+                        openCart();}}>
                             -
                           </Button>
                           <div>
                             <span className="fs-3">{quantity}</span> in cart
                           </div>
-                          <Button onClick={() => increaseCartQuantity(id)}>
+                          <Button onClick={() => {increaseCartQuantity(id);
+                          openCart();}}>
                             +
                           </Button>
                         </div>
-                       
                       </div>
                     )}
                   </form>

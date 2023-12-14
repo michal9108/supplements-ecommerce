@@ -3,13 +3,38 @@ import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItem } from "@/scenes/cart//CartItem";
 import storeItems from "@//data/items.json";
-import ActionButton from "@/shared/ActionButton";
+// import ActionButton from "@/shared/ActionButton";
+// import { useContext } from "react";
 type ShoppingCartProps = {
   isOpen: boolean;
 };
 
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems } = useShoppingCart();
+
+  // const cart = useContext(ShoppingCartContext)
+
+//request to STRIPE on checkout
+const checkout = async () => {
+
+
+
+  await fetch('http://localhost:4000/checkout',{
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({items: cartItems})
+    //possible bug
+  }).then((response) => {
+    return response.json();
+}).then((response) => {
+    if(response.url) {
+        window.location.assign(response.url); // Forwarding user to Stripe
+    }
+});
+}
+
   return (
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
@@ -28,9 +53,13 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
                 return total + (item?.price || 0) * cartItem.quantity;
               }, 0),
             )}
+            
           </div>
+          
         </Stack>
-        <button
+        <button 
+        onClick={checkout}
+
                         className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-base font-medium text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
                 >
           Checkout

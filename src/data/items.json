@@ -1,12 +1,10 @@
 [
   {
-    "id": 1,
-
-    "price": 10.99
+    "id": "price_1ONBwjH9dKBRlDkrsJgc1u8X",
+    "price": 11.77
   },
   {
-    "id": 2,
-
+    "id": "price_1ONDGTH9dKBRlDkrPYdmIngc",
     "price": 1199
   }
 ]

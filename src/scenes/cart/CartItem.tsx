@@ -1,25 +1,22 @@
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
-import storeItems from "@//data/items.json"
+import storeItems from "@//data/items.json";
 
 type CartItemProps = {
-  id: number;
+  id: string;
   quantity: number;
- 
 };
 
-
 export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeFromCart } = useShoppingCart()
-  const item = storeItems.find(i => i.id === id)
-  if (item == null) return null
+  const { removeFromCart } = useShoppingCart();
+  const item = storeItems.find((i) => i.id === id);
+  if (item == null) return null;
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-       src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg"
-
+        src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg"
         style={{ width: "125px", height: "75px", objectFit: "cover" }}
       />
       <div className="me-auto">
@@ -44,5 +41,5 @@ export function CartItem({ id, quantity }: CartItemProps) {
         &times;
       </Button>
     </Stack>
-  )
+  );
 }
