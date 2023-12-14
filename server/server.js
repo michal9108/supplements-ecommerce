@@ -42,8 +42,8 @@ app.post("/checkout", async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: "http://localhost:4000/",
-        cancel_url:  "http://localhost:4000/",
+        success_url: "https://supplements-ecommerce-git-structure-mikes-projects-b8b6e248.vercel.app/",
+        cancel_url:  "https://supplements-ecommerce-git-structure-mikes-projects-b8b6e248.vercel.app/",
     });
 
     res.send(JSON.stringify({

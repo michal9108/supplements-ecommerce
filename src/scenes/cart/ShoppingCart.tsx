@@ -19,7 +19,7 @@ const checkout = async () => {
 
 
 
-  await fetch('http://localhost:4000/checkout',{
+  await fetch('https://supplements-ecommerce-git-structure-mikes-projects-b8b6e248.vercel.app/checkout',{
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
