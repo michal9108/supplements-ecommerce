@@ -26,8 +26,6 @@ const Navbar = ({
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
-
-
             {/* ABOVE MD  1060px */}
             {/* LEFT SIDE */}
 
@@ -133,17 +131,16 @@ const Navbar = ({
                   )}
                 </div>
               </div>
-
-              
             ) : (
-             <div  className={`${flexBetween} w-full`}> <button
-             className="rounded-full bg-secondary-500 p-2"
-             onClick={() => setIsMenuToggled(!isMenuToggled)}
-           >
-             <Bars3Icon className="h-7 w-7 text-white" />
-           </button>
-
-           <NavLink
+              <div className={`${flexBetween} w-full`}>
+                {" "}
+                <button
+                  className="rounded-full bg-secondary-500 p-2"
+                  onClick={() => setIsMenuToggled(!isMenuToggled)}
+                >
+                  <Bars3Icon className="h-7 w-7 text-white" />
+                </button>
+                <NavLink
                   className=" text-4xl no-underline text-secondary-500  focus:text-primary-500 "
                   to="/"
                 >
@@ -219,17 +216,14 @@ const Navbar = ({
                     </button>
                   )}
                 </div>
-
-
-           </div> 
-             
+              </div>
             )}
           </div>
         </div>
       </div>
 
       {/* TO DO -  MOBILE MENU MODAL */}
- 
+
       {/*  MOBILE MENU  */}
 
       {!isAboveMediumScreens && isMenuToggled && (
@@ -243,7 +237,6 @@ const Navbar = ({
 
           {/* MENU ITEMS */}
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            
             <NavLink
               className="text-xl no-underline text-secondary-500 focus:text-primary-500"
               to="/productpage"

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { SelectedPage } from "@/shared/types";
 import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import HText from "@/shared/HText";
-import ActionButton from "@/shared/ActionButton";
+// import ActionButton from "@/shared/ActionButton";
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
@@ -101,9 +101,9 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                 </p>
               )}
 
-<ActionButton setSelectedPage={setSelectedPage}>
+{/* <ActionButton setSelectedPage={setSelectedPage}>
                   Join Now
-                </ActionButton>
+                </ActionButton> */}
             </form>
           </div>
 

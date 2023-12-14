@@ -305,15 +305,23 @@ export default function ProductPage({ id, price }: StoreItemProps) {
                           className="d-flex align-items-center justify-content-center"
                           style={{ gap: ".5rem" }}
                         >
-                          <Button onClick={() => {decreaseCartQuantity(id);
-                        openCart();}}>
+                          <Button
+                            onClick={() => {
+                              decreaseCartQuantity(id);
+                              openCart();
+                            }}
+                          >
                             -
                           </Button>
                           <div>
                             <span className="fs-3">{quantity}</span> in cart
                           </div>
-                          <Button onClick={() => {increaseCartQuantity(id);
-                          openCart();}}>
+                          <Button
+                            onClick={() => {
+                              increaseCartQuantity(id);
+                              openCart();
+                            }}
+                          >
                             +
                           </Button>
                         </div>
