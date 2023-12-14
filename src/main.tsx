@@ -4,7 +4,6 @@ import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Store } from "@/scenes/cart/Store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "@/pages/ProductPage";
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
       },
       {
         path: "contact",
-      },
-      {
-        path: "store",
-        element: <Store />,
       },
     ],
   },
