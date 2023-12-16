@@ -30,7 +30,7 @@ app.post("/checkout", async (req, res) => {
     console.log(req.body);
     const items = req.body.items;
     let lineItems = [];
-    items.forEach((item) => {
+    items.forEach((item)=> {
         lineItems.push(
             {
                 price: item.id,
@@ -42,8 +42,8 @@ app.post("/checkout", async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: "https://supplements-ecommerce-git-structure3-mikes-projects-b8b6e248.vercel.app/",
-        cancel_url: "https://supplements-ecommerce-git-structure3-mikes-projects-b8b6e248.vercel.app/",
+        success_url: "http://localhost:4001/",
+        cancel_url:  "http://localhost:4001/",
     });
 
     res.send(JSON.stringify({
@@ -51,4 +51,4 @@ app.post("/checkout", async (req, res) => {
     }));
 });
 
-app.listen(4000, () => console.log("Listening on port 4000!"));
+app.listen(4001, () => console.log("Listening on port 4001!"));

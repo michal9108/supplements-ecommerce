@@ -4,8 +4,7 @@ import { SelectedPage } from "@/shared/types";
 import slide1 from "@/assets/image4.png";
 import slide2 from "@/assets/image5.png";
 import slide3 from "@/assets/image6.png";
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
+import { Carousel as Slider } from "@material-tailwind/react";
 
 import React, { useState, useEffect } from "react";
 
@@ -17,6 +16,9 @@ import forbes from "@/logos/forbes.svg";
 import macys from "@/logos/macys.svg";
 import menshealth from "@/logos/menshealth.svg";
 import mrbeast from "@/logos/mrbeast.svg";
+
+
+const images = [slide1,slide2, slide3];
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -50,65 +52,27 @@ const Carousel = ({ setSelectedPage }: Props) => {
       className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0"
     >
       {/* IMAGE AND MAIN HEADER */}
-      <div className="mx-auto w-5/6 items-center md:h-5/6 ">
-        <Slide>
-          <div className="each-slide-effect">
-            <img src={slide1}></img>
-          </div>
-
-          <div className="each-slide-effect">
-            <img src={slide2}></img>
-          </div>
-          <div className="each-slide-effect">
-            <img src={slide3}></img>
-          </div>
-        </Slide>
-        {/* MAIN HEADER */}
-        {/* <div className="z-10 mt-32 md:basis-3/5"> */}
-        {/* HEADINGS */}
-        {/* <div
-            className="md:-mt-20"
-          >
-            <div className="relative">
-              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext">
-                <img alt="home-page-text" src={HomePageText} />
-              </div>
-            </div>
-
-            <p className="mt-8 text-sm">
-              Unrivaled Gym. Unparalleled Training Fitness Classes. World Class
-              Studios to get the Body Shapes That you Dream of.. Get Your Dream
-              Body Now.
-            </p>
-          </div> */}
-
-        {/* ACTIONS */}
-        {/* <div
-            className="mt-8 flex items-center gap-8"
-
-          >
-            <ActionButton setSelectedPage={setSelectedPage}>
-              Join Now
-            </ActionButton>
-            <AnchorLink
-              className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
-              onClick={() => setSelectedPage(SelectedPage.ContactUs)}
-              href={`#${SelectedPage.ContactUs}`}
-            >
-              <p>Learn More</p>
-            </AnchorLink>
-          </div>
-        </div> */}
-
-        {/* IMAGE */}
-        {/* <div
-          className="flex basis-3/5 justify-center md:z-10
-              md:ml-40 md:mt-16 md:justify-items-end"
-        >
-          <img alt="home-pageGraphic" src={HomePageGraphic} />
-        </div> */}
+      <div className="mx-auto w-5/6 md:h-5/6  ">
+      <Slider className="rounded-xl">
+      <img
+        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+        alt="image 1"
+        className="h-full w-full object-cover"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+        alt="image 2"
+        className="h-full w-full object-cover"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+        alt="image 3"
+        className="h-full w-full object-cover"
+      />
+    </Slider>
+          
+ 
       </div>
-
       {/* SPONSORS */}
       {isAboveMediumScreens && (
         <>

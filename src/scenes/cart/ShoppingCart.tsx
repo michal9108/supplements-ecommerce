@@ -17,7 +17,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   //request to STRIPE on checkout
   const checkout = async () => {
     await fetch(
-      "https://supplements-ecommerce-git-structure3-mikes-projects-b8b6e248.vercel.app/checkout",
+      "http://localhost:4001/checkout",
       {
         method: "POST",
         headers: {
