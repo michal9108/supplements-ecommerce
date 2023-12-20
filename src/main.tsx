@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       {
         path: "productpage",
         element: (
-          <ProductPage id={"price_1ONBwjH9dKBRlDkrsJgc1u8X"} price={11.77} />
+          <ProductPage  />
         ),
       },
 

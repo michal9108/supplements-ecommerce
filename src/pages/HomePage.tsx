@@ -1,9 +1,8 @@
-import Carousel from "@/scenes/carousel";
-import Benefits from "@/scenes/benefits";
-import ContactUs from "@/scenes/contactUs";
-import OurClasses from "@/scenes/ourClasses";
+import Carousel from "@/scenes/HomePage/carousel";
+import Benefits from "@/scenes/HomePage/benefits";
+import ContactUs from "@/scenes/HomePage/contactUs";
 import React from "react";
-
+import Banner from "@/scenes/banner";
 export default function HomePage({
  
   setSelectedPage = () => {},
@@ -12,7 +11,6 @@ export default function HomePage({
     <div>
       <Carousel setSelectedPage={setSelectedPage} />
       <Benefits setSelectedPage={setSelectedPage} />
-      <OurClasses />
       <ContactUs setSelectedPage={setSelectedPage} />
     </div>
   );

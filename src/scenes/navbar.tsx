@@ -6,7 +6,6 @@ import ActionButton from "@/shared/ActionButton";
 import { NavLink } from "react-router-dom";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
-
 const Navbar = ({
   isTopOfPage = false,
   selectedPage = () => {},
@@ -22,42 +21,42 @@ const Navbar = ({
   return (
     <nav>
       <div
-        className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}
+        className={`${navbarBackground} ${flexBetween} fixed top-10 z-30 w-full py-6`}
       >
         <div className={`${flexBetween} mx-auto w-5/6`}>
-          <div className={`${flexBetween} w-full gap-16`}>
+          <div className={`${flexBetween} w-full gap-10`}>
             {/* ABOVE MD  1060px */}
             {/* LEFT SIDE */}
 
             {isAboveMediumScreens ? (
-              <div className={`${flexBetween} w-full`}>
+              <div className={`flex items-center justify-between w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
                   <NavLink
-                    className="text-xl no-underline text-secondary-500 focus:text-primary-500"
-                    to="/productpage"
+                    className=" text-4xl font-bold no-underline text-secondary-500  focus:text-primary-500 "
+                    to="/"
                   >
-                    PRODUCT
-                  </NavLink>
-                  <NavLink
-                    className="text-xl no-underline text-secondary-500 focus:text-primary-500"
-                    to="/productpage"
-                  >
-                    COACHING
-                  </NavLink>
-                  <NavLink
-                    className="text-xl no-underline text-secondary-500 focus:text-primary-500"
-                    to="/productpage"
-                  >
-                    CONTACT
+                    BODYBUFF
                   </NavLink>
                 </div>
 
                 {/* MIDDLE  */}
                 <NavLink
-                  className=" text-4xl no-underline text-secondary-500  focus:text-primary-500 "
-                  to="/"
+                  className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                  to="/productpage"
                 >
-                  BODYBUFF
+                  PRODUCT
+                </NavLink>
+                <NavLink
+                  className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                  to="/productpage"
+                >
+                  COACHING
+                </NavLink>
+                <NavLink
+                  className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                  to="/productpage"
+                >
+                  CONTACT
                 </NavLink>
                 {/* RIGHT SIDE */}
                 <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
@@ -141,7 +140,7 @@ const Navbar = ({
                   <Bars3Icon className="h-7 w-7 text-white" />
                 </button>
                 <NavLink
-                  className=" text-4xl no-underline text-secondary-500  focus:text-primary-500 "
+                  className=" text-4xl   font-bold  no-underline text-secondary-500  focus:text-primary-500 "
                   to="/"
                 >
                   BODYBUFF
@@ -238,19 +237,19 @@ const Navbar = ({
           {/* MENU ITEMS */}
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
             <NavLink
-              className="text-xl no-underline text-secondary-500 focus:text-primary-500"
+              className="text-xl font-semibold no-underline text-secondary-500 focus:text-primary-500 "
               to="/productpage"
             >
               PRODUCT
             </NavLink>
             <NavLink
-              className="text-xl no-underline text-secondary-500 focus:text-primary-500"
+              className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
               to="/coaching"
             >
               COACHING
             </NavLink>
             <NavLink
-              className="text-xl no-underline text-secondary-500 focus:text-primary-500"
+              className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
               to="/contact"
             >
               CONTACT

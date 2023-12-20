@@ -1,7 +1,6 @@
 import Navbar from "@/scenes/navbar";
-
 import Footer from "@/scenes/footer";
-
+import Banner from "./scenes/banner";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,15 +16,15 @@ export default function App({
 }) {
   return (
     <div className="app bg-gray-20">
+      <Banner />
       <Navbar
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
+      
       <Outlet />
       <Footer />
     </div>
-    
-
   );
 }

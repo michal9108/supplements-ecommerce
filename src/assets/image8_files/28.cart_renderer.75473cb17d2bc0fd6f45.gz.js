@@ -1,0 +1,1 @@
+(window.monster_upsells=window.monster_upsells||[]).push([[28],{267:function(e,s,n){"use strict";n.r(s);var t=n(2);n(128),n(127);s.default=function(e){var s=e.badges;return t.default.createElement("div",{className:"mu-badges",dangerouslySetInnerHTML:{__html:s.value||""}})}}}]);

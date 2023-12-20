@@ -9,10 +9,25 @@ body,
 #root,
 .app {
   width: 100%;
-height:100%;
+  height: 100%;
   font-family: "DM Sans", sans-serif;
   @apply text-gray-500;
   box-sizing: border-box;
+}
+
+{/* TO DO */} 
+@media screen and (max-width:550px) {
+  
+  .app {
+    width: 100%;
+    height: 100%;
+    font-family: "DM Sans", sans-serif;
+    box-sizing: border-box;
+    background-color: red;
+    margin-left: auto;
+    margin-right:auto;
+    
+  }
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -23,32 +38,34 @@ height:100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-size: cover; */
+  background-size: cover;
   object-fit: contain;
-  /* or
-    object-fit: cover; */
 
-  /* height: 350px; */
 }
 
 @keyframes slide {
   from {
     transform: translateX(0);
   }
-  to {
+   to {
     transform: translateX(-100%);
   }
 }
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
 
-.logos {
+/* .logos {
   overflow: hidden;
   padding: 60px 0;
   background: white;
   white-space: nowrap;
   position: relative;
-}
+} */
 
-.logos:before,
+/* .logos:before,
 .logos:after {
   position: absolute;
   top: 0;
@@ -56,7 +73,7 @@ height:100%;
   height: 100%;
   content: "";
   z-index: 2;
-}
+} */
 
 .logos:before {
   left: 0;
@@ -74,7 +91,7 @@ height:100%;
 
 .logos-slide {
   display: inline-block;
-  animation: 28s slide infinite linear;
+  animation: 5s slide infinite linear ;
 }
 
 .logos-slide img {

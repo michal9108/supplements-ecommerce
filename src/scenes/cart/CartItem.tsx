@@ -21,7 +21,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
       />
       <div className="me-auto">
         <div>
-          Hirt
+          {item.name}
           {quantity > 1 && (
             <span className="text-muted" style={{ fontSize: ".65rem" }}>
               x{quantity}
