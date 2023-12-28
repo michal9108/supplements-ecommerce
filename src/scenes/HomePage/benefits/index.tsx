@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 import Benefit from "./Benefit";
-import ProductCard from "../productcard";
+import ProductCard from "../productCard";
 
 const benefits: Array<BenefitType> = [
   {
