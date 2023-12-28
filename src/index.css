@@ -15,7 +15,8 @@ body,
   box-sizing: border-box;
 }
 
-{/* TO DO */} 
+
+
 @media screen and (max-width:550px) {
   
   .app {
@@ -23,7 +24,7 @@ body,
     height: 100%;
     font-family: "DM Sans", sans-serif;
     box-sizing: border-box;
-    background-color: red;
+    background-color: white;
     margin-left: auto;
     margin-right:auto;
     

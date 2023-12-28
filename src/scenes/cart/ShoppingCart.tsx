@@ -17,7 +17,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   //request to STRIPE on checkout
   const checkout = async () => {
     await fetch(
-      "http://localhost:4001/checkout",
+      "http://localhost:4000/checkout",
       {
         method: "POST",
         headers: {

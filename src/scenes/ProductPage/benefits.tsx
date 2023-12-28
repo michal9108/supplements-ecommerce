@@ -5,7 +5,7 @@ const benefits = () => {
     <div>
        <section>
           {/* Benefits Container */}
-          <div className="mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-10 lg:py-32">
+          <div className="mx-auto max-w-7xl px-4 py-10 md:px-10 lg:py-32">
             {/* Benefits Title */}
             <div className="text-center ">
               <h2 className="text-3xl font-bold md:text-5xl">

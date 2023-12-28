@@ -8,7 +8,11 @@ export enum SelectedPage {
 export interface BenefitType {
   icon: JSX.Element;
   title: string;
-  description: string;
+}
+
+export interface ProofType {
+  icon: JSX.Element;
+  title: string;
 }
 
 export interface ClassType {

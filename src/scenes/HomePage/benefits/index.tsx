@@ -1,6 +1,6 @@
 import ActionButton from "@/shared/ActionButton";
 import HText from "@/shared/HText";
-import { BenefitType, SelectedPage } from "@/shared/types";
+import { BenefitType, ProofType } from "@/shared/types";
 import {
   HomeModernIcon,
   UserGroupIcon,
@@ -8,25 +8,35 @@ import {
 } from "@heroicons/react/24/solid";
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 import Benefit from "./Benefit";
+import ProductCard from "../productcard";
 
 const benefits: Array<BenefitType> = [
   {
-    icon: <HomeModernIcon className="h-6 w-6" />,
+    icon: <HomeModernIcon className="h-7 w-7" />,
     title: "Maintain Optimal Protein Intake",
-    description:
-      "Elevate nutritional value with Bodybuff crispy bars, enriched with whey protein isolate crisps. These selected protein sources supply vital amino acids for body fuel and muscle support",
   },
   {
-    icon: <UserGroupIcon className="h-6 w-6" />,
+    icon: <UserGroupIcon className="h-7 w-7" />,
     title: "Strenghten and Sustain Muscles",
-    description:
-      "Enhance ans preserve muscle health for an active lifestyle and productive workouts. Indulge your sweet cravings while enjoying a substantial 15g of protein in every bar.",
   },
   {
-    icon: <AcademicCapIcon className="h-6 w-6" />,
+    icon: <AcademicCapIcon className="h-7 w-7" />,
     title: "Improves Gut Health & Digestion",
-    description:
-      "Increase your digestion and nutrient absorbtion with the abundant dietary fiber in all of our bars. Improving gut health and well-being, these bars optimize your metabolism and overall vitality.",
+  },
+];
+
+const proofs: Array<ProofType> = [
+  {
+    icon: <HomeModernIcon className="h-7 w-7" />,
+    title: "30 day easy return",
+  },
+  {
+    icon: <UserGroupIcon className="h-7 w-7" />,
+    title: "100% satisfaction guaranteed",
+  },
+  {
+    icon: <AcademicCapIcon className="h-7 w-7" />,
+    title: "Fast and secure shipping",
   },
 ];
 
@@ -37,37 +47,49 @@ const container = {
   },
 };
 
-type Props = {
-  setSelectedPage: (value: SelectedPage) => void;
-};
+type Props = {};
 
-const Benefits = ({ setSelectedPage }: Props) => {
+const Benefits = () => {
   return (
     <section id="benefits" className="mx-auto min-h-full w-5/6 py-1">
-      <div>
-        {/* HEADER */}
-        <div className="flex flex-col container items-center justify-center md:my-1 md:w-3/5">
-        
-            <p className=" text-lg">The perfect snack to</p>
-
-            <HText>Energize Your Body And Fuel Your Active Lifestyle</HText>
-            
-        
-        </div>
+      <div className="">
+       
 
         {/* BENEFITS */}
-        <div className="mt-5 items-center justify-between gap-8 md:flex">
+        <div className=" items-center justify-center gap-8 md:flex">
           {benefits.map((benefit: BenefitType) => (
             <Benefit
               key={benefit.title}
               icon={benefit.icon}
               title={benefit.title}
-              description={benefit.description}
-              setSelectedPage={setSelectedPage}
             />
           ))}
         </div>
 
+         {/* HEADER */}
+         <div className="flex flex-col container items-center justify-center md:my-2 md:w-3/5">
+
+          <HText>SHOP BY GOAL</HText>
+          <div className=" items-center justify-center  md:flex">
+
+<ProductCard/>
+<ProductCard/>
+<ProductCard/>
+</div>
+
+          
+        </div>
+        {/* PROOFS */}
+        <div className=" items-center justify-center  md:flex">
+          {proofs.map((proof: ProofType) => (
+            <Benefit
+              key={proof.title}
+              icon={proof.icon}
+              title={proof.title}
+            />
+          ))}
+        </div>
+        </div>
         {/* GRAPHICS AND DESCRIPTION */}
         <div className="mt-5 items-center justify-between gap-20 md:mt-28 md:flex">
           {/* GRAPHIC */}
@@ -80,12 +102,12 @@ const Benefits = ({ setSelectedPage }: Props) => {
           {/* DESCRIPTION */}
           <div>
             {/* TITLE */}
-            <div className="relative">
+            <div className="static">
               <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
                 <div>
                   <HText>
-                    The Perfect Snack for Your <span className="text-primary-300">Active</span> Lifestyle{" "}
-               
+                    The Perfect Snack for Your{" "}
+                    <span className="text-primary-300">Active</span> Lifestyle{" "}
                   </HText>
                 </div>
               </div>
@@ -94,22 +116,27 @@ const Benefits = ({ setSelectedPage }: Props) => {
             {/* DESCRIPT */}
             <div>
               <p className="my-5 text-lg">
-              Whether you're hitting the gym, powering through your day, or simply busy and on-the-go - our Kino Crispy Bars are finely tuned to complement your active routine. Blended with high-quality Protein and High Fibre, they deliver convenient nourishment for workouts and busy schedules where a snack on-the-go just makes the most sense. 
+                Whether you're hitting the gym, powering through your day, or
+                simply busy and on-the-go - our Kino Crispy Bars are finely
+                tuned to complement your active routine. Blended with
+                high-quality Protein and High Fibre, they deliver convenient
+                nourishment for workouts and busy schedules where a snack
+                on-the-go just makes the most sense.
               </p>
-              
             </div>
 
             {/* BUTTON */}
-            <div className="relative mt-16">
+            <div className="static mt-16">
               <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
                 <ActionButton>Join Now</ActionButton>
               </div>
             </div>
           </div>
         </div>
-      </div>
+     
     </section>
   );
 };
 
 export default Benefits;
+

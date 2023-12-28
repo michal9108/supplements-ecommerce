@@ -1,17 +1,18 @@
 import Carousel from "@/scenes/HomePage/carousel";
 import Benefits from "@/scenes/HomePage/benefits";
 import ContactUs from "@/scenes/HomePage/contactUs";
-import React from "react";
-import Banner from "@/scenes/banner";
-export default function HomePage({
- 
-  setSelectedPage = () => {},
-}) {
+import "bootstrap/dist/css/bootstrap.min.css";
+import BannerNewsletter from "@/scenes/bannerNewsletter";
+import OurClasses from "@/scenes/ourClasses";
+
+export default function HomePage() {
   return (
-    <div>
-      <Carousel setSelectedPage={setSelectedPage} />
-      <Benefits setSelectedPage={setSelectedPage} />
-      <ContactUs setSelectedPage={setSelectedPage} />
+    <div className="">
+      <Carousel />
+      <Benefits />
+      <OurClasses />
+      <ContactUs />
+      <BannerNewsletter/>
     </div>
   );
 }

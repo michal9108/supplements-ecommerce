@@ -9,8 +9,6 @@ import slide4 from "@/assets/image10.png";
 import slide5 from "@/assets/image11.png";
 import slide6 from "@/assets/image12.png";
 
-
-
 const Slider = () => {
   const isAboveMd = window.innerWidth >= 1060;
 
@@ -27,7 +25,7 @@ const Slider = () => {
   };
 
   return (
-    <section className=" bg-gray-20 gap-10  pt-24 md:h-full md:pb-0 ">
+    <section className=" gap-10  md:h-full md:pb-0">
       <div
       // className='pt-24 md:h-full md:pb-0'
       >

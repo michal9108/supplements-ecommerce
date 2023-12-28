@@ -1,36 +1,50 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useState } from 'react';
 
 type Props = {
   onHide: () => void;
   show: boolean;
 };
-const MyVerticallyCenteredModal = ({ onHide, show, ...props }: Props) => {
+const MyVerticallyCenteredModal = ({ onHide, ...props }: Props) => {
+  const [show, setShow] = useState(true);
+
+  const handleClose = () => setShow(false);
+
   return (
-    <section className="relative h-screen bg-[#cccccc] md:h-screen">
-      <div className="absolute left-1/2 top-1/2 w-[90%] max-w-[900px] -translate-x-1/2 -translate-y-1/2 bg-white md:h-96 lg:w-full">
+    <section className=" bg-[#cccccc]">
+      <div className=" modal show block initial">
         <Modal
           {...props}
           show={show}
-          // aria-labelledby="contained-modal-title-vcenter"
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
           centered
-          onClick={onHide}
-          className="mx-auto flex max-w-xl flex-col p-10 md:py-20"
+          onClick={handleClose}
+          closeButton
+          
         >
           <Modal.Header
-            closeButton
-            className="mb-2 text-2xl font-bold md:text-3xl"
+      
+            className=" text-2xl font-bold md:text-3xl m-auto" style={{border:"1px solid #fff"}}
           >
-            {" "}
-            <h4> 15 % OFF YOUR PURCHASE !!!</h4>
+                     
+
+            <h4 className="flex"> 15 % OFF YOUR PURCHASE !!!</h4>
           </Modal.Header>
-          <label></label>
+          <div className="mx-10 px-0 max-md:px-5">
+          <p className="flex mx-auto w-full text-sm">Enter your email below and receive 10% OFF + access to special deals.</p>
           <input
-            className="mb-5 w-full rounded-lg bg-primary-300
-            px-5 py-3 placeholder-white"
+            className="my-1 w-full rounded-lg bg-white border-slate-950 border-1
+            px-3 py-3 placeholder-black  "
             type="text"
             placeholder="Email Address:"
           />
+          {/* <button className=" bg-secondary-500">
+          Continue
+          </button> */}
+          <button  onClick={handleClose} className=" flex w-full items-center mt-2 mb-4  justify-center rounded-md border border-transparent  px-7 py-3 text-2xl font-bold  text-white bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2">Continue</button>
+          </div>
         </Modal>
       </div>
     </section>

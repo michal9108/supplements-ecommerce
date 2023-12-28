@@ -6,12 +6,14 @@ import storeItems from "@//data/items.json";
 type CartItemProps = {
   id: string;
   quantity: number;
+  size: string;
 };
 
-export function CartItem({ id, quantity }: CartItemProps) {
+export function CartItem({ id, quantity,size }: CartItemProps) {
   const { removeFromCart } = useShoppingCart();
   const item = storeItems.find((i) => i.id === id);
   if (item == null) return null;
+  const selectedSize = item.sizes.find((s) => s.name === size);
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
@@ -21,9 +23,9 @@ export function CartItem({ id, quantity }: CartItemProps) {
       />
       <div className="me-auto">
         <div>
-          {item.name}
+          {item.name} {selectedSize && selectedSize.name}
           {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: ".65rem" }}>
+            <span className="text-muted" style={{ fontSize: ".75rem" }}>
               x{quantity}
             </span>
           )}

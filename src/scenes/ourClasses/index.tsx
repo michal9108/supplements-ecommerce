@@ -5,8 +5,9 @@ import image3 from "@/assets/image3.png";
 import image4 from "@/assets/image4.png";
 import image5 from "@/assets/image5.png";
 import image6 from "@/assets/image6.png";
+import { motion } from "framer-motion";
 import HText from "@/shared/HText";
-import ContactUs from "./contactUs";
+import Class from "./Class";
 
 const classes: Array<ClassType> = [
   {
@@ -44,38 +45,23 @@ const classes: Array<ClassType> = [
 ];
 
 type Props = {
-  name: string;
-  description?: string;
-  image: string;
 };
-
-const Results = ({ name, description, image }: Props) => {
-  const overlayStyles = `p-5 absolute z-30 flex
-    h-[338px] w-[450px] flex-col items-center justify-center
-    whitespace-normal bg-primary-500 text-center text-white
-    opacity-0 transition duration-500 hover:opacity-90`;
-
-  return (
-    <li className="relative mx-5 inline-block h-[380px] w-[450px]">
-      <div className={overlayStyles}>
-        <p className="text-2xl">{name}</p>
-        <p className="mt-5">{description}</p>
-      </div>
-      <img alt={`${image}`} src={image} />
-    </li>
-  );
-};
-
-
 
 const OurClasses = () => {
   return (
-    <section id="ourclasses" className="w-full bg-primary-100 py-40">
-      <div
+    <section id="ourclasses" className="w-full bg-primary-100 py-10">
+      <motion.div
       >
-        <div
+        <motion.div
           className="mx-auto w-5/6"
-
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
         >
           <div className="md:w-3/5">
             <HText>OUR CLASSES</HText>
@@ -86,11 +72,11 @@ const OurClasses = () => {
               enim mattis odio in risus nunc.
             </p>
           </div>
-        </div>
-        <div className="mt-10 h-[353px] w-full overflow-x-visible overflow-y-hidden no-scrollbar">
+        </motion.div>
+        <div className="mt-10 h-[353px] w-full no-scrollbar  overflow-y-hidden">
           <ul className="w-[2800px] whitespace-nowrap">
             {classes.map((item: ClassType, index) => (
-              <Results
+              <Class
                 key={`${item.name}-${index}`}
                 name={item.name}
                 description={item.description}
@@ -99,9 +85,9 @@ const OurClasses = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
-export default Results;
 
+export default OurClasses;

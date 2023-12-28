@@ -1,6 +1,5 @@
 import Navbar from "@/scenes/navbar";
 import Footer from "@/scenes/footer";
-import Banner from "./scenes/banner";
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,20 +8,11 @@ import {
   Outlet,
 } from "react-router-dom";
 
-export default function App({
-  isTopOfPage = false,
-  selectedPage = () => {},
-  setSelectedPage = () => {},
-}) {
+export default function App() {
   return (
-    <div className="app bg-gray-20">
-      <Banner />
-      <Navbar
-        isTopOfPage={isTopOfPage}
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
-      />
-      
+    <div className="app ">
+      <Navbar />
+
       <Outlet />
       <Footer />
     </div>

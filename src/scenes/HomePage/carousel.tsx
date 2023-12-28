@@ -14,10 +14,9 @@ import budweiser from "../../assets/logos/budweiser.svg";
 import Slider from "../slider";
 
 type Props = {
-  setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Carousel = ({ setSelectedPage }: Props) => {
+const Carousel = () => {
   const [clonedNode, setClonedNode] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const Carousel = ({ setSelectedPage }: Props) => {
 
   return (
     <>
-      <section className=" bg-gray-20 gap-10 pt-1 md:h-full md:pb-0 ">
+      <section className=" gap-10 md:h-full md:pb-0  ">
         {/* SLIDESHOW BANNER */}
         <Slider />
 

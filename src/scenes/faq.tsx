@@ -1,4 +1,4 @@
-import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Accordion from "react-bootstrap/Accordion";
 
 const Faq = () => {
@@ -6,7 +6,9 @@ const Faq = () => {
     <div>
       <section>
         {/* FAQ Container */}
-        <div className="mx-auto  w-5/6 pt-24 pb-32 max-w-7xl py-16 md:px-10 md:py-24 lg:py-32">
+        <div className="
+        mx-auto  w-5/6 pt-24 pb-32 max-w-7xl py-16 md:px-10 md:py-24 lg:py-32
+        ">
           {/* FAQ Title */}
           <div className="mb-8 text-center md:mb-12 lg:mb-16">
             <h2 className="text-3xl font-bold md:text-5xl">Frequently Asked</h2>
@@ -16,7 +18,7 @@ const Faq = () => {
             </p>
           </div>
           {/* FAQ Item 1*/}
-          <div className="mb-12 flex flex-col items-center">
+          <div className="mb-12 flex flex-col ">
             <Accordion defaultActiveKey="0">
               <Accordion.Item eventKey="0">
                 <Accordion.Header>FAQ Item 0</Accordion.Header>
@@ -111,7 +113,7 @@ const Faq = () => {
 
           {/* FAQ Text */}
           <p className="text-center">
-            Can’t find the answer you’re looking for? Reach out to our{" "}
+            Canât find the answer youâre looking for? Reach out to our{" "}
             <a href="#">customer support team</a>.
           </p>
         </div>

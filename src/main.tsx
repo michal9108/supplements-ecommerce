@@ -10,7 +10,7 @@ import ProductPage from "@/pages/ProductPage";
 // @ts-ignore
 import storeItems from "@//data/items.json";
 import { ShoppingCartProvider } from "@/scenes/cart/ShoppingCartContext";
-
+import SuccesPage from "./pages/Succespage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,9 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "productpage",
-        element: (
-          <ProductPage  />
-        ),
+        element: <ProductPage />,
       },
 
       {
@@ -33,8 +31,15 @@ const router = createBrowserRouter([
       {
         path: "contact",
       },
-    ],
-  },
+      
+    ]
+  },{
+    
+      path: "success",
+      element: <SuccesPage />,
+    
+  }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

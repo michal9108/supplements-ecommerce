@@ -1,8 +1,8 @@
-// import dotenv from dotenv;
+require('dotenv').config({path:"../.env"})
 
 const express = require('express');
 let cors = require('cors');
-const stripe = require('stripe')("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");
+const stripe = require('stripe')(process.env.STRIPE_API);
 
 const app = express();
 app.use(cors());
@@ -30,7 +30,7 @@ app.post("/checkout", async (req, res) => {
     console.log(req.body);
     const items = req.body.items;
     let lineItems = [];
-    items.forEach((item)=> {
+    items.forEach((item) => {
         lineItems.push(
             {
                 price: item.id,
@@ -42,8 +42,8 @@ app.post("/checkout", async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: "http://localhost:4001/",
-        cancel_url:  "http://localhost:4001/",
+        success_url: "http://localhost:5173/success",
+        cancel_url: "http://localhost:5173/productpage"
     });
 
     res.send(JSON.stringify({
@@ -51,4 +51,4 @@ app.post("/checkout", async (req, res) => {
     }));
 });
 
-app.listen(4001, () => console.log("Listening on port 4001!"));
+app.listen(4000, () => console.log("Listening on port 4000!"));

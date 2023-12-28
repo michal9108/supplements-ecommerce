@@ -1,35 +1,36 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
 import { NavLink } from "react-router-dom";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
-const Navbar = ({
-  isTopOfPage = false,
-  selectedPage = () => {},
-  setSelectedPage = () => {},
-}) => {
+import Banner from "./banner";
+const Navbar = () => {
   const { openCart, cartQuantity } = useShoppingCart();
 
   const flexBetween = "flex items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-  const navbarBackground = isTopOfPage ? "" : "bg-primary-400 drop-shadow";
+  const navbarBackground = "bg-primary-400 drop-shadow";
 
   return (
-    <nav>
+
+    <nav className="sticky w-full">
+
+<Banner />
+    
       <div
-        className={`${navbarBackground} ${flexBetween} fixed top-10 z-30 w-full py-6`}
+        className={`${navbarBackground} ${flexBetween}  z-99999 w-full py-6`}
       >
-        <div className={`${flexBetween} mx-auto w-5/6`}>
+        <div className={`${flexBetween} w-5/6 mx-auto `}>
           <div className={`${flexBetween} w-full gap-10`}>
+
+      
             {/* ABOVE MD  1060px */}
             {/* LEFT SIDE */}
 
             {isAboveMediumScreens ? (
-              <div className={`flex items-center justify-between w-full`}>
+              <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}>
                   <NavLink
                     className=" text-4xl font-bold no-underline text-secondary-500  focus:text-primary-500 "

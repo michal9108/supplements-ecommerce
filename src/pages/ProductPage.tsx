@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Link as RouterLink } from "react-router-dom";
 import Faq from "@/scenes/faq";
-import Button from "react-bootstrap/Button";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import MyVerticallyCenteredModal from "@/scenes/modal/modal";
-import Results from "@/scenes/results";
 import { HomeModernIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "../assets/cardsIcons.png";
 import Attributes from "../scenes/attributes";
@@ -14,13 +12,14 @@ import storeItems from "@//data/items.json";
 import Testimonials from "@/scenes/ProductPage/testimonials";
 import Features from "@/scenes/ProductPage/features";
 import Benefits from "@/scenes/ProductPage/benefits";
+
 interface Size {
   name: string;
   inStock: boolean;
 }
 
 interface Product {
-  id: string; // Allow for both number and string types
+  id: string; 
   name: string;
   price: number;
   href: string;
@@ -28,10 +27,10 @@ interface Product {
   sizes: Size[];
   description: string;
   highlights: string[];
-
 }
 
 const product: Product = storeItems[0];
+
 
 {
   /* Reviews function*/
@@ -49,35 +48,52 @@ export default function ProductPage() {
     decreaseCartQuantity,
     removeFromCart,
     openCart,
+    cartItems,
   } = useShoppingCart();
 
   const quantity = getItemQuantity(product.id);
+  const [selectedSize, setSelectedSize] = useState<string>('L'); // Initialize with a default size
 
-  // const [modalShow, setModalShow] = useState(false);
+  const handleIncreaseQuantity = (id: string, size: string) => {
+    increaseCartQuantity(id, size);
+  };
 
-  // useEffect(() => {
-  //   const PopUpWindow = setTimeout(() => {
-  //     setModalShow(true);
-  //   }, 4000);
-  //   return () => clearTimeout(PopUpWindow);
-  // }, []);
+  const handleDecreaseQuantity = (id: string, size: string) => {
+    decreaseCartQuantity(id, size);
+  };
+
+  const handleSizeChange = (size: string) => {
+    // Handle the updated size, you can set it in the local state if needed
+    setSelectedSize(size);
+  };
+
+  const [modalShow, setModalShow] = useState(false);
+
+  useEffect(() => {
+    const PopUpWindow = setTimeout(() => {
+      setModalShow(true);
+    }, 2000);
+    return () => clearTimeout(PopUpWindow);
+  }, []);
 
   return (
     <>
-      <div className="bg-white ">
-        <div className="w-full pt-28">
-          {/* POP UP WINDOW / MODAL */}
+      <div className="bg-white">
+        <div className="w-full static ">
 
-          {/* <MyVerticallyCenteredModal
+         {/*  POP UP WINDOW / MODAL */}
+<div className="relative">
+          <MyVerticallyCenteredModal
           show={modalShow}
           onHide={() => setModalShow(false)}
-        /> */}
+        />
+        </div>
 
-          <div className="mx-auto  flex max-md:flex-wrap justify-center  gap-x-12  min-h-full w-5/6 ">
-            <section className=" h-full w-full  mx-auto mt-13  lg:w-1/2 flex justify-items-center	justify-center">
+          <div className="mx-auto  flex max-md:flex-wrap justify-center  gap-x-0  min-h-full w-5/6 ">
+            <section className=" h-full w-full  mx-auto mt-5  lg:w-1/2 flex justify-items-center	justify-center">
               {/* Product Image */}
 
-              <div className="mx-auto  max-w-2xl max-sm:px-6 ">
+              <div className="mx-auto max-w-2xl max-sm:px-6 max-sm:pt-10  max-md:px-6">
                 <div className=" aspect-h-4  overflow-hidden lg:block">
                   <img
                     src={product.images[0].src}
@@ -185,8 +201,8 @@ export default function ProductPage() {
                       </p>
                     </div>
 
-                    <Attributes />
-                    {/* BENEFITS */}
+                    {/* <Attributes onSizeChange={(size) => console.log(size)} />            */}
+                             {/* BENEFITS */}
 
                     <div className="flex gap-2 my-3">
                       <div className="rounded-full border-1 border-gray-100 bg-primary-100 p-2">
@@ -233,9 +249,9 @@ export default function ProductPage() {
                     {/* CART LOGIC */}
                     {quantity === 0 ? (
                       <button
-                        className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-base font-medium text-white bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        className=" flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-white bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
                         onClick={() => {
-                          increaseCartQuantity(product.id);
+                          handleIncreaseQuantity(product.id, selectedSize);
                           openCart();
                         }}
                       >
@@ -243,32 +259,31 @@ export default function ProductPage() {
                       </button>
                     ) : (
                       <div
-                        className="d-flex align-items-center flex-column"
+                        className=" align-items-center flex-column"
                         style={{ gap: ".5rem" }}
                       >
                         <div
-                          className="d-flex align-items-center justify-content-center"
+                          className="flex align-items-center justify-content-center"
                           style={{ gap: ".5rem" }}
                         >
-                          <Button
+                          <button
                             onClick={() => {
-                              decreaseCartQuantity(product.id);
+                              handleIncreaseQuantity(product.id, selectedSize);
                               openCart();
                             }}
-                          >
-                            -
-                          </Button>
-                          <div>
-                            <span className="fs-3">{quantity}</span> in cart
-                          </div>
-                          <Button
-                            onClick={() => {
-                              increaseCartQuantity(product.id);
-                              openCart();
-                            }}
+                            className="flex grow w-full  justify-center  rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-white bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
                           >
                             +
-                          </Button>
+                          </button>
+                          <button
+                            onClick={() => {
+                              handleDecreaseQuantity(product.id, selectedSize);
+                              openCart();
+                            }}
+                            className=" flex grow w-full justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-white bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                          >
+                            -
+                          </button>
                         </div>
                       </div>
                     )}
@@ -276,36 +291,19 @@ export default function ProductPage() {
                   </form>
                 </div>
 
-                <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+                <div className="py-2 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-1 lg:pr-8 lg:pt-2">
                   {/* Description and details */}
                   <div>
                     <h3 className="sr-only">Description lorem7</h3>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                       <p className="text-base text-gray-900">
                         {product.description}
                       </p>
                     </div>
                   </div>
 
-                  <div className="mt-10">
-                    <h3 className="text-sm font-medium text-gray-900">
-                      Highlights
-                    </h3>
-
-                    <div className="mt-4">
-                      <ul
-                        role="list"
-                        className="list-disc space-y-2 pl-4 text-sm"
-                      >
-                        {product.highlights.map((highlight) => (
-                          <li key={highlight} className="text-gray-400">
-                            <span className="text-gray-600">{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+              
                 </div>
               </div>
             </section>
@@ -357,8 +355,8 @@ export default function ProductPage() {
             </div>
           </div>
         </section>
-      
-       <Features />
+
+        <Features />
         {/* Money Guarantee section */}
 
         <section className="w-full bg-primary-200 py-10">
@@ -404,16 +402,13 @@ export default function ProductPage() {
           </div>
         </section>
 
-     
-       <Benefits />
-
-
+        <Benefits />
 
         <Faq />
 
         {/* Benefits - 4 Reasons you need with call to action */}
 
-        <Results name={""} image={""} />
+      
       </div>
     </>
   );

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RadioGroup } from "@headlessui/react";
 import items from "@//data/items.json";
+import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 
 interface Size {
   name: string;
@@ -19,8 +20,17 @@ function classNames(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
-const Attributes = () => {
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+const Attributes = ({ onSizeChange }: { onSizeChange: (size: string) => void }) => {
+  const { increaseCartQuantity, decreaseCartQuantity, cartItems } = useShoppingCart();
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+
+  useEffect(() => {
+    // Invoke the callback with the updated selected size
+    onSizeChange(selectedSize.name);
+  }, [selectedSize, onSizeChange]);
+
+
+
   return (
     <div>
       {/* SIZES */}
@@ -37,35 +47,40 @@ const Attributes = () => {
 
         <RadioGroup
           value={selectedSize}
-          onChange={setSelectedSize}
           className="mt-4"
+          onChange={setSelectedSize}
+
         >
+          
           <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
           <div className="grid grid-cols-3 gap-4 sm:grid-cols-3 lg:grid-cols-3">
             {product.sizes.map((size) => (
               <RadioGroup.Option
                 key={size.name}
                 value={size}
+
                 disabled={!size.inStock}
                 className={({ active }) =>
                   classNames(
                     size.inStock
                       ? "cursor-pointer bg-white text-gray-900 shadow-sm"
                       : "cursor-not-allowed bg-gray-300 text-gray-900",
+                     
                     active ? "ring-2 ring-b" : "",
-                    "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-400 focus:outline-none sm:flex-1 sm:py-6",
+                    "group relative flex items-center justify-center rounded-md border py-3 px-4 text-lg font-bold uppercase hover:bg-gray-400 focus:outline-none sm:flex-1 sm:py-6",
                   )
                 }
               >
                 {({ active, checked }) => (
                   <>
-                    <RadioGroup.Label as="span">{size.name}</RadioGroup.Label>
+                    <RadioGroup.Label as="span"        
+>{size.name}</RadioGroup.Label>
                     {size.inStock ? (
                       <span
                         className={classNames(
-                          active ? "border-2" : "border",
+                          active ? "border-3 " : "border",
                           checked
-                            ? "border-secondary-500"
+                            ? "border-secondary-500  "
                             : "border-transparent",
                           "pointer-events-none absolute -inset-px rounded-md",
                         )}
@@ -98,8 +113,11 @@ const Attributes = () => {
             ))}
           </div>
         </RadioGroup>
+
       </div>
+      
     </div>
+    
   );
 };
 
