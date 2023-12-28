@@ -20,3 +20,10 @@ export interface ClassType {
   description?: string;
   image: string;
 }
+
+export interface ReviewType {
+  name: string;
+  description?: string;
+state:string;
+title:string;
+}

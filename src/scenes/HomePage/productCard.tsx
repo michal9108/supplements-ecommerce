@@ -1,9 +1,19 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import image13 from "../../assets/image13.webp";
+import useMediaQuery from "@/hooks/useMediaQuery";
+
+
 function ProductCard() {
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+
+  const cardStyle = isAboveMediumScreens
+  ? { width: '14rem', margin: '1rem' }
+  : { width: '18rem', margin: '1rem' };
+
+
   return (
-    <Card style={{ width: '18rem', margin:'1rem'}}>
+    <Card style={cardStyle}>
       <Card.Img variant="top" src={image13} />
       <Card.Body>
         <Card.Title>Card Title</Card.Title>

@@ -9,7 +9,7 @@ const ActionButton = ({ children }: Props) => {
   return (
     <AnchorLink
       //TO DO :hover bug
-      className=" rounded-lg bg-secondary-500  px-20 py-3   text-white no-underline"
+      className=" rounded-lg bg-secondary-500  px-20 py-3   text-white no-underline font-semibold text-xl"
 
       // onClick={}
     >
