@@ -14,8 +14,8 @@ const Rewiewscard = ({ title, name, description, state }: Props) => {
 //     opacity-0 transition duration-500 hover:opacity-90`;
 
   return (
-    <li className="relative mx-3 inline-block h-[480px] w-[350px] bg-pink-700">
-      <div className="absolute z-30 flex flex-col transition duration-500  whitespace-normal p-4 bg-yellow-300">
+    <li className="relative  inline-block h-[480px] w-[350px] bg-black px-2">
+      <div className="absolute z-30 flex flex-col  transition duration-500  whitespace-normal p-4 bg-white">
         <p className="text-2xl">{title}</p>
         <p className="mt-5">{description}</p>
         <div className="flex items-center my-4 text-yellow-300 ">

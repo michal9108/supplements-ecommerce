@@ -11,7 +11,7 @@ import macys from "../../assets/logos/macys.svg";
 import menshealth from "../../assets/logos/menshealth.svg";
 import mrbeast from "../../assets/logos/mrbeast.svg";
 import budweiser from "../../assets/logos/budweiser.svg";
-import Slider from "../slider";
+import Slider from "./slider";
 
 type Props = {
 };

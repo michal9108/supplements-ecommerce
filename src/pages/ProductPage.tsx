@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Link as RouterLink } from "react-router-dom";
-import Faq from "@/scenes/faq";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import MyVerticallyCenteredModal from "@/scenes/modal/modal";
 import { HomeModernIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "../assets/cardsIcons.png";
-import Attributes from "../scenes/attributes";
+import Attributes from "../scenes/HomePage/attributes";
 import storeItems from "@//data/items.json";
-import Testimonials from "@/scenes/ProductPage/testimonials";
-import Features from "@/scenes/ProductPage/features";
-import Benefits from "@/scenes/ProductPage/benefits";
-
+import Testimonials from "../scenes/ProductPage/Testimonials/Testimonials";
+import Features from "@/scenes/ProductPage/Features/Features";
+import Benefits from "@/scenes/ProductPage/Benefits/Benefits";
+import Faq from "@/scenes/ProductPage/FAQ/Faq";
 interface Size {
   name: string;
   inStock: boolean;
 }
 
 interface Product {
-  id: string; 
+  id: string;
   name: string;
   price: number;
   href: string;
@@ -30,7 +29,6 @@ interface Product {
 }
 
 const product: Product = storeItems[0];
-
 
 {
   /* Reviews function*/
@@ -52,7 +50,7 @@ export default function ProductPage() {
   } = useShoppingCart();
 
   const quantity = getItemQuantity(product.id);
-  const [selectedSize, setSelectedSize] = useState<string>('L'); // Initialize with a default size
+  const [selectedSize, setSelectedSize] = useState<string>("L"); // Initialize with a default size
 
   const handleIncreaseQuantity = (id: string, size: string) => {
     increaseCartQuantity(id, size);
@@ -80,20 +78,21 @@ export default function ProductPage() {
     <>
       <div className="bg-white">
         <div className="w-full static ">
-
-         {/*  POP UP WINDOW / MODAL */}
-<div className="relative">
-          <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-        </div>
+          {/*  POP UP WINDOW / MODAL */}
+          {/* <div className="relative">
+            <MyVerticallyCenteredModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
+          </div> */}
 
           <div className="mx-auto  flex max-md:flex-wrap justify-center  gap-x-0  min-h-full w-5/6 ">
             <section className=" h-full w-full  mx-auto mt-5  lg:w-1/2 flex justify-items-center	justify-center">
-              {/* Product Image */}
+           {/*PRODUCT IMAGE */}
 
-              <div className="mx-auto max-w-2xl max-sm:px-6 max-sm:pt-10  max-md:px-6">
+              <div className="mx-auto max-w-2xl
+               max-sm:px-6
+                max-sm:pt-10  max-md:px-6">
                 <div className=" aspect-h-4  overflow-hidden lg:block">
                   <img
                     src={product.images[0].src}
@@ -105,9 +104,9 @@ export default function ProductPage() {
             </section>
 
             <section className="p-3 mx-auto  h-full w-full lg:w-1/2 flex justify-items-center	justify-center">
-              {/* Product info */}
+             {/*PRODUCT INFO */}
               <div className=" grow max-w-2xl px-4 s pb-6 pt-6 max-sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
-                {/* Reviews */}
+                {/*PRODUCT REVIEWS */}
                 <div className="mb-3">
                   <h3 className="sr-only">Reviews</h3>
                   <div className="flex items-center">
@@ -165,7 +164,7 @@ export default function ProductPage() {
                   </p>
 
                   <form className="mt-7">
-                    {/* Proofs */}
+                 {/*PRODUCT PROOFS */}
 
                     <div className="flex gap-2 my-3">
                       <div className="rounded-full border-1 border-gray-100 bg-primary-100 p-2">
@@ -202,7 +201,7 @@ export default function ProductPage() {
                     </div>
 
                     {/* <Attributes onSizeChange={(size) => console.log(size)} />            */}
-                             {/* BENEFITS */}
+                    {/* PRODUCT BENEFITS */}
 
                     <div className="flex gap-2 my-3">
                       <div className="rounded-full border-1 border-gray-100 bg-primary-100 p-2">
@@ -292,7 +291,7 @@ export default function ProductPage() {
                 </div>
 
                 <div className="py-2 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-1 lg:pr-8 lg:pt-2">
-                  {/* Description and details */}
+                 {/*PRODUCT DESCRIPTION TEXT */}
                   <div>
                     <h3 className="sr-only">Description lorem7</h3>
 
@@ -302,19 +301,19 @@ export default function ProductPage() {
                       </p>
                     </div>
                   </div>
-
-              
                 </div>
               </div>
             </section>
           </div>
         </div>
+
+          {/* TESTIMONIALS */}
         <Testimonials />
 
-        {/* Benefit sentence */}
-        <section className="w-full bg-primary-200 py-10">
-          <div className="mx-auto min-h-full ">
-            <div className="mx-auto p-5 w-4/6 border-dotted border-2 rounded-lg  border-rose-500 md:mx-auto 2xl-mx-2">
+        {/* ADDTITIONAL INFO  */}
+        <section className="mx-auto min-h-full w-5/6 py-1">
+         
+            <div className="mx-auto p-2 w-full border-dotted rounded-lg border-3 border-rose-500 md:mx-auto 2xl-mx-2">
               <div className="flex gap-2 ">
                 {" "}
                 <svg
@@ -344,7 +343,7 @@ export default function ProductPage() {
                 </h2>
               </div>
 
-              <p className="py-3">
+              <p className="py-0">
                 Unfortunately, testosterone levels have been steadily declining
                 over the last 3 decades. Plain and simple, your father and
                 grandfathers had much higher testosterone levels than you. This
@@ -353,15 +352,21 @@ export default function ProductPage() {
                 environmental estrogens.
               </p>
             </div>
-          </div>
+           
+        </section>
+        <section className="mx-auto min-h-full w-full py-1">
+        <p className=" text-2xl text-gray-900 ">
+        Enhancing your testosterone levels naturally acts as a powerful asset, akin to unlocking a hidden potential:
+              <strong className="italic">powering you up with more ambition, a higher sex drive, less fat, more muscle and a higher quality of life.</strong>
+              </p>
         </section>
 
         <Features />
         {/* Money Guarantee section */}
 
-        <section className="w-full bg-primary-200 py-10">
+        <section className="w-full bg-primary-200 py-8">
           <div className="mx-auto min-h-full ">
-            <div className="mx-auto  w-5/6  max-w-7xl py-5   md:px-10 md:py-24  md:mx-auto  lg:py-32  2xl-mx-2 border-rose-500 ">
+            <div className="mx-auto  w-5/6  max-w-7xl py-5   md:px-10 md:py-8  md:mx-auto  lg:py-8  2xl-mx-2 border-rose-500 ">
               <div className="flex ">
                 <div className=" flex flex-row gap-3 justify-center">
                   <svg
@@ -388,7 +393,7 @@ export default function ProductPage() {
                   </svg>
 
                   <div className="content-center">
-                    <h2 className="font-bold text-xxl text-gray-900 ">
+                    <h2 className="font-bold text-xxl text-gray-900  ">
                       30 Days Money Back Guarantee
                     </h2>
                     <p className="">
@@ -403,12 +408,9 @@ export default function ProductPage() {
         </section>
 
         <Benefits />
-
         <Faq />
 
         {/* Benefits - 4 Reasons you need with call to action */}
-
-      
       </div>
     </>
   );

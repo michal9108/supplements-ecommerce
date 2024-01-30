@@ -1,5 +1,5 @@
-import Navbar from "@/scenes/navbar";
-import Footer from "@/scenes/footer";
+import Navbar from "@/scenes/Global/navbar";
+import Footer from "@/scenes/Global/footer";
 import {
   BrowserRouter as Router,
   Routes,

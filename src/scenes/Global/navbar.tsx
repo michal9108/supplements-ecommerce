@@ -4,7 +4,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
-import Banner from "./banner";
+import Banner from "./banner"
 const Navbar = () => {
   const { openCart, cartQuantity } = useShoppingCart();
 
@@ -15,12 +15,14 @@ const Navbar = () => {
 
   return (
 
-    <nav className="sticky w-full">
+    <nav
+    //  className="sticky w-full z-99999"
+     >
 
 <Banner />
     
       <div
-        className={`${navbarBackground} ${flexBetween}  z-99999 w-full py-6`}
+        className={`${navbarBackground} ${flexBetween}   w-full py-6`}
       >
         <div className={`${flexBetween} w-5/6 mx-auto `}>
           <div className={`${flexBetween} w-full gap-10`}>

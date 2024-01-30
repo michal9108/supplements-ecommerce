@@ -22,6 +22,7 @@ const Slider = () => {
     justifyContent: "center",
     backgroundSize: "cover",
     width: "100%",
+    
   };
 
   return (

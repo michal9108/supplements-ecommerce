@@ -1,4 +1,5 @@
-import cardsIcons from "../assets/cardsIcons.png"
+import cardsIcons from "../../assets/cardsIcons.png"
+
 const Footer = () => {
   return (
     <footer className="bg-primary-100 py-10">
