@@ -7,8 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "@/pages/ProductPage";
-// @ts-ignore
-import storeItems from "@//data/items.json";
+
 import { ShoppingCartProvider } from "@/scenes/cart/ShoppingCartContext";
 import SuccesPage from "./pages/Succespage";
 const router = createBrowserRouter([

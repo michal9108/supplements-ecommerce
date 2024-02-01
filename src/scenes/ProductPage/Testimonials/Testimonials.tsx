@@ -1,6 +1,6 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import Testimonial from "./Testimonial"
+import Testimonial from "./Testimonial";
 
 const Testimonials = () => {
   const starIcon = () => (
@@ -17,24 +17,22 @@ const Testimonials = () => {
       </svg>
     </div>
   );
-  //className="mx-auto min-h-full w-5/6 py-1"
-  // my-2  gap-3  items-center justify-center
+ 
   return (
     <>
       <section>
         {/*  TO DO Review element */}
-        <div className="flex  items-center justify-center py-2  sm:flex-col md:my-2 md:w-full "
-        
-          // className="mx-auto flex w-5/6 my-2  gap-3  items-center justify-center"
+        <div
+          className="flex  items-center justify-center py-2  sm:flex-col md:my-2 md:w-full "
+
+      
         >
-          <figure 
-           className=" items-center justify-center  flex gap-3 flex-wrap border-box "
-          // className="max-w-screen-md flex justify-center  mx-auto min-h-full w-5/6  max-md:flex-col"
+          <figure
+            className=" items-center justify-center  flex gap-3 flex-wrap border-box "
           >
-            <Testimonial name="Bonnie" age={25} city="Los Angeles" />
-            <Testimonial name="John" age={30} city="Seattle" />
-            <Testimonial name="Laura" age={18} city="Denver" />
-           
+            <Testimonial user="Bonnie" age={25} city="Los Angeles" src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.jpg" />
+            <Testimonial user="John" age={30} city="Seattle" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+            <Testimonial user="Tom" age={18} city="Denver"  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
           </figure>
         </div>
       </section>

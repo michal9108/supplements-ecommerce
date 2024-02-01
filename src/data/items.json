@@ -1,64 +1,58 @@
 [
   {
-   
-    "id":"price_1ONFEVH9dKBRlDkrAvJBt56I",
+    "id": "price_1ONFEVH9dKBRlDkrAvJBt56I",
     "price": 11.77,
+    "oldprice":29.99,
     "name": "BUFF PACK",
     "href": "#",
-  
-  "images": [
-    {
-      "src": "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-      "alt": "Model wearing plain white basic tee."
-    }
-  ],
-  
-  "sizes": [
-    { "name": "L", "inStock": true },
-    { "name": "XL", "inStock": true },
-    { "name": "XXL", "inStock": true }
-  
-  ],
-  "description":
-    "The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: Black Need to add an extra pop of color to your outfit? Our white tee has you covered.",
-  "highlights": [
-    "Hand cut and sewn locally",
-    "Dyed with our proprietary colors",
-    "Pre-washed & pre-shrunk",
-    "Ultra-soft 100% cotton"
-  ],
-  "details":
-    "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming Charcoal Gray limited release."
+
+    "images": [
+      {
+        "src": "src/assets/buffpack.jpeg",
+        "alt": "Testosterone supplement"
+      }
+    ],
+
+    "sizes": [
+      { "name": "L", "inStock": true },
+      { "name": "XL", "inStock": true },
+      { "name": "XXL", "inStock": true }
+    ],
+    "reviews": [{ "average": 4, "totalCount": 117 }],
+
+    "highlights": [
+      "Formulated with pure Ingredients",
+      "Science backed Testosterone Booster",
+      "Restore Confidence for  over 19000 men"
+    ],
+    "details": "Discover your untapped potential with BUFF PACK, the premium testosterone-boosting supplement designed to propel ambition, ignite vitality, sculpt your physique, and enhance your overall quality of life."
   },
   {
     "id": "price_1ONFEzH9dKBRlDkrfwMZ75tb",
     "price": 1199,
-    "name": "BUFF PACK",
+    "oldprice":2999,
+    "name": "BUFF COGNITION",
     "href": "#",
-  
-  "images": [
-    {
-      "src": "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-      "alt": "Model wearing plain white basic tee."
-    }
-  ],
-  
-  "sizes": [
-    { "name": "L", "inStock": true },
-    { "name": "XL", "inStock": true },
-    { "name": "XXL", "inStock": true }
-  
-  ],
-  "description":
-    "The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: Black Need to add an extra pop of color to your outfit? Our white tee has you covered.",
-  "highlights": [
-    "Hand cut and sewn locally",
-    "Dyed with our proprietary colors",
-    "Pre-washed & pre-shrunk",
-    "Ultra-soft 100% cotton"
-  ],
-  "details":
-    "The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming Charcoal Gray limited release."
+
+    "images": [
+      {
+        "src": "src/assets/buffcognition.jpg",
+        "alt": "Performance power supplement"
+      }
+    ],
+
+    "sizes": [
+      { "name": "L", "inStock": true },
+      { "name": "XL", "inStock": true },
+      { "name": "XXL", "inStock": true }
+    ],
+    "reviews": [{ "average": 2, "totalCount": 58 }],
+
+    "highlights": [
+      "Sustained energy that gently fades over hours",
+      "Keep concentration sharp for a  whole workout",
+      "Essential nutrients to achieve maximum boost."
+    ],
+    "details": "Experience the full spectrum of your capabilities with BUFF COGNITION, the superior Brain supplement. Unleash ambition, ignite your vitality, carve out a sculpted physique, and elevate every aspect of your life's quality."
   }
-  
 ]

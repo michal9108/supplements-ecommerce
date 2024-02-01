@@ -1,22 +1,29 @@
 import React from "react";
 
 import { StarIcon } from "@heroicons/react/24/solid";
+import { isFloat32Array } from "util/types";
 
-
-interface TestimonialProps  {
-    name:string,
-    age:number,
-    city:string,
-
+interface TestimonialProps {
+  user: string;
+  age: number;
+  city: string;
+  src:string;
 }
 
-export default function Testimonial({name, age, city}: TestimonialProps) {
+export default function Testimonial({
+  user: name,
+  age,
+  city,
+  src,
+}: TestimonialProps) {
+
+
   return (
     <div className="flex max-w-lg justify-center">
-      <div className="flex  mx-1 my-3 p-1 border-dotted rounded-lg border-3 border-rose-500">
+      <div className="flex  mx-1 my-3 p-1 border-dotted rounded-lg border-3 border-secondary-500">
         <div className="mx-auto w-36 items-start flex justify-center md:mx-0 md:p-0 lg:mb-0  md:pt-5 ">
           <img
-            src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20%2810%29.jpg"
+            src={src}
             className="rounded-full shadow-md dark:shadow-black/30 w-20 h-20 mx-auto md:mr-5"
             alt="woman avatar"
           />

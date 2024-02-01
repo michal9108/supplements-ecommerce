@@ -28,7 +28,7 @@ const Slider = () => {
   return (
     <section className=" gap-10  md:h-full md:pb-0">
       <div
-      // className='pt-24 md:h-full md:pb-0'
+     
       >
         <Slide>
           {slideImages.map((slideImage, index) => (

@@ -8,23 +8,8 @@ import {
 } from "@heroicons/react/24/solid";
 import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 import Benefit from "./Benefit";
-import ProductCard from "../productCard";
 import useMediaQuery from "@/hooks/useMediaQuery";
-
-// const benefits: Array<BenefitType> = [
-//   {
-//     icon: <HomeModernIcon className="h-7 w-7" />,
-//     title: "Maintain Optimal Protein Intake",
-//   },
-//   {
-//     icon: <UserGroupIcon className="h-7 w-7" />,
-//     title: "Strenghten and Sustain Muscles",
-//   },
-//   {
-//     icon: <AcademicCapIcon className="h-7 w-7" />,
-//     title: "Improves Gut Health & Digestion",
-//   },
-// ];
+import MiniProductCard from "../MiniProductCard";
 
 const proofs: Array<ProofType> = [
   {
@@ -53,15 +38,9 @@ const container = {
 type Props = {};
 
 const Benefits = () => {
-  //  const isLessthanLaptopScreens = useMediaQuery("max-width: 1200px)");
-
-  //  const wrapstyle = isLessthanLaptopScreens
-  //   ? { width: "14rem", margin: "1rem" }
-  //   : { width: "14rem", margin: "1rem" }
-
   return (
     <>
-      <div className=" bg-gray-300">
+      <div className=" bg-gray-20">
         <section id="benefits" className="mx-auto min-h-full w-full py-1">
           {/* BENEFITS */}
 
@@ -84,22 +63,22 @@ const Benefits = () => {
           <div className="flex sm:flex-col items-center justify-center md:my-2 md:w-full">
             <div className=" items-center justify-center  flex  flex-wrap border-box ">
               <div className="flex basis-1/6">
-                <ProductCard />
+                <MiniProductCard />
               </div>
               <div className="flex basis-1/6">
-                <ProductCard />
+                <MiniProductCard />
               </div>
               <div className="flex basis-1/6">
-                <ProductCard />
+                <MiniProductCard />
               </div>
               <div className="flex basis-1/6">
-                <ProductCard />
+                <MiniProductCard />
               </div>
               <div className="flex basis-1/6">
-                <ProductCard />
+                <MiniProductCard />
               </div>
               <div className="flex basis-1/6">
-                <ProductCard />
+                <MiniProductCard/>
               </div>
             </div>
           </div>

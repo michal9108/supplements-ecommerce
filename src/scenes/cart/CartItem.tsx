@@ -18,19 +18,19 @@ export function CartItem({ id, quantity,size }: CartItemProps) {
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-        src="https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg"
-        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+        src="src/assets/buffpack.jpeg"
+        style={{ width: "70px", height: "70px", objectFit: "cover" }}
       />
       <div className="me-auto">
         <div>
           {item.name} {selectedSize && selectedSize.name}
           {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: ".75rem" }}>
+            <span className="text-muted" style={{ fontSize: "1rem" }}>
               x{quantity}
             </span>
           )}
         </div>
-        <div className="text-muted" style={{ fontSize: ".75rem" }}>
+        <div className="text-muted" style={{ fontSize: "1rem" }}>
           {formatCurrency(item.price)}
         </div>
       </div>

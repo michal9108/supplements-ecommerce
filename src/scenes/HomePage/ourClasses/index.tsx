@@ -1,4 +1,4 @@
-import {  ClassType } from "@/shared/types";
+import { ClassType } from "@/shared/types";
 import image1 from "@/assets/image1.png";
 import image2 from "@/assets/image2.png";
 import image3 from "@/assets/image3.png";
@@ -44,14 +44,12 @@ const classes: Array<ClassType> = [
   },
 ];
 
-type Props = {
-};
+type Props = {};
 
 const OurClasses = () => {
   return (
     <section id="ourclasses" className="w-full bg-primary-100 py-10">
-      <motion.div
-      >
+      <motion.div>
         <motion.div
           className="mx-auto w-5/6"
           initial="hidden"
@@ -74,7 +72,7 @@ const OurClasses = () => {
           </div>
         </motion.div>
         <div className="mt-10 h-[353px] w-full no-scrollbar  overflow-y-hidden">
-          <ul className="w-[2800px] whitespace-nowrap">
+          <ul className="w-[2800px] primary-100space-nowrap">
             {classes.map((item: ClassType, index) => (
               <Class
                 key={`${item.name}-${index}`}

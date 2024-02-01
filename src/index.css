@@ -11,10 +11,14 @@ body,
   width: 100%;
   height: 100%;
   font-family: "DM Sans", sans-serif;
-  @apply text-primary-500;
+  @apply text-black;
   box-sizing: border-box;
+ 
 }
 
+.content{
+  padding-top:110px;
+}
 
 
 @media screen and (max-width:550px) {
@@ -23,6 +27,7 @@ body,
     width: 100%;
     height: 100%;
     font-family: "DM Sans", sans-serif;
+    font-weight: 500;
     box-sizing: border-box;
     background-color: white;
     margin-left: auto;
@@ -58,23 +63,6 @@ body,
   }
 }
 
-/* .logos {
-  overflow: hidden;
-  padding: 60px 0;
-  background: white;
-  white-space: nowrap;
-  position: relative;
-} */
-
-/* .logos:before,
-.logos:after {
-  position: absolute;
-  top: 0;
-  width: 200px;
-  height: 100%;
-  content: "";
-  z-index: 2;
-} */
 
 .logos:before {
   left: 0;
@@ -100,3 +88,6 @@ body,
   margin: 0 10px;
   display: inline;
 }
+
+
+

@@ -7,17 +7,13 @@ module.exports = {
         '[auto,auto,1fr]': 'auto auto 1fr',
       },
       colors: {
-        "gray-20": "#F8F4EB",
+        "gray-20": "#F5F5F5",
         "gray-50": "#EFE6E6",
         "gray-100": "#DFCCCC",
-        "gray-500": "#5E0000",
+       
 
         "primary-100": "#FFFFFF",
         "primary-300": "#f29b6d",
-        "primary-400":  "#FFFFFF",
-        "primary-500": "#000000",
-
-        
         "secondary-500": "#ec702f",
 
         

@@ -30,11 +30,12 @@ export function useShoppingCart() {
 }
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
+ 
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     [],
   );
-
+ 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0,
@@ -42,6 +43,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+
   function getItemQuantity(id: string) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
@@ -53,6 +55,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         return currItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity + 1 };
+            
           } else {
             return item;
           }
@@ -60,6 +63,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }
     });
   }
+  
+
   function decreaseCartQuantity(id: string, size:string) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {

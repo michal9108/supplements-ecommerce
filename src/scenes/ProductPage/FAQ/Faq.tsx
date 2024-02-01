@@ -3,7 +3,9 @@ import Accordion from "./Accordion";
 export default function Faq() {
   return (
     <div>
-      <div className="w-full ">
+      <div className="w-5/6 m-auto ">
+       <span className="flex justify-center flex-col"> <h2 className="font-bold text-4xl text-center">FAQ</h2>
+       <p className="text-center font-bold">We know you’ve got questions and we’ve got all the answers</p></span>
         <div className="p-4">
           
             <Accordion

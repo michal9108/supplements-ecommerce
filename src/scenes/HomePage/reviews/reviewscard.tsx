@@ -10,7 +10,7 @@ type Props = {
 const Rewiewscard = ({ title, name, description, state }: Props) => {
 //   const overlayStyles = `p-5 absolute z-30 flex
 //     h-[500x] w-[450px] flex-col 
-//     whitespace-normal bg-primary-500 text-center 
+//     whitespace-normal bg-black text-center 
 //     opacity-0 transition duration-500 hover:opacity-90`;
 
   return (

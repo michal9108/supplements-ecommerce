@@ -3,7 +3,6 @@ import { motion, useAnimation } from "framer-motion";
 import Rewiewscard from "./reviewscard";
 import { useState } from "react";
 
-
 const reviews: Array<ReviewType> = [
   {
     title: "Lorem 1",
@@ -66,7 +65,6 @@ const reviews: Array<ReviewType> = [
 type Props = {};
 
 const Reviews = () => {
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
 
@@ -92,23 +90,26 @@ const Reviews = () => {
             <div className="w-full mx-auto flex justify-center border-purple-400 bg-black">
               <div className="flex py-3 ">
                 {" "}
-                <h1 className="text-4xl font-bold text-white">REVIEWS</h1>
+                <h1 className="text-4xl font-bold text-primary-100">REVIEWS</h1>
               </div>
             </div>
             <div className="h-[480px] w-full no-scrollbar  overflow-y-hidden relative">
-              <motion.ul className="w-[2800px] whitespace-nowrap pl-0" animate={controls}>
+              <motion.ul
+                className="w-[2800px] whitespace-nowrap pl-0"
+                animate={controls}
+              >
                 {reviews.map((item: ReviewType, index) => (
                   <motion.li
-                  key={`${item.name}-${index}`}
-                  className="inline-block "
-                >
-                  <Rewiewscard
                     key={`${item.name}-${index}`}
-                    name={item.name}
-                    description={item.description}
-                    title={item.title}
-                    state={item.state}
-                  />
+                    className="inline-block "
+                  >
+                    <Rewiewscard
+                      key={`${item.name}-${index}`}
+                      name={item.name}
+                      description={item.description}
+                      title={item.title}
+                      state={item.state}
+                    />
                   </motion.li>
                 ))}
               </motion.ul>
@@ -122,16 +123,12 @@ const Reviews = () => {
                 className=" z-30 absolute top-1/2 -translate-y-1/2 right-0 bg-gray-400 text-white rounded-full w-10 h-10 mr-6"
                 onClick={() => handleArrowClick("next")}
               >
-               {">"}
+                {">"}
               </button>
             </div>
           </motion.div>
         </div>
-     
-     
-              
       </section>
-      
     </div>
   );
 };
