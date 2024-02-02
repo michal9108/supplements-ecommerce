@@ -9,7 +9,7 @@ interface Size {
 }
 
 interface Product {
-  id: number | string; // Allow for both number and string types
+  id: number | string; 
 
   sizes: Size[];
 }

@@ -3,7 +3,7 @@ import { SelectedPage } from "@/shared/types";
 
 import React, { useState, useEffect } from "react";
 
-import m from "../../assets/logos/m.svg"
+import threem from "../../assets/logos/threem.svg";
 import barstoolstore from "../../assets/logos/barstoolstore.svg";
 import buzzfeed from "../../assets/logos/buzzfeed.svg";
 import forbes from "../../assets/logos/forbes.svg";
@@ -11,10 +11,7 @@ import macys from "../../assets/logos/macys.svg";
 import menshealth from "../../assets/logos/menshealth.svg";
 import mrbeast from "../../assets/logos/mrbeast.svg";
 import budweiser from "../../assets/logos/budweiser.svg";
-import Slider from "./slider";
 
-type Props = {
-};
 
 const Carousel = () => {
   const [clonedNode, setClonedNode] = useState<HTMLElement | null>(null);
@@ -39,13 +36,13 @@ const Carousel = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
 
   return (
-    <>
+ 
       <section className=" gap-10 md:h-full md:pb-0  ">
-        {/* SLIDESHOW BANNER */}
-        <Slider />
+      
+   
 
         <div className="w-full m-auto pt-1">
-          {/* SPONSORS LOGOS CAROUSEL*/}
+        
           {isAboveMediumScreens && (
             <>
               <div
@@ -53,7 +50,8 @@ const Carousel = () => {
 "
               >
                 <div className="logos-slide inline-block  animate-slide animation-duration-5000 animation-iteration-count-infinite animation-timing-linear  ">
-                  <img src={m} />
+                 
+                  <img src={threem} />
                   <img src={barstoolstore} />
                   <img src={budweiser} />
                   <img src={buzzfeed} />
@@ -62,7 +60,7 @@ const Carousel = () => {
                   <img src={menshealth} />
                   <img src={mrbeast} />
 
-                  <img src={m} />
+                  <img src={threem} />
                   <img src={barstoolstore} />
                   <img src={budweiser} />
                   <img src={buzzfeed} />
@@ -76,7 +74,7 @@ const Carousel = () => {
           )}
         </div>
       </section>
-    </>
+ 
   );
 };
 

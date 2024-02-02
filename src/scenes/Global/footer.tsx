@@ -2,7 +2,7 @@ import cardsIcons from "../../assets/cardsIcons.png"
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-100 py-10">
+    <footer className="bg-gray-20 py-10">
       <div className="justify-content mx-auto py-3 w-5/6 gap-16 md:flex">
         <div className="mt-16 basis-1/4 md:mt-0">
           <h4 className="font-bold">COMPANY</h4>
@@ -20,7 +20,7 @@ const Footer = () => {
           <p className="my-3">MANAGE SUBSCRIPTIONS</p>
         </div>
       </div>
-        <div className=" flex w-5/6 justify-center mx-auto text-center uppercase font-bold text-xs">
+        <div className=" flex w-full justify-center mx-auto text-center uppercase font-bold text-xs">
         <div>
           <p>
             †these statements have not been evaluated by the food and drug

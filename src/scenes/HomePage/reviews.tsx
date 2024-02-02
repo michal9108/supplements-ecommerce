@@ -1,6 +1,6 @@
 import { ReviewType } from "@/shared/types";
 import { motion, useAnimation } from "framer-motion";
-import Rewiewscard from "./reviewscard";
+import CardTemplate from "@/shared/CardTemplate";
 import { useState } from "react";
 
 const reviews: Array<ReviewType> = [
@@ -9,60 +9,67 @@ const reviews: Array<ReviewType> = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
   {
     title: "Lorem 2",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
   {
     title: "Lorem 3",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
   {
     title: "Lorem 4",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
   {
     title: "Lorem 5",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
   {
     title: "Lorem 6",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
   {
     title: "Lorem 7",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
   {
     title: "Lorem 7",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     name: "John N.",
-    state: "United States",
+    country: "United States",
+    showStar: true,
   },
 ];
 
-type Props = {};
 
 const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -103,12 +110,13 @@ const Reviews = () => {
                     key={`${item.name}-${index}`}
                     className="inline-block "
                   >
-                    <Rewiewscard
+                    <CardTemplate
                       key={`${item.name}-${index}`}
                       name={item.name}
                       description={item.description}
                       title={item.title}
-                      state={item.state}
+                      country={item.country}
+                      showStars={item.showStar}
                     />
                   </motion.li>
                 ))}

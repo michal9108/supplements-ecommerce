@@ -3,35 +3,12 @@ import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { StarIcon, HomeModernIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "../../../assets/cardsIcons.png";
 import storeItems from "@//data/items.json";
-
-import { useState } from "react";
 import ProductComplementaries from "./ProductComplementaries";
-import checkIcon  from "../../../assets/checkIcon.png"
-import ProductSlider from "./Slider"
+import checkIcon from "../../../assets/checkIcon.png";
+import ProductSlider from "./ProductSlider";
+import { ProductType, ReviewsType } from "../../../shared/types";
 export default function Product() {
-  const product: Product = storeItems[0];
-
-  interface Size {
-    name: string;
-    inStock: boolean;
-  }
-
-  interface Reviews {
-    average: number;
-    totalCount: number;
-  }
-  interface Product {
-    id: string;
-    name: string;
-    price: number;
-    oldprice: number;
-    href: string;
-    images: Array<{ src: string; alt: string }>;
-    sizes: Size[];
-    details: string;
-    highlights: string[];
-    reviews: Reviews[];
-  }
+  const product: ProductType = storeItems[0];
 
   const reviews = { average: 4, totalCount: 117 };
 
@@ -50,52 +27,24 @@ export default function Product() {
   } = useShoppingCart();
 
   const quantity = getItemQuantity(product.id);
-  const [selectedSize, setSelectedSize] = useState<string>("L"); // Initialize with a default size
 
-  const handleIncreaseQuantity = (id: string, size: string) => {
-    increaseCartQuantity(id, size);
+  const handleIncreaseQuantity = (id: string) => {
+    increaseCartQuantity(id);
   };
 
-  const handleDecreaseQuantity = (id: string, size: string) => {
-    decreaseCartQuantity(id, size);
+  const handleDecreaseQuantity = (id: string) => {
+    decreaseCartQuantity(id);
   };
-
-
 
   return (
     <div>
-     
-       <ProductComplementaries />
-      <div 
-      className="mx-auto   max-sm:flex-wrap justify-center  gap-x-0  min-h-full w-5/6 "
-      >
-     
-        <section
-        //  className=" h-full w-full  mx-auto mt-5  lg:w-1/2 flex justify-items-center	justify-center"
-         >
-          {/*PRODUCT IMAGE */}
-
-          <div
-            // className="mx-auto max-w-2xl max-sm:px-6
-            //     max-sm:pt-10  max-md:px-6"
-          >
-            <div
-            //  className=" aspect-h-4  overflow-hidden lg:block"
-             >
-              {/* <img
-                src={product.images[0].src}
-                alt={product.images[0].alt}
-                className="h-full w-full object-cover object-center"
-              /> */}
-              
-            </div>
-          </div>
-       
+      <ProductComplementaries />
+      <div className=" flex justify-center  items-center  min-h-full w-10/12  mx-auto max-sm:flex-wrap ">
+        <section className="p-1 flex h-full w-full sm:w-1/2 justify-items-center	justify-center">
+          <ProductSlider />
         </section>
-        <div className="flex mx-auto ">  < ProductSlider /></div>
-      
-        
-        <section className="p-3 mx-auto  h-full w-full lg:w-1/2 flex justify-items-center	justify-center">
+
+        <section className="p-3 h-full w-full md:w-1/2 flex justify-items-center	justify-center">
           {/*PRODUCT INFO */}
           <div className=" grow max-w-2xl px-4 s pb-6 pt-6 max-sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
             {/*PRODUCT REVIEWS */}
@@ -162,14 +111,12 @@ export default function Product() {
                   </div>
                 ))}
 
-               
-
                 {/* CART LOGIC */}
                 {quantity === 0 ? (
                   <button
                     className=" flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
                     onClick={() => {
-                      handleIncreaseQuantity(product.id, selectedSize);
+                      handleIncreaseQuantity(product.id);
                       openCart();
                     }}
                   >
@@ -186,7 +133,7 @@ export default function Product() {
                     >
                       <button
                         onClick={() => {
-                          handleIncreaseQuantity(product.id, selectedSize);
+                          handleIncreaseQuantity(product.id);
                           openCart();
                         }}
                         className="flex grow w-full  justify-center  rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -195,7 +142,7 @@ export default function Product() {
                       </button>
                       <button
                         onClick={() => {
-                          handleDecreaseQuantity(product.id, selectedSize);
+                          handleDecreaseQuantity(product.id);
                           openCart();
                         }}
                         className=" flex grow w-full justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"

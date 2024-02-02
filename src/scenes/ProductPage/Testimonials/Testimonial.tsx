@@ -21,14 +21,16 @@ export default function Testimonial({
   return (
     <div className="flex max-w-lg justify-center">
       <div className="flex  mx-1 my-3 p-1 border-dotted rounded-lg border-3 border-secondary-500">
-        <div className="mx-auto w-36 items-start flex justify-center md:mx-0 md:p-0 lg:mb-0  md:pt-5 ">
+        <section className="flex p-1">
+        <span className="mx-auto w-36 items-start flex justify-center md:mx-0 md:p-0 lg:mb-0 pt-4  ">
           <img
             src={src}
             className="rounded-full shadow-md dark:shadow-black/30 w-20 h-20 mx-auto md:mr-5"
             alt="woman avatar"
           />
-        </div>
-        <div>
+        </span>
+        <span>
+          
           <div className="flex items-center my-4 text-yellow-300 max-md:justify-center">
             <StarIcon className=" h-6 w-6 me-1 flex-shrink-0" />
             <StarIcon className=" h-6 w-6 me-1 flex-shrink-0" />
@@ -53,7 +55,9 @@ export default function Testimonial({
               </div>
             </div>
           </figcaption>
-        </div>
+        </span>
+        </section>
+
       </div>
     </div>
   );

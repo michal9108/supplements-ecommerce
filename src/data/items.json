@@ -8,16 +8,19 @@
 
     "images": [
       {
-        "src": "src/assets/buffpack.jpeg",
+        "src": "../../../assets/buffpack1.png",
+        "alt": "Testosterone supplement"
+      },
+      {
+        "src": "../../../assets/buffpack3.png",
+        "alt": "Testosterone supplement"
+      },
+      {
+        "src": "../../../assets/buffpack3.png",
         "alt": "Testosterone supplement"
       }
     ],
 
-    "sizes": [
-      { "name": "L", "inStock": true },
-      { "name": "XL", "inStock": true },
-      { "name": "XXL", "inStock": true }
-    ],
     "reviews": [{ "average": 4, "totalCount": 117 }],
 
     "highlights": [
@@ -41,11 +44,7 @@
       }
     ],
 
-    "sizes": [
-      { "name": "L", "inStock": true },
-      { "name": "XL", "inStock": true },
-      { "name": "XXL", "inStock": true }
-    ],
+
     "reviews": [{ "average": 2, "totalCount": 58 }],
 
     "highlights": [

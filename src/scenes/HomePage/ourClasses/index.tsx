@@ -1,52 +1,50 @@
-import { ClassType } from "@/shared/types";
-import image1 from "@/assets/image1.png";
-import image2 from "@/assets/image2.png";
-import image3 from "@/assets/image3.png";
-import image4 from "@/assets/image4.png";
-import image5 from "@/assets/image5.png";
-import image6 from "@/assets/image6.png";
+import { WorkoutType } from "@/shared/types";
+import image1 from "@/assets/workouts1.png";
+import image2 from "@/assets/workouts2.png";
+import image3 from "@/assets/workouts3.png";
+import image4 from "@/assets/workouts4.png";
+import image5 from "@/assets/workouts5.png";
+import image6 from "@/assets/workouts6.png";
 import { motion } from "framer-motion";
-import HText from "@/shared/HText";
-import Class from "./Class";
+import Workout from "./Workout"
 
-const classes: Array<ClassType> = [
+const workout: Array<WorkoutType> = [
   {
-    name: "Weight Training Classes",
+    name: "Weight Training workout",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: image1,
   },
   {
-    name: "Yoga Classes",
+    name: "Yoga workout",
     image: image2,
   },
   {
-    name: "Ab Core Classes",
+    name: "Ab Core workout",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: image3,
   },
   {
-    name: "Adventure Classes",
+    name: "Adventure workout",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: image4,
   },
   {
-    name: "Fitness Classes",
+    name: "Fitness workout",
     image: image5,
   },
   {
-    name: "Training Classes",
+    name: "Training workout",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     image: image6,
   },
 ];
 
-type Props = {};
 
-const OurClasses = () => {
+const OurWorkouts = () => {
   return (
     <section id="ourclasses" className="w-full bg-primary-100 py-10">
       <motion.div>
@@ -61,8 +59,8 @@ const OurClasses = () => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <div className="md:w-3/5">
-            <HText>OUR CLASSES</HText>
+          <div className="w-full">
+            <h2 className="font-bold text-3xl text-center">OUR WORKOUTS</h2>
             <p className="py-5">
               Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
               tellus quam porttitor. Mauris velit euismod elementum arcu neque
@@ -73,8 +71,8 @@ const OurClasses = () => {
         </motion.div>
         <div className="mt-10 h-[353px] w-full no-scrollbar  overflow-y-hidden">
           <ul className="w-[2800px] primary-100space-nowrap">
-            {classes.map((item: ClassType, index) => (
-              <Class
+            {workout.map((item: WorkoutType, index) => (
+              <Workout
                 key={`${item.name}-${index}`}
                 name={item.name}
                 description={item.description}
@@ -88,4 +86,4 @@ const OurClasses = () => {
   );
 };
 
-export default OurClasses;
+export default OurWorkouts;

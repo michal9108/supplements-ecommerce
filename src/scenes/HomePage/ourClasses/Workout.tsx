@@ -1,10 +1,7 @@
-type Props = {
-  name: string;
-  description?: string;
-  image: string;
-};
 
-const Class = ({ name, description, image }: Props) => {
+import { WorkoutType} from "@/shared/types";
+
+const Workout = ({ name, description, image }: WorkoutType) => {
   const overlayStyles = `p-5 absolute z-30 flex
     h-[380px] w-[450px] flex-col items-center justify-center
     primary-100space-normal bg-black text-center text-white
@@ -21,4 +18,4 @@ const Class = ({ name, description, image }: Props) => {
   );
 };
 
-export default Class;
+export default Workout;

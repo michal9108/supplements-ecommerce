@@ -4,11 +4,11 @@ const Reasons = () => {
   const reasons = [
     {
       title: "Decreased Libido",
-      text: "As you grow older, it's typical to notice a decrease in libido. You might discover a reduced interest in sexual activities and fewer occurrences of erections. Kino Mojo recognizes the significance of passion in your life, empowering you to revitalize your sex drive and rekindle that spark.",
+      text: "As you grow older, it's typical to notice a decrease in libido. You might discover a reduced interest in sexual activities and fewer occurrences of erections. BUFF PACK recognizes the significance of passion in your life, empowering you to revitalize your sex drive and rekindle that spark.",
     },
     {
       title: "Apathy & purpose",
-      text: "Is your overall well-being impacted by varying energy levels, mood swings, and a lingering sense of dissatisfaction? Kino Mojo is formulated to optimize testosterone levels, rekindle your vitality, and unlock a revitalized sense of fulfillment.",
+      text: "Is your overall well-being impacted by varying energy levels, mood swings, and a lingering sense of dissatisfaction? BUFF PACK is formulated to optimize testosterone levels, rekindle your vitality, and unlock a revitalized sense of fulfillment.",
     },
     {
       title: "Stubborn Fat ",

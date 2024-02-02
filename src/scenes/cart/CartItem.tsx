@@ -1,29 +1,34 @@
 import { Button, Stack } from "react-bootstrap";
-import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
-import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import storeItems from "@//data/items.json";
 
-type CartItemProps = {
-  id: string;
-  quantity: number;
-  size: string;
-};
+import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
+import { formatCurrency } from "@/scenes/cart/formatCurrency";
+import shopItems from "../../data/items.json"
+import buffpack1 from "../../assets/buffpack1.png";
+import { CartItemType, ProductType } from '../../shared/types'
 
-export function CartItem({ id, quantity,size }: CartItemProps) {
-  const { removeFromCart } = useShoppingCart();
+
+
+export function CartItem({ id, quantity }: CartItemType) {
+
+  const product: ProductType = shopItems[0];
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
+const handleIncreaseQuantityFromCart = (id:string) => {
+  increaseCartQuantity(id);
+}
+
   const item = storeItems.find((i) => i.id === id);
   if (item == null) return null;
-  const selectedSize = item.sizes.find((s) => s.name === size);
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-        src="src/assets/buffpack.jpeg"
+        src={buffpack1}
         style={{ width: "70px", height: "70px", objectFit: "cover" }}
       />
       <div className="me-auto">
         <div>
-          {item.name} {selectedSize && selectedSize.name}
+          {item.name} 
           {quantity > 1 && (
             <span className="text-muted" style={{ fontSize: "1rem" }}>
               x{quantity}
@@ -42,6 +47,9 @@ export function CartItem({ id, quantity,size }: CartItemProps) {
       >
         &times;
       </Button>
+
+      <button onClick={() => handleIncreaseQuantityFromCart(product.id)}>increase</button>
+
     </Stack>
   );
 }

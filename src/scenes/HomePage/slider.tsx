@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
-import slide1 from "@/assets/image7.png";
-import slide2 from "@/assets/image8.png";
-import slide3 from "@/assets/image9.png";
-import slide4 from "@/assets/image10.png";
-import slide5 from "@/assets/image11.png";
-import slide6 from "@/assets/image12.png";
+import slider1 from "@/assets/homeSlider1.png";
+import slider2 from "@/assets/homeSlider2.png";
+import slider3 from "@/assets/homeSlider3.png";
+import slider4 from "@/assets/homeSlider4.png";
+import slider5 from "@/assets/homeSlider5.png";
+import slider6 from "@/assets/homeSlider6.png";
+import slider7 from "@/assets/homeSlider7.png";
+const Slider = () => {  const [isAboveMd, setIsAboveMd] = useState(false);
 
-const Slider = () => {
-  const isAboveMd = window.innerWidth >= 1060;
+  const updateWindowSize = () => {
+    setIsAboveMd(window.innerWidth >= 800);
+  };
+
+  useEffect(() => {
+    updateWindowSize();
+    window.addEventListener("resize", updateWindowSize);
+
+    return () => {
+      window.removeEventListener("resize", updateWindowSize);
+    };
+  }, []);
 
   const slideImages = isAboveMd
-    ? [{ src: slide1 }, { src: slide2 }, { src: slide3 }]
-    : [{ src: slide4 }, { src: slide5 }, { src: slide6 }];
+    ? [{ src: slider1 }, { src: slider2 }, { src: slider3 }, { src: slider4 }]
+    : [, { src: slider5 }, { src: slider6 }, {src:slider7}];
 
   const divStyle = {
     display: "flex",
@@ -22,24 +34,19 @@ const Slider = () => {
     justifyContent: "center",
     backgroundSize: "cover",
     width: "100%",
-    
   };
 
   return (
-    <section className=" gap-10  md:h-full md:pb-0">
-      <div
-     
-      >
-        <Slide>
-          {slideImages.map((slideImage, index) => (
-            <div key={index}>
-              <div style={{ ...divStyle }}>
-                <img src={slideImage.src} />
-              </div>
+    <section className="pt-10">
+      <Slide>
+        {slideImages.map((slideImage, index) => (
+          <div key={index}>
+            <div style={{ ...divStyle }}>
+              <img src={slideImage.src} />
             </div>
-          ))}
-        </Slide>
-      </div>
+          </div>
+        ))}
+      </Slide>
     </section>
   );
 };

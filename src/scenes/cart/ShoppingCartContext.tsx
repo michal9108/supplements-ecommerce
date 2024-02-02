@@ -1,37 +1,18 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
+import { ShoppingCartProviderType,CartItemType, ShoppingCartContextType  } from "@/shared/types";
 
-type ShoppingCartProviderProps = {
-  children: ReactNode;
-};
 
-type CartItem = {
-  id: string;
-  quantity: number;
-  size:string;
-};
-
-type ShoppingCartContext = {
-  openCart: () => void;
-  closeCart: () => void;
-  getItemQuantity: (id: string) => number;
-  increaseCartQuantity: (id: string, size: string) => void;
-  decreaseCartQuantity: (id: string,size :string) => void;
-  removeFromCart: (id: string) => void;
-  cartQuantity: number;
-  cartItems: CartItem[];
-};
-
-const ShoppingCartContext = createContext({} as ShoppingCartContext);
+const ShoppingCartContext = createContext({} as ShoppingCartContextType);
 
 export function useShoppingCart() {
   return useContext(ShoppingCartContext);
 }
-export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
   const [isOpen, setIsOpen] = useState(false);
  
-  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+  const [cartItems, setCartItems] = useLocalStorage<CartItemType[]>(
     "shopping-cart",
     [],
   );
@@ -47,10 +28,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   function getItemQuantity(id: string) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
-  function increaseCartQuantity(id: string, size:string) {
+  function increaseCartQuantity(id: string) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
-        return [...currItems, { id, quantity: 1, size }];
+        return [...currItems, { id, quantity: 1 }];
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
@@ -65,14 +46,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   }
   
 
-  function decreaseCartQuantity(id: string, size:string) {
+  function decreaseCartQuantity(id: string) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {
         return currItems.filter((item) => item.id !== id);
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity - 1, size };
+            return { ...item, quantity: item.quantity - 1};
           } else {
             return item;
           }

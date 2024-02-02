@@ -16,7 +16,7 @@ const ModalEmail = () => {
 
   return (
     <div className="relative">
-      <section className=" bg-[#cccccc]">
+      <section className=" bg-[#cccccc]" onClick={handleClose}>
         <div className=" modal show block initial">
           <Modal
             show={show}

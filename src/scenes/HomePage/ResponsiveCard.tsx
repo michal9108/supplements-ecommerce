@@ -1,16 +1,15 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import image13 from "../../assets/image13.webp";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { ResponsiveCardType } from "@/shared/types";
 
-function MiniProductCard() {
+function ResponsiveCard({ img, title, text }:ResponsiveCardType) {
   const isBelowsxxScreens = useMediaQuery("(max-width: 325px)");
   const isBelowsxScreens = useMediaQuery("(max-width: 480px)");
   const isBelowSmallScreens = useMediaQuery("(max-width: 768px)");
   const isMediumScreens = useMediaQuery(
     "(min-width: 768px)" && "(max-width: 1060px)",
   );
-
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const isAboveLargeScreens = useMediaQuery("(min-width: 1200px)");
 
@@ -32,23 +31,24 @@ function MiniProductCard() {
 
   return (
     <Card style={cardStyle}>
-      <Card.Img variant="top" src={image13} />
+      <Card.Img variant="top" src={img} />
       <Card.Body>
+        <Card.Title>
+          <h3 className="text-center">{title}</h3>
+        </Card.Title>
         {isAboveMediumScreens && (
           <div>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
+            <Card.Text>{text}</Card.Text>
           </div>
         )}
         <div className="flex justify-center">
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="dark" size="lg" className="w-100">
+            BUY NOW
+          </Button>
         </div>
       </Card.Body>
     </Card>
   );
 }
 
-export default MiniProductCard;
+export default ResponsiveCard;
