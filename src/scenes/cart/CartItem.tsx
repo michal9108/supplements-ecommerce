@@ -11,11 +11,10 @@ import { CartItemType, ProductType } from '../../shared/types'
 
 export function CartItem({ id, quantity }: CartItemType) {
 
-  const product: ProductType = shopItems[0];
-  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
-const handleIncreaseQuantityFromCart = (id:string) => {
-  increaseCartQuantity(id);
-}
+ 
+
+  const { removeFromCart } = useShoppingCart();
+
 
   const item = storeItems.find((i) => i.id === id);
   if (item == null) return null;
@@ -48,7 +47,6 @@ const handleIncreaseQuantityFromCart = (id:string) => {
         &times;
       </Button>
 
-      <button onClick={() => handleIncreaseQuantityFromCart(product.id)}>increase</button>
 
     </Stack>
   );

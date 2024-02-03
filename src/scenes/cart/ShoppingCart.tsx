@@ -7,8 +7,8 @@ import cardsIcons from "@/assets/cardsIcons.png"
 import { ShoppingCartType } from "@/shared/types";
 
 
-export function ShoppingCart({ isOpen }: ShoppingCartType) {
-  const { closeCart, cartItems } = useShoppingCart();
+export function ShoppingCart({ isOpen }: ShoppingCartType, id:number) {
+  const { closeCart, cartItems, increaseCartQuantity } = useShoppingCart();
 
   //request to STRIPE on checkout
   const checkout = async () => {
@@ -41,19 +41,29 @@ export function ShoppingCart({ isOpen }: ShoppingCartType) {
         <Offcanvas.Title>Your Cart</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body className="d-flex flex-column gap-3">
+      <button
+                        onClick={() => { increaseCartQuantity(id);
+                         
+                        }}
+                        className="flex grow w-full mt-auto justify-center bg-black "
+                      >
+                        +
+                      </button>
         <Stack gap={3}>
           {cartItems.map((item) => (
             <CartItem key={item.id} {...item} />
           ))}
+          
           <div className="flex mt-auto text-2xl  font-extrabold justify-between ">
+            
             <div className="flex"> Subtotal</div>
             <div className="  flex">
-              {formatCurrency(
+              {/* {formatCurrency(
                 cartItems.reduce((total, cartItem) => {
                   const item = storeItems.find((i) => i.id === cartItem.id);
                   return total + (item?.price || 0) * cartItem.quantity;
                 }, 0),
-              )}
+              )} */}
             </div>
           </div>
         </Stack>

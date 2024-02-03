@@ -45,7 +45,7 @@ export interface CardTemplateTypes {
   description?:string;
   country?:string;
   showStars:boolean;
-  img:string;
+  
   
 }
 
@@ -54,10 +54,9 @@ export interface ReviewsType {
   totalCount: number;
 }
 export interface ProductType {
-  id: string;
+  id: number;
   name: string;
   price: number;
-  oldprice: number;
   href: string;
   images: Array<{ src: string; alt: string }>;
   details: string;
@@ -65,8 +64,8 @@ export interface ProductType {
   reviews: ReviewsType[];
 }
 
-export interface CartItemType  {
-  id: string;
+export type CartItemType =  {
+  id: number;
   quantity: number;
 };
 
@@ -74,19 +73,17 @@ export type ShoppingCartType = {
   isOpen: boolean;
 };
 
-export type ShoppingCartProviderType = {
-  children: ReactNode;
-};
 
 
 
-export interface ShoppingCartContextType  {
+
+export type ShoppingCartContextType  = {
   openCart: () => void;
   closeCart: () => void;
-  getItemQuantity: (id: string) => number;
-  increaseCartQuantity: (id: string) => void;
-  decreaseCartQuantity: (id: string) => void;
-  removeFromCart: (id: string) => void;
+  getItemQuantity: (id: number) => number;
+  increaseCartQuantity: (id: number) => void;
+  decreaseCartQuantity: (id: number) => void;
+  removeFromCart: (id: number) => void;
   cartQuantity: number;
   cartItems: CartItemType[];
 };

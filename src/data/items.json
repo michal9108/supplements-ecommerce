@@ -1,8 +1,7 @@
 [
   {
-    "id": "price_1ONFEVH9dKBRlDkrAvJBt56I",
+    "id": 1,
     "price": 11.77,
-    "oldprice":29.99,
     "name": "BUFF PACK",
     "href": "#",
 
@@ -31,9 +30,8 @@
     "details": "Discover your untapped potential with BUFF PACK, the premium testosterone-boosting supplement designed to propel ambition, ignite vitality, sculpt your physique, and enhance your overall quality of life."
   },
   {
-    "id": "price_1ONFEzH9dKBRlDkrfwMZ75tb",
+    "id": 2,
     "price": 1199,
-    "oldprice":2999,
     "name": "BUFF COGNITION",
     "href": "#",
 
@@ -43,7 +41,6 @@
         "alt": "Performance power supplement"
       }
     ],
-
 
     "reviews": [{ "average": 2, "totalCount": 58 }],
 

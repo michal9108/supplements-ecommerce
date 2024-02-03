@@ -1,7 +1,15 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
-import { ShoppingCartProviderType,CartItemType, ShoppingCartContextType  } from "@/shared/types";
+import {
+  
+  CartItemType,
+  ShoppingCartContextType,
+} from "@/shared/types";
+
+type ShoppingCartProviderType = {
+  children: ReactNode;
+};
 
 
 const ShoppingCartContext = createContext({} as ShoppingCartContextType);
@@ -11,24 +19,28 @@ export function useShoppingCart() {
 }
 export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
   const [isOpen, setIsOpen] = useState(false);
- 
+
   const [cartItems, setCartItems] = useLocalStorage<CartItemType[]>(
     "shopping-cart",
-    [],
+    []
   );
- 
+
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0,
   );
 
+
+  console.log( " cartquantity :"+ cartQuantity )
+
+
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  function getItemQuantity(id: string) {
+  function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
-  function increaseCartQuantity(id: string) {
+  function increaseCartQuantity(id: number) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
@@ -36,24 +48,23 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
         return currItems.map((item) => {
           if (item.id === id) {
             return { ...item, quantity: item.quantity + 1 };
-            
           } else {
             return item;
           }
         });
       }
     });
+    
   }
-  
 
-  function decreaseCartQuantity(id: string) {
+  function decreaseCartQuantity(id: number) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {
         return currItems.filter((item) => item.id !== id);
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity - 1};
+            return { ...item, quantity: item.quantity - 1 };
           } else {
             return item;
           }
@@ -61,7 +72,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
       }
     });
   }
-  function removeFromCart(id: string) {
+  function removeFromCart(id: number) {
     setCartItems((currItems) => {
       return currItems.filter((item) => item.id !== id);
     });

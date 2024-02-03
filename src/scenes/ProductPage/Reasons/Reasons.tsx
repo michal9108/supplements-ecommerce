@@ -41,8 +41,8 @@ const Reasons = () => {
             <></>
 
             {reasons.map((reason) => (
-              <div className="grid gap-1 p-2 md:p-6 justify-items-center ">
-                <span className="border-solid rounded-full border-2 border-primary-300 flex bg-primary-300 items-center justify-center w-5/6 ">
+              <div  key={reason.title} className="grid gap-1 p-2 md:p-6 justify-items-center ">
+                <span  className="border-solid rounded-full border-2 border-primary-300 flex bg-primary-300 items-center justify-center w-5/6 ">
                   <p className="text-xl font-semibold my-auto text-primary-100 text-center">
                     {reason.title}
                   </p>

@@ -2,14 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {  createBrowserRouter } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "@/pages/ProductPage";
-
-import { ShoppingCartProvider } from "@/scenes/cart/ShoppingCartContext";
+import StorePage from "./pages/StorePage"; 
 import SuccesPage from "./pages/Succespage";
+import { RouterProvider } from "react-router-dom";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,26 +26,22 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "coaching",
+        path: "store",
+        element: <StorePage/>
       },
       {
         path: "contact",
       },
-      
-    ]
-  },{
-    
-      path: "success",
-      element: <SuccesPage />,
-    
-  }
-  
+    ],
+  },
+  {
+    path: "success",
+    element: <SuccesPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ShoppingCartProvider>
-      <RouterProvider router={router} />
-    </ShoppingCartProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );

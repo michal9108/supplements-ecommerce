@@ -36,7 +36,7 @@ export default function ProductComplementaries() {
                 version="1.1"
                 id="Layer_1"
                 viewBox="0 0 512.015 512.015"
-                xml:space="preserve"
+                xmlSpace="preserve"
               >
                 <g>
                   <g>

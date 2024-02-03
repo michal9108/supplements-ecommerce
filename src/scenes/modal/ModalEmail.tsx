@@ -10,7 +10,7 @@ const ModalEmail = () => {
   useEffect(() => {
     const PopUpWindow = setTimeout(() => {
       setModalShow(true);
-    }, 2000);
+    }, 7000);
     return () => clearTimeout(PopUpWindow);
   }, []);
 
@@ -24,7 +24,6 @@ const ModalEmail = () => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
             onClick={handleClose}
-            closeButton
           >
             <Modal.Header
               className=" text-2xl font-bold md:text-3xl m-auto"

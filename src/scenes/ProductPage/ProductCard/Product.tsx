@@ -2,39 +2,29 @@ import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { StarIcon, HomeModernIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "../../../assets/cardsIcons.png";
-import storeItems from "@//data/items.json";
 import ProductComplementaries from "./ProductComplementaries";
 import checkIcon from "../../../assets/checkIcon.png";
 import ProductSlider from "./ProductSlider";
 import { ProductType, ReviewsType } from "../../../shared/types";
-export default function Product() {
-  const product: ProductType = storeItems[0];
 
-  const reviews = { average: 4, totalCount: 117 };
+function classNames(...classes: (string | undefined | null | false)[]): string {
+  return classes.filter(Boolean).join(" ");
+}
 
-  function classNames(
-    ...classes: (string | undefined | null | false)[]
-  ): string {
-    return classes.filter(Boolean).join(" ");
-  }
+export default function Product({id, name, price,  details, highlights, reviews}:ProductType) {
+  
+
 
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     openCart,
-    cartItems,
   } = useShoppingCart();
 
-  const quantity = getItemQuantity(product.id);
+  const quantity = getItemQuantity(id);
 
-  const handleIncreaseQuantity = (id: string) => {
-    increaseCartQuantity(id);
-  };
-
-  const handleDecreaseQuantity = (id: string) => {
-    decreaseCartQuantity(id);
-  };
+  // console.log(" qantity product page" + quantity);
 
   return (
     <div>
@@ -55,7 +45,7 @@ export default function Product() {
                     <StarIcon
                       key={rating}
                       className={classNames(
-                        product.reviews[0].average > rating
+                        reviews[0].average > rating
                           ? "text-secondary-500"
                           : "text-gray-200",
                         "h-5 w-5 flex-shrink-0",
@@ -66,7 +56,7 @@ export default function Product() {
                 </div>{" "}
                 <div className="flex items-center">
                   <p className="  ml-3 text-sm font-medium text-gray-400 ">
-                    4.95 based on {product.reviews[0].totalCount}+
+                    4.95 based on {reviews[0].totalCount}+
                   </p>
                 </div>
               </div>
@@ -75,7 +65,7 @@ export default function Product() {
 
             <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
               <h1 className="text-3xl font-bold tracking-tight text-secondary-500 max-sm:text-3xl">
-                {product.name}
+                {name}
               </h1>
             </div>
 
@@ -87,21 +77,21 @@ export default function Product() {
 
               <div className="flex gap-2">
                 <p className="text-2xl  font-bold tracking-tight text-gray-900">
-                  {formatCurrency(product.price)}
+                  {formatCurrency(price)}
                 </p>
                 <p className="line-through text-2xl tracking-tight text-gray-400">
                   {" "}
-                  US${product.oldprice}
+                  US$
                 </p>
               </div>
 
-              <p className="text-base  text-gray-900 ">{product.details}</p>
+              <p className="text-base  text-gray-900 ">{details}</p>
 
               <form className="mt-7">
                 {/*PRODUCT PROOFS */}
 
-                {product.highlights.map((item) => (
-                  <div className="flex gap-2 my-3">
+                {highlights.map((item) => (
+                  <div key={item} className="flex gap-2 my-3">
                     <div className="w-10 h-10">
                       <img src={checkIcon} alt="" />
                     </div>
@@ -115,8 +105,7 @@ export default function Product() {
                 {quantity === 0 ? (
                   <button
                     className=" flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                    onClick={() => {
-                      handleIncreaseQuantity(product.id);
+                    onClick={() => {increaseCartQuantity(id);
                       openCart();
                     }}
                   >
@@ -132,8 +121,7 @@ export default function Product() {
                       style={{ gap: ".5rem" }}
                     >
                       <button
-                        onClick={() => {
-                          handleIncreaseQuantity(product.id);
+                        onClick={() => { increaseCartQuantity(id);
                           openCart();
                         }}
                         className="flex grow w-full  justify-center  rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -142,7 +130,7 @@ export default function Product() {
                       </button>
                       <button
                         onClick={() => {
-                          handleDecreaseQuantity(product.id);
+                          decreaseCartQuantity(id);
                           openCart();
                         }}
                         className=" flex grow w-full justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
