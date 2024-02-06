@@ -1,28 +1,33 @@
 import { Button, Stack } from "react-bootstrap";
 import storeItems from "@//data/items.json";
 
-import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
+import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
-import shopItems from "../../data/items.json"
-import buffpack1 from "../../assets/buffpack1.png";
 import { CartItemType, ProductType } from '../../shared/types'
 
 
 
-export function CartItem({ id, quantity }: CartItemType) {
+export function CartItem({ id, quantity,image }: CartItemType) {
 
  
 
-  const { removeFromCart } = useShoppingCart();
+  const { removeFromCart } = useProductCart();
 
 
   const item = storeItems.find((i) => i.id === id);
-  if (item == null) return null;
+
+  if (!item || !image) {
+    console.error("Item not found or images not available:", id);
+    return null;
+  }
+
+
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
-        src={buffpack1}
+        src={item.images[0].src}
+        
         style={{ width: "70px", height: "70px", objectFit: "cover" }}
       />
       <div className="me-auto">

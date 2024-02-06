@@ -1,8 +1,7 @@
-import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
+import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { StarIcon, HomeModernIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "../../../assets/cardsIcons.png";
-import ProductComplementaries from "./ProductComplementaries";
 import checkIcon from "../../../assets/checkIcon.png";
 import ProductSlider from "./ProductSlider";
 import { ProductType, ReviewsType } from "../../../shared/types";
@@ -11,16 +10,22 @@ function classNames(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Product({id, name, price,  details, highlights, reviews}:ProductType) {
-  
-
-
+export default function Product({
+  id,
+  name,
+  price,
+  oldprice,
+  details,
+  highlights,
+  reviews,
+  images,
+}: ProductType) {
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     openCart,
-  } = useShoppingCart();
+  } = useProductCart();
 
   const quantity = getItemQuantity(id);
 
@@ -28,11 +33,9 @@ export default function Product({id, name, price,  details, highlights, reviews}
 
   return (
     <div>
-      <ProductComplementaries />
       <div className=" flex justify-center  items-center  min-h-full w-10/12  mx-auto max-sm:flex-wrap ">
-        <section className="p-1 flex h-full w-full sm:w-1/2 justify-items-center	justify-center">
-          <ProductSlider />
-        </section>
+          <ProductSlider images={images} />
+     
 
         <section className="p-3 h-full w-full md:w-1/2 flex justify-items-center	justify-center">
           {/*PRODUCT INFO */}
@@ -56,7 +59,8 @@ export default function Product({id, name, price,  details, highlights, reviews}
                 </div>{" "}
                 <div className="flex items-center">
                   <p className="  ml-3 text-sm font-medium text-gray-400 ">
-                    4.95 based on {reviews[0].totalCount}+
+                    {/* TO DO Review Count Logic  & Review average logic*/}
+                    {reviews[0].average} based on {reviews[0].totalCount}+
                   </p>
                 </div>
               </div>
@@ -80,8 +84,7 @@ export default function Product({id, name, price,  details, highlights, reviews}
                   {formatCurrency(price)}
                 </p>
                 <p className="line-through text-2xl tracking-tight text-gray-400">
-                  {" "}
-                  US$
+                  {formatCurrency(oldprice)}
                 </p>
               </div>
 
@@ -104,8 +107,10 @@ export default function Product({id, name, price,  details, highlights, reviews}
                 {/* CART LOGIC */}
                 {quantity === 0 ? (
                   <button
+                    type="button"
                     className=" flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                    onClick={() => {increaseCartQuantity(id);
+                    onClick={() => {
+                      increaseCartQuantity(id);
                       openCart();
                     }}
                   >
@@ -121,7 +126,9 @@ export default function Product({id, name, price,  details, highlights, reviews}
                       style={{ gap: ".5rem" }}
                     >
                       <button
-                        onClick={() => { increaseCartQuantity(id);
+                        type="button"
+                        onClick={() => {
+                          increaseCartQuantity(id);
                           openCart();
                         }}
                         className="flex grow w-full  justify-center  rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -129,6 +136,7 @@ export default function Product({id, name, price,  details, highlights, reviews}
                         +
                       </button>
                       <button
+                        type="button"
                         onClick={() => {
                           decreaseCartQuantity(id);
                           openCart();

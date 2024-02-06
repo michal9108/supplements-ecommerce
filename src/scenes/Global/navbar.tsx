@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { NavLink } from "react-router-dom";
-import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
+import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import Banner from "./banner";
 const Navbar = () => {
-  const { openCart, cartQuantity } = useShoppingCart();
+  const { openCart, cartQuantity } = useProductCart();
 
   const flexBetween = "flex items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);

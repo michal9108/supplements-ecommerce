@@ -1,14 +1,15 @@
-import { BenefitType, ProofType } from "@/shared/types";
+import { BenefitsType, ProductType, ProofType } from "@/shared/types";
 import Benefit from "./Benefit";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import ResponsiveCard from "../ResponsiveCard";
-import homebecomebuffimg from "../../../assets/becomebuff.png"
-import homecardimg1 from "../../../assets/homecardimg1.png"
-import homecardimg2 from "../../../assets/homecardimg2.png"
-import homecardimg3 from "../../../assets/homecardimg3.png"
-import homecardimg4 from "../../../assets/homecardimg4.png"
-import homecardimg5 from "../../../assets/homecardimg5.png"
-import homecardimg6 from "../../../assets/homecardimg6.png"
+import homebecomebuffimg from "../../../assets/becomebuff.png";
+import homecardimg1 from "../../../assets/homecardimg1.png";
+import homecardimg2 from "../../../assets/homecardimg2.png";
+import homecardimg3 from "../../../assets/homecardimg3.png";
+import homecardimg4 from "../../../assets/homecardimg4.png";
+import homecardimg5 from "../../../assets/homecardimg5.png";
+import homecardimg6 from "../../../assets/homecardimg6.png";
+import storeItems from "../../../data/items.json";
+
 const proofs: Array<ProofType> = [
   {
     icon: (
@@ -75,52 +76,42 @@ const container = {
   },
 };
 
-
 const Benefits = () => {
   return (
     <>
       <div className=" bg-gray-20">
         <section id="benefits" className="mx-auto min-h-full w-full py-1">
-          {/* HEADER */}
+          {/* SHOP  */}
           <div className=" flex justify-center ">
             {" "}
             <h1 className="text-4xl  font-bold pb-4 pt-14 ">SHOP BY GOAL</h1>
           </div>
 
           <div className="flex sm:flex-col items-center justify-center md:my-2 md:w-full">
-            <div className=" items-center justify-center  flex  flex-wrap border-box">
-              <div className="flex basis-1/6 ">
-                <ResponsiveCard img={homecardimg1} title="CardTitle" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"/>
-              </div>
-              <div className="flex basis-1/6 ">
-                <ResponsiveCard img={homecardimg2} title="CardTitle" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"/>
-              </div>
-              <div className="flex basis-1/6 ">
-                <ResponsiveCard img={homecardimg3} title="CardTitle" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"/>
-              </div>
-              <div className="flex basis-1/6 ">
-                <ResponsiveCard img={homecardimg4} title="CardTitle" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"/>
-              </div>
-              <div className="flex basis-1/6 ">
-                <ResponsiveCard img={homecardimg5} title="CardTitle" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"/>
-              </div>
-              <div className="flex basis-1/6 ">
-                <ResponsiveCard img={homecardimg6} title="CardTitle" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy"/>
-              </div>
-             
-            </div>
+           
+            <div className=" items-center justify-center  flex  flex-wrap border-box"> {storeItems.map((item: ProductType) => {
+              return (
+                <div key={item.id} className="flex basis-1/6 ">
+                  <ResponsiveCard
+                    {...item}
+                  />
+                </div>
+              );
+            })}</div>
           </div>
         </section>
-        {/* BENEFITS */}
+        {/* PROOFS */}
         <section className="mx-auto min-h-full w-5/6 py-1">
           <div className=" items-center justify-center  sm:flex w-full">
-            {proofs.map((proof: ProofType) => (
-              <Benefit
-                key={proof.title}
-                icon={proof.icon}
-                title={proof.title}
-              />
-            ))}
+            {proofs.map((proof: ProofType) => {
+              return (
+                <Benefit
+                  key={proof.title}
+                  icon={proof.icon}
+                  title={proof.title}
+                />
+              );
+            })}
           </div>
         </section>
       </div>
@@ -171,10 +162,9 @@ const Benefits = () => {
 
             {/* BUTTON */}
             <div className=" relative mt-8 mb-8 flex  justify-center items-center">
-              <button  className=" rounded-lg bg-secondary-500  px-20 py-3   text-primary-100 no-underline font-semibold text-xl">
-              BUY NOW
+              <button className=" rounded-lg bg-secondary-500  px-20 py-3   text-primary-100 no-underline font-semibold text-xl">
+                BUY NOW
               </button>
-             
             </div>
           </div>
         </div>

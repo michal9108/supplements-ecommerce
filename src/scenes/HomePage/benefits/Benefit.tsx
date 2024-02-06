@@ -1,4 +1,4 @@
-import { BenefitType } from "@/shared/types";
+import { ProofType } from "@/shared/types";
 
 
 const childVariant = {
@@ -8,7 +8,7 @@ const childVariant = {
 
 
 
-const Benefit = ({ icon, title }: BenefitType) => {
+const Benefit = ({ icon, title }: ProofType) => {
   return (
     <div
       className=" flex flex-col  flex-wrap gap-2 items-center justify-center rounded-md  text-center px-2 py-2  m-6

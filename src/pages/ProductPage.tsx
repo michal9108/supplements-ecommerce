@@ -7,15 +7,19 @@ import Product from "@/scenes/ProductPage/ProductCard/Product";
 import InfoMessage from "@/scenes/ProductPage/InfoMessage";
 import Guarantee from "@/scenes/ProductPage/Guarantee";
 import OurClasses from "@/scenes/HomePage/ourClasses";
-import storeItems from "../data/items.json"
+import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
+import ProductComplementaries from "@/scenes/ProductPage/ProductCard/ProductComplementaries";
 export default function ProductPage() {
+
+  const {selectedProduct}= useProductCart();
   return (
     <>
       <div className="bg-primary-100">
         <div className="w-full static ">
           {/* <ModalEmail /> */}
           </div>
-      {/* <Product/> */}
+          <ProductComplementaries />
+     {selectedProduct &&  <Product {...selectedProduct}   />}
 
         <Testimonials />
 

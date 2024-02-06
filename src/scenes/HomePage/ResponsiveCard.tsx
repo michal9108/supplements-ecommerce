@@ -1,9 +1,30 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { ResponsiveCardType } from "@/shared/types";
+import { ProductType } from "@/shared/types";
+import ButtonLink from "@/shared/ButtonLink";
+import { useProductCart } from "../cart/ShoppingCartContext";
 
-function ResponsiveCard({ img, title, text }:ResponsiveCardType) {
+function ResponsiveCard({ id, images, name, details, price, oldprice, highlights, reviews, href }: ProductType) {
+  const { setProductDetails,increaseCartQuantity, openCart } = useProductCart();
+
+  const handleBuyNowClick = () => {
+    setProductDetails({
+      id,
+      name,
+      price,
+      oldprice,
+      images,
+      details,
+      highlights,
+      reviews,
+      href,
+    });
+
+    increaseCartQuantity(id);
+  openCart()
+  };
+
   const isBelowsxxScreens = useMediaQuery("(max-width: 325px)");
   const isBelowsxScreens = useMediaQuery("(max-width: 480px)");
   const isBelowSmallScreens = useMediaQuery("(max-width: 768px)");
@@ -30,24 +51,29 @@ function ResponsiveCard({ img, title, text }:ResponsiveCardType) {
   }
 
   return (
-    <Card style={cardStyle}>
-      <Card.Img variant="top" src={img} />
-      <Card.Body>
-        <Card.Title>
-          <h3 className="text-center">{title}</h3>
-        </Card.Title>
-        {isAboveMediumScreens && (
-          <div>
-            <Card.Text>{text}</Card.Text>
+    <div key={id}>
+      <Card style={cardStyle}>
+        <Card.Img variant="top" src={images[0].src} />
+        <Card.Body>
+          <Card.Title>
+            <h3 className="text-center">{name}</h3>
+          </Card.Title>
+          {isAboveMediumScreens && (
+            <div>
+              <Card.Text>{details}</Card.Text>
+            </div>
+          )}
+          <div className="flex justify-center">
+            <ButtonLink
+              onClick={handleBuyNowClick}
+              to={"/productpage"}
+              children={"BUY NOW"}
+              className="bg-black  text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+            />
           </div>
-        )}
-        <div className="flex justify-center">
-          <Button variant="dark" size="lg" className="w-100">
-            BUY NOW
-          </Button>
-        </div>
-      </Card.Body>
-    </Card>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

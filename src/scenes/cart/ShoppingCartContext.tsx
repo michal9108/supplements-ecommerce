@@ -2,22 +2,31 @@ import { createContext, useContext, useState, ReactNode } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 import {
-  
+  ProductType,
   CartItemType,
-  ShoppingCartContextType,
+  ProductCartContextType,
+  ProductCartProviderType
 } from "@/shared/types";
 
-type ShoppingCartProviderType = {
-  children: ReactNode;
-};
+import storeItems from "../../data/items.json"
 
 
-const ShoppingCartContext = createContext({} as ShoppingCartContextType);
 
-export function useShoppingCart() {
-  return useContext(ShoppingCartContext);
+const ProductCartContext = createContext({} as ProductCartContextType);
+
+export function useProductCart() {
+  return useContext(ProductCartContext);
 }
-export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
+export function ProductCartProvider({ children }: ProductCartProviderType) {
+
+
+const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null)
+
+function  setProductDetails(product:ProductType | null) {
+  setSelectedProduct(product)
+}
+
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [cartItems, setCartItems] = useLocalStorage<CartItemType[]>(
@@ -31,8 +40,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
   );
 
 
-  console.log( " cartquantity :"+ cartQuantity )
-
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
@@ -42,20 +49,39 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
   }
   function increaseCartQuantity(id: number) {
     setCartItems((currItems) => {
-      if (currItems.find((item) => item.id === id) == null) {
-        return [...currItems, { id, quantity: 1 }];
-      } else {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity + 1 };
-          } else {
-            return item;
-          }
-        });
+      const existingItem = currItems.find((item) => item.id === id);
+  
+      if (!existingItem) {
+        const newItem: CartItemType = {
+          id,
+          quantity: 1,
+          image: '', 
+        };
+  
+        // Check if the item has images and set the image property accordingly
+        if (storeItems.find((item) => item.id === id)?.images.length) {
+          newItem.image = storeItems.find((item) => item.id === id)!.images[0].src;
+        }
+  
+        return [...currItems, newItem];
       }
+  
+      return currItems.map((item) =>
+        item.id === id
+          ? {
+              id:item.id,
+              image:item.image,
+              quantity: item.quantity + 1,
+            }
+          : {
+            id:item.id,
+            image:item.image,
+            quantity: item.quantity ,
+          }
+      );
     });
-    
   }
+  
 
   function decreaseCartQuantity(id: number) {
     setCartItems((currItems) => {
@@ -78,8 +104,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
     });
   }
 
+
+
+
+
   return (
-    <ShoppingCartContext.Provider
+    <ProductCartContext.Provider
       value={{
         getItemQuantity,
         increaseCartQuantity,
@@ -89,10 +119,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderType) {
         closeCart,
         cartItems,
         cartQuantity,
+        selectedProduct,
+        setProductDetails,
       }}
     >
       {children}
       <ShoppingCart isOpen={isOpen} />
-    </ShoppingCartContext.Provider>
+    </ProductCartContext.Provider>
   );
 }

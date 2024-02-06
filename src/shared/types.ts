@@ -7,10 +7,6 @@ export enum SelectedPage {
   ContactUs = "contactus",
 }
 
-export interface BenefitType {
-  icon: JSX.Element;
-  title: string;
-}
 
 export interface ProofType {
   icon: JSX.Element;
@@ -31,11 +27,10 @@ title:string;
 showStar:boolean;
 }
 
+export interface BenefitsType {
+  storeItems: ProductType[];
+  proofs:ProofType[];
 
-export interface ResponsiveCardType {
-  img:string;
-  title:string;
-  text:string;
 }
 
 export interface CardTemplateTypes {
@@ -57,6 +52,7 @@ export interface ProductType {
   id: number;
   name: string;
   price: number;
+  oldprice:number;
   href: string;
   images: Array<{ src: string; alt: string }>;
   details: string;
@@ -64,20 +60,17 @@ export interface ProductType {
   reviews: ReviewsType[];
 }
 
-export type CartItemType =  {
+export interface CartItemType  {
   id: number;
   quantity: number;
+  image:string;
 };
 
 export type ShoppingCartType = {
   isOpen: boolean;
 };
 
-
-
-
-
-export type ShoppingCartContextType  = {
+export type ProductCartContextType  = {
   openCart: () => void;
   closeCart: () => void;
   getItemQuantity: (id: number) => number;
@@ -86,5 +79,23 @@ export type ShoppingCartContextType  = {
   removeFromCart: (id: number) => void;
   cartQuantity: number;
   cartItems: CartItemType[];
+  setProductDetails: (product: ProductType | null) => void;
+  selectedProduct: ProductType | null, 
+};
+
+export interface ButtonlinkTypes {
+  to:string;
+  children:string;
+  className:string;
+onClick?: () => void;
+}
+
+export interface ProductSliderType {
+  images:ProductType["images"]
+}
+
+
+export type ProductCartProviderType =  {
+  children: ReactNode;
 };
 

@@ -1,54 +1,130 @@
 [
   {
     "id": 1,
-    "price": 11.77,
+    "price": 29.99,
+    "oldprice": 41.98,
     "name": "BUFF PACK",
     "href": "#",
-
     "images": [
       {
-        "src": "../../../assets/buffpack1.png",
+        "src": "/src/assets/homecardimg1.png",
         "alt": "Testosterone supplement"
       },
       {
-        "src": "../../../assets/buffpack3.png",
+        "src": "/src//assets/buffpack1.png",
         "alt": "Testosterone supplement"
       },
       {
-        "src": "../../../assets/buffpack3.png",
+        "src": "/src/assets/buffpack2.png",
+        "alt": "Testosterone supplement"
+      },
+      {
+        "src": "/src/assets/buffpack3.png",
         "alt": "Testosterone supplement"
       }
     ],
-
-    "reviews": [{ "average": 4, "totalCount": 117 }],
-
+    "reviews": [{ "average": 4.25, "totalCount": 117 }],
     "highlights": [
       "Formulated with pure Ingredients",
-      "Science backed Testosterone Booster",
-      "Restore Confidence for  over 19000 men"
+      "Science-backed Testosterone Booster",
+      "Restore Confidence for over 19000 men"
     ],
     "details": "Discover your untapped potential with BUFF PACK, the premium testosterone-boosting supplement designed to propel ambition, ignite vitality, sculpt your physique, and enhance your overall quality of life."
   },
   {
     "id": 2,
-    "price": 1199,
+    "price": 27.99,
+    "oldprice": 39.18,
     "name": "BUFF COGNITION",
     "href": "#",
-
     "images": [
       {
-        "src": "src/assets/buffcognition.jpg",
+        "src": "src/assets/homecardimg2.png",
+        "alt": "Performance power supplement"
+      },
+      {
+        "src": "/src//assets/buffpack1.png",
+        "alt": "Performance power supplement"
+      },
+      {
+        "src": "/src/assets/buffpack2.png",
+        "alt": "Performance power supplement"
+      },
+      {
+        "src": "/src/assets/buffpack3.png",
         "alt": "Performance power supplement"
       }
     ],
-
-    "reviews": [{ "average": 2, "totalCount": 58 }],
-
+    "reviews": [{ "average": 4.5, "totalCount": 58 }],
     "highlights": [
       "Sustained energy that gently fades over hours",
-      "Keep concentration sharp for a  whole workout",
+      "Keep concentration sharp for a whole workout",
       "Essential nutrients to achieve maximum boost."
     ],
     "details": "Experience the full spectrum of your capabilities with BUFF COGNITION, the superior Brain supplement. Unleash ambition, ignite your vitality, carve out a sculpted physique, and elevate every aspect of your life's quality."
+  },
+  {
+    "id": 3,
+    "price": 30.99,
+    "oldprice": 43.386,
+    "name": "MUSCLE MAX",
+    "href": "#",
+    "images": [
+      {
+        "src": "src/assets/homecardimg3.png",
+        "alt": "Muscle-building supplement"
+      },
+      {
+        "src": "/src//assets/buffpack1.png",
+        "alt": "Muscle-building supplement"
+      },
+      {
+        "src": "/src/assets/buffpack2.png",
+        "alt": "Muscle-building supplement"
+      },
+      {
+        "src": "/src/assets/buffpack3.png",
+        "alt": "Muscle-building supplement"
+      }
+    ],
+    "reviews": [{ "average": 4.1, "totalCount": 92 }],
+    "highlights": [
+      "Powerful formula for rapid muscle growth",
+      "Enhances endurance and strength",
+      "Clinically proven results"
+    ],
+    "details": "Unleash your inner strength with MUSCLE MAX, the ultimate muscle-building supplement. Achieve unparalleled muscle growth, enhanced endurance, and strength with this clinically proven formula."
+  },
+  {
+    "id": 4,
+    "price": 28.99,
+    "oldprice": 40.586,
+    "name": "ENERGY FUEL",
+    "href": "#",
+    "images": [
+      {
+        "src": "src/assets/homecardimg4.png",
+        "alt": "Natural energy booster"
+      },
+      {
+        "src": "/src//assets/buffpack1.png",
+        "alt": "Natural energy booster"
+      },
+      {
+        "src": "/src/assets/buffpack2.png",
+        "alt": "Natural energy booster"
+      },
+      {
+        "src": "/src/assets/buffpack3.png",
+        "alt": "Natural energy booster"
+      }
+    ],
+    "reviews": [{ "average": 4.3, "totalCount": 75 }],
+    "highlights": [
+      "Sustained energy for the whole day",
+      "Enhances mental clarity and focus",
+      "Natural ingredients for a healthy boost"
+    ],
+    "details": "Revitalize your body and mind with ENERGY FUEL, the natural energy booster. Experience sustained energy throughout the day"
   }
 ]

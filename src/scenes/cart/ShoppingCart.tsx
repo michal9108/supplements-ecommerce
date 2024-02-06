@@ -1,5 +1,5 @@
 import { Offcanvas, Stack } from "react-bootstrap";
-import { useShoppingCart } from "@/scenes/cart/ShoppingCartContext";
+import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItem } from "@/scenes/cart//CartItem";
 import storeItems from "@//data/items.json";
@@ -8,7 +8,7 @@ import { ShoppingCartType } from "@/shared/types";
 
 
 export function ShoppingCart({ isOpen }: ShoppingCartType, id:number) {
-  const { closeCart, cartItems, increaseCartQuantity } = useShoppingCart();
+  const { closeCart, cartItems, increaseCartQuantity } = useProductCart();
 
   //request to STRIPE on checkout
   const checkout = async () => {
@@ -41,14 +41,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id:number) {
         <Offcanvas.Title>Your Cart</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body className="d-flex flex-column gap-3">
-      <button
-                        onClick={() => { increaseCartQuantity(id);
-                         
-                        }}
-                        className="flex grow w-full mt-auto justify-center bg-black "
-                      >
-                        +
-                      </button>
+      
         <Stack gap={3}>
           {cartItems.map((item) => (
             <CartItem key={item.id} {...item} />
@@ -58,12 +51,12 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id:number) {
             
             <div className="flex"> Subtotal</div>
             <div className="  flex">
-              {/* {formatCurrency(
+              {formatCurrency(
                 cartItems.reduce((total, cartItem) => {
                   const item = storeItems.find((i) => i.id === cartItem.id);
                   return total + (item?.price || 0) * cartItem.quantity;
                 }, 0),
-              )} */}
+              )}
             </div>
           </div>
         </Stack>
