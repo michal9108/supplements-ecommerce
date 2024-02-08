@@ -3,16 +3,11 @@ import storeItems from "@//data/items.json";
 
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
-import { CartItemType, ProductType } from '../../shared/types'
+import { CartItemType } from "../../shared/types";
 
-
-
-export function CartItem({ id, quantity,image }: CartItemType) {
-
- 
-
-  const { removeFromCart } = useProductCart();
-
+export function CartItem({ id, quantity, image }: CartItemType) {
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
+    useProductCart();
 
   const item = storeItems.find((i) => i.id === id);
 
@@ -21,28 +16,43 @@ export function CartItem({ id, quantity,image }: CartItemType) {
     return null;
   }
 
-
-
   return (
-    <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
+    <Stack direction="horizontal" gap={2} className="d-flex items-center">
       <img
         src={item.images[0].src}
-        
         style={{ width: "70px", height: "70px", objectFit: "cover" }}
       />
       <div className="me-auto">
-        <div>
-          {item.name} 
-          {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: "1rem" }}>
-              x{quantity}
-            </span>
-          )}
-        </div>
-        <div className="text-muted" style={{ fontSize: "1rem" }}>
-          {formatCurrency(item.price)}
-        </div>
+        <div>{item.name}</div>
       </div>
+      <span className="border-solid border-1 flex flex-row align-center border-black">
+        <button
+          className="border-black border-solid  border-1 p-1"
+          type="button"
+          onClick={() => {
+            decreaseCartQuantity(id);
+          }}
+        >
+          -
+        </button>
+
+        <span
+          className="text-black flex items-center"
+          style={{ fontSize: "1rem" }}
+        >
+          {quantity}
+        </span>
+
+        <button
+          className="border-black border-solid  border-1 p-1"
+          type="button"
+          onClick={() => {
+            increaseCartQuantity(id);
+          }}
+        >
+          +
+        </button>
+      </span>
       <div> {formatCurrency(item.price * quantity)}</div>
       <Button
         variant="outline-danger"
@@ -51,8 +61,6 @@ export function CartItem({ id, quantity,image }: CartItemType) {
       >
         &times;
       </Button>
-
-
     </Stack>
   );
 }

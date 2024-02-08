@@ -24,7 +24,7 @@ const Reasons = () => {
     <div className="bg-gray-50 ">
       <section className="w-5/6 m-auto">
         {/* Benefits Container */}
-        <div className="mx-auto max-w-7xl px-4 py-10 md:px-10 lg:py-32">
+        <div className="mx-auto max-w-7xl py-2 md:px-10 lg:py-32">
           {/* Benefits Title */}
           <div className="text-center ">
             <h2 className="text-4xl font-bold  italic md:text-5xl">
@@ -41,8 +41,11 @@ const Reasons = () => {
             <></>
 
             {reasons.map((reason) => (
-              <div  key={reason.title} className="grid gap-1 p-2 md:p-6 justify-items-center ">
-                <span  className="border-solid rounded-full border-2 border-primary-300 flex bg-primary-300 items-center justify-center w-5/6 ">
+              <div
+                key={reason.title}
+                className="grid gap-1 p-2 md:p-6 justify-items-center "
+              >
+                <span className="border-solid rounded-full border-2 border-primary-300 flex bg-primary-300 items-center justify-center w-5/6 ">
                   <p className="text-xl font-semibold my-auto text-primary-100 text-center">
                     {reason.title}
                   </p>
@@ -57,13 +60,10 @@ const Reasons = () => {
           <div className="flex flex-col items-center my-2 ">
             <button
               type="submit"
-              className="w-4/6 min-width-auto rounded-md border border-transparent bg-secondary-500 px-8 py-3 text-base font-medium text-primary-100 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-center"
+              className="w-4/6  rounded-md border border-transparent bg-secondary-500 px-8 py-3 text-base font-medium text-primary-100 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 "
             >
-              <div className="">
-                <p>Supercharge Your Testosterone</p>
-              </div>
-              <div className="text-sm">
-                <p>30 Days Money Back Guarantee</p>
+              <div className="text-center">
+                <p className=" mt-3">Supercharge Your Testosterone</p>
               </div>
             </button>
           </div>

@@ -6,7 +6,8 @@ import image4 from "@/assets/workouts4.png";
 import image5 from "@/assets/workouts5.png";
 import image6 from "@/assets/workouts6.png";
 import { motion } from "framer-motion";
-import Workout from "./Workout"
+import Workout from "./Workout";
+import H2 from "@/shared/H2";
 
 const workout: Array<WorkoutType> = [
   {
@@ -43,10 +44,9 @@ const workout: Array<WorkoutType> = [
   },
 ];
 
-
 const OurWorkouts = () => {
   return (
-    <section id="ourclasses" className="w-full bg-primary-100 py-10">
+    <section id="ourclasses" className="w-full bg-primary-100 ">
       <motion.div>
         <motion.div
           className="mx-auto w-5/6"
@@ -60,8 +60,8 @@ const OurWorkouts = () => {
           }}
         >
           <div className="w-full">
-            <h2 className="font-bold text-3xl text-center">OUR WORKOUTS</h2>
-            <p className="py-5">
+            <H2 color="black-900">our workouts</H2>
+            <p className="p-2 ">
               Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
               tellus quam porttitor. Mauris velit euismod elementum arcu neque
               facilisi. Amet semper tortor facilisis metus nibh. Rhoncus sit
@@ -69,7 +69,7 @@ const OurWorkouts = () => {
             </p>
           </div>
         </motion.div>
-        <div className="mt-10 h-[353px] w-full no-scrollbar  overflow-y-hidden">
+        <div className=" h-[353px] w-full no-scrollbar  overflow-y-hidden">
           <ul className="w-[2800px] primary-100space-nowrap">
             {workout.map((item: WorkoutType, index) => (
               <Workout

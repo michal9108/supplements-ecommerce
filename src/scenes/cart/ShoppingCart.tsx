@@ -3,12 +3,15 @@ import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItem } from "@/scenes/cart//CartItem";
 import storeItems from "@//data/items.json";
-import cardsIcons from "@/assets/cardsIcons.png"
+import cardsIcons from "@/assets/cardsIcons.png";
 import { ShoppingCartType } from "@/shared/types";
+import emptyCart from "@/assets/empty-cart.svg";
+import ButtonLink from "@/shared/ButtonLink";
+import { useState } from "react";
 
-
-export function ShoppingCart({ isOpen }: ShoppingCartType, id:number) {
+export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
   const { closeCart, cartItems, increaseCartQuantity } = useProductCart();
+  const [isShippingFree, setFreeShipping] = useState(0);
 
   //request to STRIPE on checkout
   const checkout = async () => {
@@ -30,6 +33,13 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id:number) {
       });
   };
 
+  const subtotal = () => {
+    return cartItems.reduce((total, cartItem) => {
+      const item = storeItems.find((i) => i.id === cartItem.id);
+      return total + (item?.price || 0) * cartItem.quantity;
+    }, 0);
+  };
+
   return (
     <Offcanvas
       show={isOpen}
@@ -40,40 +50,60 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id:number) {
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Your Cart</Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body className="d-flex flex-column gap-3">
-      
-        <Stack gap={3}>
-          {cartItems.map((item) => (
-            <CartItem key={item.id} {...item} />
-          ))}
-          
-          <div className="flex mt-auto text-2xl  font-extrabold justify-between ">
-            
-            <div className="flex"> Subtotal</div>
-            <div className="  flex">
-              {formatCurrency(
-                cartItems.reduce((total, cartItem) => {
-                  const item = storeItems.find((i) => i.id === cartItem.id);
-                  return total + (item?.price || 0) * cartItem.quantity;
-                }, 0),
-              )}
-            </div>
+      {cartItems.length === 0 ? (
+        <Offcanvas.Body className="  flex flex-col gap-3 items-center justify-center h-full content-center">
+          <div
+            onClick={closeCart}
+            className=" flex flex-col font-bold w-full justify-center items-center  absolute top-1/3 underline-offset-4"
+          >
+            <p className="uppercase text-xl ">Your cart is empty</p>
+            <p className="text-gray-500">There are no products in your cart</p>
+            <img src={emptyCart} alt="" />
+            <ButtonLink
+              to="/"
+              children="Continue Shopping"
+              className="bg-black  text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+            />
           </div>
-        </Stack>
-        <button
-          onClick={checkout}
-          className="mt-auto flex  w-full items-end justify-center rounded-md border border-transparent  font-bold px-8 py-3 text-3xl text-primary-100 bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
-        >
-          Checkout
-        </button>
-        <img src={cardsIcons} className="mt-auto" alt="" />
-        <div
-          onClick={closeCart}
-          className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4"
-        >
-          Continue Shopping
-        </div>
-      </Offcanvas.Body>
+        </Offcanvas.Body>
+      ) : (
+        <Offcanvas.Body className="d-flex flex-column gap-3">
+          {subtotal() > 90 ? (
+            <div
+            className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4"
+            > You unlocked free Shipping !!! 🎉🥳 </div>
+          ) : (
+            <div       
+                  className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4"
+            > Add {formatCurrency(90 - subtotal())} to get free shipping 🙂 </div>
+          )}
+          <Stack gap={3}>
+            {cartItems.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
+
+            <div className="flex mt-auto text-2xl  font-extrabold justify-between ">
+              <div className="flex"> Subtotal</div>
+              <div className="  flex">{formatCurrency(subtotal())}</div>
+            </div>
+          </Stack>
+          <button
+            onClick={checkout}
+            className="mt-auto flex  w-full items-end justify-center rounded-md border border-transparent  font-bold px-8 py-3 text-3xl text-primary-100 bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          >
+            Checkout
+          </button>
+
+          <p className="text-center mb-0"> Guaranteed Safe & Secure Checkout</p>
+          <img src={cardsIcons} className="mt-auto" alt="" />
+          <div
+            onClick={closeCart}
+            className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4"
+          >
+            Continue Shopping
+          </div>
+        </Offcanvas.Body>
+      )}
     </Offcanvas>
   );
 }

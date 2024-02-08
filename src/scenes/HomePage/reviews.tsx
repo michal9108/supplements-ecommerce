@@ -2,6 +2,7 @@ import { ReviewType } from "@/shared/types";
 import { motion, useAnimation } from "framer-motion";
 import CardTemplate from "@/shared/CardTemplate";
 import { useState } from "react";
+import H2 from "@/shared/H2";
 
 const reviews: Array<ReviewType> = [
   {
@@ -70,7 +71,6 @@ const reviews: Array<ReviewType> = [
   },
 ];
 
-
 const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
@@ -84,7 +84,7 @@ const Reviews = () => {
     setCurrentIndex(newIndex);
 
     controls.start({
-      x: `-${newIndex * 10}%`,
+      x: `-${newIndex * 12.5}%`,
       transition: { type: "spring", stiffness: 300, damping: 30 },
     });
   };
@@ -94,13 +94,13 @@ const Reviews = () => {
       <section className="w-full bg-black block   border-black">
         <div className="block mx-auto ld: bg-black">
           <motion.div>
-            <div className="w-full mx-auto flex justify-center border-purple-400 bg-black">
-              <div className="flex py-3 ">
+            <div className="w-full mx-auto flex justify-center border-black bg-black">
+              <div className="flex ">
                 {" "}
-                <h1 className="text-4xl font-bold text-primary-100">REVIEWS</h1>
+                <H2 color="primary-100">reviews</H2>
               </div>
             </div>
-            <div className="h-[480px] w-full no-scrollbar  overflow-y-hidden relative">
+            <div className="h-[480px] w-5/6 mx-auto no-scrollbar  overflow-y-hidden relative">
               <motion.ul
                 className="w-[2800px] whitespace-nowrap pl-0"
                 animate={controls}

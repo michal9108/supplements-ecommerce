@@ -8,7 +8,8 @@ import InfoMessage from "@/scenes/ProductPage/InfoMessage";
 import Guarantee from "@/scenes/ProductPage/Guarantee";
 import OurClasses from "@/scenes/HomePage/ourClasses";
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
-import ProductComplementaries from "@/scenes/ProductPage/ProductCard/ProductComplementaries";
+import ProductProofs from "@/scenes/ProductPage/ProductCard/ProductProofs";
+
 export default function ProductPage() {
 
   const {selectedProduct}= useProductCart();
@@ -18,7 +19,7 @@ export default function ProductPage() {
         <div className="w-full static ">
           {/* <ModalEmail /> */}
           </div>
-          <ProductComplementaries />
+         <ProductProofs />
      {selectedProduct &&  <Product {...selectedProduct}   />}
 
         <Testimonials />

@@ -1,14 +1,5 @@
-import { BenefitsType, ProductType, ProofType } from "@/shared/types";
-import Benefit from "./Benefit";
-import ResponsiveCard from "../ResponsiveCard";
-import homebecomebuffimg from "../../../assets/becomebuff.png";
-import homecardimg1 from "../../../assets/homecardimg1.png";
-import homecardimg2 from "../../../assets/homecardimg2.png";
-import homecardimg3 from "../../../assets/homecardimg3.png";
-import homecardimg4 from "../../../assets/homecardimg4.png";
-import homecardimg5 from "../../../assets/homecardimg5.png";
-import homecardimg6 from "../../../assets/homecardimg6.png";
-import storeItems from "../../../data/items.json";
+import React from "react";
+import { ProofType } from "@/shared/types";
 
 const proofs: Array<ProofType> = [
   {
@@ -27,13 +18,9 @@ const proofs: Array<ProofType> = [
   {
     icon: (
       <svg
-        className=" "
+        className="w-24 h-24"
         xmlns="http://www.w3.org/2000/svg"
-        fill="#000000"
-        height="100px"
-        width="100px"
-        version="1.1"
-        id="Layer_1"
+     
         viewBox="0 0 512.015 512.015"
         xmlSpace="preserve"
       >
@@ -69,108 +56,31 @@ const proofs: Array<ProofType> = [
   },
 ];
 
-const container = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-const Benefits = () => {
+export default function Proofs() {
   return (
-    <>
-      <div className=" bg-gray-20">
-        <section id="benefits" className="mx-auto min-h-full w-full py-1">
-          {/* SHOP  */}
-          <div className=" flex justify-center ">
-            {" "}
-            <h1 className="text-4xl  font-bold pb-4 pt-14 ">SHOP BY GOAL</h1>
-          </div>
-
-          <div className="flex sm:flex-col items-center justify-center md:my-2 md:w-full">
-           
-            <div className=" items-center justify-center  flex  flex-wrap border-box"> {storeItems.map((item: ProductType) => {
-              return (
-                <div key={item.id} className="flex basis-1/6 ">
-                  <ResponsiveCard
-                    {...item}
-                  />
+    <div>
+      <section className="mx-auto min-h-full w-5/6  max-xs:w-3/6 py-1">
+        <div className=" items-center justify-center  flex  flex-row w-full  xxs:flex-wrap">
+          {proofs.map((proof: ProofType) => {
+            return (
+              <div
+                key={proof.title}
+                className=" flex flex-col  flex-wrap gap-2 items-center justify-center rounded-md  text-center p-2  m-2
+       md:px-2 md:py-5 
+       border-box "
+              >
+                <div className="mx-auto px-auto flex  justify-center ">
+                  <div className=" rounded-full border-5 border-black bg-primary-100 p-3 ">
+                    {proof.icon}
+                  </div>
                 </div>
-              );
-            })}</div>
-          </div>
-        </section>
-        {/* PROOFS */}
-        <section className="mx-auto min-h-full w-5/6 py-1">
-          <div className=" items-center justify-center  sm:flex w-full">
-            {proofs.map((proof: ProofType) => {
-              return (
-                <Benefit
-                  key={proof.title}
-                  icon={proof.icon}
-                  title={proof.title}
-                />
-              );
-            })}
-          </div>
-        </section>
-      </div>
-      {/* GRAPHICS AND DESCRIPTION*/}
-      <section className="mx-auto min-h-full w-5/6 py-1">
-        <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex ">
-          {/* GRAPHIC */}
 
-          <img
-            className="mx-auto pb-10"
-            alt="benefits-page-graphic"
-            src={homebecomebuffimg}
-          />
-          {/* DESCRIPTION */}
-          <div>
-            <div>
-              <div className="relative">
-                <h2 className="text-bold font-4xl ">
-                  BECOME FINALLY <span className="text-primary-300">BUFF</span>
-                </h2>
+                <h4 className="font-bold flex">{proof.title}</h4>
               </div>
-            </div>
-            <div>
-              <p className="my-3 text-lg">
-                Boosting your testosterone levels naturally can be a powerful
-                advantage, enhancing ambition, increasing libido, reducing fat,
-                promoting muscle growth, and overall improving your quality of
-                life.
-                <br />
-                <br />
-                Regrettably, testosterone levels have seen a consistent decline
-                over the past three decades. Simply put, your father and
-                grandfathers likely had higher testosterone levels compared to
-                you. This decline can be attributed to various factors,
-                including elevated chronic stress, higher body fat levels, and a
-                significant rise in environmental estrogens.
-                <br />
-                <br />
-                Compounds like phthalates, with estrogenic properties, disrupt
-                endocrine function and have infiltrated food and scented
-                products on a large scale. This implies that even if you adopt
-                all the right measures—such as prioritizing sleep, maintaining
-                proper nutrition, ensuring adequate vitamin D levels, and
-                engaging in regular exercise—you may still find it challenging
-                to elevate your testosterone levels to optimal levels.
-              </p>
-            </div>
-
-            {/* BUTTON */}
-            <div className=" relative mt-8 mb-8 flex  justify-center items-center">
-              <button className=" rounded-lg bg-secondary-500  px-20 py-3   text-primary-100 no-underline font-semibold text-xl">
-                BUY NOW
-              </button>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </section>
-    </>
+    </div>
   );
-};
-
-export default Benefits;
+}

@@ -11,7 +11,7 @@ export default function Guarantee() {
 
             <span className="">
             <div className="my-auto flex justify-center ">
-              <h2 className="font-bold text-xxl text-gray-900 ">
+              <h2 className="font-bold text-xxl text-black-900 text-center">
                 30 Days Money Back Guarantee
               </h2>
               </div>

@@ -29,9 +29,9 @@ const Footer = () => {
           </p>
         </div>
         </div>
-        <div className=" flex w-5/6  justify-between items-center mx-auto font-thin text-xs ">
-        <div >
-          <p className="my-3">© BODYBUFF All Rights Reserved.</p>
+        <div className=" flex flex-wrap w-5/6  justify-between items-center mx-auto font-thin text-xs ">
+        <div className=" flex items-center justify-center">
+          <p className="my-3 text-center">© BODYBUFF All Rights Reserved.</p>
         </div>
         <div>
           <img src={cardsIcons} alt="Payment methods" className="h-12" />

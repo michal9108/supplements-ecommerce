@@ -2,8 +2,8 @@ import React from "react";
 
 export default function InfoMessage() {
   return (
-    <>
-      <section className="mx-auto min-h-full w-5/6 py-1">
+    <section className="w-5/6 mx-auto">
+      <span className="mx-auto min-h-full  py-1">
         <div className="mx-auto p-2 w-full border-dotted rounded-lg border-3 border-secondary-500 md:mx-auto 2xl-mx-2">
           <div className="flex gap-2 ">
             {" "}
@@ -43,9 +43,9 @@ export default function InfoMessage() {
             estrogens.
           </p>
         </div>
-      </section>
+      </span>
       <section className="mx-auto min-h-full w-full py-3">
-        <p className=" text-2xl text-gray-900 mx-4 ">
+        <p className=" text-2xl text-gray-900 mx-2 ">
           Enhancing your testosterone levels naturally acts as a powerful asset,
           akin to unlocking a hidden potential:
           <strong className="italic">
@@ -54,6 +54,6 @@ export default function InfoMessage() {
           </strong>
         </p>
       </section>
-    </>
+    </section>
   );
 }

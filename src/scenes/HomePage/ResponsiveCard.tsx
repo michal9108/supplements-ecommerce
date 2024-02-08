@@ -4,6 +4,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { ProductType } from "@/shared/types";
 import ButtonLink from "@/shared/ButtonLink";
 import { useProductCart } from "../cart/ShoppingCartContext";
+import { Link } from "react-router-dom";
 
 function ResponsiveCard({ id, images, name, details, price, oldprice, highlights, reviews, href }: ProductType) {
   const { setProductDetails,increaseCartQuantity, openCart } = useProductCart();
@@ -24,6 +25,23 @@ function ResponsiveCard({ id, images, name, details, price, oldprice, highlights
     increaseCartQuantity(id);
   openCart()
   };
+
+  const handleRegularClick = () => {
+    setProductDetails({
+      id,
+      name,
+      price,
+      oldprice,
+      images,
+      details,
+      highlights,
+      reviews,
+      href,
+    });
+    openCart()
+  }
+
+
 
   const isBelowsxxScreens = useMediaQuery("(max-width: 325px)");
   const isBelowsxScreens = useMediaQuery("(max-width: 480px)");
@@ -51,7 +69,7 @@ function ResponsiveCard({ id, images, name, details, price, oldprice, highlights
   }
 
   return (
-    <div key={id}>
+    <Link key={id} onClick={handleRegularClick} to="/productpage" className="no-underline">
       <Card style={cardStyle}>
         <Card.Img variant="top" src={images[0].src} />
         <Card.Body>
@@ -60,20 +78,21 @@ function ResponsiveCard({ id, images, name, details, price, oldprice, highlights
           </Card.Title>
           {isAboveMediumScreens && (
             <div>
-              <Card.Text>{details}</Card.Text>
+              <Card.Text className="text-center">{details}</Card.Text>
             </div>
           )}
-          <div className="flex justify-center">
+          <div className="flex justify-center  items-center flex-col py-2">
+          <h3 className=" text-center">{price}$</h3>
             <ButtonLink
               onClick={handleBuyNowClick}
               to={"/productpage"}
               children={"BUY NOW"}
-              className="bg-black  text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+              className=" bg-black   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
             />
           </div>
         </Card.Body>
       </Card>
-    </div>
+    </Link>
   );
 }
 

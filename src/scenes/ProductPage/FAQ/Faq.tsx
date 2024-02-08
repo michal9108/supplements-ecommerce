@@ -1,11 +1,13 @@
 import Accordion from "./Accordion";
+import H2 from "@/shared/H2";
 export default function Faq() {
   return (
     <div>
       <div className="w-5/6 m-auto ">
-       <span className="flex justify-center flex-col"> <h2 className="font-bold text-4xl text-center">FAQ</h2>
+       <span className="flex justify-center flex-col">
+<H2 color="black-900">faq</H2>
        <p className="text-center font-bold">We know you’ve got questions and we’ve got all the answers</p></span>
-        <div className="p-4">
+        <div className="py-4">
           
             <Accordion
               title="How do I make a return?"

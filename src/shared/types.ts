@@ -99,3 +99,8 @@ export type ProductCartProviderType =  {
   children: ReactNode;
 };
 
+
+export interface H2Types {
+  children: ReactNode;
+  color: string;
+}

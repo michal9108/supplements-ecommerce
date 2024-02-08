@@ -33,15 +33,15 @@ export default function Product({
 
   return (
     <div>
-      <div className=" flex justify-center  items-center  min-h-full w-10/12  mx-auto max-sm:flex-wrap ">
+      <div className=" flex justify-center  items-center  min-h-full w-5/6  mx-auto max-sm:flex-wrap ">
           <ProductSlider images={images} />
      
 
-        <section className="p-3 h-full w-full md:w-1/2 flex justify-items-center	justify-center">
+        <section className="py-2 h-full w-full md:w-1/2 flex justify-items-center	justify-center">
           {/*PRODUCT INFO */}
-          <div className=" grow max-w-2xl px-4 s pb-6 pt-6 max-sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
+          <div className=" grow max-w-2xl px-4 s py-3  max-sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
             {/*PRODUCT REVIEWS */}
-            <div className="mb-3">
+            <div className="mb-1">
               <div className="flex items-center">
                 <div className="flex items-center">
                   {[0, 1, 2, 3, 4].map((rating) => (
@@ -58,10 +58,10 @@ export default function Product({
                   ))}
                 </div>{" "}
                 <div className="flex items-center">
-                  <p className="  ml-3 text-sm font-medium text-gray-400 ">
+                  <div className="  ml-3 text-sm max-md:text-xs font-medium text-black ">
                     {/* TO DO Review Count Logic  & Review average logic*/}
-                    {reviews[0].average} based on {reviews[0].totalCount}+
-                  </p>
+                    {reviews[0].average}/5 | by {reviews[0].totalCount} of happy customers 
+                  </div>
                 </div>
               </div>
             </div>
@@ -74,32 +74,32 @@ export default function Product({
             </div>
 
             {/* Options */}
-            <div className="mt-3 lg:row-span-3 lg:mt-0">
-              <p className="text-xl tracking-tightt text-secondary-500">
+            <div className="mt-1 lg:row-span-3 lg:mt-0">
+              <div className="text-xl max-xs:text-xs tracking-tightt text-secondary-500">
                 60 Capsules | 30 Day Supply
-              </p>
-
-              <div className="flex gap-2">
-                <p className="text-2xl  font-bold tracking-tight text-gray-900">
-                  {formatCurrency(price)}
-                </p>
-                <p className="line-through text-2xl tracking-tight text-gray-400">
-                  {formatCurrency(oldprice)}
-                </p>
               </div>
 
-              <p className="text-base  text-gray-900 ">{details}</p>
+              <div className="flex gap-2">
+                <div className="text-2xl  font-bold tracking-tight text-gray-900">
+                  {formatCurrency(price)}
+                </div>
+                <div className="line-through text-2xl tracking-tight text-gray-400">
+                  {formatCurrency(oldprice)}
+                </div>
+              </div>
 
-              <form className="mt-7">
+              <div className="text-base  max-md:text-xs text-gray-900 ">{details}</div>
+
+              <form className="mt-1">
                 {/*PRODUCT PROOFS */}
 
                 {highlights.map((item) => (
-                  <div key={item} className="flex gap-2 my-3">
+                  <div key={item} className="flex gap-2 my-2">
                     <div className="w-10 h-10">
                       <img src={checkIcon} alt="" />
                     </div>
                     <li className="list-none text-gray-900  font-normal my-auto">
-                      {item}
+                     <div>{item}</div> 
                     </li>
                   </div>
                 ))}

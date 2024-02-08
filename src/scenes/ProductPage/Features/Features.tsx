@@ -8,7 +8,7 @@ const features = () => {
     <div>
       <section>
         {/* Features Container */}
-        <div className="mx-auto max-w-7xl px-5 py-8 md:px-10 md:py-24 lg:py-32 flex max-sm:flex-col-reverse">
+        <div className="mx-auto w-5/6 py-8 md:px-10 md:py-24 lg:py-32 flex max-sm:flex-col-reverse">
           {/* Features Title  & Grid */}
           <div className="flex flex-col">
             <h4 className="mx-auto mb-8 mt-4 max-w-lg text-black md:mb-12 lg:mb-16 text-center">
