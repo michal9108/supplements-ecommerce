@@ -1,13 +1,22 @@
-require('dotenv').config({path:"../.env"})
+require('dotenv').config({ path: "../.env" })
 
 const express = require('express');
-let cors = require('cors');
+const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_API);
+const { mongoose } = require('mongoose')
 
-const app = express();
+//db connection
+mongoose.connect(process.env.MONGO_URL)
+
+    .then(() => console.log("DB connected"))
+    .catch((error) => console.log("DB not connected", error))
+
+    const app = express();
 app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
+
+app.use('/', require('./routes/authRoutes'))
 
 app.post("/checkout", async (req, res) => {
     /*
@@ -52,7 +61,7 @@ app.post("/checkout", async (req, res) => {
 
 
 
-      
+
 
 
 

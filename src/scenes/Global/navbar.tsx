@@ -43,9 +43,9 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                    to="/contact"
+                    to="/login"
                   >
-                    CONTACT
+                    LOGIN
                   </NavLink>
                   {/* RIGHT SIDE */}
                   <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
@@ -186,6 +186,12 @@ const Navbar = () => {
 
             {/* MENU ITEMS */}
             <div className="ml-[33%] flex flex-col gap-10 text-2xl">
+            <NavLink
+                className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
+                to="/login"
+              >
+                LOGIN
+              </NavLink>
               <NavLink
                 className="text-xl font-semibold no-underline text-secondary-500 focus:text-primary-500 "
                 to="/productpage"
@@ -198,12 +204,7 @@ const Navbar = () => {
               >
                 STORE
               </NavLink>
-              <NavLink
-                className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
-                to="/contact"
-              >
-                CONTACT
-              </NavLink>
+             
             </div>
           </div>
         )}
