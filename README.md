@@ -33,15 +33,13 @@ export default {
 
 
 
-Product card - "You save X" - new price - old price
 
 Verify authenticity using confirm customer status. - green tick verified buyer on tesimonials and reviews
 
 Responsivecard component:
 
-- add small little tabs or dots underneath the main pic to make swipeable gallery
-- fixed width of of responsive components accross screen sizes
-- "20% off" discount label inside img container
+
+
 
 ShoppingCart
 
@@ -69,6 +67,10 @@ Homepage
 Best Sellers colecction
 
 - colection of the of items with highest sales
+
+stripe
+
+-implement custom Success/ThankYou page with references to the customer.name
 
 Account functionality
 

@@ -1,6 +1,7 @@
 import { Button, Stack } from "react-bootstrap";
 import storeItems from "@//data/items.json";
 
+
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItemType } from "../../shared/types";
@@ -23,7 +24,8 @@ export function CartItem({ id, quantity, image }: CartItemType) {
         style={{ width: "70px", height: "70px", objectFit: "cover" }}
       />
       <div className="me-auto">
-        <div>{item.name}</div>
+        <div >{item.name}</div>
+       
       </div>
       <span className="border-solid border-1 flex flex-row align-center border-black">
         <button
@@ -57,7 +59,7 @@ export function CartItem({ id, quantity, image }: CartItemType) {
       <Button
         variant="outline-danger"
         size="sm"
-        onClick={() => removeFromCart(item.id)}
+        onClick={() => removeFromCart(id)}
       >
         &times;
       </Button>

@@ -41,9 +41,12 @@ export default function Testimonial({
 
           <figcaption className="flex mt-6 space-x-3 rtl:space-x-reverse">
             <div className="flex flex-col items-start ">
-              <div>
+              <div className="flex flex-row gap-1">
                 {" "}
-                <cite className=" font-small text-gray-900 ">{name}</cite>
+                <div className=" font-small text-gray-900 ">{name}</div>
+                <div className="  max-w-fit max-h-fit my-auto rounded-lg text-xs tracking-tight text-green-500 text-center">
+                ✅ verified Buyer
+              </div>
               </div>
               <div>
                 {" "}

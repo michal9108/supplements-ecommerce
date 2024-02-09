@@ -10,7 +10,7 @@ import ButtonLink from "@/shared/ButtonLink";
 import { useState } from "react";
 
 export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
-  const { closeCart, cartItems, increaseCartQuantity } = useProductCart();
+  const { closeCart, cartItems, subtotal, savedAmount } = useProductCart();
   const [isShippingFree, setFreeShipping] = useState(0);
 
   //request to STRIPE on checkout
@@ -31,13 +31,6 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
           // Forwarding user to Stripe
         }
       });
-  };
-
-  const subtotal = () => {
-    return cartItems.reduce((total, cartItem) => {
-      const item = storeItems.find((i) => i.id === cartItem.id);
-      return total + (item?.price || 0) * cartItem.quantity;
-    }, 0);
   };
 
   return (
@@ -69,18 +62,26 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
       ) : (
         <Offcanvas.Body className="d-flex flex-column gap-3">
           {subtotal() > 90 ? (
-            <div
-            className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4"
-            > You unlocked free Shipping !!! 🎉🥳 </div>
+            <div className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4">
+              {" "}
+              You unlocked free Shipping !!! 🎉🥳{" "}
+            </div>
           ) : (
-            <div       
-                  className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4"
-            > Add {formatCurrency(90 - subtotal())} to get free shipping 🙂 </div>
+            <div className="mt-auto flex font-semibold w-full items-center justify-center underline-offset-4">
+              {" "}
+              Add {formatCurrency(90 - subtotal())} to get free shipping 🙂{" "}
+            </div>
           )}
           <Stack gap={3}>
             {cartItems.map((item) => (
               <CartItem key={item.id} {...item} />
             ))}
+
+            <div className="flex max-w-fit max-h-fit border-solid border-green-500 bg-green-500 rounded-lg p-2 mx-auto">
+              <div className="text-xs tracking-tight text-primary-100 text-center ">
+                You save in total {formatCurrency(savedAmount())}!!!🎉🥳
+              </div>
+            </div>
 
             <div className="flex mt-auto text-2xl  font-extrabold justify-between ">
               <div className="flex"> Subtotal</div>

@@ -3,6 +3,7 @@
     "id": "price_1OhJA3H9dKBRlDkrzq4XCurD",
     "price": 29.99,
     "oldprice": 41.98,
+    "inStock": true,
     "name": "BUFF PACK",
     "href": "#",
     "images": [
@@ -23,7 +24,7 @@
         "alt": "Testosterone supplement"
       }
     ],
-    "reviews": [{ "average": 4.25, "totalCount":117234 }],
+    "reviews": [{ "average": 4.25, "totalCount": 117234 }],
     "highlights": [
       "Formulated with pure organic Ingredients ",
       "Science-backed Testosterone Booster",
@@ -35,6 +36,7 @@
     "id": "price_1OhJRmH9dKBRlDkrUJsMiBqF",
     "price": 27.99,
     "oldprice": 39.18,
+    "inStock": false,
     "name": "BUFF COGNITION",
     "href": "#",
     "images": [
@@ -67,6 +69,7 @@
     "id": "price_1OhJbJH9dKBRlDkrmasZlPns",
     "price": 30.99,
     "oldprice": 43.39,
+    "inStock": true,
     "name": "MUSCLE MAX",
     "href": "#",
     "images": [
@@ -99,6 +102,7 @@
     "id": "price_1OhJbtH9dKBRlDkrdOTYQ9rD",
     "price": 28.99,
     "oldprice": 40.586,
+    "inStock": false,
     "name": "ENERGY FUEL",
     "href": "#",
     "images": [
@@ -126,10 +130,12 @@
       "Natural ingredients for a healthy boost"
     ],
     "details": "Revitalize your body and mind with ENERGY FUEL, the natural energy booster. Experience sustained energy throughout the day"
-  },{
+  },
+  {
     "id": "price_1OhJi2H9dKBRlDkrnDVJv2zJ",
     "price": 22.99,
     "oldprice": 35.98,
+    "inStock": true,
     "name": "BOOST PLUS",
     "href": "#",
     "images": [
@@ -162,6 +168,7 @@
     "id": "price_1OhJj0H9dKBRlDkrcSZIANkW",
     "price": 24.99,
     "oldprice": 37.58,
+    "inStock": true,
     "name": "POWER GAIN",
     "href": "#",
     "images": [
@@ -190,6 +197,5 @@
     ],
     "details": "Achieve your fitness goals with POWER GAIN, the ultimate muscle-building and strength-boosting supplement. Build lean muscle mass, increase strength and power, and optimize muscle recovery for maximum results."
   }
-  
-
 ]
+

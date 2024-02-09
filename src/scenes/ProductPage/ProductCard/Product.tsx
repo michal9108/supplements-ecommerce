@@ -15,6 +15,7 @@ export default function Product({
   name,
   price,
   oldprice,
+  inStock,
   details,
   highlights,
   reviews,
@@ -34,8 +35,7 @@ export default function Product({
   return (
     <div>
       <div className=" flex justify-center  items-center  min-h-full w-5/6  mx-auto max-sm:flex-wrap ">
-          <ProductSlider images={images} />
-     
+        <ProductSlider images={images} />
 
         <section className="py-2 h-full w-full md:w-1/2 flex justify-items-center	justify-center">
           {/*PRODUCT INFO */}
@@ -58,9 +58,10 @@ export default function Product({
                   ))}
                 </div>{" "}
                 <div className="flex items-center">
-                  <div className="  ml-3 text-sm max-md:text-xs font-medium text-black ">
+                  <div className="  ml-3 text-xs font-bold text-black ">
                     {/* TO DO Review Count Logic  & Review average logic*/}
-                    {reviews[0].average}/5 | by {reviews[0].totalCount} of happy customers 
+                    {reviews[0].average}/5 | by {reviews[0].totalCount} of happy
+                    customers
                   </div>
                 </div>
               </div>
@@ -87,8 +88,27 @@ export default function Product({
                   {formatCurrency(oldprice)}
                 </div>
               </div>
-
-              <div className="text-base  max-md:text-xs text-gray-900 ">{details}</div>
+              <span className="flex flex-row gap-2">
+                <div className=" max-w-fit border-solid border-green-500 bg-green-500 rounded-lg my-auto p-2 ">
+                  <div className="text-xs tracking-tight text-primary-100 ">
+                    You save {formatCurrency(oldprice - price)}!
+                  </div>
+                </div>
+                {inStock ? (<div className="max-w-fit border-solid border-black bg-green-500 rounded-lg my-auto p-2">
+                  <div className="text-xs tracking-tight text-primary-100 ">
+                    ✔️ in stock
+                  </div>
+                </div>) : (
+                  <div className="max-w-fit border-solid border-black bg-danger rounded-lg my-auto p-2">
+                  <div className="text-xs tracking-tight text-primary-100 ">
+                    ❌ not avalaible
+                  </div>
+                </div>
+                )}
+              </span>
+              <div className="py-1 text-base  max-md:text-xs text-gray-900 ">
+                {details}
+              </div>
 
               <form className="mt-1">
                 {/*PRODUCT PROOFS */}
@@ -99,7 +119,7 @@ export default function Product({
                       <img src={checkIcon} alt="" />
                     </div>
                     <li className="list-none text-gray-900  font-normal my-auto">
-                     <div>{item}</div> 
+                      <div>{item}</div>
                     </li>
                   </div>
                 ))}
@@ -108,7 +128,8 @@ export default function Product({
                 {quantity === 0 ? (
                   <button
                     type="button"
-                    className=" flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    disabled={!inStock}
+                    className=" flex w-full items-center justify-center rounded-md border border-transparent  px-8 py-3 text-2xl font-bold  text-primary-100 bg-secondary-500 disabled:bg-neutral-400 hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
                     onClick={() => {
                       increaseCartQuantity(id);
                       openCart();

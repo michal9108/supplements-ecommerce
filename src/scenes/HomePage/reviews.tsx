@@ -3,73 +3,8 @@ import { motion, useAnimation } from "framer-motion";
 import CardTemplate from "@/shared/CardTemplate";
 import { useState } from "react";
 import H2 from "@/shared/H2";
+import storeReviews from "@/data/reviews.json"
 
-const reviews: Array<ReviewType> = [
-  {
-    title: "Lorem 1",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-  {
-    title: "Lorem 2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-  {
-    title: "Lorem 3",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-  {
-    title: "Lorem 4",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-  {
-    title: "Lorem 5",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-  {
-    title: "Lorem 6",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-  {
-    title: "Lorem 7",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-  {
-    title: "Lorem 7",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "John N.",
-    country: "United States",
-    showStar: true,
-  },
-];
 
 const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -78,8 +13,8 @@ const Reviews = () => {
   const handleArrowClick = (direction: "prev" | "next") => {
     const newIndex =
       direction === "next"
-        ? (currentIndex + 1) % reviews.length
-        : (currentIndex - 1 + reviews.length) % reviews.length;
+        ? (currentIndex + 1) % storeReviews.length
+        : (currentIndex - 1 + storeReviews.length) % storeReviews.length;
 
     setCurrentIndex(newIndex);
 
@@ -105,7 +40,7 @@ const Reviews = () => {
                 className="w-[2800px] whitespace-nowrap pl-0"
                 animate={controls}
               >
-                {reviews.map((item: ReviewType, index) => (
+                {storeReviews.map((item: ReviewType, index) => (
                   <motion.li
                     key={`${item.name}-${index}`}
                     className="inline-block "
@@ -115,6 +50,7 @@ const Reviews = () => {
                       name={item.name}
                       description={item.description}
                       title={item.title}
+                      verifiedBuyer={item.verifiedBuyer}
                       country={item.country}
                       showStars={item.showStar}
                     />

@@ -25,6 +25,7 @@ export interface ReviewType {
 country:string;
 title:string;
 showStar:boolean;
+verifiedBuyer:boolean;
 }
 
 export interface BenefitsType {
@@ -40,6 +41,7 @@ export interface CardTemplateTypes {
   description?:string;
   country?:string;
   showStars:boolean;
+  verifiedBuyer:boolean;
   
   
 }
@@ -49,10 +51,11 @@ export interface ReviewsType {
   totalCount: number;
 }
 export interface ProductType {
-  id: number;
+  id: string;
   name: string;
   price: number;
   oldprice:number;
+  inStock:boolean;
   href: string;
   images: Array<{ src: string; alt: string }>;
   details: string;
@@ -61,24 +64,30 @@ export interface ProductType {
 }
 
 export interface CartItemType  {
-  id: number;
+  id: string;
   quantity: number;
+
   image:string;
+  
 };
 
 export type ShoppingCartType = {
   isOpen: boolean;
+ 
 };
 
 export type ProductCartContextType  = {
   openCart: () => void;
   closeCart: () => void;
-  getItemQuantity: (id: number) => number;
-  increaseCartQuantity: (id: number) => void;
-  decreaseCartQuantity: (id: number) => void;
-  removeFromCart: (id: number) => void;
+  getItemQuantity: (id: string) => number;
+  increaseCartQuantity: (id: string) => void;
+  decreaseCartQuantity: (id: string) => void;
+  removeFromCart: (id: string) => void;
+  subtotal: () => number;
+  savedAmount: () => number;
   cartQuantity: number;
   cartItems: CartItemType[];
+ 
   setProductDetails: (product: ProductType | null) => void;
   selectedProduct: ProductType | null, 
 };
@@ -87,6 +96,7 @@ export interface ButtonlinkTypes {
   to:string;
   children:string;
   className:string;
+  disabled:boolean;
 onClick?: () => void;
 }
 

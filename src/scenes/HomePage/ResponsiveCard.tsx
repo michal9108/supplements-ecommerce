@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { ProductType } from "@/shared/types";
@@ -6,8 +5,20 @@ import ButtonLink from "@/shared/ButtonLink";
 import { useProductCart } from "../cart/ShoppingCartContext";
 import { Link } from "react-router-dom";
 
-function ResponsiveCard({ id, images, name, details, price, oldprice, highlights, reviews, href }: ProductType) {
-  const { setProductDetails,increaseCartQuantity, openCart } = useProductCart();
+function ResponsiveCard({
+  id,
+  images,
+  name,
+  details,
+  price,
+  oldprice,
+  inStock,
+  highlights,
+  reviews,
+  href,
+}: ProductType) {
+  const { setProductDetails, increaseCartQuantity, openCart } =
+    useProductCart();
 
   const handleBuyNowClick = () => {
     setProductDetails({
@@ -15,6 +26,7 @@ function ResponsiveCard({ id, images, name, details, price, oldprice, highlights
       name,
       price,
       oldprice,
+      inStock,
       images,
       details,
       highlights,
@@ -23,7 +35,7 @@ function ResponsiveCard({ id, images, name, details, price, oldprice, highlights
     });
 
     increaseCartQuantity(id);
-  openCart()
+    openCart();
   };
 
   const handleRegularClick = () => {
@@ -32,16 +44,15 @@ function ResponsiveCard({ id, images, name, details, price, oldprice, highlights
       name,
       price,
       oldprice,
+      inStock,
       images,
       details,
       highlights,
       reviews,
       href,
     });
-    openCart()
-  }
-
-
+    openCart();
+  };
 
   const isBelowsxxScreens = useMediaQuery("(max-width: 325px)");
   const isBelowsxScreens = useMediaQuery("(max-width: 480px)");
@@ -54,41 +65,79 @@ function ResponsiveCard({ id, images, name, details, price, oldprice, highlights
 
   let cardStyle;
   if (isBelowsxxScreens) {
-    cardStyle = { width: "8rem", margin: "0.5rem" };
+    cardStyle = { width: "8rem", height: "23rem", margin: "0.5rem" };
   } else if (isBelowsxScreens) {
-    cardStyle = { width: "10rem", margin: "0.5rem" };
+    cardStyle = { width: "10rem", height: "25rem", margin: "0.5rem" };
   } else if (isBelowSmallScreens) {
-    cardStyle = { width: "14rem", margin: "0.5rem" };
+    cardStyle = { width: "14rem", height: "26rem", margin: "0.5rem" };
   } else if (isMediumScreens) {
-    cardStyle = { width: "18rem", margin: "0.5rem" };
+    cardStyle = { width: "18rem", height: "30rem", margin: "0.5rem" };
   } else if (isAboveMediumScreens) {
-    cardStyle = { width: "18rem", margin: "0.5rem" };
+    cardStyle = { width: "18rem", height: "35rem", margin: "0.5rem" };
   }
   if (isAboveLargeScreens) {
-    cardStyle = { width: "20rem", margin: "0.5rem" };
+    cardStyle = { width: "20rem", height: "44rem", margin: "0.5rem" };
   }
 
   return (
-    <Link key={id} onClick={handleRegularClick} to="/productpage" className="no-underline">
+    <Link
+      key={id}
+      onClick={handleRegularClick}
+      to="/productpage"
+      className="no-underline"
+    >
       <Card style={cardStyle}>
-        <Card.Img variant="top" src={images[0].src} />
-        <Card.Body>
-          <Card.Title>
-            <h3 className="text-center">{name}</h3>
-          </Card.Title>
+        <span className="relative">
+          {inStock ? (
+            <div className=" absolute top-2 left-2 max-w-fit border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
+              <div className="text-xs tracking-tight text-primary-100 ">
+                ✔️ in stock
+              </div>
+            </div>
+          ) : (
+            <div className="absolute top-2 left-2 border-solid border-black bg-danger rounded-lg my-auto p-2">
+              <div className="text-xs tracking-tight text-primary-100 ">
+                ⤫ not avalaible
+              </div>
+            </div>
+          )}
+          <Card.Img variant="top" src={images[0].src} />
+        </span>
+
+        <Card.Body className="flex flex-col justify-between">
+          <div className="mt-2">
+            <Card.Title>
+              <h3 className="text-center">{name}</h3>
+            </Card.Title>
+          </div>
+
           {isAboveMediumScreens && (
             <div>
               <Card.Text className="text-center">{details}</Card.Text>
             </div>
           )}
-          <div className="flex justify-center  items-center flex-col py-2">
-          <h3 className=" text-center">{price}$</h3>
-            <ButtonLink
-              onClick={handleBuyNowClick}
-              to={"/productpage"}
-              children={"BUY NOW"}
-              className=" bg-black   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
-            />
+          <div className="mt-auto mb-2 flex justify-center items-center flex-col">
+            {" "}
+            {/* Add mt-auto to push it to the bottom */}
+            <h3 className=" text-center font-bold">{price}$</h3>
+            {inStock ? (
+              <ButtonLink
+                onClick={handleBuyNowClick}
+                to={"/productpage"}
+                children={"BUY NOW"}
+                disabled={false}
+                className=" bg-black   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+              />
+            ) : (
+              <ButtonLink
+                onClick={handleBuyNowClick}
+                to={"/productpage"}
+                children={"BUY NOW"}
+                disabled={true}
+
+                className=" bg-neutral-400   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+              />
+            )}
           </div>
         </Card.Body>
       </Card>

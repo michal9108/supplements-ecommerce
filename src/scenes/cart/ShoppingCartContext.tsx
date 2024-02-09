@@ -11,7 +11,6 @@ import {
 import storeItems from "../../data/items.json"
 
 
-
 const ProductCartContext = createContext({} as ProductCartContextType);
 
 export function useProductCart() {
@@ -39,15 +38,16 @@ function  setProductDetails(product:ProductType | null) {
     0,
   );
 
+ 
 
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  function getItemQuantity(id: number) {
+  function getItemQuantity(id: string) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
-  function increaseCartQuantity(id: number) {
+  function increaseCartQuantity(id: string) {
     setCartItems((currItems) => {
       const existingItem = currItems.find((item) => item.id === id);
   
@@ -55,7 +55,8 @@ function  setProductDetails(product:ProductType | null) {
         const newItem: CartItemType = {
           id,
           quantity: 1,
-          image: '', 
+          image: '',
+         
         };
   
         // Check if the item has images and set the image property accordingly
@@ -83,7 +84,7 @@ function  setProductDetails(product:ProductType | null) {
   }
   
 
-  function decreaseCartQuantity(id: number) {
+  function decreaseCartQuantity(id: string) {
     setCartItems((currItems) => {
       if (currItems.find((item) => item.id === id)?.quantity === 1) {
         return currItems.filter((item) => item.id !== id);
@@ -98,13 +99,27 @@ function  setProductDetails(product:ProductType | null) {
       }
     });
   }
-  function removeFromCart(id: number) {
+  function removeFromCart(id: string) {
     setCartItems((currItems) => {
       return currItems.filter((item) => item.id !== id);
     });
   }
 
 
+
+  function subtotal (){
+    return cartItems.reduce((total, cartItem) => {
+      const item = storeItems.find((i) => i.id === cartItem.id);
+      return total + (item?.price || 0) * cartItem.quantity;
+    }, 0);
+  };
+
+  function savedAmount() {
+    return cartItems.reduce((tot, cartItem) => {
+      const item = storeItems.find((i) => i.id === cartItem.id);
+      return tot +  ((item?.oldprice || 0) * cartItem.quantity - (item?.price || 0) * cartItem.quantity)
+    },0);
+  }
 
 
 
@@ -115,16 +130,19 @@ function  setProductDetails(product:ProductType | null) {
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
+        subtotal,
+        savedAmount,
         openCart,
         closeCart,
         cartItems,
+     
         cartQuantity,
         selectedProduct,
         setProductDetails,
       }}
     >
       {children}
-      <ShoppingCart isOpen={isOpen} />
+      <ShoppingCart isOpen={isOpen}  />
     </ProductCartContext.Provider>
   );
 }

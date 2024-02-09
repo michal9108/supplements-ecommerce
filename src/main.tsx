@@ -26,12 +26,15 @@ const router = createBrowserRouter([
       {
         path: "contact",
       },
+      {
+        path: "success",
+        element: <SuccesPage />,
+      }
     ],
-  },
-  {
-    path: "success",
-    element: <SuccesPage />,
-  },
+  },{
+    
+  }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
