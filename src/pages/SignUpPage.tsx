@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-export default function SignUp() {
-  const [users, setUsers] = useState([]);
-  const [username, setUsername] = useState('');
+export default function SignUpPage() {
+  
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate()
@@ -17,7 +17,7 @@ export default function SignUp() {
 
   const fetchUsers = () => {
     axios
-      .get('http://loacalhost:3001/register')
+      .get('http://localhost:3000/register')
       .then((res) => {
         //console.log(res.data)
       })
@@ -26,14 +26,14 @@ export default function SignUp() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post('http://localhost:3001/register', { email, username, password })
+      .post('http://localhost:3000/register', { email, username, password })
       .then(() => {
         alert('Registration succesfull')
         setEmail('')
         setUsername('')
         setPassword('')
         fetchUsers()
-        navigate('/login')
+        navigate('/')
 
       })
       .catch((error) => {
@@ -78,6 +78,11 @@ export default function SignUp() {
             {/* Button */}
             <button className='w-[200px] h-[50px] border hover:bg-teal-900'
             type='submit'>Sign Up</button>
+            <div className="text-center">Already have account? 
+          <Link to='/login'>
+          <div  className="text-center">Login here</div>
+          </Link>
+        </div>
         </form>
     </div>
     <div className='w-[50%] h-[100%] flex justify-center items-center bg-teal-800'>

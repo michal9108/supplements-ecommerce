@@ -3,13 +3,13 @@ const { mongoose } = require('mongoose')
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
-const jwt = requier('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const User = require('./models/userSchema')
 
-const SECRET_KEY = 'super-secret-key'
+
 
 const dotenv = require('dotenv').config({ path: "../.env" })
-const stripe = require('stripe')(process.env.STRIPE_API);
+
 
 
 // connect to express app
@@ -19,12 +19,12 @@ const app = express();
 mongoose
 .connect(process.env.MONGO_URL, {
     useNewUrlParser:true,
-    useunifiedYopology:true
+    useUnifiedTopology:true
 })
 
     .then(() => {
-        app.listen(3001, () => {
-            console.log("Server connected to port 3001 and MongoDb ")
+        app.listen(3000, () => {
+            console.log("Server connected to port 3000 and MongoDb ")
         })
       
     })
@@ -78,7 +78,7 @@ app.post('/login', async (req, res) => {
         if(!isPasswordValid) {
             return res.status(401).json({ error: 'Invalid Password' })
         }
-        const token = jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: '1hr' })
+        const token = jwt.sign({ userId: user._id },process.env.SECRET_KEY, { expiresIn: '1hr' })
         res.json({ message: 'Login successful' })
     } catch (error) {
         res.status(500).json({ error: 'Error logging in' })
@@ -86,6 +86,8 @@ app.post('/login', async (req, res) => {
 })
 
 
+
+const stripe = require('stripe')(process.env.STRIPE_API);
 app.post("/checkout", async (req, res) => {
     /*
     req.body.items

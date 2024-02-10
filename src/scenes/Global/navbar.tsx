@@ -1,18 +1,16 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink  } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import Banner from "./banner";
 
 const Navbar = () => {
   const isUserSignedIn = !!localStorage.getItem("token");
-  const navigate = useNavigate();
+  
 
-  const handleSignOut = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+
+  
 
   const { openCart, cartQuantity } = useProductCart();
 
@@ -50,15 +48,18 @@ const Navbar = () => {
                   >
                     PRODUCTS
                   </NavLink>
+                 
+                  {/* RIGHT SIDE */}
+                  <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
                   {isUserSignedIn ? (
                     <>
                       <NavLink
                         className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                        to="/"
+                        to="/Account"
                       >
-                       
+                       ACCOUNT
                       </NavLink>
-                      <button onClick={handleSignOut} >Sign Out</button>
+                      
                   
                     </>
                   ) : (
@@ -69,16 +70,9 @@ const Navbar = () => {
                       >
                         LOGIN
                       </NavLink>
-                      <NavLink
-                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                        to="/signup"
-                      >
-                        SIGN UP
-                      </NavLink>
+                      
                     </>
                   )}
-                  {/* RIGHT SIDE */}
-                  <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
                     <button
                       onClick={openCart}
                       style={{
@@ -129,6 +123,28 @@ const Navbar = () => {
                     BODYBUFF
                   </NavLink>
                   <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
+                  {isUserSignedIn ? (
+                    <>
+                      <NavLink
+                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                        to="/Account"
+                      >
+                       ACCOUNT
+                      </NavLink>
+                      
+                  
+                    </>
+                  ) : (
+                    <>
+                      <NavLink
+                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                        to="/login"
+                      >
+                        LOGIN
+                      </NavLink>
+                      
+                    </>
+                  )}
                     {cartQuantity > 0 ? (
                       <button
                         onClick={openCart}
@@ -216,12 +232,22 @@ const Navbar = () => {
 
             {/* MENU ITEMS */}
             <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-              <NavLink
+              {isUserSignedIn ? (
+                <NavLink
+                className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
+                to="/account"
+              >
+                ACCOUNT
+              </NavLink>
+             
+              ): (
+                <NavLink
                 className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
                 to="/login"
               >
                 LOGIN
               </NavLink>
+              )}
               <NavLink
                 className="text-xl font-semibold no-underline text-secondary-500 focus:text-primary-500 "
                 to="/productpage"

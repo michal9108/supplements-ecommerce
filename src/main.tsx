@@ -3,14 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { createBrowserRouter } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
+import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "@/pages/ProductPage";
 import SuccesPage from "./pages/Succespage";
+import AccountPage from '@/pages/AccountPage';
 import { RouterProvider } from "react-router-dom";
-import axios from "axios";
 
 
 const isUserSignedIn = !!localStorage.getItem('token')
@@ -19,7 +19,7 @@ const isUserSignedIn = !!localStorage.getItem('token')
 const router = createBrowserRouter([
   {
     path: "/",
-    element:  isUserSignedIn ? <App /> : <Login /> ,
+    element:  <App /> ,
     children: [
       {
         path: "",
@@ -36,16 +36,20 @@ const router = createBrowserRouter([
         path: "success",
         element: <SuccesPage />,
       },
+      {
+        path: "account",
+        element: isUserSignedIn ?  <AccountPage/> : <HomePage/>
+      }
       
     ],
   },
   {
     path: "/signup",
-    element: <SignUp />,
+    element: <SignUpPage />,
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <LoginPage />,
   }
   
 
