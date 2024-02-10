@@ -1,10 +1,19 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import Banner from "./banner";
+
 const Navbar = () => {
+  const isUserSignedIn = !!localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   const { openCart, cartQuantity } = useProductCart();
 
   const flexBetween = "flex items-center justify-between";
@@ -41,12 +50,33 @@ const Navbar = () => {
                   >
                     PRODUCTS
                   </NavLink>
-                  <NavLink
-                    className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                    to="/login"
-                  >
-                    LOGIN
-                  </NavLink>
+                  {isUserSignedIn ? (
+                    <>
+                      <NavLink
+                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                        to="/"
+                      >
+                       
+                      </NavLink>
+                      <button onClick={handleSignOut} >Sign Out</button>
+                  
+                    </>
+                  ) : (
+                    <>
+                      <NavLink
+                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                        to="/login"
+                      >
+                        LOGIN
+                      </NavLink>
+                      <NavLink
+                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
+                        to="/signup"
+                      >
+                        SIGN UP
+                      </NavLink>
+                    </>
+                  )}
                   {/* RIGHT SIDE */}
                   <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
                     <button
@@ -186,7 +216,7 @@ const Navbar = () => {
 
             {/* MENU ITEMS */}
             <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            <NavLink
+              <NavLink
                 className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
                 to="/login"
               >
@@ -204,7 +234,6 @@ const Navbar = () => {
               >
                 STORE
               </NavLink>
-             
             </div>
           </div>
         )}

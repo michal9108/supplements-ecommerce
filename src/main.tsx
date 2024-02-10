@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { createBrowserRouter } from "react-router-dom";
-import SignUpPage from "@/pages/SignUpPage";
-import LogInPage from "@/pages/LogInPage";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "@/pages/ProductPage";
@@ -13,13 +13,13 @@ import { RouterProvider } from "react-router-dom";
 import axios from "axios";
 
 
-axios.defaults.baseURL = "http://localhost:4000";
-axios.defaults.withCredentials = true;
+const isUserSignedIn = !!localStorage.getItem('token')
+
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element:  isUserSignedIn ? <App /> : <Login /> ,
     children: [
       {
         path: "",
@@ -36,16 +36,19 @@ const router = createBrowserRouter([
         path: "success",
         element: <SuccesPage />,
       },
+      
     ],
   },
   {
     path: "/signup",
-    element: <SignUpPage />,
+    element: <SignUp />,
   },
   {
     path: "/login",
-    element: <LogInPage />,
-  },
+    element: <Login />,
+  }
+  
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
