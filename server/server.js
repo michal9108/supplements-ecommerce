@@ -87,6 +87,7 @@ app.post('/login', async (req, res) => {
 
 
 const stripe = require('stripe')(process.env.STRIPE_API);
+
 app.post("/checkout", async (req, res) => {
     /*
     req.body.items
@@ -105,28 +106,43 @@ app.post("/checkout", async (req, res) => {
         }
     ]
     */
-    console.log(req.body);
+    // console.log(req.body);
+
+try {
     const items = req.body.items;
-    let lineItems = [];
-    items.forEach((item) => {
-        lineItems.push(
-            {
-                price: item.id,
-                quantity: item.quantity
-            }
-        )
-    });
+    // let lineItems = [];
+    // items.forEach((item) => {
+    //     lineItems.push(
+    //         {
+    //             price: item.id,
+    //             quantity: item.quantity
+    //         }
+    //     )
+    // });
+    
+    let lineItems = items.map(item => ({
+        price: item.id,
+        quantity: item.quantity
+    }));
+
+
+
 
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: "http://localhost:5173/success",
-        cancel_url: "http://localhost:5173/productpage"
+        success_url: "https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app/success",
+        cancel_url: "https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app/productpage"
     });
 
     res.send(JSON.stringify({
         url: session.url
     }));
+
+} catch (error) {
+    console.error("Error processing checkout:", error);
+    res.status(500).json({ error:'Error processing checkout' });
+}
 
 
 
@@ -135,5 +151,6 @@ app.post("/checkout", async (req, res) => {
 
 
 });
-const port = 4000;
-app.listen(port, () => console.log(`Listening on port ${port}!`));
+// const port = 4000;
+// app.listen(port, () => console.log(`Listening on port ${port}!`));
+module.exports.app;
