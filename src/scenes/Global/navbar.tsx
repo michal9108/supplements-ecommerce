@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { NavLink  } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import Banner from "./banner";
+import UserIcon from "@/shared/userIcon";
+import Logo from "../../shared/Logo";
+// import HearthIcon from "@/shared/HearthIcon";
 
 const Navbar = () => {
   const isUserSignedIn = !!localStorage.getItem("token");
-  
-
-
-  
 
   const { openCart, cartQuantity } = useProductCart();
 
@@ -26,53 +25,46 @@ const Navbar = () => {
           {" "}
           <Banner />
           <div className={`${flexBetween} w-5/6 mx-auto py-3  `}>
-            <div className=" w-full gap-10">
+            <div className=" w-full ">
               {/* ABOVE MD  1060px */}
               {/* LEFT SIDE */}
 
               {isAboveMediumScreens ? (
                 <div className={`${flexBetween} w-full`}>
-                  <div className={`${flexBetween} gap-8 text-sm`}>
-                    <NavLink
-                      className=" text-4xl font-bold no-underline text-secondary-500  focus:text-primary-500 "
-                      to="/"
-                    >
-                      BODYBUFF
-                    </NavLink>
+                  <div className={`${flexBetween} gap-10 text-sm`}>
+                    <Logo />
                   </div>
 
                   {/* MIDDLE  */}
-                  <NavLink
-                    className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                    to="/"
-                  >
-                    PRODUCTS
-                  </NavLink>
-                 
+
+                  <div className={`${flexBetween}  text-sm`}>
+                    <NavLink
+                      className="text-3xl no-underline font-bold text-black focus:text-primary-500"
+                      to="/"
+                    >
+                      PRODUCTS
+                    </NavLink>
+                  </div>
+
                   {/* RIGHT SIDE */}
-                  <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
-                  {isUserSignedIn ? (
-                    <>
-                      <NavLink
-                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                        to="/Account"
+                  <div className={`${flexBetween} gap-4 text-xl no-underline"`}>
+                    <NavLink to="/account">
+                      <UserIcon />
+                    </NavLink>
+                    <NavLink to="/">
+                      {/* FAVORITE */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="40"
+                        fill="bg-black"
+                        className="bi bi-heart"
+                        viewBox="0 0 16 16"
                       >
-                       ACCOUNT
-                      </NavLink>
-                      
-                  
-                    </>
-                  ) : (
-                    <>
-                      <NavLink
-                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                        to="/login"
-                      >
-                        LOGIN
-                      </NavLink>
-                      
-                    </>
-                  )}
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                      </svg>
+                    </NavLink>
+
                     <button
                       onClick={openCart}
                       style={{
@@ -111,40 +103,22 @@ const Navbar = () => {
                 <div className={`${flexBetween} w-full`}>
                   {" "}
                   <button
-                    className="rounded-full bg-secondary-500 p-2"
+                    className="rounded-full bg-black p-2"
                     onClick={() => setIsMenuToggled(!isMenuToggled)}
                   >
                     <Bars3Icon className="h-7 w-7 text-white" />
                   </button>
                   <NavLink
-                    className=" text-4xl   font-bold  no-underline text-secondary-500  focus:text-primary-500 "
+                    className=" text-4xl   font-bold  no-underline text-black focus:text-primary-500 "
                     to="/"
                   >
-                    BODYBUFF
+                    <Logo />
                   </NavLink>
-                  <div className={`${flexBetween} gap-8 text-xl no-underline"`}>
-                  {isUserSignedIn ? (
-                    <>
-                      <NavLink
-                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                        to="/Account"
-                      >
-                       ACCOUNT
-                      </NavLink>
-                      
-                  
-                    </>
-                  ) : (
-                    <>
-                      <NavLink
-                        className="text-xl no-underline font-semibold text-secondary-500 focus:text-primary-500"
-                        to="/login"
-                      >
-                        LOGIN
-                      </NavLink>
-                      
-                    </>
-                  )}
+                  <div className={`${flexBetween} gap-3 text-xl no-underline"`}>
+                    <NavLink to="/account">
+                      <UserIcon />
+                    </NavLink>
+
                     {cartQuantity > 0 ? (
                       <button
                         onClick={openCart}
@@ -232,28 +206,13 @@ const Navbar = () => {
 
             {/* MENU ITEMS */}
             <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-              {isUserSignedIn ? (
-                <NavLink
-                className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
-                to="/account"
-              >
-                ACCOUNT
-              </NavLink>
-             
-              ): (
-                <NavLink
-                className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
-                to="/login"
-              >
-                LOGIN
-              </NavLink>
-              )}
               <NavLink
                 className="text-xl font-semibold no-underline text-secondary-500 focus:text-primary-500 "
-                to="/productpage"
+                to="/"
               >
-                PRODUCT
+                FAVORITES
               </NavLink>
+
               <NavLink
                 className="text-xl  font-semibold no-underline text-secondary-500 focus:text-primary-500"
                 to="/store"

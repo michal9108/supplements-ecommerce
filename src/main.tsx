@@ -26,19 +26,19 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "productpage",
+        path: "/productpage",
         element: <ProductPage />,
       },
       {
-        path: "contact",
+        path: "/contact",
       },
       {
-        path: "success",
+        path: "/success",
         element: <SuccesPage />,
       },
       {
-        path: "account",
-        element: isUserSignedIn ?  <AccountPage/> : <HomePage/>
+        path: "/account",
+        element: isUserSignedIn ?  <AccountPage/> : <LoginPage />
       }
       
     ],

@@ -11,7 +11,6 @@ const User = require('./models/userSchema')
 const dotenv = require('dotenv').config({ path: "../.env" })
 
 
-
 // connect to express app
 const app = express();
 
@@ -57,7 +56,7 @@ app.post('/register', async (req, res) => {
 })
 
 //GET Registered Users
-app.get('/register', async (req, res) => {
+app.get('/register', async (res) => {
     try {
         const users = await User.find()
         res.status(201).json(users)
