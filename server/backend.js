@@ -20,14 +20,14 @@ app.use((req, res, next) => {
   });
 
 app.post('/create-checkout-session', async (req, res) => {
-  const { priceId, quantity } = req.body;
+  const { id, quantity } = req.body;
 
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [
         {
-          price: priceId,
+          price: id,
           quantity: quantity,
         },
       ],
