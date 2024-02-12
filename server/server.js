@@ -1,9 +1,9 @@
-const dotenv = require('dotenv').config({ path: "../.env" })
+// const dotenv = require('dotenv').config({ path: "../.env" })
 
-const express = require('express');
+// const express = require('express');
 // const { mongoose } = require('mongoose')
-const cors = require('cors');
-const bodyParser = require('body-parser')
+// const cors = require('cors');
+// const bodyParser = require('body-parser')
 // const bcrypt = require('bcrypt')
 // const jwt = require('jsonwebtoken')
 // const User = require('./models/userSchema')
@@ -11,10 +11,10 @@ const bodyParser = require('body-parser')
 
 
 
-const stripe = require('stripe')(process.env.STRIPE_API);
+// const stripe = require('stripe')(process.env.STRIPE_API);
 
 // connect to express app
-const app = express();
+// const app = express();
 
 //db connection
 // mongoose
@@ -34,10 +34,10 @@ const app = express();
 //     })
 
 //middleware
-app.use(bodyParser.json())
-app.use(cors());
-app.use(express.static("public"));
-app.use(express.json());
+// app.use(bodyParser.json())
+// app.use(cors());
+// app.use(express.static("public"));
+// app.use(express.json());
 
 
 
@@ -89,7 +89,7 @@ app.use(express.json());
 
 
 
-app.post("/checkout", async (req, res) => {
+// app.post("/checkout", async (req, res) => {
     /*
     req.body.items
     [
@@ -109,17 +109,17 @@ app.post("/checkout", async (req, res) => {
     */
     // console.log(req.body);
 
-try {
-    const items = req.body.items;
-    let lineItems = [];
-    items.forEach((item) => {
-        lineItems.push(
-            {
-                price: item.id,
-                quantity: item.quantity
-            }
-        )
-    });
+// try {
+//     const items = req.body.items;
+//     let lineItems = [];
+//     items.forEach((item) => {
+//         lineItems.push(
+//             {
+//                 price: item.id,
+//                 quantity: item.quantity
+//             }
+//         )
+//     });
     
     // let lineItems = items.map(item => ({
     //     price: item.id,
@@ -129,25 +129,27 @@ try {
 
 
 
-    const session = await stripe.checkout.sessions.create({
-        line_items: lineItems,
-        mode: 'payment',
-        success_url: "https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app/success",
-        cancel_url: "https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app/productpage"
-    });
+//     const session = await stripe.checkout.sessions.create({
+//         line_items: lineItems,
+//         mode: 'payment',
+//         success_url: "https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app/success",
+//         cancel_url: "https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app/productpage"
+//     });
 
-    res.send(JSON.stringify({
-        url: session.url
-    }));
+//     res.send(JSON.stringify({
+//         url: session.url
+//     }));
 
-} catch (error) {
-    console.error("Error processing checkout:", error);
-    res.status(500).json({ error:'Error processing checkout' });
-}
+// } catch (error) {
+//     console.error("Error processing checkout:", error);
+//     res.status(500).json({ error:'Error processing checkout' });
+// }
 
 
 
-});
+// });
 // const port = 4000;
 // app.listen(port, () => console.log(`Listening on port ${port}!`));
-module.exports.app;
+
+
+// module.exports.app;
