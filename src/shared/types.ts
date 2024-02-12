@@ -114,3 +114,8 @@ export interface H2Types {
   children: ReactNode;
   color: string;
 }
+
+export type AccordionType = {
+  title:string;
+  answer:string;
+}

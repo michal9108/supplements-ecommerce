@@ -25,8 +25,9 @@ const Slider = () => {  const [isAboveMd, setIsAboveMd] = useState(false);
   }, []);
 
   const slideImages = isAboveMd
-    ? [{ src: slider1 }, { src: slider2 }, { src: slider3 }, { src: slider4 }]
-    : [, { src: slider5 }, { src: slider6 }, {src:slider7}];
+  ? [{ src: slider1 }, { src: slider2 }, { src: slider3 }, { src: slider4 }]
+  : [{ src: slider5 }, { src: slider6 }, { src: slider7 }];
+
 
   const divStyle = {
     display: "flex",

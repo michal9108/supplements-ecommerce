@@ -56,7 +56,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
               to="/"
               children="Continue Shopping"
               className="bg-black  text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
-            />
+               disabled={false}            />
           </div>
         </Offcanvas.Body>
       ) : (

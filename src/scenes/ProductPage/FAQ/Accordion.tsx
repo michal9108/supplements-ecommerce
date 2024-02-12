@@ -1,8 +1,9 @@
+import { AccordionType } from "@/shared/types";
 import React, { useState } from "react";
 
 
 
-const Accordion = ({ title, answer }) => {
+const Accordion = ({ title, answer }: AccordionType) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
 
   return (

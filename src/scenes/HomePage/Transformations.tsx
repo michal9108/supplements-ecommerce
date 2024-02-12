@@ -13,21 +13,18 @@ export default function Transformations() {
           name="Abbie | Lawyer"
           showStars={false}
           img={beforeafter1}
-          description="Abbie achieved an incredible transformation in just 6 months with the Buff Baddie Program. During this time, she successfully eliminated 17 pounds of pure fat while gaining the ideal amount of muscle. Notably, she accomplished her first pull-up, showcasing her dedication and achievements. Congratulations, Abbie!"
-        />
+          description="Abbie achieved an incredible transformation in just 6 months with the Buff Baddie Program. During this time, she successfully eliminated 17 pounds of pure fat while gaining the ideal amount of muscle. Notably, she accomplished her first pull-up, showcasing her dedication and achievements. Congratulations, Abbie!" verifiedBuyer={false}        />
 
         <CardTemplate
-          name="John | Strudent"
+          name="John | Student"
           showStars={false}
           img={beforeafter2}
-          description="In a span of 8 months, John underwent an impressive transformation by shedding 35 pounds of fat and building substantial muscle mass. His journey involved utilizing the cutting protocol to lean down effortlessly, followed by a seamless transition into our lean bulk protocol, resulting in the addition of dense muscle size."
-        />
+          description="In a span of 8 months, John underwent an impressive transformation by shedding 35 pounds of fat and building substantial muscle mass. His journey involved utilizing the cutting protocol to lean down effortlessly, followed by a seamless transition into our lean bulk protocol, resulting in the addition of dense muscle size." verifiedBuyer={false}        />
         <CardTemplate
           name="Luke | Doctor"
           showStars={false}
           img={beforeafter3}
-          description="Luke not only shed more than 20 pounds of fat but also built significant strength and muscle during his impressive transformation. In just 7 months, he transformed from a softer physique to one that appears carved out of granite. The remarkable outcome? He successfully secured a Microsoft commercial opportunity after his transformation."
-        />
+          description="Luke not only shed more than 20 pounds of fat but also built significant strength and muscle during his impressive transformation. In just 7 months, he transformed from a softer physique to one that appears carved out of granite. The remarkable outcome? He successfully secured a Microsoft commercial opportunity after his transformation." verifiedBuyer={false}        />
       </span>
     </section>
   );

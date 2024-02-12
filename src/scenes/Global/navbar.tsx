@@ -4,7 +4,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { NavLink, Link } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import Banner from "./banner";
-import UserIcon from "@/shared/userIcon";
+// import UserIcon from "@/shared/userIcon";
 import Logo from "../../shared/Logo";
 // import HearthIcon from "@/shared/HearthIcon";
 
@@ -49,7 +49,7 @@ const Navbar = () => {
                   {/* RIGHT SIDE */}
                   <div className={`${flexBetween} gap-4 text-xl no-underline"`}>
                     <NavLink to="/account">
-                      <UserIcon />
+                      {/* <UserIcon /> */}
                     </NavLink>
                     <NavLink to="/">
                       {/* FAVORITE */}
@@ -116,7 +116,7 @@ const Navbar = () => {
                   </NavLink>
                   <div className={`${flexBetween} gap-3 text-xl no-underline"`}>
                     <NavLink to="/account">
-                      <UserIcon />
+                      {/* <UserIcon /> */}
                     </NavLink>
 
                     {cartQuantity > 0 ? (

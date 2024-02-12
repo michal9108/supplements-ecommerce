@@ -6,9 +6,8 @@ import { ProductSliderType } from "@/shared/types";
 const ProductSlider: React.FC<ProductSliderType> = ({ images }) => {
   const isAboveMd = window.innerWidth >= 1060;
 
-  const indicators = (index) => (
-    <div className="indicator pr-8  m-px
-    "></div>
+  const indicators = () => (
+<div className="indicator pr-8  m-px"></div>
   );
 
   const properties = {
