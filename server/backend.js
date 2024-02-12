@@ -11,6 +11,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
 app.post('/create-checkout-session', async (req, res) => {
   const { priceId, quantity } = req.body;
 
