@@ -2,7 +2,7 @@ import { Offcanvas, Stack } from "react-bootstrap";
 import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItem } from "@/scenes/cart//CartItem";
-import storeItems from "@//data/items.json";
+
 import cardsIcons from "@/assets/cardsIcons.png";
 import { ShoppingCartType } from "@/shared/types";
 import emptyCart from "@/assets/empty-cart.svg";
@@ -15,7 +15,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
 
   //request to STRIPE on checkout
   const checkout = async () => {
-    await fetch('https://supplements-ecommerce-git-struct-70aa6a-mikes-projects-b8b6e248.vercel.app/create-checkout-session', {
+    await fetch('http://localhost:4000/checkout', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

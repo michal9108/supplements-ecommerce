@@ -66,7 +66,6 @@ export interface ProductType {
 export interface CartItemType  {
   id: string;
   quantity: number;
-
   image:string;
   
 };
@@ -87,7 +86,7 @@ export type ProductCartContextType  = {
   savedAmount: () => number;
   cartQuantity: number;
   cartItems: CartItemType[];
- 
+ storeItems:ProductType[];
   setProductDetails: (product: ProductType | null) => void;
   selectedProduct: ProductType | null, 
 };

@@ -1,8 +1,9 @@
 import { ProductType } from "@/shared/types";
 import ResponsiveCard from "./ResponsiveCard";
 import Proofs from "./Proofs";
-import storeItems from "@/data/items.json";
 import H2 from "@/shared/H2";
+import { storeItems } from "@/scenes/cart/ShoppingCartContext";
+
 
 export default function ListOfProducts() {
   return (

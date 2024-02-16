@@ -5,11 +5,10 @@ import {
   ProductType,
   CartItemType,
   ProductCartContextType,
-  ProductCartProviderType
+  ProductCartProviderType,
 } from "@/shared/types";
 
-import storeItems from "../../data/items.json"
-
+import storeItems from "../../data/items.json";
 
 const ProductCartContext = createContext({} as ProductCartContextType);
 
@@ -17,29 +16,25 @@ export function useProductCart() {
   return useContext(ProductCartContext);
 }
 export function ProductCartProvider({ children }: ProductCartProviderType) {
+  const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
+    null,
+  );
 
-
-const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null)
-
-function  setProductDetails(product:ProductType | null) {
-  setSelectedProduct(product)
-}
-
+  function setProductDetails(product: ProductType | null) {
+    setSelectedProduct(product);
+  }
 
   const [isOpen, setIsOpen] = useState(false);
 
   const [cartItems, setCartItems] = useLocalStorage<CartItemType[]>(
     "shopping-cart",
-    []
+    [],
   );
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0,
   );
-
- 
-
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
@@ -50,39 +45,39 @@ function  setProductDetails(product:ProductType | null) {
   function increaseCartQuantity(id: string) {
     setCartItems((currItems) => {
       const existingItem = currItems.find((item) => item.id === id);
-  
+
       if (!existingItem) {
         const newItem: CartItemType = {
           id,
           quantity: 1,
-          image: '',
-         
+          image: "",
         };
-  
+
         // Check if the item has images and set the image property accordingly
         if (storeItems.find((item) => item.id === id)?.images.length) {
-          newItem.image = storeItems.find((item) => item.id === id)!.images[0].src;
+          newItem.image = storeItems.find(
+            (item) => item.id === id,
+          )!.images[0].src;
         }
-  
+
         return [...currItems, newItem];
       }
-  
+
       return currItems.map((item) =>
         item.id === id
           ? {
-              id:item.id,
-              image:item.image,
+              id: item.id,
+              image: item.image,
               quantity: item.quantity + 1,
             }
           : {
-            id:item.id,
-            image:item.image,
-            quantity: item.quantity ,
-          }
+              id: item.id,
+              image: item.image,
+              quantity: item.quantity,
+            },
       );
     });
   }
-  
 
   function decreaseCartQuantity(id: string) {
     setCartItems((currItems) => {
@@ -105,23 +100,23 @@ function  setProductDetails(product:ProductType | null) {
     });
   }
 
-
-
-  function subtotal (){
+  function subtotal() {
     return cartItems.reduce((total, cartItem) => {
       const item = storeItems.find((i) => i.id === cartItem.id);
       return total + (item?.price || 0) * cartItem.quantity;
     }, 0);
-  };
+  }
 
   function savedAmount() {
     return cartItems.reduce((tot, cartItem) => {
       const item = storeItems.find((i) => i.id === cartItem.id);
-      return tot +  ((item?.oldprice || 0) * cartItem.quantity - (item?.price || 0) * cartItem.quantity)
-    },0);
+      return (
+        tot +
+        ((item?.oldprice || 0) * cartItem.quantity -
+          (item?.price || 0) * cartItem.quantity)
+      );
+    }, 0);
   }
-
-
 
   return (
     <ProductCartContext.Provider
@@ -135,14 +130,16 @@ function  setProductDetails(product:ProductType | null) {
         openCart,
         closeCart,
         cartItems,
-     
+        storeItems,
         cartQuantity,
         selectedProduct,
         setProductDetails,
       }}
     >
       {children}
-      <ShoppingCart isOpen={isOpen}  />
+      <ShoppingCart isOpen={isOpen} />
     </ProductCartContext.Provider>
   );
 }
+export { storeItems };
+
