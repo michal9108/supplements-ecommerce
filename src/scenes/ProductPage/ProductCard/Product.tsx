@@ -1,4 +1,4 @@
-import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
+import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { StarIcon, HomeModernIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "../../../assets/cardsIcons.png";

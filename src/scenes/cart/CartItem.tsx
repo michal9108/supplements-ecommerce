@@ -1,15 +1,15 @@
 import { Button, Stack } from "react-bootstrap";
-
-
-import { useProductCart, } from "@/scenes/cart/ShoppingCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItemType } from "../../shared/types";
+
+import {  useProductCart } from "@/scenes/cart/ProductCartContext";
+
 
 export function CartItem({ id, quantity, image }: CartItemType) {
   const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, storeItems } =
     useProductCart();
 
-  const item = storeItems.find((i) => i.id === id);
+  const item = storeItems.find((i: { id: string; }) => i.id === id);
 
   if (!item || !image) {
     console.error("Item not found or images not available:", id);

@@ -2,7 +2,8 @@ import { ProductType } from "@/shared/types";
 import ResponsiveCard from "./ResponsiveCard";
 import Proofs from "./Proofs";
 import H2 from "@/shared/H2";
-import {  useProductCart } from "@/scenes/cart/ShoppingCartContext";
+import {  useProductCart } from "@/scenes/cart/ProductCartContext";
+
 const  { storeItems } = useProductCart(); 
 
 export default function ListOfProducts() {

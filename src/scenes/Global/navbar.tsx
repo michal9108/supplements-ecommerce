@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { NavLink, Link } from "react-router-dom";
-import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
+import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import Banner from "./banner";
 // import UserIcon from "@/shared/userIcon";
 import Logo from "../../shared/Logo";

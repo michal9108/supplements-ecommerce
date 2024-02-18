@@ -7,14 +7,21 @@ import {
   ProductCartContextType,
   ProductCartProviderType,
 } from "@/shared/types";
-import { useEffect } from "react";
+
+
+import  useStoreItems from './useStoreItems';
 
 const ProductCartContext = createContext({} as ProductCartContextType);
 
 export function useProductCart() {
   return useContext(ProductCartContext);
 }
+
 export function ProductCartProvider({ children }: ProductCartProviderType) {
+
+  const storeItems = useStoreItems();
+
+
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
     null,
   );
@@ -22,7 +29,6 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   function setProductDetails(product: ProductType | null) {
     setSelectedProduct(product);
   }
-  const [storeItems, setStoreItems] = useState<ProductType[]>([]); // State to hold store items
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,23 +45,8 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  useEffect(() => {
-    async function fetchStoreItems() {
-      try {
-        const response = await fetch("http://localhost:4000/product/items"); // Adjust URL to match your backend endpoint
-        if (!response.ok) {
-          throw new Error("Failed to fetch store items");
-        }
-        const data = await response.json();
-        setStoreItems(data); // Set store items data in state
-        console.log(storeItems);
-      } catch (error) {
-        console.error("Error fetching store items:", error);
-      }
-    }
-    fetchStoreItems();
-  }, []);
 
+ 
   function getItemQuantity(id: string) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }

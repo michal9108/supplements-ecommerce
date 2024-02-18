@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { ProductType } from "@/shared/types";
 import ButtonLink from "@/shared/ButtonLink";
-import { useProductCart } from "../cart/ShoppingCartContext";
+import { useProductCart } from "../cart/ProductCartContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 

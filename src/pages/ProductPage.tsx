@@ -7,7 +7,7 @@ import Product from "@/scenes/ProductPage/ProductCard/Product";
 import InfoMessage from "@/scenes/ProductPage/InfoMessage";
 import Guarantee from "@/scenes/ProductPage/Guarantee";
 import OurClasses from "@/scenes/HomePage/ourClasses";
-import { useProductCart } from "@/scenes/cart/ShoppingCartContext";
+import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import ProductProofs from "@/scenes/ProductPage/ProductCard/ProductProofs";
 
 export default function ProductPage() {
