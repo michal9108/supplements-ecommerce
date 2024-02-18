@@ -7,8 +7,7 @@ import {
   ProductCartContextType,
   ProductCartProviderType,
 } from "@/shared/types";
-
-import storeItems from "../../data/items.json";
+import { useEffect } from "react";
 
 const ProductCartContext = createContext({} as ProductCartContextType);
 
@@ -23,6 +22,7 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   function setProductDetails(product: ProductType | null) {
     setSelectedProduct(product);
   }
+  const [storeItems, setStoreItems] = useState<ProductType[]>([]); // State to hold store items
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,6 +38,23 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+
+  useEffect(() => {
+    async function fetchStoreItems() {
+      try {
+        const response = await fetch("http://localhost:4000/product/items"); // Adjust URL to match your backend endpoint
+        if (!response.ok) {
+          throw new Error("Failed to fetch store items");
+        }
+        const data = await response.json();
+        setStoreItems(data); // Set store items data in state
+        console.log(storeItems);
+      } catch (error) {
+        console.error("Error fetching store items:", error);
+      }
+    }
+    fetchStoreItems();
+  }, []);
 
   function getItemQuantity(id: string) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
@@ -141,5 +158,3 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
     </ProductCartContext.Provider>
   );
 }
-export { storeItems };
-

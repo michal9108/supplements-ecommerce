@@ -16,7 +16,7 @@ export default function Transformations() {
           description="Abbie achieved an incredible transformation in just 6 months with the Buff Baddie Program. During this time, she successfully eliminated 17 pounds of pure fat while gaining the ideal amount of muscle. Notably, she accomplished her first pull-up, showcasing her dedication and achievements. Congratulations, Abbie!" verifiedBuyer={false}        />
 
         <CardTemplate
-          name="John | Student"
+          name="John | Accountant"
           showStars={false}
           img={beforeafter2}
           description="In a span of 8 months, John underwent an impressive transformation by shedding 35 pounds of fat and building substantial muscle mass. His journey involved utilizing the cutting protocol to lean down effortlessly, followed by a seamless transition into our lean bulk protocol, resulting in the addition of dense muscle size." verifiedBuyer={false}        />

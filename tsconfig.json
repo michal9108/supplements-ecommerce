@@ -19,6 +19,18 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "server/server.js", "server/backend.js", "src/**/*"],
+  "ts-node": {
+    // Tell ts-node CLI to install the --loader automatically, explained below
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true,
+  },
+  "include": [
+    "src",
+    "server/server.js",
+    "server/backend.js",
+    "src/**/*",
+    "server/data"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

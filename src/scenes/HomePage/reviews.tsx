@@ -3,8 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import CardTemplate from "@/shared/CardTemplate";
 import { useState } from "react";
 import H2 from "@/shared/H2";
-import storeReviews from "@/data/reviews.json"
-
+import storeReviews from "../../../server/data/reviews.json";
 
 const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -114,7 +114,10 @@ export interface H2Types {
   color: string;
 }
 
+
 export type AccordionType = {
   title:string;
   answer:string;
 }
+
+

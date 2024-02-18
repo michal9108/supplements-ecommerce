@@ -1,42 +1,73 @@
-const dotenv = require('dotenv').config({ path: "../.env" });
 
-const express = require('express');
-const { mongoose } = require('mongoose');
-let cors = require('cors');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('./models/userSchema');
+import express from "express";
+import jwt from 'jsonwebtoken'
+import bcrypt from "bcrypt";
+import bodyParser from "body-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+import mongoose from 'mongoose';
+import helmet from "helmet";
+import morgan from "morgan";
+import Reviews from './models/Reviews.js'
+import Product from './models/Product.js'
+import User from './models/userSchema.js'
+import { items, reviews } from './data/data.js';
+import productsRoutes from "./routes/product.js";
+import reviewsRoutes from "./routes/reviews.js";
+import Stripe from "stripe";
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe("sk_test_51HDZZtH9dKBRlDkrGypI7RjGytgwPUtI3mSHLWvdFtyo23eIpO3l3BSwjLbkIWNLZMonZluAfngDX5kKus8GpeLk00OVyIp7dR");
 
+const env = dotenv.config({ path: "./.env" });
+/* CONFIGURATIONS */
+dotenv.config();
 // connect to express app
 const app = express();
 
-//db connection
-mongoose
-    .connect(process.env.MONGO_URL, {
-        useNewUrlParser:true,
-        useUnifiedTopology:true
-    })
-    .then(() => {
-        app.listen(3000, () => {
-            console.log("Server connected to port 3000 and MongoDb ");
-        });
-    })
-    .catch((error) => {
-        console.log('Unable to connect to Server and/or MongoDB', error);
-    });
-
 //middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+app.use(morgan("common"));
 
-//Routes
+/* ROUTES DB  */
 
-//REGISTER
+app.use("/product", productsRoutes);
+app.use("/reviews", reviewsRoutes);
+// entry point for the  products and reviews routesk
+
+/* MONGOOSE SETUP */
+mongoose
+    .connect(process.env.MONGO_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(async () => {
+       
+        app.listen(process.env.MONGO_URL_PORT, () => console.log(`Server connected to port ${process.env.MONGO_URL_PORT} and MongoDb`));
+
+        //     /* ADD DATA ONE TIME ONLY OR AS NEEDED */
+        // await mongoose.connection.db.dropDatabase();
+
+        // before seeding the db dropping the current db - avoiding dev duplication
+
+        // Product.insertMany(items);
+        // Reviews.insertMany(reviews);
+
+        //inserting the kpis array of objects into the database
+    })
+
+    .catch((error) => {
+        console.log('Unable to connect to Server and/or MongoDB', error);
+    })
+
+
+/* ROUTES AUTH  */
+
 //POST REGISTER
 app.post('/register', async (req, res) => {
     try {
@@ -60,6 +91,7 @@ app.get('/register', async (req, res) => {
     }
 });
 
+
 app.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -68,7 +100,7 @@ app.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid Username' });
         }
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        if(!isPasswordValid) {
+        if (!isPasswordValid) {
             return res.status(401).json({ error: 'Invalid Password' });
         }
         const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: '1hr' });
@@ -79,7 +111,7 @@ app.post('/login', async (req, res) => {
 });
 
 app.post("/checkout", async (req, res) => {
-  
+
 
     try {
         const items = req.body.items;
@@ -92,13 +124,13 @@ app.post("/checkout", async (req, res) => {
                 }
             );
         });
-        
-    
+
+
         const session = await stripe.checkout.sessions.create({
             line_items: lineItems,
             mode: 'payment',
-            success_url:`${process.env.URL}/success`,
-            cancel_url:`${process.env.URL}/productpage`
+            success_url: `${process.env.URL}/success`,
+            cancel_url: `${process.env.URL}/productpage`
         });
 
         res.send(JSON.stringify({
@@ -107,11 +139,10 @@ app.post("/checkout", async (req, res) => {
 
     } catch (error) {
         console.error("Error processing checkout:", error);
-        res.status(500).json({ error:'Error processing checkout' });
+        res.status(500).json({ error: 'Error processing checkout' });
     }
 });
 
-const port = 4000;
-app.listen(port, () => console.log(`Listening on port ${port}!`));
 
-module.exports.app;
+
+
