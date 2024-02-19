@@ -11,6 +11,7 @@ import ProductPage from "@/pages/ProductPage";
 import SuccesPage from "./pages/Succespage";
 import AccountPage from '@/pages/AccountPage';
 import { RouterProvider } from "react-router-dom";
+import { ProductCartProvider } from "@/scenes/cart/ProductCartContext";
 
 
 const isUserSignedIn = !!localStorage.getItem('token')
@@ -56,7 +57,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  
+      <ProductCartProvider>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+    </ProductCartProvider>
+
 );

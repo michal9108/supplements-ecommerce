@@ -56,7 +56,7 @@ mongoose
         // before seeding the db dropping the current db - avoiding dev duplication
 
         // Product.insertMany(items);
-        // Reviews.insertMany(reviews);
+        //          Reviews.insertMany(reviews);
 
         //inserting the kpis array of objects into the database
     })

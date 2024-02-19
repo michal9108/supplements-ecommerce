@@ -3,10 +3,13 @@ import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItemType } from "../../shared/types";
 
 import {  useProductCart } from "@/scenes/cart/ProductCartContext";
+import storeItems  from '../../../server/data/items.json'
+
+
 
 
 export function CartItem({ id, quantity, image }: CartItemType) {
-  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, storeItems } =
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity  } =
     useProductCart();
 
   const item = storeItems.find((i: { id: string; }) => i.id === id);

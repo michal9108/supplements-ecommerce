@@ -87,6 +87,7 @@ export type ProductCartContextType  = {
   cartQuantity: number;
   cartItems: CartItemType[];
  storeItems:ProductType[];
+ mongoItems:MongoItemType[];
   setProductDetails: (product: ProductType | null) => void;
   selectedProduct: ProductType | null, 
 };
@@ -120,4 +121,20 @@ export type AccordionType = {
   answer:string;
 }
 
+export interface MongoItemType {
+  id: string;
+  _id:string;
+  price: number;
+  oldprice: number;
+  inStock:boolean;
+  name:string;
+  href:string;
+  images:Array<{ src: string; alt: string }>;
+  details: string;
+  highlights: string[];
+  reviews: ReviewsType[];
+  __v: number;
+  createdAt: string;
+  updatedAt: string;
+}
 

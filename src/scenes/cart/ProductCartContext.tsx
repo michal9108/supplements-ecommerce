@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+//@ts-nocheck
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 import {
@@ -7,19 +8,34 @@ import {
   ProductCartContextType,
   ProductCartProviderType,
 } from "@/shared/types";
+// import storeItems  from '../../../server/data/items.json'
 
-
-import  useStoreItems from './useStoreItems';
 
 const ProductCartContext = createContext({} as ProductCartContextType);
 
-export function useProductCart() {
-  return useContext(ProductCartContext);
-}
 
 export function ProductCartProvider({ children }: ProductCartProviderType) {
 
-  const storeItems = useStoreItems();
+
+
+ const [storeItems,setstoreItems] = useState([]);
+ const [error,setError] = useState(null);
+
+ console.log('store Items data',storeItems)
+
+ useEffect(() => {
+  const fetchData = async () => {
+    try{
+const response = await fetch('http://localhost:4000/product/items');
+const data = await response.json();
+console.log('fetched data from entry point',data);
+setstoreItems(data);
+    } catch(error) {
+      setError(error.message, 'Error while fetching data from mongo db')
+    }
+  };
+  fetchData();
+ },[])
 
 
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
@@ -139,13 +155,17 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
         closeCart,
         cartItems,
         storeItems,
+        error,
         cartQuantity,
         selectedProduct,
         setProductDetails,
+       
       }}
     >
       {children}
+      
       <ShoppingCart isOpen={isOpen} />
     </ProductCartContext.Provider>
   );
 }
+export const  useProductCart = () =>  useContext(ProductCartContext);
