@@ -4,8 +4,9 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { NavLink, Link } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import Banner from "./banner";
+import H2 from "@/shared/H2";
 // import UserIcon from "@/shared/userIcon";
-import Logo from "../../shared/Logo";
+
 // import HearthIcon from "@/shared/HearthIcon";
 
 const Navbar = () => {
@@ -32,7 +33,7 @@ const Navbar = () => {
               {isAboveMediumScreens ? (
                 <div className={`${flexBetween} w-full`}>
                   <div className={`${flexBetween} gap-10 text-sm`}>
-                    <Logo />
+                    <H2 color='black' >BODYBUFF</H2>
                   </div>
 
                   {/* MIDDLE  */}
@@ -110,7 +111,7 @@ const Navbar = () => {
                     className=" text-4xl   font-bold  no-underline text-black focus:text-primary-500 "
                     to="/"
                   >
-                    <Logo />
+                    <H2 color='black' >BODYBUFF</H2>
                   </NavLink>
                   <div className={`${flexBetween} gap-3 text-xl no-underline"`}>
                     <NavLink to="/account">{/* <UserIcon /> */}</NavLink>
