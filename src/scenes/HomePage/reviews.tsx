@@ -1,11 +1,14 @@
-import { ReviewType } from "@/shared/types";
+import { ProductReviewType } from "@/shared/types";
 import { motion, useAnimation } from "framer-motion";
 import CardTemplate from "@/shared/CardTemplate";
 import { useState } from "react";
 import H2 from "@/shared/H2";
-import storeReviews from "../../../server/data/reviews.json";
+import {useProductCart} from '../cart/ProductCartContext'
 
 const Reviews = () => {
+
+const {storeReviews} = useProductCart();
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
 
@@ -34,12 +37,12 @@ const Reviews = () => {
                 <H2 color="primary-100">reviews</H2>
               </div>
             </div>
-            <div className="h-[480px] w-5/6 mx-auto no-scrollbar  overflow-y-hidden relative">
+                <div className="h-[480px] w-5/6 mx-auto no-scrollbar  overflow-y-hidden relative">
               <motion.ul
                 className="w-[2800px] whitespace-nowrap pl-0"
                 animate={controls}
               >
-                {storeReviews.map((item: ReviewType, index) => (
+                {storeReviews.length > 0 && storeReviews.map((item: ProductReviewType, index) => (
                   <motion.li
                     key={`${item.name}-${index}`}
                     className="inline-block "

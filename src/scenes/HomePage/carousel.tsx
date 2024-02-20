@@ -12,7 +12,6 @@ import menshealth from "../../assets/logos/menshealth.svg";
 import mrbeast from "../../assets/logos/mrbeast.svg";
 import budweiser from "../../assets/logos/budweiser.svg";
 
-
 const Carousel = () => {
   const [clonedNode, setClonedNode] = useState<HTMLElement | null>(null);
 
@@ -36,45 +35,38 @@ const Carousel = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
 
   return (
- 
-      <section className=" gap-10 md:h-full md:pb-0  ">
-      
-   
-
-        <div className="w-full m-auto pt-1">
-        
-          {isAboveMediumScreens && (
-            <>
-              <div
-                className="logos  before:left-0 overflow-hidden py-14 px-0 whitespace-nowrap bg-white relative before:top-0 before:absolute before:w-42 before:h-full before:z:10 after:top-0 after:absolute after:w-42 after:h-full after:z:10 
+    <section className=" gap-10 md:h-full md:pb-0  ">
+      <div className="w-full m-auto pt-1">
+        {isAboveMediumScreens && (
+          <>
+            <div
+              className="logos  before:left-0 overflow-hidden py-14 px-0 whitespace-nowrap bg-white relative before:top-0 before:absolute before:w-42 before:h-full before:z:10 after:top-0 after:absolute after:w-42 after:h-full after:z:10 
 "
-              >
-                <div className="logos-slide inline-block  animate-slide animation-duration-5000 animation-iteration-count-infinite animation-timing-linear  ">
-                 
-                  <img src={threem} />
-                  <img src={barstoolstore} />
-                  <img src={budweiser} />
-                  <img src={buzzfeed} />
-                  <img src={forbes} />
-                  <img src={macys} />
-                  <img src={menshealth} />
-                  <img src={mrbeast} />
+            >
+              <div className="logos-slide inline-block  animate-slide animation-duration-5000 animation-iteration-count-infinite animation-timing-linear  ">
+                <img src={threem} />
+                <img src={barstoolstore} />
+                <img src={budweiser} />
+                <img src={buzzfeed} />
+                <img src={forbes} />
+                <img src={macys} />
+                <img src={menshealth} />
+                <img src={mrbeast} />
 
-                  <img src={threem} />
-                  <img src={barstoolstore} />
-                  <img src={budweiser} />
-                  <img src={buzzfeed} />
-                  <img src={forbes} />
-                  <img src={macys} />
-                  <img src={menshealth} />
-                  <img src={mrbeast} />
-                </div>
+                <img src={threem} />
+                <img src={barstoolstore} />
+                <img src={budweiser} />
+                <img src={buzzfeed} />
+                <img src={forbes} />
+                <img src={macys} />
+                <img src={menshealth} />
+                <img src={mrbeast} />
               </div>
-            </>
-          )}
-        </div>
-      </section>
- 
+            </div>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 

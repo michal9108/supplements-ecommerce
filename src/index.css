@@ -88,13 +88,13 @@ body,
 
 .indicator {
   cursor: pointer;
-padding:0;
+  padding: 0;
   text-align: center;
   border: 1px #999999 solid;
   margin: 2px;
   background: #999999;
   width: calc(100% / 5); /* Set width to cover 1/4th of the slide width */
-  height: 5px; 
+  height: 5px;
 }
 
 .indicator.active {
@@ -103,6 +103,6 @@ padding:0;
 }
 
 ul {
-    padding-right:32px;
-    margin-bottom:0px;
+  padding-right: 32px;
+  margin-bottom: 0px;
 }

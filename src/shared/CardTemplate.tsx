@@ -10,7 +10,7 @@ const CardTemplate = ({
   img,
 }: CardTemplateTypes) => {
   return (
-    <>
+    <ul>
       {showStars ? (
         <li className="relative inline-block h-[480px] w-[350px] bg-black px-2">
           <div className="absolute z-30 flex flex-col  transition duration-500  whitespace-normal p-4 bg-white">
@@ -40,7 +40,7 @@ const CardTemplate = ({
           </div>
         </section>
       )}
-    </>
+    </ul>
   );
 };
 

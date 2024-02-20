@@ -1,4 +1,4 @@
-import cardsIcons from "../../assets/cardsIcons.png"
+import cardsIcons from "../../assets/cardsIcons.png";
 
 const Footer = () => {
   return (
@@ -20,7 +20,7 @@ const Footer = () => {
           <p className="my-3">MANAGE SUBSCRIPTIONS</p>
         </div>
       </div>
-        <div className=" flex w-full justify-center mx-auto text-center uppercase font-bold text-xs">
+      <div className=" flex w-full justify-center mx-auto text-center uppercase font-bold text-xs">
         <div>
           <p>
             †these statements have not been evaluated by the food and drug
@@ -28,16 +28,15 @@ const Footer = () => {
             cure, or prevent any disease.
           </p>
         </div>
-        </div>
-        <div className=" flex flex-wrap w-5/6  justify-between items-center mx-auto font-thin text-xs ">
+      </div>
+      <div className=" flex flex-wrap w-5/6  justify-between items-center mx-auto font-thin text-xs ">
         <div className=" flex items-center justify-center">
           <p className="my-3 text-center">© BODYBUFF All Rights Reserved.</p>
         </div>
         <div>
           <img src={cardsIcons} alt="Payment methods" className="h-12" />
         </div>
-        </div>
-    
+      </div>
     </footer>
   );
 };

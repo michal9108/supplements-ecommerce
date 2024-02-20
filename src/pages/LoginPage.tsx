@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
-  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -76,13 +75,16 @@ export default function Login() {
           >
             Login
           </button>
-          <div className="text-center">You don't have account? 
-          <Link to='/signup'>
-          <div  className="text-center">Sign up here</div>
-          </Link>
-        </div>
+          <div className="text-center">
+            You don't have account?
+            <Link to="/signup">
+              <div className="text-center">Sign up here</div>
+            </Link>
+            <h5>
+              username : newuser <br></br> password : newuser1234
+            </h5>
+          </div>
         </form>
-        
       </div>
       <div className="w-[50%] h-[100%] flex justify-center items-center bg-teal-800">
         <h2 className="text-3xl text-white ">Login</h2>

@@ -10,10 +10,9 @@ const SuccesPage = () => {
         corner or email to{" "}
         <a href="support@bodybuff.com">support@bodybuff.com</a>
       </p>
-      <Link to='/'>
-        
+      <Link to="/">
         <button type="button"> Continue shopping</button>
-       </Link>
+      </Link>
     </div>
   );
 };

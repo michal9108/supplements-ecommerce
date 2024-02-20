@@ -84,69 +84,74 @@ function ResponsiveCard({
 
   return (
     <div>
-    <Link
-      key={id}
-      onClick={handleRegularClick}
-      to="/productpage"
-      className="no-underline"
-    >
-      <Card style={cardStyle}>
-        <span className="relative">
-          {inStock ? (
-            <div className=" absolute top-2 left-2 max-w-fit border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
-              <div className="text-xs tracking-tight text-primary-100 ">
-                ✔️ in stock
-              </div>
-            </div>
-          ) : (
-            <div className="absolute top-2 left-2 border-solid border-black bg-danger rounded-lg my-auto p-2">
-              <div className="text-xs tracking-tight text-primary-100 ">
-                ⤫ not avalaible
-              </div>
-            </div>
-          )}
-         
-        
-          <Card.Img variant="top" src={images[0].src} />
-        </span>
-
-        <Card.Body className="flex flex-col justify-between">
-          <div className="mt-2">
-            <Card.Title>
-              <h3 className="text-center">{name}</h3>
-            </Card.Title>
-          </div>
-
-          {isAboveMediumScreens && (
-            <div>
-              <Card.Text className="text-center">{details}</Card.Text>
-            </div>
-          )}
-          <div className="mt-auto mb-2 flex justify-center items-center flex-col">
-            {" "}
-            {/* Add mt-auto to push it to the bottom */}
-            <h3 className=" text-center font-bold">{price}$</h3>
+      <Link
+        key={id}
+        onClick={handleRegularClick}
+        to="/productpage"
+        className="no-underline"
+      >
+        <Card style={cardStyle}>
+          <span className="relative">
             {inStock ? (
-              <ButtonLink
-                onClick={handleBuyNowClick}
-                to={"/productpage"}
-                children={"BUY NOW"}
-                disabled={false}
-                className=" bg-black   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
-              />
+              <div className=" absolute top-2 left-2 max-w-fit border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
+                <div className="text-xs tracking-tight text-primary-100 ">
+                  ✔️ in stock
+                </div>
+              </div>
             ) : (
-              <ButtonLink
-               
-                to={"/productpage"}
-                children={"UNAVAILABLE"}
-                disabled={true}
-                className=" bg-neutral-400   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-l "
-              />
+              <div className="absolute top-2 left-2 border-solid border-black bg-danger rounded-lg my-auto p-2">
+                <div className="text-xs tracking-tight text-primary-100 ">
+                  ⤫ not avalaible
+                </div>
+              </div>
             )}
-          </div>
-        </Card.Body>
-      </Card>
-    </Link>
+
+            <Card.Img
+              variant="top"
+              src={images[0].src}
+              alt={images[0].alt}
+            />
+          </span>
+
+          <Card.Body className="flex flex-col justify-between">
+            <div className="mt-2">
+              <Card.Title>
+                <h3 className="text-center">{name}</h3>
+              </Card.Title>
+            </div>
+
+            {isAboveMediumScreens && (
+              <div>
+                <Card.Text className="text-center">{details}</Card.Text>
+              </div>
+            )}
+            <div className="mt-auto mb-2 flex justify-center items-center flex-col">
+              {" "}
+              {/* Add mt-auto to push it to the bottom */}
+              <span className="flex  justify-center gap-2">
+              <h3 className=" flex font-bold">{price}$</h3>
+              <p className=" flex font-normal text-neutral-400 line-through">{oldprice}$</p>
+              </span>
+              {inStock ? (
+                <ButtonLink
+                  onClick={handleBuyNowClick}
+                  to={"/productpage"}
+                  children={"BUY NOW"}
+                  disabled={false}
+                  className=" bg-black   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+                />
+              ) : (
+                <ButtonLink
+                  to={"/productpage"}
+                  children={"UNAVAILABLE"}
+                  disabled={true}
+                  className=" bg-neutral-400   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-l "
+                />
+              )}
+            </div>
+          </Card.Body>
+        </Card>
+      </Link>
     </div>
   );
 }

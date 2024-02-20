@@ -31,15 +31,9 @@ export default {
 
 ### TO DO
 
-
-
-
 Verify authenticity using confirm customer status. - green tick verified buyer on tesimonials and reviews
 
 Responsivecard component:
-
-
-
 
 ShoppingCart
 

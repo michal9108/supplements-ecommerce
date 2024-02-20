@@ -49,7 +49,6 @@ export default function InfoSales() {
                 to elevate your testosterone levels to optimal levels.
               </p>
             </div>
-
             {/* BUTTON */}
             <div className=" relative my-8 max-sm:mx-auto flex  justify-center items-center">
               <button className="  rounded-lg bg-secondary-500  px-20 py-3   text-primary-100 no-underline font-semibold text-xl">

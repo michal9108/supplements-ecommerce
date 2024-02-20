@@ -19,7 +19,6 @@ const BannerNewsletter = () => {
                 className="bg-primary-100 border border-gray-300  text-gray-100 text-md font-semibold rounded-lg  w-full p-2.5  "
                 required
               ></input>
-           
               <button className="bg-black  text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl">
                 SUBMIT
               </button>

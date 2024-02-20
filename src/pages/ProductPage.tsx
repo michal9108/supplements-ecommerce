@@ -11,16 +11,13 @@ import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import ProductProofs from "@/scenes/ProductPage/ProductCard/ProductProofs";
 
 export default function ProductPage() {
-
-  const {selectedProduct}= useProductCart();
+  const { selectedProduct } = useProductCart();
   return (
     <>
       <div className="bg-primary-100">
-        <div className="w-full static ">
-          {/* <ModalEmail /> */}
-          </div>
-         <ProductProofs />
-     {selectedProduct &&  <Product {...selectedProduct}   />}
+        <div className="w-full static ">{/* <ModalEmail /> */}</div>
+        <ProductProofs />
+        {selectedProduct && <Product {...selectedProduct} />}
 
         <Testimonials />
 

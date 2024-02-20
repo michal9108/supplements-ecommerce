@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-// import dotenv from "dotenv";
-// import process from "process";
 
-// dotenv.config();
-// const env = dotenv.config({ path: "./.env" });
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -19,8 +15,9 @@ export default function SignUpPage() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get(`${import.meta.env.VITE_URL}/register`).then((res) => {
-      //console.log(res.data)
+    axios.get(`${import.meta.env.VITE_URL}/register`)
+    .then((res) => {
+      console.log(res.data)
     });
   };
 

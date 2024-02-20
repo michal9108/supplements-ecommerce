@@ -4,7 +4,7 @@ import { StarIcon, HomeModernIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "../../../assets/cardsIcons.png";
 import checkIcon from "../../../assets/checkIcon.png";
 import ProductSlider from "./ProductSlider";
-import { ProductType, ReviewsType } from "../../../shared/types";
+import { ProductType} from "../../../shared/types";
 
 function classNames(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(" ");
@@ -94,16 +94,18 @@ export default function Product({
                     You save {formatCurrency(oldprice - price)}!
                   </div>
                 </div>
-                {inStock ? (<div className="max-w-fit border-solid border-black bg-green-500 rounded-lg my-auto p-2">
-                  <div className="text-xs tracking-tight text-primary-100 ">
-                    ✔️ in stock
+                {inStock ? (
+                  <div className="max-w-fit border-solid border-black bg-green-500 rounded-lg my-auto p-2">
+                    <div className="text-xs tracking-tight text-primary-100 ">
+                      ✔️ in stock
+                    </div>
                   </div>
-                </div>) : (
+                ) : (
                   <div className="max-w-fit border-solid border-black bg-danger rounded-lg my-auto p-2">
-                  <div className="text-xs tracking-tight text-primary-100 ">
-                    ❌ not avalaible
+                    <div className="text-xs tracking-tight text-primary-100 ">
+                      ❌ not avalaible
+                    </div>
                   </div>
-                </div>
                 )}
               </span>
               <div className="py-1 text-base  max-md:text-xs text-gray-900 ">

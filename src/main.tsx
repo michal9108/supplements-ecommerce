@@ -9,18 +9,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "@/pages/ProductPage";
 import SuccesPage from "./pages/Succespage";
-import AccountPage from '@/pages/AccountPage';
+import AccountPage from "@/pages/AccountPage";
 import { RouterProvider } from "react-router-dom";
-import { ProductCartProvider } from "@/scenes/cart/ProductCartContext";
 
-
-const isUserSignedIn = !!localStorage.getItem('token')
-
+const isUserSignedIn = !!localStorage.getItem("token");
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:  <App /> ,
+    element: <App />,
     children: [
       {
         path: "",
@@ -39,9 +36,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/account",
-        element: isUserSignedIn ?  <AccountPage/> : <LoginPage />
-      }
-      
+        element: isUserSignedIn ? <AccountPage /> : <LoginPage />,
+      },
     ],
   },
   {
@@ -51,15 +47,11 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
-  }
-  
-
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  
-      <ProductCartProvider>
+ 
     <RouterProvider router={router} />
-    </ProductCartProvider>
-
+ 
 );

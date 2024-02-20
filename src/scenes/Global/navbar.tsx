@@ -48,9 +48,7 @@ const Navbar = () => {
 
                   {/* RIGHT SIDE */}
                   <div className={`${flexBetween} gap-4 text-xl no-underline"`}>
-                    <NavLink to="/account">
-                      {/* <UserIcon /> */}
-                    </NavLink>
+                    <NavLink to="/account">{/* <UserIcon /> */}</NavLink>
                     <NavLink to="/">
                       {/* FAVORITE */}
                       <svg
@@ -115,9 +113,7 @@ const Navbar = () => {
                     <Logo />
                   </NavLink>
                   <div className={`${flexBetween} gap-3 text-xl no-underline"`}>
-                    <NavLink to="/account">
-                      {/* <UserIcon /> */}
-                    </NavLink>
+                    <NavLink to="/account">{/* <UserIcon /> */}</NavLink>
 
                     {cartQuantity > 0 ? (
                       <button

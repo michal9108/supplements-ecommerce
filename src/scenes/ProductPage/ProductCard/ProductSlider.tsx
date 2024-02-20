@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -6,9 +7,7 @@ import { ProductSliderType } from "@/shared/types";
 const ProductSlider: React.FC<ProductSliderType> = ({ images }) => {
   const isAboveMd = window.innerWidth >= 1060;
 
-  const indicators = () => (
-<div className="indicator pr-8  m-px"></div>
-  );
+  const indicators = () => <div className="indicator pr-8  m-px"></div>;
 
   const properties = {
     duration: 3000,

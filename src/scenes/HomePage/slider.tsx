@@ -9,7 +9,8 @@ import slider4 from "@/assets/homeSlider4.png";
 import slider5 from "@/assets/homeSlider5.png";
 import slider6 from "@/assets/homeSlider6.png";
 import slider7 from "@/assets/homeSlider7.png";
-const Slider = () => {  const [isAboveMd, setIsAboveMd] = useState(false);
+const Slider = () => {
+  const [isAboveMd, setIsAboveMd] = useState(false);
 
   const updateWindowSize = () => {
     setIsAboveMd(window.innerWidth >= 800);
@@ -25,9 +26,8 @@ const Slider = () => {  const [isAboveMd, setIsAboveMd] = useState(false);
   }, []);
 
   const slideImages = isAboveMd
-  ? [{ src: slider1 }, { src: slider2 }, { src: slider3 }, { src: slider4 }]
-  : [{ src: slider5 }, { src: slider6 }, { src: slider7 }];
-
+    ? [{ src: slider1 }, { src: slider2 }, { src: slider3 }, { src: slider4 }]
+    : [{ src: slider5 }, { src: slider6 }, { src: slider7 }];
 
   const divStyle = {
     display: "flex",

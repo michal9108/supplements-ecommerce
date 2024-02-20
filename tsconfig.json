@@ -23,7 +23,7 @@
     // Tell ts-node CLI to install the --loader automatically, explained below
     "esm": true,
     "experimentalSpecifierResolution": "node",
-    "transpileOnly": true,
+    "transpileOnly": true
   },
   "include": [
     "src",

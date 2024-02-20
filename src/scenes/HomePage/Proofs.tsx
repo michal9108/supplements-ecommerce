@@ -20,7 +20,6 @@ const proofs: Array<ProofType> = [
       <svg
         className="w-24 h-24"
         xmlns="http://www.w3.org/2000/svg"
-     
         viewBox="0 0 512.015 512.015"
         xmlSpace="preserve"
       >

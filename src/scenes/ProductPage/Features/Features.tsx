@@ -40,10 +40,7 @@ const features = () => {
           </div>
 
           <div className="flex justify-center align-items-center">
-            <img
-              src={fitPortrait}
-              className=" rounded-lg w-full"
-            ></img>
+            <img src={fitPortrait} className=" rounded-lg w-full"></img>
           </div>
         </div>
       </section>

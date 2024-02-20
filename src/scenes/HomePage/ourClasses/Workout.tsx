@@ -1,5 +1,4 @@
-
-import { WorkoutType} from "@/shared/types";
+import { WorkoutType } from "@/shared/types";
 
 const Workout = ({ name, description, image }: WorkoutType) => {
   const overlayStyles = `p-5 absolute z-30 flex

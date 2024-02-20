@@ -9,7 +9,7 @@
 // }
 
 // interface Product {
-//   id: number | string; 
+//   id: number | string;
 
 //   sizes: Size[];
 // }

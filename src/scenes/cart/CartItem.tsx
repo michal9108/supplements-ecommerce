@@ -2,20 +2,24 @@ import { Button, Stack } from "react-bootstrap";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
 import { CartItemType } from "../../shared/types";
 
-import {  useProductCart } from "@/scenes/cart/ProductCartContext";
-import storeItems  from '../../../server/data/items.json'
-
-
-
+import { useProductCart } from "@/scenes/cart/ProductCartContext";
 
 export function CartItem({ id, quantity, image }: CartItemType) {
-  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity  } =
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, storeItems } =
     useProductCart();
 
-  const item = storeItems.find((i: { id: string; }) => i.id === id);
+  const item = storeItems.find((element: { id: string }) => element.id === id);
+  
+console.log(item)
 
-  if (!item || !image) {
-    console.error("Item not found or images not available:", id);
+  if (!item ) {
+    console.error("Item  not available:", id);
+    
+    return null;
+  }
+  if (!image) {
+    console.error(" images not available:", id);
+    
     return null;
   }
 
@@ -26,8 +30,7 @@ export function CartItem({ id, quantity, image }: CartItemType) {
         style={{ width: "70px", height: "70px", objectFit: "cover" }}
       />
       <div className="me-auto">
-        <div >{item.name}</div>
-       
+        <div>{item.name}</div>
       </div>
       <span className="border-solid border-1 flex flex-row align-center border-black">
         <button
