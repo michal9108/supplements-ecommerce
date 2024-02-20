@@ -111,6 +111,11 @@ export default function Login() {
            Sign up here
           </Link>
         </p>
+          <p className="mt-10 text-center text-sm text-gray-500">
+          User:newuser <br>
+          </br>
+         Password:newuser1234
+        </p>
         </div>
     </div>
   );
