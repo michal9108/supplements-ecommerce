@@ -4,7 +4,7 @@ export default function Livechat() {
   useEffect(() => {
     window.chatwootSettings = {
       hideMessageBubble: false,
-      position: "right",
+      position: "left",
       locale: "en",
       type: "standard",
     };

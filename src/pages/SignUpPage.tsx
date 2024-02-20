@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-
+import Logo from "@/shared/Logo";
+import H2 from "@/shared/H2";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -15,9 +16,8 @@ export default function SignUpPage() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get(`${import.meta.env.VITE_URL}/register`)
-    .then((res) => {
-      console.log(res.data)
+    axios.get(`${import.meta.env.VITE_URL}/register`).then((res) => {
+      console.log(res.data);
     });
   };
 
@@ -42,65 +42,98 @@ export default function SignUpPage() {
       });
   };
   return (
-    <div className="w-full h-screen flex">
-      <div className="w-[50%] h-[100%] bg-[#1a1a1a] text-white flex justify-center items-center">
-        <form
-          className="text-center border rounded-lg w-[600px] h-[400px] p-9"
-          onSubmit={handleSubmit}
-        >
-          {/* Email Input */}
-          <label>Email</label>
-          <br />
-          <input
-            className="w-[400px] h-[40px] rounded-xl bg-zinc-700 p-2"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <br />
-          {/*Username Input */}
-          <label>Username</label>
-          <br />
-          <input
-            className="w-[400px] h-[40px] rounded-xl bg-zinc-700 p-2"
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br />
-          <br />
-          {/* Password Input */}
-          <label>Password</label>
-          <br />
-          <input
-            className="w-[400px] h-[40px] rounded-xl bg-zinc-700 p-2"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <br />
-          {/* Button */}
-          <button
-            className="w-[200px] h-[50px] border hover:bg-teal-900"
-            type="submit"
-          >
-            Sign Up
-          </button>
-          <div className="text-center">
-            Already have account?
-            <Link to="/login">
-              <div className="text-center">Login here</div>
-            </Link>
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <H2 color="black-900">BODYBUFF</H2>
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          Sign up to your new account
+        </h2>
+      </div>
+
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form className="space-y-6" action="#" onSubmit={handleSubmit}>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Email address
+            </label>
+            <div className="mt-2">
+              <input
+                id="email"
+                name="email"
+                type="text"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-300 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Username
+            </label>
+            <div className="mt-2">
+              <input
+                id="username"
+                name="username"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-300 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Password
+              </label>
+            </div>
+            <div className="mt-2">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-300 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              className="flex w-full justify-center rounded-md bg-primary-300 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300"
+            >
+              Sign up
+            </button>
           </div>
         </form>
-      </div>
-      <div className="w-[50%] h-[100%] flex justify-center items-center bg-teal-800">
-        <h2 className="text-3xl text-white">Sign Up</h2>
+
+        <p className="mt-10 text-center text-sm text-gray-500">
+          Already a user?{" "}
+          <Link
+            to="/login"
+            className="font-semibold leading-6 text-primary-300 hover:text-primary-300"
+          >
+            Log in
+          </Link>
+        </p>
       </div>
     </div>
   );
