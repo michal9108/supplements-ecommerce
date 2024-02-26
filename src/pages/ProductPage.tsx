@@ -1,4 +1,4 @@
-// import ModalEmail from "@/scenes/modal/ModalEmail";
+import ModalEmail from "@/scenes/modal/ModalEmail";
 import Testimonials from "../scenes/ProductPage/Testimonials/Testimonials";
 import Features from "@/scenes/ProductPage/Features/Features";
 import Reasons from "../scenes/ProductPage/Reasons/Reasons";
@@ -15,7 +15,7 @@ export default function ProductPage() {
   return (
     <>
       <div className="bg-primary-100">
-        <div className="w-full static ">{/* <ModalEmail /> */}</div>
+        <div className="w-full static "><ModalEmail /></div>
         <ProductProofs />
         {selectedProduct && <Product {...selectedProduct} />}
 

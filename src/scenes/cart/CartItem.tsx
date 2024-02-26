@@ -4,24 +4,15 @@ import { CartItemType } from "../../shared/types";
 
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 
-export function CartItem({ id, quantity, image }: CartItemType) {
+export function CartItem({ id, quantity }: CartItemType) {
   const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, storeItems } =
     useProductCart();
 
-  const item = storeItems.find((element: { id: string }) => element.id === id);
-  
+  const item = storeItems.find((i) => i.id === id);
+  if (item == null) return null;
+
 console.log(item)
 
-  if (!item ) {
-    console.error("Item  not available:", id);
-    
-    return null;
-  }
-  if (!image) {
-    console.error(" images not available:", id);
-    
-    return null;
-  }
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex items-center">
@@ -37,7 +28,7 @@ console.log(item)
           className="border-black border-solid  border-1 p-1"
           type="button"
           onClick={() => {
-            decreaseCartQuantity(id);
+            decreaseCartQuantity(item.id);
           }}
         >
           -
@@ -54,7 +45,7 @@ console.log(item)
           className="border-black border-solid  border-1 p-1"
           type="button"
           onClick={() => {
-            increaseCartQuantity(id);
+            increaseCartQuantity(item.id);
           }}
         >
           +

@@ -13,6 +13,7 @@ const reviewsCountSchema = new Schema({
 
 const ProductSchema = new Schema(
   {
+    id: String,
     price: Number,
     oldprice: Number,
     inStock: Boolean,

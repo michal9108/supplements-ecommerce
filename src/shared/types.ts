@@ -68,7 +68,7 @@ export interface ProductType {
 export interface CartItemType {
   id: string;
   quantity: number;
-  image: string;
+  
 }
 
 export type ShoppingCartType = {
@@ -119,8 +119,6 @@ export type AccordionType = {
   title: string;
   answer: string;
 };
-
-
 
 
 // export interface MongoItemType {

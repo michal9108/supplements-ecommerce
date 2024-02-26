@@ -16,7 +16,7 @@ import reviewsRoutes from "./routes/reviews.js";
 import Stripe from "stripe";
 
 const stripe = new Stripe(
-  "sk_test_51HDZZtH9dKBRlDkrGypI7RjGytgwPUtI3mSHLWvdFtyo23eIpO3l3BSwjLbkIWNLZMonZluAfngDX5kKus8GpeLk00OVyIp7dR",
+  'sk_test_51HDZZtH9dKBRlDkrGypI7RjGytgwPUtI3mSHLWvdFtyo23eIpO3l3BSwjLbkIWNLZMonZluAfngDX5kKus8GpeLk00OVyIp7dR',
 );
 
 const env = dotenv.config({ path: "./.env" });
@@ -39,7 +39,7 @@ app.use(morgan("common"));
 
 app.use("/product", productsRoutes);
 app.use("/reviews", reviewsRoutes);
-// entry point for the  products and reviews routesk
+// entry point for the  products and reviews routes
 
 /* MONGOOSE SETUP */
 mongoose

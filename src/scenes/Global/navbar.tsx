@@ -111,7 +111,7 @@ const Navbar = () => {
                     className=" text-4xl   font-bold  no-underline text-black focus:text-primary-500 "
                     to="/"
                   >
-                    <H2 color='black' >BODYBUFF</H2>
+                    <h2  className='xss:text-3xl xs:text-4xl font-black uppercase my-auto text-center'>BODYBUFF</h2>
                   </NavLink>
                   <div className={`${flexBetween} gap-3 text-xl no-underline"`}>
                     <NavLink to="/account">{/* <UserIcon /> */}</NavLink>
