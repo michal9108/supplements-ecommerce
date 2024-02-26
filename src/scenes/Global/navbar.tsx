@@ -4,7 +4,6 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { NavLink, Link } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import Banner from "./banner";
-import H2 from "@/shared/H2";
 // import UserIcon from "@/shared/userIcon";
 
 // import HearthIcon from "@/shared/HearthIcon";
@@ -33,7 +32,7 @@ const Navbar = () => {
               {isAboveMediumScreens ? (
                 <div className={`${flexBetween} w-full`}>
                   <div className={`${flexBetween} gap-10 text-sm`}>
-                    <H2 color='black' >BODYBUFF</H2>
+                  <h2  className='xss:text-3xl xs:text-4xl font-black uppercase my-auto text-center'>BODYBUFF</h2>
                   </div>
 
                   {/* MIDDLE  */}
