@@ -29,6 +29,7 @@
     "react-slideshow-image": "^4.3.0"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/node": "^20.10.0",
     "@types/react-anchor-link-smooth-scroll": "^1.0.2",

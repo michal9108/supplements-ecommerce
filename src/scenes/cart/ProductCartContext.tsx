@@ -26,7 +26,7 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/product/items");
+        const response = await fetch("http://localhost:3000/product/items");
         const data = await response.json();
         // console.log("fetched product data from entry point", data);
         setstoreItems(data);
@@ -42,7 +42,7 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   useEffect(() => {
     const fetchReviewData = async () => {
       try {
-        const resp = await fetch("http://localhost:4000/reviews/reviews");
+        const resp = await fetch("http://localhost:3000/reviews/reviews");
         const dataReviews = await resp.json();
         // console.log("fetched reviews data from entry point", dataReviews);
         setstoreReviews(dataReviews);
