@@ -7,9 +7,9 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
-import ProductPage from "@/pages/ProductPage";
+import ProductPage from "./pages/ProductPage";
 import SuccesPage from "./pages/Succespage";
-import AccountPage from "@/pages/AccountPage";
+import AccountPage from "./pages/AccountPage";
 import { RouterProvider } from "react-router-dom";
 
 const isUserSignedIn = !!localStorage.getItem("token");

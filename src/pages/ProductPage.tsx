@@ -1,4 +1,4 @@
-import ModalEmail from "@/scenes/modal/ModalEmail";
+import ModalEmail from "../scenes/modal/ModalEmail";
 import Testimonials from "../scenes/ProductPage/Testimonials/Testimonials";
 import Features from "@/scenes/ProductPage/Features/Features";
 import Reasons from "../scenes/ProductPage/Reasons/Reasons";
