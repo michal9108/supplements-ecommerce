@@ -15,8 +15,8 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
 
   //request to STRIPE on checkout
   const checkout = async () => {
-    console.log('cartItems:', cartItems);
-    await fetch("http://localhost:3000/checkout", {
+    console.log("cartItems:", cartItems);
+    await fetch("https://eshop-ts.fly.dev/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,14 +25,14 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network reponse was not ok');
+          throw new Error("Network reponse was not ok");
         }
         return response.json();
       })
       .then((response) => {
         if (response.url) {
           window.location.assign(response.url);
-           //Forwarding user to Stripe
+          //Forwarding user to Stripe
         }
       });
   };
