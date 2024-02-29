@@ -1,8 +1,8 @@
-import {FeatureProps} from '@/shared/types'
+import {FeatureType} from '@/shared/types'
 import checkIcon from "@/assets/checkIcon.png";
 
 
-export default function FeatureBox({ name, text }: FeatureProps) {
+export default function FeatureBox({ name, text }: FeatureType) {
   return (
     <div className="grid gap-2 p-2 md:p-2 justify-items-center rounded-lg shadow-lg">
       <img src={checkIcon} alt="" className="inline-block h-8" />

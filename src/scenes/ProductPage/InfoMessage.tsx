@@ -1,5 +1,6 @@
 
 export default function InfoMessage() {
+  
   return (
     <section className="w-5/6 mx-auto">
       <span className="mx-auto min-h-full  py-1">
