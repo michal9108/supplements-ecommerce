@@ -1,22 +1,22 @@
-import Carousel from "@/scenes/HomePage/carousel";
+import Carousel from "@/scenes/HomePage/Carousel";
 import InfoSales from "@/scenes/HomePage/InfoSales";
 import "bootstrap/dist/css/bootstrap.min.css";
-import BannerNewsletter from "@/scenes/HomePage/bannerNewsletter";
-import Reviews from "../scenes/HomePage/reviews";
-import Slider from "@/scenes/HomePage/slider";
+import Newsletter from "@/scenes/HomePage/Newsletter";
+import Reviews from "@/scenes/HomePage/Reviews";
+import Slider from '@/scenes/HomePage/Slider';
 import Transformations from "@/scenes/HomePage/Transformations";
-import ListOfProducts from "@/scenes/HomePage/ListOfProducts";
+import Shop from "@/scenes/HomePage/Shop";
 
 export default function HomePage() {
   return (
     <div className="">
       <Slider />
       <Carousel />
-      <ListOfProducts />
+      <Shop />
       <InfoSales />
       <Reviews />
       <Transformations />
-      <BannerNewsletter />
+      <Newsletter />
     </div>
   );
 }

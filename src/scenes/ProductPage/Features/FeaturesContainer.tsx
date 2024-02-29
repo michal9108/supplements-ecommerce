@@ -1,13 +1,10 @@
-import React from "react";
-import Feature from "./Feature";
+import FeatureBox from "./FeatureBox";
 import fitPortrait from "../../../assets/fitPortrait.png";
-const features = () => {
-  const checkmark = "src/assets/checkmark.png";
 
+export default function FeaturesContainer() {
   return (
     <div>
       <section>
-        {/* Features Container */}
         <div className="mx-auto w-5/6 py-8 md:px-10 md:py-24 lg:py-32 flex max-sm:flex-col-reverse">
           {/* Features Title  & Grid */}
           <div className="flex flex-col">
@@ -16,23 +13,23 @@ const features = () => {
             </h4>
 
             <div className="grid gap-3 sm:grid-cols-4  md:grid-rows-1 md:grid-cols-4">
-              <Feature
+              <FeatureBox
                 name="Enhance your libido"
                 text="  Take your intimate experiences to new heights.
              
       aliquam, purus sit."
               />
-              <Feature
+              <FeatureBox
                 name="Trim body fat & Develop lean muscle"
                 text="   Attain a toned and sculpted physique.
               "
               />
-              <Feature
+              <FeatureBox
                 name="Increase Quality of Life"
                 text=" Enhance overall well-being and fulfillment.
             "
               />
-              <Feature
+              <FeatureBox
                 name="Boost your ambition."
                 text="Enhance overall well-being and fulfillment."
               />
@@ -46,6 +43,4 @@ const features = () => {
       </section>
     </div>
   );
-};
-
-export default features;
+}

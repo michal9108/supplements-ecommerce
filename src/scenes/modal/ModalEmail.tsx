@@ -1,7 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 import { useEffect, useState } from "react";
 
-const ModalEmail = () => {
+export default function ModalEmail() {
   const [show, setShow] = useState(true);
   const [modalShow, setModalShow] = useState(false);
 
@@ -59,4 +59,3 @@ const ModalEmail = () => {
   );
 };
 
-export default ModalEmail;

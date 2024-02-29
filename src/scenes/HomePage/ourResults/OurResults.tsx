@@ -6,7 +6,7 @@ import image4 from "@/assets/workouts4.png";
 import image5 from "@/assets/workouts5.png";
 import image6 from "@/assets/workouts6.png";
 import { motion } from "framer-motion";
-import Workout from "./Workout";
+import Result from './Result';
 import H2 from "@/shared/H2";
 
 const workout: Array<WorkoutType> = [
@@ -44,7 +44,7 @@ const workout: Array<WorkoutType> = [
   },
 ];
 
-const OurWorkouts = () => {
+export default function OurProteins() {
   return (
     <section id="ourclasses" className="w-full bg-primary-100 ">
       <motion.div>
@@ -72,7 +72,7 @@ const OurWorkouts = () => {
         <div className=" h-[353px] w-full no-scrollbar  overflow-y-hidden">
           <ul className="w-[2800px] primary-100space-nowrap">
             {workout.map((item: WorkoutType, index) => (
-              <Workout
+              <Result
                 key={`${item.name}-${index}`}
                 name={item.name}
                 description={item.description}
@@ -86,4 +86,4 @@ const OurWorkouts = () => {
   );
 };
 
-export default OurWorkouts;
+

@@ -9,7 +9,9 @@ import slider4 from "@/assets/homeSlider4.png";
 import slider5 from "@/assets/homeSlider5.png";
 import slider6 from "@/assets/homeSlider6.png";
 import slider7 from "@/assets/homeSlider7.png";
-const Slider = () => {
+
+export default function Slider(){
+  
   const [isAboveMd, setIsAboveMd] = useState(false);
 
   const updateWindowSize = () => {
@@ -52,4 +54,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+

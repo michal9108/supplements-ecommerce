@@ -6,7 +6,7 @@ import { useProductCart } from "../cart/ProductCartContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function ResponsiveCard({
+export default function ResponsiveCard({
   id,
   images,
   name,
@@ -156,4 +156,4 @@ function ResponsiveCard({
   );
 }
 
-export default ResponsiveCard;
+

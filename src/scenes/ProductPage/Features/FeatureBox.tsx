@@ -1,12 +1,8 @@
-import React from "react";
+import {FeatureProps} from '@/shared/types'
+import checkIcon from "@/assets/checkIcon.png";
 
-import checkIcon from "../../../assets/checkIcon.png";
 
-interface FeatureProps {
-  name: string;
-  text: string;
-}
-export default function Feature({ name, text }: FeatureProps) {
+export default function FeatureBox({ name, text }: FeatureProps) {
   return (
     <div className="grid gap-2 p-2 md:p-2 justify-items-center rounded-lg shadow-lg">
       <img src={checkIcon} alt="" className="inline-block h-8" />

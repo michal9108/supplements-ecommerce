@@ -22,8 +22,6 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
 
 
 
-
-
   const [storeItems, setstoreItems] = useState<ProductType[]>([]);
   const [isLoading, setisLoading] = useState(true);
   const [storeReviews, setstoreReviews] = useState<ProductReviewType[]>([]);

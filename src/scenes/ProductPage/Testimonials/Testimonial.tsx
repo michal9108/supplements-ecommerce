@@ -1,21 +1,13 @@
-import React from "react";
-
 import { StarIcon } from "@heroicons/react/24/solid";
-import { isFloat32Array } from "util/types";
-
-interface TestimonialProps {
-  user: string;
-  age: number;
-  city: string;
-  src: string;
-}
+import { TestimonialTypes } from "@/shared/types";
 
 export default function Testimonial({
   user: name,
   age,
   city,
   src,
-}: TestimonialProps) {
+}: TestimonialTypes) {
+  
   return (
     <div className="flex max-w-lg justify-center">
       <div className="flex  mx-1 my-3 p-1 border-dotted rounded-lg border-3 border-secondary-500">

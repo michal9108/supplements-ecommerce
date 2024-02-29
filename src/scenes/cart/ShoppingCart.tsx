@@ -1,17 +1,17 @@
 import { Offcanvas, Stack } from "react-bootstrap";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
-import { CartItem } from "@/scenes/cart//CartItem";
+import { ItemCart } from "@/scenes/cart/ItemCart";
 
 import cardsIcons from "@/assets/cardsIcons.png";
 import { ShoppingCartType } from "@/shared/types";
 import emptyCart from "@/assets/empty-cart.svg";
 import ButtonLink from "@/shared/ButtonLink";
-import { useState } from "react";
+
 
 export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
   const { closeCart, cartItems, subtotal, savedAmount } = useProductCart();
-  const [isShippingFree, setFreeShipping] = useState(0);
+ 
 
   //request to STRIPE on checkout
   const checkout = async () => {
@@ -79,7 +79,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
           )}
           <Stack gap={3}>
             {cartItems.map((item) => (
-              <CartItem key={item.id} {...item} />
+              <ItemCart key={item.id} {...item} />
             ))}
 
             <div className="flex max-w-fit max-h-fit border-solid border-green-500 bg-green-500 rounded-lg p-2 mx-auto">

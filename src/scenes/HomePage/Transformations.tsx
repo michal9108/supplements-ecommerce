@@ -1,8 +1,9 @@
 import CardTemplate from "@/shared/CardTemplate";
-import beforeafter1 from "../../assets/beforeafter1.png";
-import beforeafter2 from "../../assets/beforeafter2.png";
-import beforeafter3 from "../../assets/beforeafter3.jpeg";
+import beforeafter1 from "@/assets/beforeafter1.png";
+import beforeafter2 from "@/assets/beforeafter2.png";
+import beforeafter3 from "@/assets/beforeafter3.jpeg";
 import H2 from "@/shared/H2";
+
 export default function Transformations() {
   return (
     <section className="mx-auto min-h-full w-5/6 py-1 text-center">

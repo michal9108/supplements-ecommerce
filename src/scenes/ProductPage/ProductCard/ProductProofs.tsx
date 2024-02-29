@@ -1,7 +1,8 @@
-import { HomeModernIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
 export default function ProductProofs() {
   const isAbovePhoneScreens = useMediaQuery("(min-width:480px)");
+
+//TODO : refactor
 
   return (
     <>
