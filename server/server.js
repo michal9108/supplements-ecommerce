@@ -16,7 +16,7 @@ import reviewsRoutes from "./routes/reviews.js";
 import Stripe from "stripe";
 
 const stripe = new Stripe(
-  'sk_test_51HDZZtH9dKBRlDkrGypI7RjGytgwPUtI3mSHLWvdFtyo23eIpO3l3BSwjLbkIWNLZMonZluAfngDX5kKus8GpeLk00OVyIp7dR',
+  `${process.env.STRIPE_KEY}`,
 );
 
 const env = dotenv.config({ path: "./.env" });
@@ -114,8 +114,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-
-
 /* POST  STRIPE  */
 
 app.post("/checkout", async (req, res) => {
@@ -128,12 +126,12 @@ app.post("/checkout", async (req, res) => {
         quantity: item.quantity,
       });
     });
-    
+
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: "payment",
-      success_url:'http://localhost:5173/success',
-      cancel_url:'http://localhost:5173/productpage',
+      success_url: `${process.env.FE_URL}/success`,
+      cancel_url: `${process.env.FE_URL}/cancel`,
     });
 
     res.send(

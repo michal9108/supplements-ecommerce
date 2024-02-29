@@ -12,7 +12,7 @@ export const items = [
         alt: "Testosterone supplement",
       },
       {
-        src: "https://lh3.googleusercontent.com/d/1Utemccl904wsxkVBUSGD8MqIuNLS0RNy",
+        src: "https://lh3.googleusercontent.com/d/1AaUsvgC_kMt2GrG6xBMoPnZxuHRcqtWD",
         alt: "Testosterone supplement",
       },
       {

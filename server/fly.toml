@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for eshop-ts on 2024-02-28T17:24:42+01:00
+# fly.toml app configuration file generated for server-be-node-express-mongo on 2024-02-29T11:14:27+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'eshop-ts'
+app = 'server-be-node-express-mongo'
 primary_region = 'waw'
 
 [build]

@@ -15,20 +15,28 @@ import {
   ProductReviewType,
 } from "@/shared/types";
 
+
 const ProductCartContext = createContext({} as ProductCartContextType);
 
 export function ProductCartProvider({ children }: ProductCartProviderType) {
+
+  const apiUrl = import.meta.env.VITE_URL;
+
+
+
   const [storeItems, setstoreItems] = useState<ProductType[]>([]);
   const [isLoading, setisLoading] = useState(true);
   const [storeReviews, setstoreReviews] = useState<ProductReviewType[]>([]);
   const [error, setError] = useState<string | null>("");
 
   useEffect(() => {
+    
     const fetchProductData = async () => {
       try {
-        const response = await fetch("https://eshop-ts.fly.dev/product/items");
+
+        const response = await fetch(import.meta.env.VITE_UR + '/product/items');
         const data = await response.json();
-        // console.log("fetched product data from entry point", data);
+        console.log("fetched product data from entry point", data);
         setstoreItems(data);
         // console.log("data ->", data);
       } catch (error) {
@@ -42,7 +50,7 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   useEffect(() => {
     const fetchReviewData = async () => {
       try {
-        const resp = await fetch("https://eshop-ts.fly.dev/reviews/reviews");
+        const resp = await fetch(import.meta.env.VITE_UR + '/reviews/reviews');
         const dataReviews = await resp.json();
         // console.log("fetched reviews data from entry point", dataReviews);
         setstoreReviews(dataReviews);

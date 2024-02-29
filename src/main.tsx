@@ -11,7 +11,7 @@ import ProductPage from "./pages/ProductPage";
 import SuccesPage from "./pages/Succespage";
 import AccountPage from "./pages/AccountPage";
 import { RouterProvider } from "react-router-dom";
-
+import CancelPage from "./pages/CancelPage";
 const isUserSignedIn = !!localStorage.getItem("token");
 
 const router = createBrowserRouter([
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/success",
         element: <SuccesPage />,
+      },
+      {
+        path: "/cancel",
+        element: <CancelPage/>,
       },
       {
         path: "/account",
