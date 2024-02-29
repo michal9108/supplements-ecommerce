@@ -16,7 +16,7 @@ export default function SignUpPage() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get(`${import.meta.env.VITE_URL}/register`).then((res) => {
+    axios.get(import.meta.env.VITE_URL +'/register').then((res) => {
       console.log(res.data);
     });
   };
@@ -24,7 +24,7 @@ export default function SignUpPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post(`${import.meta.env.VITE_URL}/register`, {
+      .post(import.meta.env.VITE_URL +'/register', {
         email,
         username,
         password,

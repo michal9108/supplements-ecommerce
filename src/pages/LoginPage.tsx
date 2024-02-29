@@ -14,7 +14,7 @@ export default function Login() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get(`${import.meta.env.VITE_URL}/register`).then((res) => {
+    axios.get(import.meta.env.VITE_URL +'/register').then((res) => {
       console.log(res.data);
     });
   };
@@ -22,7 +22,7 @@ export default function Login() {
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const resp = await axios.post(`${import.meta.env.VITE_URL}/login`, {
+      const resp = await axios.post(import.meta.env.VITE_URL + '/login', {
         username,
         password,
       });
