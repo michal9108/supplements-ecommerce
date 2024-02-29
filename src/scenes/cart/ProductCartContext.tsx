@@ -20,7 +20,7 @@ const ProductCartContext = createContext({} as ProductCartContextType);
 
 export function ProductCartProvider({ children }: ProductCartProviderType) {
 
-  const apiUrl = import.meta.env.VITE_URL;
+
 
 
 

@@ -16,7 +16,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
   //request to STRIPE on checkout
   const checkout = async () => {
     console.log("cartItems:", cartItems);
-    await fetch(import.meta.env.VITE_UR + '/checkout', {
+    await fetch(import.meta.env.VITE_URL + '/checkout', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
