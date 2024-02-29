@@ -121,19 +121,24 @@ export type AccordionType = {
 };
 
 
-// export interface MongoItemType {
-//   id: string;
-//   _id: string;
-//   price: number;
-//   oldprice: number;
-//   inStock: boolean;
-//   name: string;
-//   href: string;
-//   images: Array<{ src: string; alt: string; _id:string; }>;
-//   details: string;
-//   highlights: string[];
-//   reviews: ReviewsType[];
-//   __v: number;
-//   createdAt: string;
-//   updatedAt: string;
-// }
+export interface AuthFormType  {
+  title: string;
+  buttonText:string;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  username: string;
+  setUsername: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface FeatureProps {
+  name: string;
+  text: string;
+}
+
+export interface TestimonialTypes {
+  user: string;
+  age: number;
+  city: string;
+  src: string;
+}

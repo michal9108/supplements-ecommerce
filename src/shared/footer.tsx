@@ -1,4 +1,4 @@
-import cardsIcons from "../../assets/cardsIcons.png";
+import cardsIcons from '@/assets/cardsIcons.png';
 
 const Footer = () => {
   return (

@@ -1,4 +1,4 @@
-const BannerNewsletter = () => {
+export default function  Newsletter() {
   return (
     <div className="flex w-full ">
       <div className="  flex justify-center items-center  w-full overflow-hidden bg-secondary-500 sm:px-3.5 py-5">
@@ -30,4 +30,4 @@ const BannerNewsletter = () => {
   );
 };
 
-export default BannerNewsletter;
+

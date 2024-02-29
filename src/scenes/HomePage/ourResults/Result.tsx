@@ -1,6 +1,6 @@
 import { WorkoutType } from "@/shared/types";
 
-const Workout = ({ name, description, image }: WorkoutType) => {
+export default function Workout({ name, description, image }: WorkoutType) {
   const overlayStyles = `p-5 absolute z-30 flex
     h-[380px] w-[450px] flex-col items-center justify-center
     primary-100space-normal bg-black text-center text-white
@@ -17,4 +17,4 @@ const Workout = ({ name, description, image }: WorkoutType) => {
   );
 };
 
-export default Workout;
+

@@ -5,7 +5,7 @@ import { useState } from "react";
 import H2 from "@/shared/H2";
 import {useProductCart} from '../cart/ProductCartContext'
 
-const Reviews = () => {
+export default function Reviews() {
 
 const {storeReviews} = useProductCart();
 
@@ -79,4 +79,4 @@ const {storeReviews} = useProductCart();
   );
 };
 
-export default Reviews;
+

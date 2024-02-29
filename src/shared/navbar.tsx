@@ -3,10 +3,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { NavLink, Link } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
-import Banner from "./banner";
-// import UserIcon from "@/shared/userIcon";
+import Banner from '@/shared/banner';
 
-// import HearthIcon from "@/shared/HearthIcon";
 
 const Navbar = () => {
   const isUserSignedIn = !!localStorage.getItem("token");

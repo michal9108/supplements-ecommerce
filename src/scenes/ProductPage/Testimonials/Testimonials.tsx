@@ -1,8 +1,7 @@
 import { StarIcon } from "@heroicons/react/24/solid";
-import React from "react";
 import Testimonial from "./Testimonial";
 
-const Testimonials = () => {
+export default function Testimonials()  {
   const starIcon = () => (
     <div className="flex items-center my-4 text-yellow-300 max-md:justify-center">
       <svg
@@ -49,4 +48,3 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;

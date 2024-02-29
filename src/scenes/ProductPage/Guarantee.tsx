@@ -1,5 +1,4 @@
-import React from "react";
-import crossIcon from "../../assets/redcrossIcon.png";
+import crossIcon from "@/assets/redcrossIcon.png";
 export default function Guarantee() {
   return (
     <section className="w-full bg-primary-200 py-8">

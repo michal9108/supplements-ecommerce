@@ -1,7 +1,6 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { SelectedPage } from "@/shared/types";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import threem from "../../assets/logos/threem.svg";
 import barstoolstore from "../../assets/logos/barstoolstore.svg";
@@ -12,7 +11,7 @@ import menshealth from "../../assets/logos/menshealth.svg";
 import mrbeast from "../../assets/logos/mrbeast.svg";
 import budweiser from "../../assets/logos/budweiser.svg";
 
-const Carousel = () => {
+export default function Carousel(){
   const [clonedNode, setClonedNode] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const Carousel = () => {
       const copy = originalNode.cloneNode(true) as HTMLElement;
       setClonedNode(copy);
     }
-  }, []); // Run this effect only once when the component mounts
+  }, []); 
 
   useEffect(() => {
     if (clonedNode) {
@@ -70,4 +69,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+

@@ -1,15 +1,15 @@
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
-import { StarIcon, HomeModernIcon } from "@heroicons/react/24/solid";
-import cardsIcons from "../../../assets/cardsIcons.png";
-import checkIcon from "../../../assets/checkIcon.png";
+import { StarIcon } from "@heroicons/react/24/solid";
+import cardsIcons from "@/assets/cardsIcons.png";
+import checkIcon from "@/assets/checkIcon.png";
 import ProductSlider from "./ProductSlider";
-import { ProductType} from "../../../shared/types";
+import { ProductType} from "@/shared/types";
 
 function classNames(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(" ");
 }
-
+//TODO : refactor
 export default function Product({
   id,
   name,

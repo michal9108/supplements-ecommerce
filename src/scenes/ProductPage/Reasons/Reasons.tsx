@@ -1,6 +1,5 @@
-import React from "react";
 
-const Reasons = () => {
+export default function  Reasons(){
   const reasons = [
     {
       title: "Decreased Libido",
@@ -73,4 +72,3 @@ const Reasons = () => {
   );
 };
 
-export default Reasons;
