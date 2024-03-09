@@ -4,7 +4,7 @@ import H2 from "@/shared/H2";
 export default function Faq() {
   return (
     <div>
-      <div className="w-5/6 m-auto ">
+      <div className="w-5/6 lg:w-4/6 m-auto ">
         <span className="flex justify-center flex-col">
           <H2 color="black-900">FAQ</H2>
           <p className="text-center font-bold">

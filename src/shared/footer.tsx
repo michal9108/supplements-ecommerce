@@ -3,7 +3,7 @@ import cardsIcons from '@/assets/cardsIcons.png';
 const Footer = () => {
   return (
     <footer className="bg-gray-20 py-10">
-      <div className="justify-content mx-auto py-3 w-5/6 gap-16 md:flex">
+      <div className="justify-content mx-auto py-3 w-5/6 lg:w-4/6  gap-16 md:flex">
         <div className="mt-16 basis-1/4 md:mt-0">
           <h4 className="font-bold">COMPANY</h4>
           <p className="my-3">BLOG</p>
@@ -29,7 +29,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className=" flex flex-wrap w-5/6  justify-between items-center mx-auto font-thin text-xs ">
+      <div className=" flex flex-wrap w-5/6 lg:w-4/6  justify-between items-center mx-auto font-thin text-xs ">
         <div className=" flex items-center justify-center">
           <p className="my-3 text-center">© BODYBUFF All Rights Reserved.</p>
         </div>

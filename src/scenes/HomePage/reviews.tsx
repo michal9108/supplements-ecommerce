@@ -37,7 +37,7 @@ const {storeReviews} = useProductCart();
                 <H2 color="primary-100">reviews</H2>
               </div>
             </div>
-                <div className="h-[480px] w-5/6 mx-auto no-scrollbar  overflow-y-hidden relative">
+                <div className="h-[480px] w-5/6 lg:w-4/6 mx-auto no-scrollbar  overflow-y-hidden relative">
               <motion.ul
                 className="w-[2800px] whitespace-nowrap pl-0"
                 animate={controls}

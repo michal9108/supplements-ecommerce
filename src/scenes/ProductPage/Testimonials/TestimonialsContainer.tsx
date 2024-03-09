@@ -21,8 +21,8 @@ export default function TestimonialsContainer()  {
     <>
       <section>
         {/*  TO DO Review element */}
-        <div className="flex  items-center justify-center py-2  sm:flex-col md:my-2 md:w-full ">
-          <figure className=" items-center justify-center  flex gap-3 flex-wrap border-box ">
+        <div className="flex  items-center justify-center py-2  sm:flex-col md:my-2 md:w-full  ">
+          <figure className=" items-center justify-center  flex gap-8 flex-wrap border-box w-5/6 lg:w-4/6 mx-auto">
             <Testimonial
               user="Bonnie"
               age={25}
