@@ -34,7 +34,7 @@ export default function Product({
 
   return (
     <div>
-      <div className=" flex justify-center  items-center  min-h-full w-5/6  mx-auto max-sm:flex-wrap ">
+      <div className=" flex justify-center  items-center  min-h-full w-5/6 lg:w-4/6 mx-auto max-sm:flex-wrap ">
         <ProductSlider images={images} />
 
         <section className="py-2 h-full w-full md:w-1/2 flex justify-items-center	justify-center">

@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className={`${navbarBackground} fixed top-0 w-full z-50 `}>
           {" "}
           <Banner />
-          <div className={`${flexBetween} w-5/6 mx-auto py-3  `}>
+          <div className={`${flexBetween} w-5/6 lg:w-4/6 mx-auto py-3  `}>
             <div className=" w-full ">
               {/* ABOVE MD  1060px */}
               {/* LEFT SIDE */}

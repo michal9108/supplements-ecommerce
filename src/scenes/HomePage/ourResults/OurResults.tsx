@@ -46,7 +46,7 @@ const workout: Array<WorkoutType> = [
 
 export default function OurProteins() {
   return (
-    <section id="ourclasses" className="w-full bg-primary-100 ">
+    <section id="ourclasses" className=" w-full lg:w-4/6 lg:m-auto bg-primary-100 ">
       <motion.div>
         <motion.div
           className="mx-auto w-5/6"
@@ -64,7 +64,7 @@ export default function OurProteins() {
             <p className="p-2 ">
               Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
               tellus quam porttitor. Mauris velit euismod elementum arcu neque
-              facilisi. Amet semper tortor facilisis metus nibh. Rhoncus sit
+              facilisi. Amet semper tortor dacilisis metus nibh. Rhoncus sit
               enim mattis odio in risus nunc.
             </p>
           </div>

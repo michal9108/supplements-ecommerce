@@ -4,7 +4,7 @@ export default function InfoSales() {
   return (
     <>
       {/* SALES INFO */}
-      <section className="mx-auto min-h-full w-5/6 py-1">
+      <section className="mx-auto min-h-full w-5/6 lg:w-4/6  py-1">
         <div className="items-center justify-between gap-20 md:flex-wrap ">
           <span className="">
             <img

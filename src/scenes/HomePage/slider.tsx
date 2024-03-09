@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-
 import slider1 from "@/assets/homeSlider1.png";
 import slider2 from "@/assets/homeSlider2.png";
 import slider3 from "@/assets/homeSlider3.png";
@@ -11,11 +10,12 @@ import slider6 from "@/assets/homeSlider6.png";
 import slider7 from "@/assets/homeSlider7.png";
 
 export default function Slider(){
-  
+ 
+
   const [isAboveMd, setIsAboveMd] = useState(false);
 
   const updateWindowSize = () => {
-    setIsAboveMd(window.innerWidth >= 800);
+    setIsAboveMd(window.innerWidth >= 1060);
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function Slider(){
       <Slide>
         {slideImages.map((slideImage, index) => (
           <div key={index}>
-            <div style={{ ...divStyle }}>
+            <div  style={ { ...divStyle }}>
               <img src={slideImage.src} />
             </div>
           </div>

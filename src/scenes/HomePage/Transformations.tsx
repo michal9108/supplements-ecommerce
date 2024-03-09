@@ -6,7 +6,7 @@ import H2 from "@/shared/H2";
 
 export default function Transformations() {
   return (
-    <section className="mx-auto min-h-full w-5/6 py-1 text-center">
+    <section className="mx-auto min-h-full w-5/6 lg:w-4/6  py-1 text-center">
       <H2 color="black-900">transformations</H2>
       <span className="flex max-md:flex-wrap  justify-center align-center ">
         <CardTemplate
