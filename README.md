@@ -29,8 +29,8 @@ export default {
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
-### TO DO
 
+<<<<<<< HEAD
 Verify authenticity using confirm customer status. - green tick verified buyer on tesimonials and reviews
 
 Responsivecard component:
@@ -92,3 +92,5 @@ Frontend: Typescript, react, React Router, Axios, bootstrap, tailwind, fly.io, v
 Backend : Express, mongoose, Stripe
 Database : mongoDB 
 
+=======
+>>>>>>> d4300ed (Update README.md)
