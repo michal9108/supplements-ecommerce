@@ -31,6 +31,10 @@ export default {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 6090882 (refacatoring-context)
 Verify authenticity using confirm customer status. - green tick verified buyer on tesimonials and reviews
 
 Responsivecard component:
@@ -92,5 +96,9 @@ Frontend: Typescript, react, React Router, Axios, bootstrap, tailwind, fly.io, v
 Backend : Express, mongoose, Stripe
 Database : mongoDB 
 
+<<<<<<< HEAD
 =======
 >>>>>>> d4300ed (Update README.md)
+=======
+>>>>>>> 4ce6916 (refacatoring-context)
+>>>>>>> 6090882 (refacatoring-context)
