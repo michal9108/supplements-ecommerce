@@ -83,3 +83,12 @@ Add Trust Seal to indicate a reputable and trusted service.
 Product card :
 
 - implement estimated delivery on Product Specs
+
+Fully responsive Ecommerce store
+
+### USED TECHNOLOGIES
+
+Frontend: Typescript, react, React Router, Axios, bootstrap, tailwind, fly.io, vite.js,  Chatwoot, prettier, Framer-motion,Hero Icons, React Loader Spinner,
+Backend : Express, mongoose, Stripe
+Database : mongoDB 
+
