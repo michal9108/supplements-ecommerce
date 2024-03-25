@@ -1,9 +1,9 @@
 import crossIcon from "@/assets/redcrossIcon.png";
 export default function Guarantee() {
   return (
-    <section className="w-full bg-primary-200 py-8">
+    <section className="w-full  bg-primary-200 py-8">
       <div className="mx-auto min-h-full ">
-        <div className="mx-auto  w-5/6 lg:w-4/6  max-w-7xl py-2   md:px-10 md:py-8  md:mx-auto  lg:py-8  2xl-mx-2 border-rose-500 ">
+        <div className="mx-auto  md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 py-2   md:px-10 md:py-8  md:mx-auto  lg:py-8  2xl-mx-2 border-rose-500 ">
           <div className=" flex gap-3 justify-center flex-wrap">
             <img
               src={crossIcon}

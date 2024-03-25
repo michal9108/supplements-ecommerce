@@ -6,7 +6,7 @@ import image4 from "@/assets/workouts4.png";
 import image5 from "@/assets/workouts5.png";
 import image6 from "@/assets/workouts6.png";
 import { motion } from "framer-motion";
-import Result from './Result';
+import Result from "./Result";
 import H2 from "@/shared/H2";
 
 const workout: Array<WorkoutType> = [
@@ -44,13 +44,16 @@ const workout: Array<WorkoutType> = [
   },
 ];
 
-export default function OurProteins() {
+export default function Ourresults() {
   return (
-    <section id="ourclasses" className=" w-full lg:w-4/6 lg:m-auto bg-primary-100 ">
+    <section
+      id="ourclasses"
+      className=" w-full lg:w-4/6   lg:m-auto bg-primary-100 "
+    >
       <motion.div>
         <motion.div
-          className="mx-auto w-5/6"
-          initial="hidden"
+          className="mx-auto w-5/6 md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6"
+          initial="hidden" 
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
@@ -59,8 +62,8 @@ export default function OurProteins() {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <div className="w-full">
-            <H2 color="black-900">our workouts</H2>
+          <div className="w-full ">
+            <H2 color="black-900">our results</H2>
             <p className="p-2 ">
               Fringilla a sed at suspendisse ut enim volutpat. Rhoncus vel est
               tellus quam porttitor. Mauris velit euismod elementum arcu neque
@@ -84,6 +87,4 @@ export default function OurProteins() {
       </motion.div>
     </section>
   );
-};
-
-
+}

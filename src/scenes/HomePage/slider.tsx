@@ -9,9 +9,7 @@ import slider5 from "@/assets/homeSlider5.png";
 import slider6 from "@/assets/homeSlider6.png";
 import slider7 from "@/assets/homeSlider7.png";
 
-export default function Slider(){
- 
-
+export default function Slider() {
   const [isAboveMd, setIsAboveMd] = useState(false);
 
   const updateWindowSize = () => {
@@ -37,21 +35,21 @@ export default function Slider(){
     justifyContent: "center",
     backgroundSize: "cover",
     width: "100%",
+    maxHeight: "500px", 
+    
   };
 
   return (
-    <section className="pt-10">
+    <section className="pt-0 ">
       <Slide>
         {slideImages.map((slideImage, index) => (
           <div key={index}>
-            <div  style={ { ...divStyle }}>
-              <img src={slideImage.src} />
+            <div style={{ ...divStyle }}>
+              <img src={slideImage.src}  />
             </div>
           </div>
         ))}
       </Slide>
     </section>
   );
-};
-
-
+}

@@ -1,6 +1,6 @@
 export default function UserIcon() {
   return (
-    <div className="w-11 h-11 my-auto">
+    <div className="w-8 h-8 my-auto">
       
       <svg
         xmlns="http://www.w3.org/2000/svg"

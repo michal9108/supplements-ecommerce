@@ -21,7 +21,7 @@ export default function  Reasons(){
 
   return (
     <div className="bg-gray-50 ">
-      <section className="w-5/6 lg:w-4/6 m-auto">
+      <section className="md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 m-auto">
         {/* Benefits Container */}
         <div className="mx-auto max-w-7xl py-2 md:px-10 lg:py-32">
           {/* Benefits Title */}

@@ -4,7 +4,7 @@ const proofs: Array<ProofType> = [
   {
     icon: (
       <svg
-        className="w-24 h-24"
+        className="w-20 h-20"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
       >
@@ -17,7 +17,7 @@ const proofs: Array<ProofType> = [
   {
     icon: (
       <svg
-        className="w-24 h-24"
+        className="w-20 h-20"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512.015 512.015"
         xmlSpace="preserve"
@@ -42,7 +42,7 @@ const proofs: Array<ProofType> = [
   {
     icon: (
       <svg
-        className="w-24 h-24"
+        className="w-20 h-20"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
       >

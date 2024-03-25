@@ -7,12 +7,11 @@ export default function Testimonial({
   city,
   src,
 }: TestimonialTypes) {
-  
   return (
-    <div className="flex max-w-lg justify-center">
-      <div className="flex  mx-1 my-3 p-1 border-dotted rounded-lg border-3 border-secondary-500">
-        <section className="flex p-1">
-          <span className="mx-auto w-36 items-start flex justify-center md:mx-0 md:p-0 lg:mb-0 pt-4  ">
+    <div className="flex  justify-center">
+      <div className="flex  mx-1 my-1 p-1 lg:w-5/6 md:w-5/6 sm:w-5/6 xs:w-5/6 xxs:w-5/6   border-dotted rounded-lg border-3 border-secondary-500">
+        <section className="flex p-1  xxs:w-full">
+          <span className="mx-auto w-36  items-start flex justify-center md:mx-0 md:p-0 lg:mb-0 pt-4  ">
             <img
               src={src}
               className="rounded-full shadow-md dark:shadow-black/30 w-20 h-20 mx-auto md:mr-5"
