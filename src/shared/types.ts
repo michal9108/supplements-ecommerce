@@ -91,6 +91,7 @@ export type ProductCartContextType = {
   error: string | null;
   setProductDetails: (product: ProductType | null) => void;
   selectedProduct: ProductType | null;
+  setCartItems:any;
   
 };
 

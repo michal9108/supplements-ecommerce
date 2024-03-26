@@ -15,6 +15,6 @@ export default function Workout({ name, description, image }: WorkoutType) {
       <img alt={`${image}`} src={image} />
     </li>
   );
-};
+}
 
 

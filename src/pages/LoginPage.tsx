@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthForm from "@/shared/AuthForm";
 
 export default function Login() {
@@ -14,21 +14,26 @@ export default function Login() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get(import.meta.env.VITE_URL +'/register').then((res) => {
-      console.log(res.data);
-    });
+    axios
+      .get("https://server-be-node-express-mongo.fly.dev/register")
+      .then((res) => {
+        console.log(res.data);
+      });
   };
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const resp = await axios.post(import.meta.env.VITE_URL + '/login', {
-        username,
-        password,
-      });
+      const resp = await axios.post(
+        "https://server-be-node-express-mongo.fly.dev/login",
+        {
+          username,
+          password,
+        },
+      );
       const token = resp.data.token;
       alert("Login succesful");
-      setUsername("")
+      setUsername("");
       setPassword("");
       fetchUsers();
       navigate("/");
@@ -40,14 +45,13 @@ export default function Login() {
   };
   return (
     <AuthForm
-    title="Log In"
-    buttonText="Login"
-    handleSubmit={handleLogin}
-    username={username}
-    setUsername={setUsername}
-    password={password}
-    setPassword={setPassword}
-  />
+      title="Log In"
+      buttonText="Login"
+      handleSubmit={handleLogin}
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+    />
   );
-  
 }

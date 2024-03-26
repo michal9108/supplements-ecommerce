@@ -179,6 +179,7 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
         selectedProduct,
         setProductDetails,
         storeReviews,
+        setCartItems,
       }}
     >
       {children}

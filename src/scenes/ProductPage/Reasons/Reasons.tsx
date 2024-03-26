@@ -70,5 +70,5 @@ export default function  Reasons(){
       </section>
     </div>
   );
-};
+}
 

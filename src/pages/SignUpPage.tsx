@@ -15,7 +15,7 @@ export default function SignUpPage() {
   }, []);
 
   const fetchUsers = () => {
-    axios.get(import.meta.env.VITE_URL + "/register").then((res) => {
+    axios.get("https://server-be-node-express-mongo.fly.dev/register").then((res) => {
       console.log(res.data);
     });
   };
@@ -23,7 +23,7 @@ export default function SignUpPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios
-      .post(import.meta.env.VITE_URL + "/register", {
+      .post("https://server-be-node-express-mongo.fly.dev/register", {
         email,
         username,
         password,
@@ -35,9 +35,12 @@ export default function SignUpPage() {
         setPassword("");
         fetchUsers();
         navigate("/");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
       })
       .catch((error) => {
-        console.error("error occured during signup", error);
+        console.error("Unable to register user", error);
       });
   };
   return (

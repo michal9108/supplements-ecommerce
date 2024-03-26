@@ -77,6 +77,6 @@ const {storeReviews} = useProductCart();
       </section>
     </div>
   );
-};
+}
 
 
