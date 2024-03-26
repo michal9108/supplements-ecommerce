@@ -2,7 +2,7 @@ import {
   createContext,
   useContext,
   useState,
-  ReactNode,
+
   useEffect,
 } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";

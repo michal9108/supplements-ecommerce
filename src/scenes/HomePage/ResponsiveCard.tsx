@@ -66,15 +66,15 @@ export default function ResponsiveCard({
 
   let cardStyle;
   if (isBelowsxxScreens) {
-    cardStyle = { width: "8rem", height: "23rem", margin: "0.5rem" };
+    cardStyle = { width: "7rem", height: "23rem", margin: "0.5rem" };
   } else if (isBelowsxScreens) {
-    cardStyle = { width: "10rem", height: "25rem", margin: "0.5rem" };
+    cardStyle = { width: "8rem", height: "25rem", margin: "0.5rem" };
   } else if (isBelowSmallScreens) {
-    cardStyle = { width: "14rem", height: "26rem", margin: "0.5rem" };
+    cardStyle = { width: "11rem", height: "26rem", margin: "0.5rem" };
   } else if (isMediumScreens) {
-    cardStyle = { width: "18rem", height: "30rem", margin: "0.5rem" };
+    cardStyle = { width: "16rem", height: "30rem", margin: "0.5rem" };
   } else if (isAboveMediumScreens) {
-    cardStyle = { width: "18rem", height: "35rem", margin: "0.5rem" };
+    cardStyle = { width: "17rem", height: "40rem", margin: "0.5rem" };
   }
   if (isAboveLargeScreens) {
     cardStyle = { width: "20rem", height: "44rem", margin: "0.5rem" };
@@ -106,17 +106,13 @@ export default function ResponsiveCard({
               </div>
             )}
 
-            <Card.Img
-              variant="top"
-              src={images[0].src}
-              alt={images[0].alt}
-            />
+            <Card.Img variant="top" src={images[0].src} alt={images[0].alt} />
           </span>
 
           <Card.Body className="flex flex-col justify-between">
             <div className="mt-2">
               <Card.Title>
-                <h3 className="text-center">{name}</h3>
+                <h3 className="text-center font-bold text-base">{name}</h3>
               </Card.Title>
             </div>
 
@@ -128,9 +124,11 @@ export default function ResponsiveCard({
             <div className="mt-auto mb-2 flex justify-center items-center flex-col">
               {" "}
               {/* Add mt-auto to push it to the bottom */}
-              <span className="flex  justify-center gap-2">
-              <h3 className=" flex font-bold">{price}$</h3>
-              <p className=" flex font-normal text-neutral-400 line-through">{oldprice}$</p>
+              <span className="flex  justify-center xxs:flex-col gap-2  xxs:text-xs">
+                <h3 className=" flex font-bold xxs:text-md mb-0">{price}$</h3>
+                <p className=" flex font-normal text-red-700 line-through">
+                  {oldprice}$
+                </p>
               </span>
               {inStock ? (
                 <ButtonLink
@@ -138,14 +136,15 @@ export default function ResponsiveCard({
                   to={"/productpage"}
                   children={"BUY NOW"}
                   disabled={false}
-                  className=" bg-black   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+                  className=" bg-black   text-primary-100 no-underline  px-6 py-2.5 rounded-lg font-semibold text-xl w-full box-border;
+                  "
                 />
               ) : (
                 <ButtonLink
                   to={"/productpage"}
-                  children={"UNAVAILABLE"}
+                  children={"SOLD OUT"}
                   disabled={true}
-                  className=" bg-neutral-400   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-l "
+                  className=" bg-neutral-400   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
                 />
               )}
             </div>
@@ -155,5 +154,3 @@ export default function ResponsiveCard({
     </div>
   );
 }
-
-

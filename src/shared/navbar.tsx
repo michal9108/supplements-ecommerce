@@ -1,18 +1,14 @@
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { NavLink, Link } from "react-router-dom";
+
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import Banner from "@/shared/banner";
-import UserIcon from "./UserIcon";
 import NavbarSmall from "./navbarSmall";
 import NavbarMobileMenu from "./navbarMobileMenu";
 import NavbarMedium from "./navbarMedium";
 
 const Navbar = () => {
-  const isUserSignedIn = !!localStorage.getItem("token");
 
-  const { openCart, cartQuantity } = useProductCart();
 
   const flexBetween = "flex items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);

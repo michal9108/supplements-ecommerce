@@ -1,10 +1,10 @@
 import { ProofType } from "@/shared/types";
 
-const proofs: Array<ProofType> = [
+const incentives: Array<ProofType> = [
   {
     icon: (
       <svg
-        className="w-20 h-20"
+        className="w-14"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
       >
@@ -17,7 +17,7 @@ const proofs: Array<ProofType> = [
   {
     icon: (
       <svg
-        className="w-20 h-20"
+        className="w-14"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512.015 512.015"
         xmlSpace="preserve"
@@ -42,7 +42,7 @@ const proofs: Array<ProofType> = [
   {
     icon: (
       <svg
-        className="w-20 h-20"
+        className="w-14"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
       >
@@ -54,26 +54,26 @@ const proofs: Array<ProofType> = [
   },
 ];
 
-export default function Proofs() {
+export default function Incentives() {
   return (
     <div>
       <section className="mx-auto min-h-full w-5/6  max-xs:w-3/6 py-1">
-        <div className=" items-center justify-center  flex  flex-row w-full  xxs:flex-wrap">
-          {proofs.map((proof: ProofType) => {
+        <div className=" items-center md:justify-between justify:center  flex  flex-row w-full    sm:flex-nowrap xs:flex-wrap xxs:flex-wrap">
+          {incentives.map((proof: ProofType) => {
             return (
               <div
                 key={proof.title}
-                className=" flex flex-col  flex-wrap gap-2 items-center justify-center rounded-md  text-center p-2  m-2
+                className=" flex flex-col  flex-wrap gap-1 items-center justify-center rounded-md  text-center p-2  m-2
        md:px-2 md:py-5 
-       border-box "
+       border-box  "
               >
-                <div className="mx-auto px-auto flex  justify-center ">
+                <div className="mx-auto px-auto flex  justify-center  ">
                   <div className=" rounded-full border-5 border-black bg-primary-100 p-3 ">
                     {proof.icon}
                   </div>
                 </div>
 
-                <h4 className="font-bold flex">{proof.title}</h4>
+                <h6 className="font-semibold flex ">{proof.title}</h6>
               </div>
             );
           })}

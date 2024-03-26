@@ -43,9 +43,9 @@ export default function InfoSales() {
     <>
       {/* SALES INFO */}
       <section className="mx-auto min-h-full w-5/6 lg:w-4/6 py-1">
-        <div className="flex flex-wrap items-center justify-between relative">
+        <div className="flex flex-wrap items-center  justify-center relative">
           {/* Image */}
-          <span className="flex w-full sm:w-1/2">
+          <span className="flex  p-2 lg:my-8 lg:w-1/2 md:w-1/2 ">
             <img
               className="w-full"
               alt="benefits-page-graphic"
@@ -54,9 +54,9 @@ export default function InfoSales() {
           </span>
 
           {/* Text Content */}
-          <span className="flex w-full sm:w-1/2 flex-wrap mt-8">
-            <div className="relative w-full">
-              <h2 className="text-bold font-4xl ">
+          <span className="flex w-full md:w-1/2 flex-wrap mt-8">
+            <div className="relative w-full md:text-left   sm:text-left xs:text-center xxs:text-center">
+              <h2 className="text-bold font-4xl  xss:text-3xl xs:text-4xl font-black py-8 uppercase text-secondary-100 ">
                 BECOME FINALLY <span className="text-primary-300">BUFF</span>
               </h2>
             </div>
@@ -88,7 +88,7 @@ export default function InfoSales() {
             </div>
 
             {/* BUTTON */}
-            <div className="relative w-full my-8 max-sm:mx-auto flex justify-center items-center">
+            <div className="relative w-full my-8 max-sm:mx-auto flex sm:justify-start  xs:justify-center  xxs:justify-center items-center">
               <button className="rounded-lg bg-secondary-500 px-20 py-3 text-primary-100 no-underline font-semibold text-xl">
                 BUY NOW
               </button>

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+
 
 import { NavLink } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";

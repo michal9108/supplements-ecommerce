@@ -28,7 +28,7 @@ export default function Login() {
       });
       const token = resp.data.token;
       alert("Login succesful");
-      setUsername("");
+      setUsername("")
       setPassword("");
       fetchUsers();
       navigate("/");

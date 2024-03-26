@@ -3,11 +3,11 @@ import H2 from "@/shared/H2";
 
 export default function Faq() {
   return (
-    <div>
+    <div className="bg-">
       <div className="lg:w-4/6 md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 m-auto ">
         <span className="flex justify-center flex-col">
-          <H2 color="black-900">FAQ</H2>
-          <p className="text-center font-bold">
+          <H2 color="secondary-500">FAQ</H2>
+          <p className="text-center font-bold text-secondary-500">
             We know you’ve got questions and we’ve got all the answers
           </p>
         </span>

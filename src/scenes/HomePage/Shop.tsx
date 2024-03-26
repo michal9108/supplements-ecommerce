@@ -1,7 +1,7 @@
 
 import { ProductType } from "@/shared/types";
 import ResponsiveCard from "./ResponsiveCard";
-import Proofs from "./Proofs";
+import Incentives from "./Incentives";
 import H2 from "@/shared/H2";
 
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
@@ -34,8 +34,8 @@ export default function Shop() {
           </div>
         </section>
 
-        {/* PROOFS HP */}
-        <Proofs />
+        {/* Incentives HP */}
+        <Incentives />
       </div>
     </div>
   );

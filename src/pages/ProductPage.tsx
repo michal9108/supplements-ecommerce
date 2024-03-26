@@ -9,6 +9,8 @@ import Guarantee from "@/scenes/ProductPage/Guarantee";
 import OurResults from "@/scenes/HomePage/ourResults/OurResults";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import ProductProofs from "@/scenes/ProductPage/ProductCard/ProductProofs";
+import ProductReviews from "@/scenes/ProductPage/ProductReviews";
+import SocialsGallery from "@/scenes/ProductPage/SocialsGallery";
 
 export default function ProductPage() {
   const { selectedProduct } = useProductCart();
@@ -26,7 +28,10 @@ export default function ProductPage() {
         <Guarantee />
         <Reasons />
         <OurResults />
+
         <Faq />
+        <ProductReviews />
+        <SocialsGallery />
       </div>
     </>
   );

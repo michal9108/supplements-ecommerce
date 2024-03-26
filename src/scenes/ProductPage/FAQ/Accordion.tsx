@@ -1,20 +1,19 @@
 import { AccordionType } from "@/shared/types";
 import { useState } from "react";
 
-export default function  Accordion({ title, answer }: AccordionType)  {
-  
+export default function Accordion({ title, answer }: AccordionType) {
   const [accordionOpen, setAccordionOpen] = useState(false);
 
   return (
     <div>
       <button
         onClick={() => setAccordionOpen(!accordionOpen)}
-        className="flex justify-between w-full bg-gray-20 p-3 rounded-lg"
+        className="flex justify-between w-full bg-orange-400 border-1  border-secondary-500 p-3 rounded-lg"
       >
-        <span>{title}</span>
-       
+        <span className="text-primary-100">{title}</span>
+
         <svg
-          className="fill-secondary-500 shrink-0 ml-8"
+          className="fill-primary-100 shrink-0 ml-8"
           width="16"
           height="16"
           xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +49,4 @@ export default function  Accordion({ title, answer }: AccordionType)  {
       </div>
     </div>
   );
-};
-
-
+}

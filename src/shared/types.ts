@@ -28,10 +28,10 @@ export interface ProductReviewType {
 }
 
 
-export interface BenefitsType {
-  storeItems: ProductType[];
-  proofs: ProofType[];
-}
+// export interface BenefitsType {
+//   storeItems: ProductType[];
+//   proofs: ProofType[];
+// }
 
 export interface CardTemplateTypes {
   img?: string;
