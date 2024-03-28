@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useState,
-
-  useEffect,
-} from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 import {
@@ -71,6 +65,29 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
     "shopping-cart",
     [],
   );
+
+  const [wishlist, setWishlist] = useState<string[]>([]);
+
+
+  const toggleFavorite = (productId: string) => {
+    const isProductInWishlist = wishlist.includes(productId);
+
+    if (isProductInWishlist) {
+      // Remove from wishlist
+      setWishlist((prev) => prev.filter((id) => id !== productId));
+    } else {
+      // Add to wishlist
+      setWishlist((prev) => [...prev, productId]);
+    }
+  };
+
+
+  console.log(wishlist)
+
+  // Function to check if a product is in the wishlist
+  const isProductFavorite = (productId: string) => {
+    return wishlist.includes(productId);
+  };
 
   // console.log('cartItems',cartItems)
 
@@ -180,6 +197,9 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
         setProductDetails,
         storeReviews,
         setCartItems,
+        toggleFavorite,
+        isProductFavorite,
+        wishlist,
       }}
     >
       {children}

@@ -11,6 +11,12 @@ import SuccesPage from "./pages/Succespage";
 import AccountPage from "./pages/AccountPage";
 import { RouterProvider } from "react-router-dom";
 import CancelPage from "./pages/CancelPage";
+import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import Returns from "./pages/Returns";
+import WishlistPage from "./pages/WishlistPage";
 
 const isUserSignedIn = !!localStorage.getItem("token");
 
@@ -28,7 +34,24 @@ const router = createBrowserRouter([
         element: <ProductPage />,
       },
       {
+        path: "/blog",
+        element:<Blog />
+      },
+      {
+        path: "/terms-of-service",
+        element:<TermsOfService />
+      },
+      {
+        path: "/privacy-policy",
+        element:<PrivacyPolicy />
+      },
+      {
         path: "/contact",
+        element:<Contact />
+      },
+      {
+        path: "/returns-and-faq",
+        element:<Returns />
       },
       {
         path: "/success",
@@ -41,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/account",
         element: isUserSignedIn ? <AccountPage /> : <LoginPage />,
+      },
+      {
+        path: "/wishlist",
+        element: isUserSignedIn ? <WishlistPage /> : <LoginPage />,
       },
     ],
   },

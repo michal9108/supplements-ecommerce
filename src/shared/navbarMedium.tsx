@@ -1,13 +1,21 @@
-
-
 import { NavLink } from "react-router-dom";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import UserIcon from "./UserIcon";
+import { useEffect, useState } from "react";
+import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
+import { HeartIcon as HearIconOutlined } from "@heroicons/react/24/outline";
 
 function navbarMedium() {
-  const { openCart, cartQuantity } = useProductCart();
-
+  const { openCart, cartQuantity, toggleFavorite, isProductFavorite } =
+    useProductCart();
+  const [isFavorite, setIsFavorite] = useState(false);
   const flexBetween = "flex items-center justify-between";
+
+  useEffect(() => {
+    // For demonstration purposes, I'm setting a productId. You'd likely get this from the selected product or another source.
+    const productId = "price_1OhJA3H9dKBRlDkrzq4XCurD"; // Replace with actual productId
+    setIsFavorite(isProductFavorite(productId));
+  }, [isProductFavorite]);
 
   return (
     <div className={`${flexBetween} w-full`}>
@@ -33,20 +41,24 @@ function navbarMedium() {
         <NavLink to="/account">
           <UserIcon />{" "}
         </NavLink>
-        <NavLink to="/">
-          {/* FAVORITE */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30px"
-            height="30px"
-            fill="bg-black"
-            className="bi bi-heart"
-            viewBox="0 0 16 16"
-          >
-            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-          </svg>
-        </NavLink>
 
+        {isFavorite ? (
+          <HeartIconSolid
+            onClick={() => {
+              const productId = "price_1OhJA3H9dKBRlDkrzq4XCurD";
+              setIsFavorite(!isFavorite);
+              toggleFavorite(productId);
+            }}
+          />
+        ) : (
+          <HearIconOutlined
+            onClick={() => {
+              const productId = "price_1OhJA3H9dKBRlDkrzq4XCurD";
+              setIsFavorite(!isFavorite);
+              toggleFavorite(productId);
+            }}
+          />
+        )}
         <button
           onClick={openCart}
           style={{

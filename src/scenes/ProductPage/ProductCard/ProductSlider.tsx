@@ -1,10 +1,15 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { ProductSliderType } from "@/shared/types";
+import {
+  HeartIcon,
+  HeartIcon as HeartIconSolid,
+} from "@heroicons/react/24/solid";
+import { HeartIcon as HearIconOutlined } from "@heroicons/react/24/outline";
 
 const ProductSlider: React.FC<ProductSliderType> = ({ images }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const isAboveMd = window.innerWidth >= 1060;
 
   const indicators = () => <div className="indicator pr-8  m-px"></div>;
@@ -21,12 +26,27 @@ const ProductSlider: React.FC<ProductSliderType> = ({ images }) => {
           <Slide {...properties} indicators={indicators}>
             {images.map((slideImage, index) => (
               <div key={index}>
-                <div>
+                <div className="relative">
                   <img
                     src={slideImage.src}
                     className="rounded-lg"
                     alt={`Slide ${index}`}
                   />
+                  <div className="w-10 absolute top-3 right-3">
+                    {isFavorite ? (
+                      <HeartIconSolid
+                        onClick={() => {
+                          setIsFavorite(!isFavorite);
+                        }}
+                      />
+                    ) : (
+                      <HearIconOutlined
+                        onClick={() => {
+                          setIsFavorite(!isFavorite);
+                        }}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

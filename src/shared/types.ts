@@ -92,6 +92,9 @@ export type ProductCartContextType = {
   setProductDetails: (product: ProductType | null) => void;
   selectedProduct: ProductType | null;
   setCartItems:any;
+  toggleFavorite: (productId: string) => void; 
+  isProductFavorite: (productId: string) => boolean; 
+  wishlist: string[]; 
   
 };
 
