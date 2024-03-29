@@ -135,7 +135,7 @@ export interface AuthFormType  {
   setPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export interface FeatureType {
+export interface BenefitType {
   name: string;
   text: string;
 }
