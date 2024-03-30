@@ -58,6 +58,14 @@ body,
   }
 }
 
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
 .logos:before {
   left: 0;
   background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
@@ -74,16 +82,22 @@ body,
 
 .logos-slide {
   display: inline-block;
-  animation: 5s slide infinite linear;
+  animation: 25s slide infinite linear;
 }
 
 .logos-slide img {
-  height: 50px;
-  margin: 0 10px;
+  height: 3vh;
+  margin: 0 1vw;
   display: inline;
 }
 
-.custom-h2 {
+@media screen and (max-width: 550px) {
+  .logos-slide img {
+    height: 3vh;
+    margin: 0 1vw;
+    display: inline;
+    max-width: none;
+  }
 }
 
 .indicator {
@@ -93,7 +107,7 @@ body,
   border: 1px #999999 solid;
   margin: 2px;
   background: #999999;
-  width: calc(100% / 5); /* Set width to cover 1/4th of the slide width */
+  width: calc(100% / 5);
   height: 5px;
 }
 
@@ -106,6 +120,3 @@ ul {
   padding-right: 32px;
   margin-bottom: 0px;
 }
-
-
-

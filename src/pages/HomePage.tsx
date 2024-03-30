@@ -7,19 +7,26 @@ import HomeCarousel from "@/scenes/HomePage/HomeCarousel";
 import Transformations from "@/scenes/HomePage/Transformations";
 import Shop from "@/scenes/HomePage/Shop";
 import Faq from "@/scenes/HomePage/FAQ/Faq";
+import BrandCarousel from "@/scenes/BrandCarousel";
+import Incentives from "@/scenes/ProductPage/ProductCard/Incentives";
+import Trending from "@/scenes/HomePage/Trending";
+import Blog from "./Blog";
+import DiscountBanner from "@/scenes/HomePage/DiscountBanner";
 
 export default function HomePage() {
   return (
     <div className="">
-            {/* <EmblaCarousel /> */}
-
       <HomeCarousel />
-      <Carousel />
+      <Incentives />
+      <BrandCarousel />
       <Shop />
       <InfoSales />
+      <Trending />
       <Reviews />
+      <DiscountBanner/>
       <Transformations />
-      <Faq />
+      <Faq/>
+      <Blog />
       <Newsletter />
     </div>
   );

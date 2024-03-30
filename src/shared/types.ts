@@ -12,10 +12,10 @@ export interface ProofType {
   title: string;
 }
 
-export interface WorkoutType {
-  name: string;
-  description?: string;
-  image: string;
+export interface SocialImgType {
+  name?: string;
+  opinion?: string;
+  image?: string;
 }
 
 export interface ProductReviewType {

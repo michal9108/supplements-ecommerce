@@ -41,7 +41,7 @@ export default function Features() {
 
       <div className="overflow-hidden bg-white sm:py-15">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="mx-auto grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 md:mx-0 md:max-w-none md:grid-cols-2">
+          <div className="mx-auto grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 sm:mx-0 sm:max-w-none sm:grid-cols-2">
             <div className="flex items-start justify-end md:order-first">
               <img
                 className="w-[35rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 my-auto"

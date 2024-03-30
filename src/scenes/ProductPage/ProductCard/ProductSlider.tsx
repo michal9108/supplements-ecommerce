@@ -34,13 +34,16 @@ const ProductSlider: React.FC<ProductSliderType> = ({ images }) => {
                   />
                   <div className="w-10 absolute top-3 right-3">
                     {isFavorite ? (
-                      <HeartIconSolid
+                      <HeartIconSolid fill="#dc2626"
                         onClick={() => {
                           setIsFavorite(!isFavorite);
                         }}
                       />
                     ) : (
                       <HearIconOutlined
+                     
+                      color="#ffffff"
+                    
                         onClick={() => {
                           setIsFavorite(!isFavorite);
                         }}

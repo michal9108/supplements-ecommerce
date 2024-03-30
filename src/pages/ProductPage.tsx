@@ -6,12 +6,15 @@ import Faq from "@/scenes/HomePage/FAQ/Faq";
 import Product from "@/scenes/ProductPage/ProductCard/Product";
 import InfoMessage from "@/scenes/ProductPage/InfoMessage";
 import Guarantee from "@/scenes/ProductPage/Guarantee";
-import OurResults from "@/scenes/HomePage/ourResults/OurResults";
+import Community from "@/scenes/HomePage/community/Community";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
-import ProductProofs from "@/scenes/ProductPage/ProductCard/ProductProofs";
+
 import ProductReviews from "@/scenes/ProductPage/ProductReviews";
-import SocialsGallery from "@/scenes/ProductPage/SocialsGallery";
+
 import ProductFaq from "@/scenes/ProductPage/ProductFaq";
+import Newsletter from "@/scenes/HomePage/Newsletter";
+import BrandCarousel from "@/scenes/BrandCarousel";
+import Incentives from "@/scenes/ProductPage/ProductCard/Incentives";
 
 export default function ProductPage() {
   const { selectedProduct } = useProductCart();
@@ -21,19 +24,21 @@ export default function ProductPage() {
         <div className="w-full static ">
           <ModalEmail />
         </div>
-        <ProductProofs />
+       
         {selectedProduct && <Product {...selectedProduct} />}
+        <Incentives />
         <Testimonials />
         <InfoMessage />
         <BenefitsContainer />
-        {/* <Guarantee /> */}
+
         <Features />
 
-      
         <ProductFaq />
         <ProductReviews />
-        <OurResults />
-        <SocialsGallery />
+        <Newsletter />
+        <Community />
+        <Guarantee />
+        <BrandCarousel/>
       </div>
     </>
   );

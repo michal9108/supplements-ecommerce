@@ -1,10 +1,10 @@
-import BodyBuffLogo from "@/assets/BodyBuffLogo.svg";
+import BodyBuffLogo from "../assets/Logo.svg";
 import { Link } from "react-router-dom";
 
 export default function Logo() {
   return (
     <Link to="/">
-      <img src={BodyBuffLogo} className="w-20 h-20"></img>
+      <img src={BodyBuffLogo} className="w-14"></img>
     </Link>
   );
 }
