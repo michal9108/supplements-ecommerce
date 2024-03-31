@@ -1,4 +1,13 @@
-export default function InfoMessage() {
+import React from "react";
+
+import { ProductType } from "@/shared/types";
+
+interface InfoMessageType {
+  description: Array<{ title: string; content: string; summary:string; _id:string; }>;
+}
+
+
+const InfoMessage: React.FC<InfoMessageType> = ({ description }:ProductType) => {
   return (
     <section className=" md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 mx-auto">
       <span className="mx-auto min-h-full  py-1">
@@ -28,7 +37,8 @@ export default function InfoMessage() {
               />
             </svg>
             <h2 className="font-bold text-lg text-gray-900 ">
-              Low Testosterone is a real buzz killer
+            {/* {description && description ? description[0].title : 'Default Title'} */}
+{description}
             </h2>
           </div>
 
@@ -55,3 +65,5 @@ export default function InfoMessage() {
     </section>
   );
 }
+
+export default InfoMessage;

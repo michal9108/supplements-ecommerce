@@ -5,7 +5,7 @@ import UserImage from "../../assets/user-reviews.png";
 import USFlag from "../../assets/us.svg";
 import H2 from "@/shared/H2";
 
-const reviews = {
+const ReviewsArray = {
   totalCount: 1624,
   average: 4,
   counts: [
@@ -26,7 +26,7 @@ const reviews = {
    
       datetime: "2022-03-25",
       author: "Emily S.",
-      avatarSrc: UserImage,
+
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ const reviews = {
    
       datetime: "2022-02-10",
       author: "Tom B.",
-      avatarSrc: UserImage,
+  
     },
     {
       id: 3,
@@ -48,7 +48,7 @@ const reviews = {
 
       datetime: "2022-01-05",
       author: "Peter M.",
-      avatarSrc: UserImage,
+ 
     },
     {
       id: 4,
@@ -59,7 +59,7 @@ const reviews = {
 
       datetime: "2021-12-20",
       author: "Jane S.",
-      avatarSrc: UserImage,
+  
     },
     {
       id: 5,
@@ -70,7 +70,7 @@ const reviews = {
    
       datetime: "2021-11-10",
       author: "Lea B.",
-      avatarSrc: UserImage,
+      
     },{
       id: 6,
       rating: 5,
@@ -80,7 +80,7 @@ const reviews = {
 
       datetime: "2022-04-05",
       author: "Training workout",
-      avatarSrc: UserImage,
+      
     },
     
   ],
@@ -114,7 +114,7 @@ export default function ProductReviews() {
                     <StarIcon
                       key={rating}
                       className={classNames(
-                        reviews.average > rating
+                        ReviewsArray.average > rating
                           ? "text-yellow-400"
                           : "text-gray-300",
                         "h-5 w-5 flex-shrink-0",
@@ -123,10 +123,10 @@ export default function ProductReviews() {
                     />
                   ))}
                 </div>
-                <p className="sr-only">{reviews.average} out of 5 stars</p>
+                <p className="sr-only">{ReviewsArray.average} out of 5 stars</p>
               </div>
               <p className="ml-2 text-sm text-gray-900">
-                Based on {reviews.totalCount} reviews
+                Based on {ReviewsArray.totalCount} reviews
               </p>
             </div>
 
@@ -134,7 +134,7 @@ export default function ProductReviews() {
               <h3 className="sr-only">Review data</h3>
 
               <dl className="space-y-3">
-                {reviews.counts.map((count) => (
+                {ReviewsArray.counts.map((count) => (
                   <div key={count.rating} className="flex items-center text-sm">
                     <dt className="flex flex-1 items-center">
                       <p className="w-3 font-medium text-gray-900">
@@ -161,7 +161,7 @@ export default function ProductReviews() {
                             <div
                               className="absolute inset-y-0 rounded-full border border-black-900 bg-black-900"
                               style={{
-                                width: `calc(${count.count} / ${reviews.totalCount} * 100%)`,
+                                width: `calc(${count.count} / ${ReviewsArray.totalCount} * 100%)`,
                               }}
                             />
                           ) : null}
@@ -169,7 +169,7 @@ export default function ProductReviews() {
                       </div>
                     </dt>
                     <dd className="ml-3 w-10 text-right text-sm tabular-nums text-gray-900">
-                      {Math.round((count.count / reviews.totalCount) * 100)}%
+                      {Math.round((count.count / ReviewsArray.totalCount) * 100)}%
                     </dd>
                   </div>
                 ))}
@@ -194,7 +194,7 @@ export default function ProductReviews() {
             </div>
           </div>
 
-          {reviews.featured.map((review, reviewIdx) => (
+          {ReviewsArray.featured.map((review, reviewIdx) => (
             <div
               key={review.id}
               className="flex  flex-col text-sm text-gray-500 items-start"
@@ -203,7 +203,7 @@ export default function ProductReviews() {
                 {/* AVATAR */}
                 <div className="flex-none  pt-3 px-1 relative">
                   <img
-                    src={review.avatarSrc}
+                    src={UserImage}
                     alt=""
                     className="h-12 w-12 rounded-full bg-gray-100 opacity-40"
                   />

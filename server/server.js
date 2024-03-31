@@ -15,9 +15,7 @@ import productsRoutes from "./routes/product.js";
 import reviewsRoutes from "./routes/reviews.js";
 import Stripe from "stripe";
 
-const stripe = new Stripe(
-  `${process.env.STRIPE_KEY}`,
-);
+const stripe = new Stripe(`${process.env.STRIPE_KEY}`);
 
 const env = dotenv.config({ path: "./.env" });
 /* CONFIGURATIONS */
@@ -145,7 +143,6 @@ app.post("/checkout", async (req, res) => {
     res.status(500).json({ error: "Error processing checkout" });
   }
 });
-
 
 // import { NextResponse } from "next/server"
 // // @ts-ignore

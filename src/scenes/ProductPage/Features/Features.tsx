@@ -1,26 +1,27 @@
 import { HeartIcon } from "@heroicons/react/24/solid";
 import aboutus from "../../../assets/about-us-1copy.webp"
 
-export default function Features() {
-  const reasons = [
+export default function FeaturesA() {
+  
+  const features = [
     {
-      title: "Decreased Libido",
+      featuretitle: "Decreased Libido",
       text: "As you grow older, it's typical to notice a decrease in libido. You might discover a reduced interest in sexual activities and fewer occurrences of erections. BUFF PACK recognizes the significance of passion in your life, empowering you to revitalize your sex drive and rekindle that spark.",
     },
     {
-      title: "Apathy & purpose",
+      featuretitle: "Apathy & purpose",
       text: "Is your overall well-being impacted by varying energy levels, mood swings, and a lingering sense of dissatisfaction? BUFF PACK is formulated to optimize testosterone levels, rekindle your vitality, and unlock a revitalized sense of fulfillment.",
     },
     {
-      title: "Stubborn Fat ",
+      featuretitle: "Stubborn Fat ",
       text: "Tired of persistent fat that seems resistant to your efforts? Take charge of your body, eliminate excess fat, and sculpt lean, strong muscles. Experience a body transformation that aligns with your goals.",
     },
     {
-      title: "Lack of Motivation",
+      featuretitle: "Lack of Motivation",
       text: "We recognize the difficulties in summoning the drive and inspiration to venture beyond your comfort zone. With Mojo, you'll uncover a fresh sense of purpose and motivation that empowers you to live life to the fullest. ",
     },
     {
-      title: "Lack of Motivation",
+      FeatureTitle: "Lack of Motivation",
       text: "We recognize the difficulties in summoning the drive and inspiration to venture beyond your comfort zone. With Mojo, you'll uncover a fresh sense of purpose and motivation that empowers you to live life to the fullest. ",
     },
   ];
@@ -53,16 +54,16 @@ export default function Features() {
             <div className="md:ml-auto md:pl-4 md:pt-4">
               <div className="lg:max-w-lg">
                 <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                  {reasons.map((reason) => (
-                    <div key={reason.title} className="relative pl-9">
+                  {features.map((feature) => (
+                    <div key={feature.featuretitle} className="relative pl-9">
                       <dt className=" font-semibold text-gray-900">
                         <HeartIcon
                           className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
                           aria-hidden="true"
                         />
-                        {reason.title}
+                        {feature.featuretitle}
                       </dt>{" "}
-                      <dd className="inline">{reason.text}</dd>
+                      <dd className="inline">{feature.text}</dd>
                     </div>
                   ))}
                 </dl>

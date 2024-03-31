@@ -49,7 +49,7 @@ export default function Product({
                       key={rating}
                       className={classNames(
                         reviews[0].average > rating
-                          ? "text-secondary-500"
+                          ? "text-yellow-500"
                           : "text-gray-200",
                         "h-5 w-5 flex-shrink-0",
                       )}
@@ -76,9 +76,7 @@ export default function Product({
 
             {/* Options */}
             <div className="mt-1 lg:row-span-3 lg:mt-0">
-              <div className="text-xl max-xs:text-xs tracking-tightt text-secondary-500">
-                60 Capsules | 30 Day Supply
-              </div>
+            
 
               <div className="flex gap-2">
                 <div className="text-2xl  font-bold tracking-tight text-gray-900">

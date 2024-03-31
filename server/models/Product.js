@@ -6,10 +6,44 @@ const imagesSchema = new Schema({
   src: String,
   alt: String,
 });
-const reviewsCountSchema = new Schema({
+
+const reviewsCountsSchema = new Schema({
+  rating: Number,
+  count: Number,
+  
+});
+const reviewsFeaturedSchema = new Schema({
+  id: Number,
+  rating: Number,
+  title: String,
+  content: String,
+  datetime: String,
+  author: String,
+});
+
+
+const reviewsSchema = new Schema({
   average: Number,
   totalCount: Number,
+  counts:[reviewsCountsSchema],
+  featured:[reviewsFeaturedSchema],
 });
+
+const descriptionSchema = new Schema({
+  title: String,
+  content: String,
+  summary:String,
+});
+const benefitsSchema = new Schema({
+  benefittitle: String,
+  text: String,
+});
+const featuresSchema = new Schema({
+  featuretitle: String,
+  text: String,
+});
+
+
 
 const ProductSchema = new Schema(
   {
@@ -20,9 +54,12 @@ const ProductSchema = new Schema(
     name: String,
     href: String,
     images: [imagesSchema],
-    reviews: [reviewsCountSchema],
+    reviews: [reviewsSchema],
     highlights: [String],
     details: String,
+    description:[descriptionSchema],
+    benefits:[benefitsSchema],
+    features:[featuresSchema],
   },
   { timestamps: true },
 );

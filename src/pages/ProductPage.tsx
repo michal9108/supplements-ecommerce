@@ -28,10 +28,10 @@ export default function ProductPage() {
         {selectedProduct && <Product {...selectedProduct} />}
         <Incentives />
         <Testimonials />
-        <InfoMessage />
-        <BenefitsContainer />
+        {selectedProduct && <InfoMessage  {...selectedProduct}/>}
+        {/* {selectedProduct &&   <BenefitsContainer {...selectedProduct} />}
 
-        <Features />
+        {selectedProduct &&   <Features  {...selectedProduct} />} */}
 
         <ProductFaq />
         <ProductReviews />

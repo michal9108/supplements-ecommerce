@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import faqImage from "../../assets/faq.webp";
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
-const faqs = [
+const FaqsArray = [
   {
     question: "How does BUFF Pack differ from Muscle Mass?",
     answer:
@@ -26,7 +26,7 @@ const faqs = [
 
 const ProductFaq = () => {
   const [accordionOpen, setAccordionOpen] = useState(
-    Array(faqs.length).fill(false)
+    Array(FaqsArray.length).fill(false)
   );
 
   const toggleAccordion = (index: number) => {
@@ -43,7 +43,7 @@ const ProductFaq = () => {
             FAQs
           </h2>
           <dl className="space-y-4 divide-y divide-gray-900/10">
-            {faqs.map((faq, index) => (
+            {FaqsArray.map((faq, index) => (
               <div key={faq.question} className="mb-4">
                 <button
                   onClick={() => toggleAccordion(index)}

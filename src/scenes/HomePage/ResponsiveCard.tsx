@@ -17,6 +17,9 @@ export default function ResponsiveCard({
   highlights,
   reviews,
   href,
+  description,
+  benefits,
+  features,
 }: ProductType) {
   const { setProductDetails, increaseCartQuantity, openCart } =
     useProductCart();
@@ -90,7 +93,7 @@ export default function ResponsiveCard({
         to="/productpage"
         className="no-underline"
       >
-        <Card style={cardStyle}>
+        <Card style={cardStyle} className="border-1 border-black">
           <span className="relative">
             {inStock ? (
               <div className=" absolute top-2 left-2 max-w-fit border-solid border-black bg-green-500 rounded-lg mt-auto p-2">

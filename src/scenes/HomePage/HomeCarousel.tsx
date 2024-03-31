@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import slider1 from "@/assets/homeSlider8.png";
-import slider2 from "@/assets/homeSlider2.png";
-import slider3 from "@/assets/homeSlider3.png";
-import slider4 from "@/assets/homeSlider4.png";
-import slider5 from "@/assets/homeSlider5.png";
+
+
+import slider1 from "@/assets/HomeBanner1.webp";
+import slider2 from "@/assets/homeSlider9.png";
+import slider3 from "@/assets/homeSlider10.png";
+import slider4 from "@/assets/homeSlider11.png";
+import slider5 from "@/assets/HomeBanner3.webp";
+
 import slider6 from "@/assets/homeSlider6.png";
 import slider7 from "@/assets/homeSlider7.png";
-import slider8 from "@/assets/homeSlider8.png";
-import slider9 from "@/assets/homeSlider9.png";
-import slider10 from "@/assets/homeSlider10.png";
-import slider11 from "@/assets/homeSlider11.png";
-import slider12 from "@/assets/homeSlider12.webp";
-
+import slider8 from "@/assets/HomeBanner2.webp";
 export default function HomeCarousel() {
   const [isAboveMd, setIsAboveMd] = useState(false);
 
@@ -32,13 +30,13 @@ export default function HomeCarousel() {
 
   const slideImages = isAboveMd
     ? [
-        { src: slider8 },
-        { src: slider9 },
-        { src: slider10 },
-        { src: slider11 },
-        { src: slider12 },
+        { src: slider1 },
+        { src: slider2 },
+        { src: slider3 },
+        { src: slider4 },
+        { src: slider5 },
       ]
-    : [{ src: slider5 }, { src: slider6 }, { src: slider7 }];
+    : [{   src: slider1  }, { src: slider6 },  { src: slider8 }, { src: slider7 }];
 
   const divStyle = {
     display: "flex",

@@ -47,7 +47,13 @@ export interface ReviewsType {
   average: number;
   totalCount: number;
   _id?: string;
+  counts:Array<{rating: number; count:number; _id:string;}>
+  featured:Array<{id: number; rating: number; title:string; content:string; datetime:string, author:string; _id:string;}>
 }
+
+
+
+
 export interface ProductType {
   id: string;
   _id?: string;
@@ -60,6 +66,9 @@ export interface ProductType {
   images: Array<{ src: string; alt: string; _id:string; }>;
   details: string;
   highlights: string[];
+  description:Array<{ title: string; content: string; summary:string; _id:string; }>;
+  benefits?:Array<{ benefittitle: string; text: string; _id:string; }>;
+  features?:Array<{ featuretitle: string; text: string;  _id:string; }>;
   reviews: ReviewsType[];
   createdAt?: string;
  updatedAt?: string;
@@ -110,6 +119,10 @@ export interface ProductSliderType {
   images: Array<{ src: string; alt: string; _id:string; }>;
 }
 
+
+
+
+
 export type ProductCartProviderType = {
   children: ReactNode;
 };
@@ -136,7 +149,7 @@ export interface AuthFormType  {
 }
 
 export interface BenefitType {
-  name: string;
+  benefittitle: string;
   text: string;
 }
 

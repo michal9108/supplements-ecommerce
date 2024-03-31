@@ -24,7 +24,7 @@ const ProductSlider: React.FC<ProductSliderType> = ({ images }) => {
       <div className="   w-11/12 h-11/12 max-md:w-11/12">
         <div>
           <Slide {...properties} indicators={indicators}>
-            {images.map((slideImage, index) => (
+            {images.slice(0, 4).map((slideImage, index) => (
               <div key={index}>
                 <div className="relative">
                   <img
@@ -34,16 +34,15 @@ const ProductSlider: React.FC<ProductSliderType> = ({ images }) => {
                   />
                   <div className="w-10 absolute top-3 right-3">
                     {isFavorite ? (
-                      <HeartIconSolid fill="#dc2626"
+                      <HeartIconSolid
+                        fill="#dc2626"
                         onClick={() => {
                           setIsFavorite(!isFavorite);
                         }}
                       />
                     ) : (
                       <HearIconOutlined
-                     
-                      color="#ffffff"
-                    
+                        color="#ffffff"
                         onClick={() => {
                           setIsFavorite(!isFavorite);
                         }}
