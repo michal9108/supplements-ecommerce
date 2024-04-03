@@ -17,17 +17,19 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Returns from "./pages/Returns";
 import WishlistPage from "./pages/WishlistPage";
-
+import RedirectIfAuthenticated from"../middleware/RedirectIfAuthenticated"
+import RequireAuth from"../middleware/RequireAuth"
 const isUserSignedIn = !!localStorage.getItem("token");
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: isUserSignedIn ? <RequireAuth Component={<App />} /> : <RedirectIfAuthenticated Component={<LoginPage />} />,
     children: [
       {
         path: "",
         element: <HomePage />,
+
       },
       {
         path: "/productpage",
@@ -63,11 +65,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/account",
-        element: isUserSignedIn ? <AccountPage /> : <LoginPage />,
+        element: isUserSignedIn ? <RequireAuth Component={<AccountPage />} /> : <RedirectIfAuthenticated Component={<LoginPage />} />,
       },
       {
         path: "/wishlist",
-        element: isUserSignedIn ? <WishlistPage /> : <LoginPage />,
+        element: isUserSignedIn ? <RequireAuth Component={<WishlistPage />} /> : <RedirectIfAuthenticated Component={<LoginPage />} />,
       },
     ],
   },

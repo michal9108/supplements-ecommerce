@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ReactElement } from 'react';
 
 export enum SelectedPage {
   Carousel = "Carousel",
@@ -158,4 +159,15 @@ export interface TestimonialTypes {
   age: number;
   city: string;
   src: string;
+}
+
+
+
+
+export interface RedirectIfAuthenticatedProps {
+  Component: ReactElement;
+}
+
+export interface RequireAuthProps {
+  Component: ReactElement;
 }
