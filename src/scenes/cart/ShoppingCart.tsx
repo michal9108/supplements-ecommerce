@@ -93,6 +93,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
               <div className="  flex">{formatCurrency(subtotal())}</div>
             </div>
           </Stack>
+          
           <button
             onClick={checkout}
             className="mt-auto flex  w-full items-end justify-center rounded-md border border-transparent  font-bold px-8 py-3 text-3xl text-primary-100 bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
