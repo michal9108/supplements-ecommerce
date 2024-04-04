@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { createContext, useContext, useState, useEffect } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
@@ -66,30 +67,64 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
     [],
   );
 
-  const [wishlist, setWishlist] = useState<string[]>([]);
+
+//wishlist 
+
+const [wishlist, setWishlist] = useLocalStorage<WishListItem[]> ("wishlist",[]);
 
 
-  const toggleFavorite = (productId: string) => {
-    const isProductInWishlist = wishlist.includes(productId);
+  const isProductFavorite = (id: string) => {
+    return wishlist.find((item) => item.id === id);
+  };
 
-    if (isProductInWishlist) {
+ function addToWishlist(id: string) {
+    setWishlist((currItems) => {
+      if (!currItems.some(item => item.id === id)) {
+
+        return [...currItems, { id }];
+      } else { return currItems.filter(item => item.id !==id) ;
+      }
+        });
+      }
+    
+  console.log('wishlist array ',wishlist)
+  console.log('wishlist length ',wishlist.length)
+
+
+
+
+  // const  toggleFavorite = (id:string)=> {
+  //   if (isProductFavorite(id)) {
+  //     // Remove from wishlist
+  //     setWishlist(prev => prev.filter(item => item.id !== id));
+  //   } else {
+  //     // Add to wishlist
+  //     setWishlist(prev => [...prev, { ...item }]);
+  //   }
+  // }
+ 
+  function removeFromWishlist(id: string) {
+    setWishlist(prev => prev.filter(item => item.id !== id));
+
+  }
+
+  const toggleFavorite = (id) => {
+    const itemDetails = storeItems.find(item => item.id === id);
+  
+    if (!itemDetails) {
+      console.error(`Item with id ${id} not found in storeItems`);
+      return;
+    }
+  
+    if (isProductFavorite(id)) {
       // Remove from wishlist
-      setWishlist((prev) => prev.filter((id) => id !== productId));
+      setWishlist(prev => prev.filter(item => item.id !== id));
     } else {
       // Add to wishlist
-      setWishlist((prev) => [...prev, productId]);
+      setWishlist(prev => [...prev, { ...itemDetails }]);
     }
   };
 
-
-  console.log(wishlist)
-
-  // Function to check if a product is in the wishlist
-  const isProductFavorite = (productId: string) => {
-    return wishlist.includes(productId);
-  };
-
-  // console.log('cartItems',cartItems)
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
@@ -197,9 +232,13 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
         setProductDetails,
         storeReviews,
         setCartItems,
+        addToWishlist,
+        removeFromWishlist,
         toggleFavorite,
         isProductFavorite,
         wishlist,
+        setWishlist,
+       
       }}
     >
       {children}

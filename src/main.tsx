@@ -3,7 +3,7 @@ import App from "./App";
 import "./index.css";
 import { createBrowserRouter } from "react-router-dom";
 import SignUpPage from "./pages/SignUpPage";
-import LoginPage from "./pages/LoginPage";
+import SignInPage from "./pages/SignInPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
@@ -24,7 +24,7 @@ const isUserSignedIn = !!localStorage.getItem("token");
 const router = createBrowserRouter([
   {
     path: "/",
-    element: isUserSignedIn ? <RequireAuth Component={<App />} /> : <RedirectIfAuthenticated Component={<LoginPage />} />,
+    element: isUserSignedIn ? <RequireAuth Component={<App />} /> : <RedirectIfAuthenticated Component={<SignInPage />} />,
     children: [
       {
         path: "",
@@ -65,11 +65,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/account",
-        element: isUserSignedIn ? <RequireAuth Component={<AccountPage />} /> : <RedirectIfAuthenticated Component={<LoginPage />} />,
+        element: isUserSignedIn ? <RequireAuth Component={<AccountPage />} /> : <RedirectIfAuthenticated Component={<SignInPage />} />,
       },
       {
         path: "/wishlist",
-        element: isUserSignedIn ? <RequireAuth Component={<WishlistPage />} /> : <RedirectIfAuthenticated Component={<LoginPage />} />,
+        element: isUserSignedIn ? <RequireAuth Component={<WishlistPage />} /> : <RedirectIfAuthenticated Component={<SignInPage />} />,
       },
     ],
   },
@@ -78,8 +78,8 @@ const router = createBrowserRouter([
     element: <SignUpPage />,
   },
   {
-    path: "/login",
-    element: <LoginPage />,
+    path: "/signin",
+    element: <SignInPage />,
   },
 ]);
 

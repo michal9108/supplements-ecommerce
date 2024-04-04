@@ -85,6 +85,14 @@ export type ShoppingCartType = {
   isOpen: boolean;
 };
 
+// export type WishListItem = {
+//   id: string
+  
+// }
+
+export type SetWishlistType = (wishlist: ProductType[]) => void;
+
+
 export type ProductCartContextType = {
   openCart: () => void;
   closeCart: () => void;
@@ -102,10 +110,13 @@ export type ProductCartContextType = {
   setProductDetails: (product: ProductType | null) => void;
   selectedProduct: ProductType | null;
   setCartItems:any;
-  toggleFavorite: (productId: string) => void; 
-  isProductFavorite: (productId: string) => boolean; 
-  wishlist: string[]; 
-  
+  isProductFavorite:  (id: string) => boolean
+  wishlist: ProductType[]
+  setWishlist: SetWishlistType;
+  addToWishlist: (id: string) => void
+  removeFromWishlist: (id: string) => void
+  toggleFavorite:(id: string) => void
+
 };
 
 export interface ButtonlinkTypes {

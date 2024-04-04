@@ -5,7 +5,7 @@ import {RequireAuthProps} from "../src/shared/types"
 
 function RequireAuth({ Component }: RequireAuthProps) {
   if (!localStorage.getItem("token")) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/signin" />;
   }
   return Component;
 }

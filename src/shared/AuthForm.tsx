@@ -80,7 +80,7 @@ export default function AuthForm({
             <>
               Already a user?{" "}
               <Link
-                to="/login"
+                to="/signin"
                 className="font-semibold leading-6 text-primary-300 hover:text-primary-300"
               >
                 Log in

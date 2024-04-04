@@ -6,16 +6,16 @@ import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import { HeartIcon as HearIconOutlined } from "@heroicons/react/24/outline";
 import Logo from "./Logo"
 function navbarMedium() {
-  const { openCart, cartQuantity, toggleFavorite, isProductFavorite } =
+  const { openCart, cartQuantity,  } =
     useProductCart();
-  const [isFavorite, setIsFavorite] = useState(false);
+  // const [isFavorite, setIsFavorite] = useState(false);
   const flexBetween = "flex items-center justify-between";
 
-  useEffect(() => {
-    // For demonstration purposes, I'm setting a productId. You'd likely get this from the selected product or another source.
-    const productId = "price_1OhJA3H9dKBRlDkrzq4XCurD"; // Replace with actual productId
-    setIsFavorite(isProductFavorite(productId));
-  }, [isProductFavorite]);
+  // useEffect(() => {
+  //    For demonstration purposes, I'm setting a productId. You'd likely get this from the selected product or another source.
+  //   const productId = "price_1OhJA3H9dKBRlDkrzq4XCurD"; // Replace with actual productId
+  //   setIsFavorite(isProductFavorite(productId));
+  // }, [isProductFavorite]);
 
   return (
     <div className={`${flexBetween} w-full`}>
@@ -47,7 +47,7 @@ function navbarMedium() {
         </NavLink>
   
       
-      <NavLink to="/">
+      <NavLink to="/wishlist">
                       {/* FAVORITE */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

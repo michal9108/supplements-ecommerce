@@ -36,7 +36,7 @@ export default function HomeCarousel() {
         { src: slider4 },
         { src: slider5 },
       ]
-    : [{   src: slider1  }, { src: slider6 },  { src: slider8 }, { src: slider7 }];
+    : [ { src: slider8 }];
 
   const divStyle = {
     display: "flex",
@@ -70,7 +70,7 @@ export default function HomeCarousel() {
         ))}
       </Slide>
 
-      <div className="max-w-2xl grid gap-2 absolute bottom-10 left-10 text-primary-100">
+      <div className="max-w-2xl grid gap-2 absolute bottom-10 xs:left-10 text-primary-100 p-4">
         <div className="font-group-2 text-theme-overlay-text ">
           <p className="_p">
             <span className="relative inline-flex items-center h-[1em] align-middle  justify-center">
@@ -146,7 +146,7 @@ export default function HomeCarousel() {
           </p>
         </div>
 
-        <div className="mt-4 -mx-2 flex flex-col sm:flex-row sm:justify-start text-left ">
+        <div className="mt-4  flex flex-col sm:flex-row sm:justify-start text-left w-full ">
           <button className="rounded-lg bg-secondary-500 px-20 py-3 text-primary-100 no-underline font-semibold text-xl">
             BUY NOW
           </button>

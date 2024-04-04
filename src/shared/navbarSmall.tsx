@@ -37,7 +37,7 @@ function SmallNavbar() {
           <UserIcon />
         </NavLink>
 
-        <NavLink to="/">
+        <NavLink to="/wishlist">
                       {/* FAVORITE */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
