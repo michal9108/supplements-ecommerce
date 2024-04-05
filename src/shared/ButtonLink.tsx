@@ -10,8 +10,12 @@ export default function ButtonLink({
 }: ButtonlinkTypes) {
   return (
     <Link to={to}>
-      <button className={className} onClick={onClick} disabled={disabled}>
-        {children}{" "}
+      <button 
+        className={className} 
+        onClick={onClick} 
+        disabled={disabled}
+      >
+        {children}
       </button>
     </Link>
   );

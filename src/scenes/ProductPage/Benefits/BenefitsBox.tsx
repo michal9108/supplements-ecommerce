@@ -1,7 +1,12 @@
-import { BenefitType } from "@/shared/types";
+import { BenefitType, ProductType } from "@/shared/types";
 import checkIcon from "@/assets/checkIcon.png";
 
-export default function BenefitsBox({ benefittitle, text }: BenefitType) {
+interface BenefitProp {
+  benefittitle:string;
+  text:string;
+}
+
+export default function BenefitsBox({ benefittitle,text  }:BenefitProp ) {
   return (
     <div className="grid gap-2 p-2 md:p-2 justify-items-center rounded-lg shadow-lg">
       <img src={checkIcon} alt="" className="inline-block h-8 " />

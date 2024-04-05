@@ -189,7 +189,8 @@ function PrivacyPolicy() {
 
               <p>
                 If you have any questions about these Terms, please contact us
-                at <a href="mailto:support@bb.com"></a>.
+                at 
+                <div>mailto:support@bb.com</div>
               </p>
             </div>
           </div>

@@ -8,6 +8,7 @@ import {
   ProductCartContextType,
   ProductCartProviderType,
   ProductReviewType,
+  UserType,
 } from "@/shared/types";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -15,6 +16,7 @@ const ProductCartContext = createContext({} as ProductCartContextType);
 
 export function ProductCartProvider({ children }: ProductCartProviderType) {
   const [storeItems, setstoreItems] = useState<ProductType[]>([]);
+  const [storeUsers, setstoreUsers] = useState<UserType[]>([]);
   const [isLoading, setisLoading] = useState(true);
   const [storeReviews, setstoreReviews] = useState<ProductReviewType[]>([]);
   const [error, setError] = useState<string | null>("");
@@ -35,6 +37,21 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
     };
     fetchProductData();
   }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   useEffect(() => {
     const fetchReviewData = async () => {
@@ -70,43 +87,25 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
 
 //wishlist 
 
-const [wishlist, setWishlist] = useLocalStorage<WishListItem[]> ("wishlist",[]);
+const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
 
 
   const isProductFavorite = (id: string) => {
     return wishlist.find((item) => item.id === id);
   };
 
- function addToWishlist(id: string) {
-    setWishlist((currItems) => {
-      if (!currItems.some(item => item.id === id)) {
 
-        return [...currItems, { id }];
-      } else { return currItems.filter(item => item.id !==id) ;
-      }
-        });
-      }
-    
   console.log('wishlist array ',wishlist)
   console.log('wishlist length ',wishlist.length)
 
-
-
-
-  // const  toggleFavorite = (id:string)=> {
-  //   if (isProductFavorite(id)) {
-  //     // Remove from wishlist
-  //     setWishlist(prev => prev.filter(item => item.id !== id));
-  //   } else {
-  //     // Add to wishlist
-  //     setWishlist(prev => [...prev, { ...item }]);
-  //   }
-  // }
  
   function removeFromWishlist(id: string) {
-    setWishlist(prev => prev.filter(item => item.id !== id));
-
+    setWishlist((prev) =>  {
+      return prev.filter((item) => item.id !== id);
+    });
   }
+
+ 
 
   const toggleFavorite = (id) => {
     const itemDetails = storeItems.find(item => item.id === id);
@@ -194,6 +193,16 @@ const [wishlist, setWishlist] = useLocalStorage<WishListItem[]> ("wishlist",[]);
     }, 0);
   }
 
+
+  
+  
+
+
+
+
+
+
+
   if (isLoading) {
     return (
       <div className=" flex w-full mx-auto justify-center items-center h-screen">
@@ -226,18 +235,20 @@ const [wishlist, setWishlist] = useLocalStorage<WishListItem[]> ("wishlist",[]);
         closeCart,
         cartItems,
         storeItems,
+        storeUsers,
         error,
         cartQuantity,
         selectedProduct,
         setProductDetails,
         storeReviews,
         setCartItems,
-        addToWishlist,
+      
         removeFromWishlist,
         toggleFavorite,
         isProductFavorite,
         wishlist,
         setWishlist,
+        
        
       }}
     >

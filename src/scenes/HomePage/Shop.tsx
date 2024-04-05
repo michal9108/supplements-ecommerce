@@ -27,7 +27,21 @@ export default function Shop() {
               {storeItems.length > 0 &&
                 storeItems.map((item: ProductType) => (
                   <div key={item._id} className="flex basis-1/6">
-                    <ResponsiveCard {...item} />
+                    <ResponsiveCard 
+
+                    id={item.id}
+                    inStock={item.inStock}
+                    price={item.price}
+                    oldprice={item.oldprice}
+                    images={item.images}
+                    name={item.name}
+                    details={item.details}
+                    highlights={item.highlights}
+                    reviews={item.reviews || []}  
+                    href={item.href || ''}        
+                    description={item.description || []} 
+                    
+                    />
                   </div>
                 ))}
             </div>

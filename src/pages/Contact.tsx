@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Contact() {
   return (
@@ -123,9 +124,9 @@ function Contact() {
             </div>
             <p className="mt-4 text-sm leading-6 text-gray-500">
               By submitting this form, I agree to the{" "}
-              <a href="#" className="font-semibold text-orange-600">
-                privacy&nbsp;policy
-              </a>
+              <div className="font-semibold text-orange-600">
+                privacy policy
+              </div>
               .
             </p>
           </form>

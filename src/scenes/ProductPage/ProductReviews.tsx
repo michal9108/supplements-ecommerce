@@ -185,12 +185,12 @@ export default function ProductReviews() {
                 customers
               </p>
 
-              <a
-                href="#"
+              <div
+               
                 className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
               >
                 Write a review
-              </a>
+              </div>
             </div>
           </div>
 
@@ -248,7 +248,7 @@ export default function ProductReviews() {
                       <path fill="#bd3d44" d="M0 0h512v512H0" />
                       <path
                         stroke="#fff"
-                        stroke-width="40"
+                        strokeWidth="40"
                         d="M0 58h512M0 137h512M0 216h512M0 295h512M0 374h512M0 453h512"
                       />
                       <path fill="#192f5d" d="M0 0h390v275H0z" />

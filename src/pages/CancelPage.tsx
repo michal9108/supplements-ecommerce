@@ -22,7 +22,7 @@ export default function CancelPage() {
             </Link>
 
            
-            <h4 className="text-sm font-semibold">Contact support  <a href="support@bodybuff.com">support@bodybuff.com</a></h4>
+            <h4 className="text-sm font-semibold">Contact support  <Link to="support@bodybuff.com">support@bodybuff.com</Link></h4>
            
           </div>
         </div>

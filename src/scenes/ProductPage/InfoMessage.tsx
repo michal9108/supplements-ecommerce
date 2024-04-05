@@ -1,13 +1,8 @@
-import React from "react";
+
 
 import { ProductType } from "@/shared/types";
 
-interface InfoMessageType {
-  description: Array<{ title: string; content: string; summary:string; _id:string; }>;
-}
-
-
-const InfoMessage: React.FC<InfoMessageType> = ({ description }:ProductType) => {
+const InfoMessage = ({ description }: ProductType) => {
   return (
     <section className=" md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 mx-auto">
       <span className="mx-auto min-h-full  py-1">
@@ -37,33 +32,18 @@ const InfoMessage: React.FC<InfoMessageType> = ({ description }:ProductType) => 
               />
             </svg>
             <h2 className="font-bold text-lg text-gray-900 ">
-            {/* {description && description ? description[0].title : 'Default Title'} */}
-{description}
+              {description[0].title}
             </h2>
           </div>
 
-          <p className="py-0">
-            Unfortunately, testosterone levels have been steadily declining over
-            the last 3 decades. Plain and simple, your father and grandfathers
-            had much higher testosterone levels than you. This is due to a
-            number of reasons such as: higher levels of chronic stress,
-            increases in body fat, and a massive increase in environmental
-            estrogens.
-          </p>
+          <p className="py-0">{description[0].content}</p>
         </div>
       </span>
       <section className="mx-auto min-h-full w-full py-3">
-        <p className=" text-2xl text-gray-900 mx-2 ">
-          Enhancing your testosterone levels naturally acts as a powerful asset,
-          akin to unlocking a hidden potential:
-          <strong className="italic">
-            powering you up with more ambition, a higher sex drive, less fat,
-            more muscle and a higher quality of life.
-          </strong>
-        </p>
+        <strong className="italic">{description[0].summary}</strong>
       </section>
     </section>
   );
-}
+};
 
 export default InfoMessage;

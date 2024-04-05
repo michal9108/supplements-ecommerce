@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import AuthForm from "@/shared/AuthForm";
+import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 
 export default function SignIn() {
+
+  const [token, setToken] = useLocalStorage<string | null>("token", null);
+
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [users, setUsers] = useState([]);
+
 
   const navigate = useNavigate();
 
   const fetchUsers = () => {
-    axios
-      .get("https://server-be-node-express-mongo.fly.dev/register")
-      .then((res) => {
-        console.log(res.data);
-      });
+    axios.get("https://server-be-node-express-mongo.fly.dev/register").then((res) => {
+      console.log(res.data);
+    });
   };
 
-  const handleLogin = async (username, password, navigate) => {
+  const handleLogin = async (username: string, password: string) => {
     try {
       const response = await axios.post(
         "https://server-be-node-express-mongo.fly.dev/login",
@@ -28,22 +31,36 @@ export default function SignIn() {
         },
       );
       const token = response.data.token;
+      setToken(token);
+
       alert("Login succesful");
+      console.log(username, password)
+      localStorage.setItem('userCredentials', JSON.stringify({username, password}));
+      setUsername("");
+      setPassword("");
       fetchUsers();
       navigate("/");
       window.location.reload();
-      localStorage.setItem("token", token);
+
+   
+    
     } catch (error) {
       console.log("Login failed:", error);
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    handleLogin(username, password, navigate);
-    setUsername("");
-    setPassword("");
+    handleLogin(username, password);
+  
   };
+
+
+
+
+
+
+
 
   return (
     <div className="flex min-h-full flex-1 bg-white-100 ">

@@ -29,9 +29,9 @@ export default function ProductPage() {
         <Incentives />
         <Testimonials />
         {selectedProduct && <InfoMessage  {...selectedProduct}/>}
-        {/* {selectedProduct &&   <BenefitsContainer {...selectedProduct} />}
+      {/* {selectedProduct &&   <BenefitsContainer {...selectedProduct} />} */}
 
-        {selectedProduct &&   <Features  {...selectedProduct} />} */}
+       {selectedProduct &&   <Features  {...selectedProduct} />} 
 
         <ProductFaq />
         <ProductReviews />

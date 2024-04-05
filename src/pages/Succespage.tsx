@@ -1,4 +1,3 @@
-
 //@ts-nocheck
 import { Link } from "react-router-dom";
 // import { stripe } from "../shared/stripe";
@@ -15,14 +14,11 @@ interface Props {
 }
 
 interface Props {
-  customerDetails: Stripe.Checkout.Session.CustomerDetails | null
+  customerDetails: Stripe.Checkout.Session.CustomerDetails | null;
 }
 
 export default function SuccesPage({ searchParams }: Props) {
-
-
-
-// const stripe = require('stripe')('sk_test_51HDZZtH9dKBRlDkrGypI7RjGytgwPUtI3mSHLWvdFtyo23eIpO3l3BSwjLbkIWNLZMonZluAfngDX5kKus8GpeLk00OVyIp7dR');
+  // const stripe = require('stripe')('sk_test_51HDZZtH9dKBRlDkrGypI7RjGytgwPUtI3mSHLWvdFtyo23eIpO3l3BSwjLbkIWNLZMonZluAfngDX5kKus8GpeLk00OVyIp7dR');
 
   const { setCartItems } = useProductCart();
   const sessionId = searchParams?.session_id ?? "";
@@ -32,8 +28,7 @@ export default function SuccesPage({ searchParams }: Props) {
     const fetchCheckoutSession = async () => {
       try {
         // console.log("Fetching checkout session with session ID:", sessionId);
-        const session =
-          await stripe.checkout.sessions.retrieve(sessionId);
+        const session = await stripe.checkout.sessions.retrieve(sessionId);
         console.log("Fetched checkout session:", session);
         const details = session?.customer_details;
         console.log("Fetched customer details:", details);
@@ -100,7 +95,7 @@ export default function SuccesPage({ searchParams }: Props) {
               Go back home
             </Link>
             <h4 className="text-sm font-semibold">Contact support</h4>
-            <a href="support@bodybuff.com">support@bodybuff.com</a>
+            <div> support@bodybuff.com </div>
           </div>
         </div>
       </main>

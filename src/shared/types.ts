@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 export enum SelectedPage {
   Carousel = "Carousel",
@@ -28,7 +28,6 @@ export interface ProductReviewType {
   verifiedBuyer: boolean;
 }
 
-
 // export interface BenefitsType {
 //   storeItems: ProductType[];
 //   proofs: ProofType[];
@@ -48,12 +47,17 @@ export interface ReviewsType {
   average: number;
   totalCount: number;
   _id?: string;
-  counts:Array<{rating: number; count:number; _id:string;}>
-  featured:Array<{id: number; rating: number; title:string; content:string; datetime:string, author:string; _id:string;}>
+  counts: Array<{ rating: number; count: number; _id: string }>;
+  featured: Array<{
+    id: number;
+    rating: number;
+    title: string;
+    content: string;
+    datetime: string;
+    author: string;
+    _id: string;
+  }>;
 }
-
-
-
 
 export interface ProductType {
   id: string;
@@ -64,21 +68,30 @@ export interface ProductType {
   oldprice: number;
   inStock: boolean;
   href: string;
-  images: Array<{ src: string; alt: string; _id:string; }>;
+  images: Array<{ src: string; alt: string; _id: string }>;
   details: string;
   highlights: string[];
-  description:Array<{ title: string; content: string; summary:string; _id:string; }>;
-  benefits?:Array<{ benefittitle: string; text: string; _id:string; }>;
-  features?:Array<{ featuretitle: string; text: string;  _id:string; }>;
+  description: Array<{
+    title: string;
+    content: string;
+    summary: string;
+    _id: string;
+  }>;
+  benefits: Array<{ benefittitle: string; text: string; _id: string }>;
+  features?: Array<{ featuretitle: string; text: string; _id: string }>;
   reviews: ReviewsType[];
   createdAt?: string;
- updatedAt?: string;
+  updatedAt?: string;
 }
 
 export interface CartItemType {
   id: string;
   quantity: number;
-  
+}
+export interface FavoriteItemType {
+  id: string;
+  name: string;
+  inStock: boolean;
 }
 
 export type ShoppingCartType = {
@@ -87,11 +100,10 @@ export type ShoppingCartType = {
 
 // export type WishListItem = {
 //   id: string
-  
+
 // }
 
 export type SetWishlistType = (wishlist: ProductType[]) => void;
-
 
 export type ProductCartContextType = {
   openCart: () => void;
@@ -105,35 +117,44 @@ export type ProductCartContextType = {
   cartQuantity: number;
   cartItems: CartItemType[];
   storeItems: ProductType[];
-  storeReviews:ProductReviewType[];
+  storeUsers: UserType[];
+  storeReviews: ProductReviewType[];
   error: string | null;
   setProductDetails: (product: ProductType | null) => void;
   selectedProduct: ProductType | null;
-  setCartItems:any;
-  isProductFavorite:  (id: string) => boolean
-  wishlist: ProductType[]
+  setCartItems: any;
+  isProductFavorite: (id: string) => boolean;
+  wishlist: ProductType[];
   setWishlist: SetWishlistType;
-  addToWishlist: (id: string) => void
-  removeFromWishlist: (id: string) => void
-  toggleFavorite:(id: string) => void
 
+  removeFromWishlist: (id: string) => void;
+  toggleFavorite: (id: string) => void;
 };
 
-export interface ButtonlinkTypes {
+export interface ButtonBuyLinkTypes {
   to: string;
   children: string;
   className: string;
   disabled: boolean;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
+
+
+
+export interface ButtonlinkTypes {
+  to: string;
+  children: React.ReactNode;
+  className?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
+}
+
+
+
 
 export interface ProductSliderType {
-  images: Array<{ src: string; alt: string; _id:string; }>;
+  images: Array<{ src: string; alt: string; _id: string }>;
 }
-
-
-
-
 
 export type ProductCartProviderType = {
   children: ReactNode;
@@ -149,10 +170,9 @@ export type AccordionType = {
   answer: string;
 };
 
-
-export interface AuthFormType  {
+export interface AuthFormType {
   title: string;
-  buttonText:string;
+  buttonText: string;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   username: string;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
@@ -172,13 +192,16 @@ export interface TestimonialTypes {
   src: string;
 }
 
-
-
-
 export interface RedirectIfAuthenticatedProps {
   Component: ReactElement;
 }
 
 export interface RequireAuthProps {
   Component: ReactElement;
+}
+
+export interface UserType {
+  email: string;
+  username: string;
+  password: string;
 }
