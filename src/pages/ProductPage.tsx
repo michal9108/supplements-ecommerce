@@ -18,6 +18,7 @@ import Incentives from "@/scenes/ProductPage/ProductCard/Incentives";
 
 export default function ProductPage() {
   const { selectedProduct } = useProductCart();
+  console.log('PRODUCT',selectedProduct)
   return (
     <>
       <div className="bg-primary-100">

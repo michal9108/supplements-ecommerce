@@ -3,7 +3,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { ProductType } from "@/shared/types";
 import ButtonBuyLink from "@/shared/ButtonBuyLink";
 import { useProductCart } from "../cart/ProductCartContext";
-
+import useOnMOuseOver from "@/hooks/useOnMouseOver";
 
 export default function ResponsiveCard({
   id,
@@ -17,6 +17,8 @@ export default function ResponsiveCard({
   href = "",
   description = [],
   reviews = [],
+  benefits = [],
+  features = [],
 }: ProductType) {
   const {
     setProductDetails,
@@ -39,11 +41,15 @@ export default function ResponsiveCard({
       reviews,
       href,
       description,
+      benefits,
+      features,
     });
 
     increaseCartQuantity(id);
     openCart();
   };
+
+  const { handleMouseOver, handleMouseout, productImages } = useOnMOuseOver();
 
   const isBelowsxxScreens = useMediaQuery("(max-width: 325px)");
   const isBelowsxScreens = useMediaQuery("(max-width: 480px)");
@@ -87,7 +93,17 @@ export default function ResponsiveCard({
           </div>
         )}
 
-        <Card.Img variant="top" src={images[0].src} alt={images[0].alt} />
+        <Card.Img
+          variant="top"
+          src={
+            typeof productImages[id] === "string"
+              ? productImages[id]
+              : images[0].src
+          }
+          alt={images[0].alt}
+          onMouseOver={() => handleMouseOver(id)}
+          onMouseOut={() => handleMouseout(id)}
+        />
       </span>
 
       <Card.Body className="flex flex-col justify-between">

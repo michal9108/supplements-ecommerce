@@ -2,12 +2,14 @@ import ButtonLink from "@/shared/ButtonLink";
 import { StarIcon } from "@heroicons/react/24/solid";
 import H2 from "@/shared/H2";
 import { useProductCart } from "../cart/ProductCartContext";
+import useOnMOuseOver from "@/hooks/useOnMouseOver";
 
 function Trending() {
-  const { storeItems, isProductFavorite, toggleFavorite, handleBuyNowClick } =
+  const { storeItems, isProductFavorite, toggleFavorite, } =
     useProductCart();
 
   const trendingProducts = storeItems.slice(0, 4);
+  const { handleMouseOver, handleMouseout, productImages } = useOnMOuseOver();
 
   return (
     <section aria-labelledby="trending-heading">
@@ -23,17 +25,23 @@ function Trending() {
             >
               <div
                 key={product.id}
-                className="group relative border-1 border-black-900 rounded-lg"
+                className="group  border-1 border-black-900 rounded-lg"
               >
                 <div className=" md:w-3/4 sm:w-1/2 w-3/4 m-auto overflow-hidden rounded-md group-hover:opacity-75  ">
                   <img
-                    src={product.images[0].src}
-                    alt={product.images[0].alt}
+                   src={
+                    typeof productImages[product.id] === "string"
+                      ? productImages[product.id]
+                      : product.images[0].src
+                  }
+                  alt={product.images[0].alt}
+                  onMouseOver={() => handleMouseOver(product.id)}
+                  onMouseOut={() => handleMouseout(product.id)}
                     className="h-full w-full object-cover object-center "
                   />
                 </div>
 
-                <div className="w-10 absolute top-3 right-3">
+                <div className="w-10  top-3 right-3">
                   <button onClick={() => toggleFavorite(product.id)}>
                     {" "}
                     {isProductFavorite(product.id) ? (
@@ -118,7 +126,7 @@ function Trending() {
                     </div>
                   </span>
                   <ButtonLink
-                    onClick={handleBuyNowClick}
+                    // onClick={handleBuyNowClick}
                     to={"/productpage"}
                     children={"BUY NOW"}
                     disabled={false}

@@ -77,6 +77,7 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
     setSelectedProduct(product);
   }
 
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [cartItems, setCartItems] = useLocalStorage<CartItemType[]>(

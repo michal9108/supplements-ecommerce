@@ -20,6 +20,8 @@ export default function Product({
   highlights,
   reviews,
   images,
+  benefits,
+  features,
 }: ProductType) {
   const {
     getItemQuantity,
