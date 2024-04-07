@@ -12,6 +12,7 @@ import {
 } from "@/shared/types";
 import { RotatingLines } from "react-loader-spinner";
 
+//CONTEXT
 const ProductCartContext = createContext({} as ProductCartContextType);
 
 export function ProductCartProvider({ children }: ProductCartProviderType) {
@@ -20,6 +21,8 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   const [isLoading, setisLoading] = useState(true);
   const [storeReviews, setstoreReviews] = useState<ProductReviewType[]>([]);
   const [error, setError] = useState<string | null>("");
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(true);
+
 
   useEffect(() => {
     const fetchProductData = async () => {
@@ -37,20 +40,6 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
     };
     fetchProductData();
   }, []);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   useEffect(() => {
@@ -196,13 +185,6 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
 
 
   
-  
-
-
-
-
-
-
 
   if (isLoading) {
     return (
@@ -243,14 +225,15 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
         setProductDetails,
         storeReviews,
         setCartItems,
-      
         removeFromWishlist,
         toggleFavorite,
         isProductFavorite,
         wishlist,
         setWishlist,
+        isMenuToggled,
+        setIsMenuToggled,
         
-       
+    
       }}
     >
       {children}

@@ -5,8 +5,7 @@ import { useProductCart } from "../cart/ProductCartContext";
 import useOnMOuseOver from "@/hooks/useOnMouseOver";
 
 function Trending() {
-  const { storeItems, isProductFavorite, toggleFavorite, } =
-    useProductCart();
+  const { storeItems, isProductFavorite, toggleFavorite } = useProductCart();
 
   const trendingProducts = storeItems.slice(0, 4);
   const { handleMouseOver, handleMouseout, productImages } = useOnMOuseOver();
@@ -17,35 +16,48 @@ function Trending() {
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-5 lg:px-8 lg:pt-32">
         <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8">
           {trendingProducts.map((product) => (
-            <div
-              key={product.id}
-              // onClick={""}
-
-              className="no-underline"
-            >
+           
               <div
                 key={product.id}
-                className="group  border-1 border-black-900 rounded-lg"
+                className="group  border-1 border-black-900 rounded-lg relative"
               >
-                <div className=" md:w-3/4 sm:w-1/2 w-3/4 m-auto overflow-hidden rounded-md group-hover:opacity-75  ">
+                {product.inStock ? (
+            <div className=" absolute top-2 left-2 max-w-fit border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
+              <div className="text-xs tracking-tight text-primary-100 ">
+                ✔️ in stock
+              </div>
+            </div>
+          ) : (
+            <div className="absolute top-2 left-2 border-solid border-black bg-danger rounded-lg my-auto p-2">
+              <div className="text-xs tracking-tight text-primary-100 ">
+                ⤫ not avalaible
+              </div>
+            </div>
+          )}
+           <div className="   flex justify-center items-center">
+                <div
+              className="md:w-3/4 md:py-0 sm:w-2/4 sm:py-4 xs:w-3/4 xs:py-0 xxs:w-full xxs:py-4 object-contain object-center "
+              >
                   <img
-                   src={
-                    typeof productImages[product.id] === "string"
-                      ? productImages[product.id]
-                      : product.images[0].src
-                  }
-                  alt={product.images[0].alt}
-                  onMouseOver={() => handleMouseOver(product.id)}
-                  onMouseOut={() => handleMouseout(product.id)}
+                    src={
+                      typeof productImages[product.id] === "string"
+                        ? productImages[product.id]
+                        : product.images[0].src
+                    }
+                    alt={product.images[0].alt}
+                    onMouseOver={() => handleMouseOver(product.id)}
+                    onMouseOut={() => handleMouseout(product.id)}
                     className="h-full w-full object-cover object-center "
                   />
                 </div>
+                </div>
 
-                <div className="w-10  top-3 right-3">
+
+                <div className="w-10  top-2 right-2 absolute">
                   <button onClick={() => toggleFavorite(product.id)}>
                     {" "}
                     {isProductFavorite(product.id) ? (
-                      <div className="absolute top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
+                      <div className=" top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
                         <div className="text-xs tracking-tight ">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +70,7 @@ function Trending() {
                         </div>
                       </div>
                     ) : (
-                      <div className="absolute top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
+                      <div className=" top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
                         <div className="text-xs tracking-tight ">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +94,7 @@ function Trending() {
 
                 <span className="flex flex-col justify-center items-center  gap-3 my-3 py-3">
                   <h3 className="  text-center font-bold text-base text-black-900">
-                    <span className="absolute inset-0 " />
+                    <span className=" inset-0 " />
                     {product.name}
                   </h3>
 
@@ -135,15 +147,12 @@ function Trending() {
                   />
                 </span>
               </div>
-            </div>
+         
           ))}
         </div>
 
         <div className="mt-8 text-sm md:hidden">
-          <div
-         
-            className="font-medium text-black-600 hover:text-black-500"
-          >
+          <div className="font-medium text-black-600 hover:text-black-500">
             Shop the collection
             <span aria-hidden="true"> &rarr;</span>
           </div>

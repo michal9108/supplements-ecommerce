@@ -1,8 +1,12 @@
 import { HeartIcon } from "@heroicons/react/24/solid";
 import aboutus from "../../../assets/about-us-1copy.webp";
 import { ProductType } from "@/shared/types";
+import { useProductCart } from "@/scenes/cart/ProductCartContext";
 
-export default function FeaturesA({ features , name }: ProductType) {
+export default function Features({ features  }: ProductType) {
+
+console.log(features)
+
   // const features = [
   //   {
   //     featuretitle: "Decreased Libido",
@@ -26,8 +30,8 @@ export default function FeaturesA({ features , name }: ProductType) {
   //   },
   // ];
 
-  // const featuresArray = features;
-  // console.log("Features Array:", featuresArray);
+ 
+
 
   return (
     <section className="bg-primary-100 ">
@@ -37,7 +41,7 @@ export default function FeaturesA({ features , name }: ProductType) {
           {/* Features Title */}
           <div className="text-center ">
             <h2 className="text-4xl font-bold  italic md:text-5xl my-10">
-              Why {name}?
+              {/* Why {name}? */}
             </h2>
           </div>
         </div>
@@ -57,7 +61,7 @@ export default function FeaturesA({ features , name }: ProductType) {
             <div className="md:ml-auto md:pl-4 md:pt-4">
               <div className="lg:max-w-lg">
                 <div className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                  {/* {featuresArray.map((feature) => (
+                  {features.map((feature) => (
                     <div key={feature.featuretitle} className="relative pl-9">
                       <dt className=" font-semibold text-gray-900">
                         <HeartIcon
@@ -68,7 +72,7 @@ export default function FeaturesA({ features , name }: ProductType) {
                       </dt>{" "}
                       <dd className="inline">{feature.text}</dd>
                     </div>
-                  ))} */}
+                  ))}
 
 
                 </div>

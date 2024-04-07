@@ -59,6 +59,13 @@ export interface ReviewsType {
   }>;
 }
 
+
+
+export type Featurestype = {
+  featuretitle: string;
+   text: string;
+  
+}
 export interface ProductType {
   id: string;
   _id?: string;
@@ -78,7 +85,7 @@ export interface ProductType {
     _id: string;
   }>;
   benefits: Array<{ benefittitle: string; text: string; _id: string }>;
-  features?: Array<{ featuretitle: string; text: string; _id: string }>;
+  features: Featurestype;
   reviews: ReviewsType[];
   createdAt?: string;
   updatedAt?: string;
@@ -98,12 +105,13 @@ export type ShoppingCartType = {
   isOpen: boolean;
 };
 
-// export type WishListItem = {
-//   id: string
 
-// }
+
+
+
 
 export type SetWishlistType = (wishlist: ProductType[]) => void;
+export type HandleClickOnProductType = (productId: string) => void;
 
 export type ProductCartContextType = {
   openCart: () => void;
@@ -126,7 +134,8 @@ export type ProductCartContextType = {
   isProductFavorite: (id: string) => boolean;
   wishlist: ProductType[];
   setWishlist: SetWishlistType;
-
+  isMenuToggled: boolean;  
+  setIsMenuToggled: any; 
   removeFromWishlist: (id: string) => void;
   toggleFavorite: (id: string) => void;
 };
