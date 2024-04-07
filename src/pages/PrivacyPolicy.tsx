@@ -1,28 +1,24 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function PrivacyPolicy() {
   return (
     <article className="relative isolate overflow-hidden bg-white px-6 py-10 sm:py-32 lg:overflow-visible lg:px-0">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0  lg:grid-cols-1 lg:items-start lg:gap-y-8">
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-1 lg:gap-x-8 lg:px-8">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0  lg:grid-cols-1 lg:items-center lg:justify-center lg:gap-y-8  ">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full  lg:grid-cols-1 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
-            <div className="lg:max-w-lg">
+            <div className="">
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">
-                Terms of Service
+                Privacy Policy
               </h1>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-1 lg:gap-x-8 lg:px-8">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full  lg:grid-cols-1 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
-            <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
-              <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
-                Privacy Policy
-              </h2>
-              <h3 className="mt-16 text-xl font-bold tracking-tight text-gray-900">
-                SECTION 1 - WHAT DO WE DO WITH YOUR INFORMATION?
+            <div className="max-w-xl text-base leading-7 text-gray-700 ">
+              <h3 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+                1. Privacy Statement
               </h3>
 
               <p className="mt-6">
@@ -189,7 +185,7 @@ function PrivacyPolicy() {
 
               <p>
                 If you have any questions about these Terms, please contact us
-                at 
+                at
                 <div>mailto:support@bb.com</div>
               </p>
             </div>

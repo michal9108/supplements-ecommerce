@@ -6,6 +6,7 @@ import { useProductCart } from "../cart/ProductCartContext";
 import useOnMOuseOver from "@/hooks/useOnMouseOver";
 import useCardStyle from "@/hooks/useCardStyle";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //RESPONSIVE SHOP CARD
 export default function ResponsiveCard({
@@ -21,7 +22,7 @@ export default function ResponsiveCard({
   description = [],
   reviews = [],
   benefits = [],
-  features  ,
+  features,
 }: ProductType) {
   const {
     setProductDetails,
@@ -53,11 +54,26 @@ export default function ResponsiveCard({
 
   const { handleMouseOver, handleMouseout, productImages } = useOnMOuseOver();
 
+
+  const handleToggleFavoriteClick = () => {
+    toggleFavorite(id);
+  };
+
+  const handleButtonClick = (action: string) => {
+    if (action === "buy") {
+      handleBuyNowClick(id);
+      increaseCartQuantity(id);
+      openCart();
+    } else if (action === "toggleFavorite") {
+      handleToggleFavoriteClick();
+    }
+  };
+
   return (
-    <Link
-      onClick={() => handleBuyNowClick(id)}
+    <div
+      onClick={() => handleButtonClick(id)}
       className="no-underline"
-      to={"/productpage"}
+      // to={"/productpage"}
     >
       <Card style={cardStyle} className="border-1 border-black">
         <span className="relative">
@@ -103,7 +119,7 @@ export default function ResponsiveCard({
           <div className="mt-auto mb-2 flex justify-center items-center flex-col">
             {" "}
             <span className="flex  justify-center xxs:flex-col gap-2  xxs:text-xs">
-              <button onClick={() => toggleFavorite(id)}>
+              <button onClick={() => handleButtonClick("toggleFavorite")}>
                 {" "}
                 {isProductFavorite(id) ? (
                   <div className="absolute top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
@@ -148,9 +164,8 @@ export default function ResponsiveCard({
             {inStock ? (
               <ButtonBuyLink
                 onClick={() => {
-                  handleBuyNowClick(id);
-                  increaseCartQuantity(id);
-                  openCart();
+                  handleButtonClick("buy")
+                 
                 }}
                 to={"/productpage"}
                 children={"BUY NOW"}
@@ -169,6 +184,6 @@ export default function ResponsiveCard({
           </div>
         </Card.Body>
       </Card>
-    </Link>
+    </div>
   );
 }

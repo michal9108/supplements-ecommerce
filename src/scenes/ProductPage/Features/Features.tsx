@@ -61,7 +61,7 @@ console.log(features)
             <div className="md:ml-auto md:pl-4 md:pt-4">
               <div className="lg:max-w-lg">
                 <div className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                  {features.map((feature) => (
+                  {/* {features.map((feature) => (
                     <div key={feature.featuretitle} className="relative pl-9">
                       <dt className=" font-semibold text-gray-900">
                         <HeartIcon
@@ -72,7 +72,7 @@ console.log(features)
                       </dt>{" "}
                       <dd className="inline">{feature.text}</dd>
                     </div>
-                  ))}
+                  ))} */}
 
 
                 </div>

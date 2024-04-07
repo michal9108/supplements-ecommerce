@@ -5,20 +5,19 @@ import AuthForm from "@/shared/AuthForm";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 
 export default function SignIn() {
-
   const [token, setToken] = useLocalStorage<string | null>("token", null);
-
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-
   const navigate = useNavigate();
 
   const fetchUsers = () => {
-    axios.get("https://server-be-node-express-mongo.fly.dev/register").then((res) => {
-      console.log(res.data);
-    });
+    axios
+      .get("https://server-be-node-express-mongo.fly.dev/register")
+      .then((res) => {
+        console.log(res.data);
+      });
   };
 
   const handleLogin = async (username: string, password: string) => {
@@ -34,16 +33,16 @@ export default function SignIn() {
       setToken(token);
 
       alert("Login succesful");
-      console.log(username, password)
-      localStorage.setItem('userCredentials', JSON.stringify({username, password}));
+      console.log(username, password);
+      localStorage.setItem(
+        "userCredentials",
+        JSON.stringify({ username, password }),
+      );
       setUsername("");
       setPassword("");
       fetchUsers();
       navigate("/");
       window.location.reload();
-
-   
-    
     } catch (error) {
       console.log("Login failed:", error);
     }
@@ -52,15 +51,7 @@ export default function SignIn() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     handleLogin(username, password);
-  
   };
-
-
-
-
-
-
-
 
   return (
     <div className="flex min-h-full flex-1 bg-white-100 ">

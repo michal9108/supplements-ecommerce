@@ -1,9 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
 function Contact() {
   return (
-    <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div className="relative isolate bg-white px-6 py-24 sm:py-32 lg:px-8 ">
       <svg
         className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
@@ -20,7 +17,7 @@ function Contact() {
             <path d="M100 200V.5M.5 .5H200" fill="none" />
           </pattern>
         </defs>
-        <svg x="50%" y={-64} className="overflow-visible fill-gray-50">
+        <svg x="50%" y={-64} className="overflow-visible fill-gray-100">
           <path
             d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M299.5 800h201v201h-201Z"
             strokeWidth={0}
@@ -33,7 +30,7 @@ function Contact() {
           fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"
         />
       </svg>
-      <div className="mx-auto max-w-xl lg:max-w-4xl">
+      <div className="mx-auto max-w-xl lg:max-w-4xl bg-orange-100 p-4 rounded-md">
         <h2 className="text-4xl font-bold tracking-tight text-gray-900">
           Contact Us
         </h2>
@@ -133,7 +130,7 @@ function Contact() {
           <div className="lg:mt-6 lg:w-80 lg:flex-none">
             <figure className="mt-10">
               <blockquote className="text-md font-base leading-8 text-gray-900">
-                <p>
+                <p className="italic">
                   “Not gonna lie I was a little skeptical about the  product
                   questioning if it was just a placebo effect. But after trying
                   it out for a couple months now I can say that it’s anything

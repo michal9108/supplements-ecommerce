@@ -30,7 +30,8 @@
     "server/server.js",
     "server/backend.js",
     "src/**/*",
-    "server/data"
+    "server/data",
+    "server/data/data.js",
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

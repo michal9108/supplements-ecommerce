@@ -8,7 +8,8 @@ export default function App() {
     <div className="app">
        <ProductCartProvider>
       <Navbar />
-      <Outlet />
+      <div className=' flex-1'>      <Outlet />
+</div>
       <Footer />
       </ProductCartProvider>
     </div>

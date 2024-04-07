@@ -13,10 +13,14 @@ body,
   font-family: "DM Sans", sans-serif;
   @apply text-black;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
   padding-top: 132px;
+  flex: 1 1 1;
+
 }
 
 @media screen and (max-width: 550px) {

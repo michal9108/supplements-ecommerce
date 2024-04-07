@@ -175,6 +175,7 @@ app.post("/login", async (req, res) => {
 
 app.post("/checkout", async (req, res) => {
   try {
+    console.log(req.body);
     const items = req.body.items;
     let lineItems = [];
     items.forEach((item) => {
@@ -185,16 +186,17 @@ app.post("/checkout", async (req, res) => {
     });
 
     const session = await stripe.checkout.sessions.create({
+      
+      success_url: `${process.env.FE_URL}/success?session_id={SESSION_ID}`,
+      cancel_url: `${process.env.FE_URL}/cancel`,
       line_items: lineItems,
       mode: "payment",
-      // success_url: `${process.env.FE_URL}/success`,
-      success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.FE_URL}/cancel`,
     });
 
     res.send(
       JSON.stringify({
         url: session.url,
+        customer_email: session.email,
       }),
     );
   } catch (error) {

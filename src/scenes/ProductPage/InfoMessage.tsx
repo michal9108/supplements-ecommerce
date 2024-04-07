@@ -43,6 +43,7 @@ const InfoMessage = ({ description }: ProductType) => {
         <strong className="italic">{description[0].summary}</strong>
       </section>
     </section>
+  
   );
 };
 

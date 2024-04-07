@@ -39,7 +39,9 @@ export default function Shop() {
                     highlights={item.highlights}
                     reviews={item.reviews || []}  
                     href={item.href || ''}        
-                    description={item.description || []} 
+                    description={item.description || []}
+                    benefits={item.benefits || []} 
+                    features={item.features || []}
                     
                     />
                   </div>

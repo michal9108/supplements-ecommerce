@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 export default function TermsOfService() {
   return (
     <article className="relative isolate overflow-hidden bg-white px-6 py-10 sm:py-32 lg:overflow-visible lg:px-0">
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0  lg:grid-cols-1 lg:items-start lg:gap-y-8">
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0  lg:grid-cols-1 lg:items-center lg:justify-center lg:gap-y-8  ">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full  lg:grid-cols-1 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
-            <div className="lg:max-w-lg">
+            <div className="">
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">
                 Terms of Service
               </h1>
@@ -19,21 +19,21 @@ export default function TermsOfService() {
           </div>
         </div>
 
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full  lg:grid-cols-1 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
-            <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+            <div className="max-w-xl text-base leading-7 text-gray-700 ">
               <h3 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
                 1.Overview
               </h3>
 
-              <div>
+              <p>
                 This website is operated by BB. Throughout the site, the terms
                 “we”, “us” and “our” refer to BB. BB offers this website,
                 including all information, tools and services available from
                 this site to you, the user, conditioned upon your acceptance of
                 all terms, conditions, policies and notices stated here.
-              </div>
-              <div>
+              </p>
+              <p>
                 By visiting our site and/ or purchasing something from us, you
                 engage in our “Service” and agree to be bound by the following
                 terms and conditions (“Terms of Service”, “Terms”), including
@@ -42,9 +42,9 @@ export default function TermsOfService() {
                 apply to all users of the site, including without limitation
                 users who are browsers, vendors, customers, merchants, and/ or
                 contributors of content.
-              </div>
+              </p>
 
-              <div>
+              <p>
                 Please read these Terms of Service carefully before accessing or
                 using our website. By accessing or using any part of the site,
                 you agree to be bound by these Terms of Service. If you do not
@@ -54,8 +54,8 @@ export default function TermsOfService() {
                 expressly limited to these Terms of Service. Any new features or
                 tools which are added to the current store shall also be subject
                 to the Terms of Service.
-              </div>
-              <div>
+              </p>
+              <p>
                 {" "}
                 You can review the most current version of the Terms of Service
                 at any time on this page. We reserve the right to update, change
@@ -66,13 +66,8 @@ export default function TermsOfService() {
                 constitutes acceptance of those changes. Our store is hosted on
                 Shopify Inc. They provide us with the online e-commerce platform
                 that allows us to sell our products and services to you.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-          <div className="lg:pr-4">
-            <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+              </p>
+
               <h3 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
                 2. Account Registration
               </h3>
@@ -194,15 +189,15 @@ export default function TermsOfService() {
 
               <p>
                 These Terms shall be governed and construed in accordance with
-                the laws of State, without regard to its conflict
-                of law provisions. Any disputes arising out of or relating to
-                these Terms or our Services shall be resolved exclusively in the
-                courts of State. You agree to submit to the
-                personal jurisdiction of such courts and waive any objection to
-                venue in such courts. These Terms, together with our Privacy
-                Policy and any other legal notices published by us on our
-                Services, constitute the entire agreement between you and BB
-                concerning your use of our Services and supersede all prior or
+                the laws of State, without regard to its conflict of law
+                provisions. Any disputes arising out of or relating to these
+                Terms or our Services shall be resolved exclusively in the
+                courts of State. You agree to submit to the personal
+                jurisdiction of such courts and waive any objection to venue in
+                such courts. These Terms, together with our Privacy Policy and
+                any other legal notices published by us on our Services,
+                constitute the entire agreement between you and BB concerning
+                your use of our Services and supersede all prior or
                 contemporaneous communications and proposals, whether
                 electronic, oral, or written, between you and BB.
               </p>

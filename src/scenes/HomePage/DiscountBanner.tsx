@@ -13,17 +13,13 @@ const DiscountBanner = () => {
         data-slideshow-auto-rotate="false"
         data-slideshow-slide-duration="7"
       >
-        <div className="relative overflow-hidden max-w-full w-full">
-          <div
-            className="snap-mandatory snap-x grid relative min-h-[var(--min-h-mobile)] md:min-h-[var(--min-h)] overflow-x-auto scrollbar-none grid-cols-[var(--slideshow-grid-cols-mobile)] md:grid-cols-[var(--slideshow-grid-cols-desktop)]"
-            data-slideshow-container=""
-          >
+     
+                   
             <figure
-              id="block--template--18752996770111__3d67ac70-4db5-4053-b208-fb0d65c10428-16837807138d926b16-0"
-              data-slideshow-slide="0"
-              className="snap-start group w-full h-full relative overflow-hidden bg-theme-bg text-theme-text color-inherit responsive"
-            >
-              <img src={BannerImg} />
+            
+              className="snap-start  w-full h-full relative overflow-hidden bg-theme-bg text-theme-text color-inherit responsive "
+            ><img src={BannerImg} className="w-full h-full object-cover"/>
+       
 
               <figcaption className="absolute z-10 inset-0 w-full h-full md:px-6 py-12">
                 <div className="container h-full w-full flex flex-col justify-end items-start text-left">
@@ -53,10 +49,11 @@ const DiscountBanner = () => {
                   </div>
                 </div>
               </figcaption>
+
             </figure>
-          </div>
+        
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 items-center justify-center z-10 grid grid-flow-col-dense auto-cols-min gap-3 text-theme-bg"></div>
-        </div>
+      
       </section>
     </div>
   );

@@ -12,8 +12,12 @@ import Incentives from "@/scenes/ProductPage/ProductCard/Incentives";
 import Trending from "@/scenes/HomePage/Trending";
 import Blog from "./Blog";
 import DiscountBanner from "@/scenes/HomePage/DiscountBanner";
+import { useProductCart } from "@/scenes/cart/ProductCartContext";
+
 
 export default function HomePage() {
+
+  const { storeItems } = useProductCart();
   return (
     <div className="">
       <HomeCarousel />
@@ -21,7 +25,7 @@ export default function HomePage() {
       <BrandCarousel />
       <Shop />
       <InfoSales />
-      <Trending />
+      <Trending products={storeItems}  />
       <Reviews />
       <DiscountBanner/>
       <Transformations />

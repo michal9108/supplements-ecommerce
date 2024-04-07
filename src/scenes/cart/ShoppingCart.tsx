@@ -10,7 +10,7 @@ import ButtonLink from "@/shared/ButtonLink";
 
 
 export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
-  const { closeCart, cartItems, subtotal, savedAmount } = useProductCart();
+  const { closeCart, cartItems,setCartItems, subtotal, savedAmount } = useProductCart();
  
 
   //request to STRIPE on checkout
@@ -33,6 +33,8 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
         if (response.url) {
           window.location.assign(response.url);
           //Forwarding user to Stripe
+          setCartItems([]);
+
         }
       });
   };
