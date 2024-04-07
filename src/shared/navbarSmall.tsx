@@ -7,18 +7,20 @@ import UserIcon from "./UserIcon";
 import Logo from "./Logo";
 import WishlistIcon from "./navbarWishlistIcon";
 import CartIcon from "./navbarCartIcon";
+import Offcanvas from "react-bootstrap/esm/Offcanvas";
+
+import ButtonLink from "./ButtonLink";
+import { Stack } from "react-bootstrap";
 
 function SmallNavbar() {
-  
+  const {  openMenu } = useProductCart();
   const flexBetween = "flex items-center justify-between";
-  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-
   return (
     <div className={`${flexBetween} w-full`}>
-      {" "}
+
       <button
         className="rounded-full bg-black p-2 "
-        onClick={() => setIsMenuToggled(!isMenuToggled)}
+        onClick={openMenu}
       >
         <Bars3Icon className="h-7 w-7 text-white" />
       </button>
@@ -48,6 +50,9 @@ function SmallNavbar() {
 
         <CartIcon />
       </div>
+
+
+    
     </div>
   );
 }

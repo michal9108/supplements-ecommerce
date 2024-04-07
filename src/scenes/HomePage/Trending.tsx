@@ -93,7 +93,7 @@ function Trending({ products }: { products: ProductType[] }) {
                 <button onClick={() => handleToggleFavoriteClick(product)}>
                   {" "}
                   {isProductFavorite(product.id) ? (
-                    <div className=" top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
+                    <div className=" absolute top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
                       <div className="text-xs tracking-tight ">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

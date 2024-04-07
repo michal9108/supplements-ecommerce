@@ -1,17 +1,20 @@
 import { Button, Stack } from "react-bootstrap";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
-import { CartItemType } from '@/shared/types';
+import { CartItemType } from "@/shared/types";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 
 export function ItemCart({ id, quantity }: CartItemType) {
-  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, storeItems } =
-    useProductCart();
+  const {
+    removeFromCart,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    storeItems,
+  } = useProductCart();
 
   const item = storeItems.find((i) => i.id === id);
   if (item == null) return null;
 
-console.log(item)
-
+  console.log(item);
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex items-center">
@@ -22,16 +25,15 @@ console.log(item)
       <div className="me-auto">
         <div>{item.name}</div>
       </div>
-      <span className="border-solid border-1 flex flex-row align-center border-black">
-        <button
-          className="border-black border-solid  border-1 p-1"
-          type="button"
+      <span className=" flex flex-row align-center border-black gap-1">
+        <Button
+          className="bg-transparent text-black border-black"
           onClick={() => {
             decreaseCartQuantity(item.id);
           }}
         >
           -
-        </button>
+        </Button>
 
         <span
           className="text-black flex items-center"
@@ -40,15 +42,14 @@ console.log(item)
           {quantity}
         </span>
 
-        <button
-          className="border-black border-solid  border-1 p-1"
-          type="button"
+        <Button
+          className="bg-transparent text-black border-black"
           onClick={() => {
             increaseCartQuantity(item.id);
           }}
         >
           +
-        </button>
+        </Button>
       </span>
       <div> {formatCurrency(item.price * quantity)}</div>
       <Button

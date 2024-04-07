@@ -1,6 +1,7 @@
 //@ts-nocheck
 import { createContext, useContext, useState, useEffect } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
+import MobileMenu from "../../shared/MobileMenu";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 import {
   ProductType,
@@ -12,6 +13,7 @@ import {
 } from "@/shared/types";
 import { RotatingLines } from "react-loader-spinner";
 
+
 //CONTEXT
 const ProductCartContext = createContext({} as ProductCartContextType);
 
@@ -21,7 +23,6 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
   const [isLoading, setisLoading] = useState(true);
   const [storeReviews, setstoreReviews] = useState<ProductReviewType[]>([]);
   const [error, setError] = useState<string | null>("");
-  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(true);
 
 
   useEffect(() => {
@@ -73,6 +74,15 @@ export function ProductCartProvider({ children }: ProductCartProviderType) {
     "shopping-cart",
     [],
   );
+
+//Mobile Menu
+
+
+
+const [isMenuToggled, setIsMenuToggled] = useState(false);
+
+const openMenu = () => setIsMenuToggled(true);
+const closeMenu = () => setIsMenuToggled(false);
 
 
 //wishlist 
@@ -215,6 +225,8 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
         subtotal,
         savedAmount,
         openCart,
+        openMenu,
+        closeMenu,
         closeCart,
         cartItems,
         storeItems,
@@ -230,8 +242,8 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
         isProductFavorite,
         wishlist,
         setWishlist,
-        isMenuToggled,
-        setIsMenuToggled,
+         isMenuToggled,
+         setIsMenuToggled,
         
     
       }}
@@ -239,6 +251,7 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
       {children}
 
       <ShoppingCart isOpen={isOpen} />
+      <MobileMenu isMenuToggled={isMenuToggled}/>
     </ProductCartContext.Provider>
   );
 }

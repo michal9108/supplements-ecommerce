@@ -59,13 +59,10 @@ export interface ReviewsType {
   }>;
 }
 
-
-
 export type Featurestype = {
   featuretitle: string;
-   text: string;
-  
-}
+  text: string;
+};
 export interface ProductType {
   id: string;
   _id?: string;
@@ -104,8 +101,9 @@ export interface FavoriteItemType {
 export type ShoppingCartType = {
   isOpen: boolean;
 };
-
-
+export type SmallMobileMenuType = {
+  isMenuToggled: boolean;
+};
 
 
 
@@ -116,6 +114,8 @@ export type HandleClickOnProductType = (productId: string) => void;
 export type ProductCartContextType = {
   openCart: () => void;
   closeCart: () => void;
+  openMenu: () => void;
+  closeMenu: () => void;
   getItemQuantity: (id: string) => number;
   increaseCartQuantity: (id: string) => void;
   decreaseCartQuantity: (id: string) => void;
@@ -134,8 +134,8 @@ export type ProductCartContextType = {
   isProductFavorite: (id: string) => boolean;
   wishlist: ProductType[];
   setWishlist: SetWishlistType;
-  isMenuToggled: boolean;  
-  setIsMenuToggled: any; 
+
+  setIsMenuToggled: any;
   removeFromWishlist: (id: string) => void;
   toggleFavorite: (id: string) => void;
 };
@@ -148,8 +148,6 @@ export interface ButtonBuyLinkTypes {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-
-
 export interface ButtonlinkTypes {
   to: string;
   children: React.ReactNode;
@@ -157,9 +155,6 @@ export interface ButtonlinkTypes {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
 }
-
-
-
 
 export interface ProductSliderType {
   images: Array<{ src: string; alt: string; _id: string }>;
@@ -214,5 +209,3 @@ export interface UserType {
   username: string;
   password: string;
 }
-
-

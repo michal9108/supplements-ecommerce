@@ -50,7 +50,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
         <Offcanvas.Title>Your Cart</Offcanvas.Title>
       </Offcanvas.Header>
       {cartItems.length === 0 ? (
-        <Offcanvas.Body className="  flex flex-col gap-3 items-center justify-center h-full content-center">
+        <Offcanvas.Body className="flex flex-col gap-3 items-center justify-center h-full content-center">
           <div
             onClick={closeCart}
             className=" flex flex-col font-bold w-full justify-center items-center  absolute top-1/3 underline-offset-4"
