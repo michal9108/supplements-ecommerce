@@ -7,7 +7,7 @@ import SignInPage from "./pages/SignInPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
-import SuccesPage from "./pages/SuccesPage";
+import SuccessPage from "./pages/SuccessPage";
 import AccountPage from "./pages/AccountPage";
 import { RouterProvider } from "react-router-dom";
 import CancelPage from "./pages/CancelPage";
@@ -150,7 +150,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/success",
-        element: <SuccesPage />,
+        element: <SuccessPage />,
       },
       {
         path: "/cancel",
