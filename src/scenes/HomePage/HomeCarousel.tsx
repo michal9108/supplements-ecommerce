@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-
 
 import slider1 from "@/assets/HomeBanner1.webp";
 import slider2 from "@/assets/homeSlider9.png";
@@ -9,8 +8,6 @@ import slider3 from "@/assets/homeSlider10.png";
 import slider4 from "@/assets/homeSlider11.png";
 import slider5 from "@/assets/HomeBanner3.webp";
 
-import slider6 from "@/assets/homeSlider6.png";
-import slider7 from "@/assets/homeSlider7.png";
 import slider8 from "@/assets/HomeBanner2.webp";
 export default function HomeCarousel() {
   const [isAboveMd, setIsAboveMd] = useState(false);
@@ -36,28 +33,7 @@ export default function HomeCarousel() {
         { src: slider4 },
         { src: slider5 },
       ]
-    : [ { src: slider8 }];
-
-  const divStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundSize: "cover",
-    width: "100%",
- 
-
-  };
-
-
-  const gradientLayer = {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundImage: "linear-gradient(134deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4) 100%)",
-    pointerEvents: "none"
-  };
+    : [{ src: slider8 }];
 
   return (
     <section className="relative ">
@@ -65,7 +41,7 @@ export default function HomeCarousel() {
         {slideImages.map((slideImage, index) => (
           <div key={index} style={{ position: "relative" }}>
             <img src={slideImage.src} className="w-full h-full object-cover" />
-            <div style={{...gradientLayer}}></div>
+            <div className="absolute top-0 left-0 w-full height-full bg-gradient-to-br from-black via-black to-transparent pointer-events-none "></div>
           </div>
         ))}
       </Slide>

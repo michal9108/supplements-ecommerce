@@ -1,41 +1,4 @@
-// import homebecomebuffimg from "@/assets/becomebuff.png";
 
-// export default function InfoSales() {
-//   return (
-//     <>
-//       {/* SALES INFO */}
-//       <section className="mx-auto min-h-full w-5/6 lg:w-4/6  py-1">
-//         <div className="flex items-center justify-between flex-wrap relative">
-//           <span className="flex w-full md:w-1/2">
-//             <img
-//               className=" "
-//               alt="benefits-page-graphic"
-//               src={homebecomebuffimg}
-//             />
-//           </span>
-
-//           <span className="flex  w-full md-w-1/2 flex-wrap">
-//             <div className="relative w-full">
-//               <h2 className="text-bold font-4xl ">
-//                 BECOME FINALLY <span className="text-primary-300">BUFF</span>
-//               </h2>
-//             </div>
-
-//             <div>
-
-//             </div>
-//             {/* BUTTON */}
-//             <div className=" relative my-8 max-sm:mx-auto flex  justify-center items-center">
-//               <button className="  rounded-lg bg-secondary-500  px-20 py-3   text-primary-100 no-underline font-semibold text-xl">
-//                 BUY NOW
-//               </button>
-//             </div>
-//           </span>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
 import homebecomebuffimg from "@/assets/becomebuff.png";
 
 export default function InfoSales() {

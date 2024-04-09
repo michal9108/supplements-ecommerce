@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { stripe } from "../shared/stripe";
 
@@ -7,17 +6,9 @@ import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import Stripe from "stripe";
 
-
-
 export default function SuccesPage() {
-
-
-
-
   return (
     <div className="mt-20">
-   
-
       <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
           <CheckBadgeIcon className="mx-auto h-10 w-10 text-green-500 dark:text-green-400" />
@@ -25,7 +16,7 @@ export default function SuccesPage() {
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-green-500 dark:text-green-400 sm:text-5xl">
             Order Successful!
           </h1>
-          
+
           <p className="mt-8">
             Check your purchase email
             <span className="mx-1 font-extrabold text-black-500">
