@@ -20,7 +20,6 @@ import WishlistPage from "./pages/WishlistPage";
 import RedirectIfAuthenticated from "../middleware/RedirectIfAuthenticated";
 import RequireAuth from "../middleware/RequireAuth";
 import BlogPost from "./scenes/BlogPost";
-
 import BlogImage1 from "./assets/sumo-squat-tile.jpg";
 import BlogImage2 from "./assets/blog2.jpg";
 import BlogImage3 from "./assets/blog3.jpg";
@@ -105,7 +104,7 @@ const blogPosts = [
       header: "Benefits of Sumo Squats",
       text: "Incorporating sumo squats into your fitness routine can offer a myriad of benefits beyond targeting the inner thighs. This exercise engages multiple muscle groups, including the quadriceps, hamstrings, glutes, and core, fostering comprehensive lower body development. Additionally, sumo squats enhance hip mobility and flexibility, supporting functional movements and reducing the risk of injury during daily activities. Moreover, by incorporating various equipment, such as dumbbells, barbells, or machines, you can customize the intensity and resistance, catering to your fitness level and goals. However, as with any exercise, it's essential to prioritize proper form, gradually increase intensity, and listen to your body to ensure safe and effective performance.",
     },
-  }
+  },
 ];
 
 const router = createBrowserRouter([

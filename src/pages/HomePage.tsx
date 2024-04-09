@@ -1,4 +1,3 @@
-import Carousel from "@/scenes/HomePage/Carousel";
 import InfoSales from "@/scenes/HomePage/InfoSales";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Newsletter from "@/scenes/HomePage/Newsletter";
