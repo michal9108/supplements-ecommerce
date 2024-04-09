@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
-import { stripe } from "../shared/stripe";
 
-import { useProductCart } from "@/scenes/cart/ProductCartContext";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react";
-import Stripe from "stripe";
+
 
 export default function SuccesPage() {
   return (
@@ -20,7 +17,7 @@ export default function SuccesPage() {
           <p className="mt-8">
             Check your purchase email
             <span className="mx-1 font-extrabold text-black-500">
-              {/* {customerDetails?.email} */}
+          
             </span>
             for your invoice.
           </p>
