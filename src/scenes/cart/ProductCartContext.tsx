@@ -1,4 +1,4 @@
-//@ts-nocheck
+
 import { createContext, useContext, useState, useEffect } from "react";
 import { ShoppingCart } from "@/scenes/cart/ShoppingCart";
 import MobileMenu from "../../shared/MobileMenu";
@@ -90,8 +90,8 @@ const closeMenu = () => setIsMenuToggled(false);
 const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
 
 
-  const isProductFavorite = (id: string) => {
-    return wishlist.find((item) => item.id === id);
+  const isProductFavorite = (id: string): boolean => {
+    return wishlist.some((item) => item.id === id);
   };
 
 
@@ -107,7 +107,7 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
 
  
 
-  const toggleFavorite = (id) => {
+  const toggleFavorite = (id:string) => {
     const itemDetails = storeItems.find(item => item.id === id);
   
     if (!itemDetails) {

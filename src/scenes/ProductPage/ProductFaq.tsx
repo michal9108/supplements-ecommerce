@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import faqImage from "../../assets/faq.webp";
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { ProductType } from "@/shared/types";
 const FaqsArray = [
   {
@@ -25,9 +25,9 @@ const FaqsArray = [
   },
 ];
 
-const ProductFaq = ({images}:  ProductType) => {
+const ProductFaq = ({ images }: ProductType) => {
   const [accordionOpen, setAccordionOpen] = useState(
-    Array(FaqsArray.length).fill(false)
+    Array(FaqsArray.length).fill(false),
   );
 
   const toggleAccordion = (index: number) => {
@@ -52,19 +52,46 @@ const ProductFaq = ({images}:  ProductType) => {
                 >
                   <span className="text-black md:text-md">{faq.question}</span>
 
-                  {accordionOpen ? (
-                            <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                          ) : (
-                            <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                          )}
+                  {/* {accordionOpen[index] ? (
+                    <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                  )} */}
 
+                  <svg
+                    className="fill-black-900 shrink-0 ml-8"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      y="7"
+                      width="16"
+                      height="2"
+                      rx="1"
+                      className={`transform origin-center transition duration-200 ease-out ${
+                        accordionOpen[index] && "!rotate-180"
+                      }`}
+                    />
+                    <rect
+                      y="7"
+                      width="16"
+                      height="2"
+                      rx="1"
+                      className={`transform origin-center rotate-90 transition duration-200 ease-out ${
+                        accordionOpen[index] && "!rotate-180"
+                      }`}
+                    />
+                  </svg>
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out text-slate-600 text-sm ${
-                    accordionOpen[index] ? "block opacity-100" : "hidden opacity-0"
+                    accordionOpen[index]
+                      ? "block opacity-100"
+                      : "hidden opacity-0"
                   }`}
                 >
-                  <div className="p-3 md:text-md">{faq.answer}</div>
+                  <div className="p-3 md:text-md text-black-900">{faq.answer}</div>
                 </div>
               </div>
             ))}
@@ -72,7 +99,11 @@ const ProductFaq = ({images}:  ProductType) => {
         </div>
 
         <div className="sm:col-span-6">
-          <img className="relative shadow-xl ring-1 ring-gray-400/10 w-full h-full" src={images[8].src} alt="" />
+          <img
+            className="relative shadow-xl ring-1 ring-gray-400/10 w-full h-full"
+            src={images[8].src}
+            alt=""
+          />
         </div>
       </div>
     </div>

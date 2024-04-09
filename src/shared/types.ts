@@ -134,7 +134,7 @@ export type ProductCartContextType = {
   isProductFavorite: (id: string) => boolean;
   wishlist: ProductType[];
   setWishlist: SetWishlistType;
-
+  isMenuToggled:boolean;
   setIsMenuToggled: any;
   removeFromWishlist: (id: string) => void;
   toggleFavorite: (id: string) => void;
