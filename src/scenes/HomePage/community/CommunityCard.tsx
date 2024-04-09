@@ -1,6 +1,6 @@
 import { SocialImgType } from "@/shared/types";
 
-export default function CommunityCard({ name, opinion, image }: SocialImgType) {
+export default function CommunityCard({ name, opinion, imageSrc }: SocialImgType) {
   const overlayStyles = `p-5 absolute z-60 flex
     h-[560px] w-[450px] flex-col items-center justify-center
      whitespace-normal bg-orange-500 text-center text-primary-100
@@ -12,7 +12,7 @@ export default function CommunityCard({ name, opinion, image }: SocialImgType) {
         <p className="text-2xl">{name}</p>
         <p className="mt-5">{opinion}</p>
       </div>
-      <img alt={`${image}`} src={image} />
+      <img alt={`${name}`} src={imageSrc} />
     </li>
   );
 }

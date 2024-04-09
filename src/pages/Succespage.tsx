@@ -7,45 +7,10 @@ import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import Stripe from "stripe";
 
-interface Props {
-  searchParams: {
-    session_id?: string;
-  };
-}
 
-interface Props {
-  customerDetails: Stripe.Checkout.Session.CustomerDetails;
-}
 
-export default function SuccesPage({ searchParams }: Props) {
-  // const stripe = require('stripe')('sk_test_51HDZZtH9dKBRlDkrGypI7RjGytgwPUtI3mSHLWvdFtyo23eIpO3l3BSwjLbkIWNLZMonZluAfngDX5kKus8GpeLk00OVyIp7dR');
+export default function SuccesPage() {
 
-  const { setCartItems } = useProductCart();
-  const sessionId = searchParams?.session_id ?? "";
-  const [customerDetails, setCustomerDetails] = useState<Stripe.Checkout.Session.CustomerDetails | null>(null);
-
-  useEffect(() => {
-    const fetchCheckoutSession = async () => {
-      try {
-        // console.log("Fetching checkout session with session ID:", sessionId);
-        const session = await stripe.checkout.sessions.retrieve(sessionId);
-        console.log("Fetched checkout session:", session);
-        const details = session?.customer_details;
-        console.log("Fetched customer details:", details);
-        if (details) {
-          setCartItems([]);
-          setCustomerDetails(details);
-          console.log("Customer details set:", details);
-        }
-      } catch (error) {
-        console.error("Error retrieving checkout session:", error);
-      }
-    };
-
-    if (sessionId) {
-      fetchCheckoutSession();
-    }
-  }, [sessionId, setCartItems]);
 
 
 
@@ -64,7 +29,7 @@ export default function SuccesPage({ searchParams }: Props) {
           <p className="mt-8">
             Check your purchase email
             <span className="mx-1 font-extrabold text-black-500">
-              {customerDetails?.email}
+              {/* {customerDetails?.email} */}
             </span>
             for your invoice.
           </p>

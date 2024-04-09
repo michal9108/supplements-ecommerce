@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import faqImage from "../../assets/faq.webp";
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { ProductType } from "@/shared/types";
 const FaqsArray = [
   {
     question: "How does BUFF Pack differ from Muscle Mass?",
@@ -24,7 +25,7 @@ const FaqsArray = [
   },
 ];
 
-const ProductFaq = () => {
+const ProductFaq = ({images}:  ProductType) => {
   const [accordionOpen, setAccordionOpen] = useState(
     Array(FaqsArray.length).fill(false)
   );
@@ -38,7 +39,7 @@ const ProductFaq = () => {
   return (
     <div className="w-full mx-auto sm:px-0 py-24 sm:pt-32 lg:px-0 lg:py-40">
       <div className="sm:grid sm:grid-cols-12 bg-gray-300 w-full">
-        <div className="mt-10 sm:col-span-6 lg:mt-0 sm:mr-6 divide-y divide-gray-900/10">
+        <div className=" sm:col-span-6 my-auto sm:mr-6 divide-y divide-gray-900/10">
           <h2 className="pl-3 text-2xl font-bold leading-10 tracking-tight text-gray-900">
             FAQs
           </h2>
@@ -49,7 +50,7 @@ const ProductFaq = () => {
                   onClick={() => toggleAccordion(index)}
                   className="flex justify-between w-full p-3 rounded-lg"
                 >
-                  <span className="text-black">{faq.question}</span>
+                  <span className="text-black md:text-md">{faq.question}</span>
 
                   {accordionOpen ? (
                             <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
@@ -63,7 +64,7 @@ const ProductFaq = () => {
                     accordionOpen[index] ? "block opacity-100" : "hidden opacity-0"
                   }`}
                 >
-                  <div className="p-3">{faq.answer}</div>
+                  <div className="p-3 md:text-md">{faq.answer}</div>
                 </div>
               </div>
             ))}
@@ -71,7 +72,7 @@ const ProductFaq = () => {
         </div>
 
         <div className="sm:col-span-6">
-          <img className="relative shadow-xl ring-1 ring-gray-400/10 w-full h-full" src={faqImage} alt="" />
+          <img className="relative shadow-xl ring-1 ring-gray-400/10 w-full h-full" src={images[8].src} alt="" />
         </div>
       </div>
     </div>

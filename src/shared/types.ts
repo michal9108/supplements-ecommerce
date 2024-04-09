@@ -16,7 +16,7 @@ export interface ProofType {
 export interface SocialImgType {
   name?: string;
   opinion?: string;
-  image?: string;
+  imageSrc?: string;
 }
 
 export interface ProductReviewType {
@@ -82,7 +82,7 @@ export interface ProductType {
     _id: string;
   }>;
   benefits: Array<{ benefittitle: string; text: string; _id: string }>;
-  features: Featurestype;
+  features: Featurestype[];
   reviews: ReviewsType[];
   createdAt?: string;
   updatedAt?: string;
@@ -209,3 +209,29 @@ export interface UserType {
   username: string;
   password: string;
 }
+
+
+interface authorType {
+  name:string;
+  image:string;
+}
+interface BlogSectionType {
+  header:string;
+  text:string;
+}
+
+
+
+export  interface BlogPostType {
+id:number;
+image:string;
+blogposttitle:string,
+datetime:string
+date:string;
+author:authorType;
+section1:BlogSectionType
+section2:BlogSectionType
+section3:BlogSectionType
+title:string;
+
+} 

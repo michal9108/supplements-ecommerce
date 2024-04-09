@@ -17,28 +17,28 @@ import Incentives from "@/scenes/ProductPage/ProductCard/Incentives";
 
 export default function ProductPage() {
   const { selectedProduct } = useProductCart();
-  console.log('PRODUCT',selectedProduct)
+  console.log("PRODUCT", selectedProduct);
   return (
     <>
       <div className="bg-primary-100">
         <div className="w-full static ">
           <ModalEmail />
         </div>
-       
+
         {selectedProduct && <Product {...selectedProduct} />}
         <Incentives />
         <Testimonials />
-        {selectedProduct && <InfoMessage  {...selectedProduct}/>}
-      {/* {selectedProduct &&   <BenefitsContainer {...selectedProduct} />} */}
+        {selectedProduct && <InfoMessage {...selectedProduct} />}
+        {selectedProduct && <BenefitsContainer {...selectedProduct} />}
 
-       {selectedProduct &&   <Features  {...selectedProduct} />} 
+        {selectedProduct && <Features {...selectedProduct} />}
 
-        <ProductFaq />
+        {selectedProduct && <ProductFaq {...selectedProduct} />}
         <ProductReviews />
         <Newsletter />
         <Community />
         <Guarantee />
-        <BrandCarousel/>
+        <BrandCarousel />
       </div>
     </>
   );

@@ -86,19 +86,19 @@ body,
 
 .logos-slide {
   display: inline-block;
-  animation: 25s slide infinite linear;
+  animation: 15s slide infinite linear;
 }
 
 .logos-slide img {
   height: 3vh;
-  margin: 0 1vw;
+  margin: 0 10px;
   display: inline;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1024px) {
   .logos-slide img {
     height: 3vh;
-    margin: 0 1vw;
+    margin: 0 10px;
     display: inline;
     max-width: none;
   }

@@ -1,23 +1,15 @@
+import { BlogPostType } from '@/shared/types';
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-interface BlogPostContainerProps {
-    id: number;
-    image: string;
-    href: string;
-    description: string;
-    datetime: string;
-    date: string;
-    author: {
-      name: string;
-      image: string;
-    };
-    article: string;
-    title: string;
-  }
+
   
 
-const BlogPostContainer = (props: BlogPostContainerProps) => {
+const BlogPostContainer = (props: BlogPostType) => {
+
+  const { postId } = useParams<{ postId: string }>();
+
+
   return (
     <article
     key={props.id}
@@ -52,12 +44,12 @@ const BlogPostContainer = (props: BlogPostContainerProps) => {
         </div>
       </div>
     </div>
-    <Link to={"/"} className="no-underline">
-      <h3 className="mt-3 text-lg font-semibold leading-6 text-white ">
+   
+      <h3 className="mt-3 text-lg font-semibold leading-6 text-white  ">
         <span className="absolute inset-0  " />
         {props.title}
       </h3>
-    </Link>
+   
   </article>
   )
 }

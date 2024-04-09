@@ -161,7 +161,7 @@ export default function ResponsiveCard({
                 {oldprice}$
               </p>
             </span>
-            {inStock ? (
+            {/* {inStock ? ( */}
               <ButtonBuyLink
                 onClick={() => {
                   handleButtonClick("buy")
@@ -173,14 +173,14 @@ export default function ResponsiveCard({
                 className=" bg-black   text-primary-100 no-underline  px-6 py-2.5 rounded-lg font-semibold text-xl w-full box-border;
                   "
               />
-            ) : (
+            {/* ) : (
               <ButtonBuyLink
                 to={"/productpage"}
                 children={"SOLD OUT"}
                 disabled={true}
                 className=" bg-neutral-400   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
               />
-            )}
+            )} */}
           </div>
         </Card.Body>
       </Card>
