@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for server-be-node-express-mongo on 2024-02-29T11:14:27+01:00
+# fly.toml app configuration file generated for supplements-server-mongo-nodejs on 2024-04-10T08:03:21+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'server-be-node-express-mongo'
+app = 'supplements-server-mongo-nodejs'
 primary_region = 'waw'
 
 [build]
