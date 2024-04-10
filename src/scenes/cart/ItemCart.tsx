@@ -1,5 +1,6 @@
 import { Button, Stack } from "react-bootstrap";
 import { formatCurrency } from "@/scenes/cart/formatCurrency";
+<<<<<<< HEAD
 import { CartItemType } from "@/shared/types";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 
@@ -10,6 +11,14 @@ export function ItemCart({ id, quantity }: CartItemType) {
     decreaseCartQuantity,
     storeItems,
   } = useProductCart();
+=======
+import { CartItemType } from '@/shared/types';
+import { useProductCart } from "@/scenes/cart/ProductCartContext";
+
+export function ItemCart({ id, quantity }: CartItemType) {
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity, storeItems } =
+    useProductCart();
+>>>>>>> main
 
   const item = storeItems.find((i) => i.id === id);
   if (item == null) return null;

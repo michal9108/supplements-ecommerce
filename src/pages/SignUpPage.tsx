@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 
 import H2 from "../shared/H2";
+=======
+import { useNavigate} from "react-router-dom";
+import AuthForm from "@/shared/AuthForm";
+>>>>>>> main
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -16,17 +21,27 @@ export default function SignUpPage() {
   }, []);
 
   const fetchUsers = () => {
+<<<<<<< HEAD
     axios
       .get("https://server-be-node-express-mongo.fly.dev/register")
       .then((res) => {
         console.log(res.data);
       });
+=======
+    axios.get(import.meta.env.VITE_URL + "/register").then((res) => {
+      console.log(res.data);
+    });
+>>>>>>> main
   };
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     axios
+<<<<<<< HEAD
       .post("https://server-be-node-express-mongo.fly.dev/register", {
+=======
+      .post(import.meta.env.VITE_URL + "/register", {
+>>>>>>> main
         email,
         username,
         password,
@@ -46,6 +61,7 @@ export default function SignUpPage() {
       });
   };
   return (
+<<<<<<< HEAD
     <div className="flex min-h-full flex-1 bg-white-100 ">
       <div className="relative  w-0 flex-1 hidden  sm:block  ">
         <img
@@ -189,5 +205,16 @@ export default function SignUpPage() {
         </div>
       </div>
     </div>
+=======
+    <AuthForm
+      title="Sign up to your new account"
+      buttonText="Sign up"
+      handleSubmit={handleSubmit}
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+    />
+>>>>>>> main
   );
 }

@@ -8,7 +8,10 @@ import useCardStyle from "@/hooks/useCardStyle";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+<<<<<<< HEAD
 //RESPONSIVE SHOP CARD
+=======
+>>>>>>> main
 export default function ResponsiveCard({
   id,
   inStock,
@@ -187,3 +190,8 @@ export default function ResponsiveCard({
     </div>
   );
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main

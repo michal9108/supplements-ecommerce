@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import UserIcon from "@/shared/UserIcon";
@@ -7,6 +8,9 @@ import axios from "axios";
 
 import { useEffect, useState } from "react";
 
+=======
+import { useNavigate } from "react-router-dom";
+>>>>>>> main
 export default function Account() {
   const navigate = useNavigate();
 

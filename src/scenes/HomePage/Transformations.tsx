@@ -3,6 +3,7 @@ import beforeafter1 from "@/assets/beforeafter1.png";
 import beforeafter2 from "@/assets/beforeafter2.png";
 import beforeafter3 from "@/assets/beforeafter3.jpeg";
 import H2 from "@/shared/H2";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 
 const transformations = [
@@ -34,6 +35,8 @@ const transformations = [
     verifiedBuyer: false,
   },
 ];
+=======
+>>>>>>> main
 
 export default function Transformations() {
   return (

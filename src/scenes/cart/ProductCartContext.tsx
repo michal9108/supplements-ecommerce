@@ -18,6 +18,12 @@ import { RotatingLines } from "react-loader-spinner";
 const ProductCartContext = createContext({} as ProductCartContextType);
 
 export function ProductCartProvider({ children }: ProductCartProviderType) {
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> main
   const [storeItems, setstoreItems] = useState<ProductType[]>([]);
   const [storeUsers, setstoreUsers] = useState<UserType[]>([]);
   const [isLoading, setisLoading] = useState(true);

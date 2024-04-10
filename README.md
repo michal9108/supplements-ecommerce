@@ -32,6 +32,7 @@ export default {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 6090882 (refacatoring-context)
@@ -102,3 +103,5 @@ Database : mongoDB
 =======
 >>>>>>> 4ce6916 (refacatoring-context)
 >>>>>>> 6090882 (refacatoring-context)
+=======
+>>>>>>> main

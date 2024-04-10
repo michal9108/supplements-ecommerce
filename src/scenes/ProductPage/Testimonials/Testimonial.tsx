@@ -7,6 +7,10 @@ export default function Testimonial({
   city,
   src,
 }: TestimonialTypes) {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> main
   return (
     <div className="flex  justify-center">
       <div className="flex  mx-1 my-1 p-1 lg:w-5/6 md:w-5/6 sm:w-5/6 xs:w-5/6 xxs:w-5/6   border-dotted rounded-lg border-3 border-secondary-500">

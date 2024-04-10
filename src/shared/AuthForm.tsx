@@ -1,6 +1,19 @@
+<<<<<<< HEAD
+<<<<<<<< HEAD:src/shared/AuthForm.tsx
 import { Link } from "react-router-dom";
 import H2 from "./H2";
 import { AuthFormType } from "./types";
+========
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import {  useNavigate } from "react-router-dom";
+import AuthForm from "@/shared/AuthForm";
+>>>>>>>> main:src/pages/LoginPage.tsx
+=======
+import { Link } from "react-router-dom";
+import H2 from "./H2";
+import { AuthFormType } from "./types";
+>>>>>>> main
 
 export default function AuthForm({
   title,
@@ -12,9 +25,16 @@ export default function AuthForm({
   setPassword,
 }: AuthFormType) {
   return (
+<<<<<<< HEAD
+<<<<<<<< HEAD:src/shared/AuthForm.tsx
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <H2 color="black-900">BB</H2>
+=======
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <H2 color="black-900">BODYBUFF</H2>
+>>>>>>> main
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           {title}
         </h2>
@@ -80,7 +100,11 @@ export default function AuthForm({
             <>
               Already a user?{" "}
               <Link
+<<<<<<< HEAD
                 to="/signin"
+=======
+                to="/login"
+>>>>>>> main
                 className="font-semibold leading-6 text-primary-300 hover:text-primary-300"
               >
                 Log in
@@ -100,5 +124,19 @@ export default function AuthForm({
         </p>
       </div>
     </div>
+<<<<<<< HEAD
+========
+    <AuthForm
+    title="Log In"
+    buttonText="Login"
+    handleSubmit={handleLogin}
+    username={username}
+    setUsername={setUsername}
+    password={password}
+    setPassword={setPassword}
+  />
+>>>>>>>> main:src/pages/LoginPage.tsx
+=======
+>>>>>>> main
   );
 }
