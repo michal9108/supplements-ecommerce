@@ -5,14 +5,8 @@ import { useState } from "react";
 import H2 from "@/shared/H2";
 import { useProductCart } from "../cart/ProductCartContext";
 
-<<<<<<< HEAD:src/scenes/HomePage/Reviews.tsx
-const Reviews = () => {
-  const { storeReviews } = useProductCart();
-=======
 export default function Reviews() {
-
-const {storeReviews} = useProductCart();
->>>>>>> main:src/scenes/HomePage/reviews.tsx
+  const { storeReviews } = useProductCart();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
@@ -42,11 +36,8 @@ const {storeReviews} = useProductCart();
                 <H2 color="primary-100">reviews</H2>
               </div>
             </div>
-<<<<<<< HEAD:src/scenes/HomePage/Reviews.tsx
+
             <div className="h-[480px] w-5/6 lg:w-4/6 mx-auto no-scrollbar  overflow-y-hidden relative">
-=======
-                <div className="h-[480px] w-5/6 lg:w-4/6 mx-auto no-scrollbar  overflow-y-hidden relative">
->>>>>>> main:src/scenes/HomePage/reviews.tsx
               <motion.ul
                 className="w-[2800px] whitespace-nowrap pl-0"
                 animate={controls}
@@ -87,6 +78,4 @@ const {storeReviews} = useProductCart();
       </section>
     </div>
   );
-};
-
-
+}

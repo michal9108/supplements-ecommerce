@@ -11,7 +11,6 @@ import SuccessPage from "./pages/SuccessPage";
 import AccountPage from "./pages/AccountPage";
 import { RouterProvider } from "react-router-dom";
 import CancelPage from "./pages/CancelPage";
-<<<<<<< HEAD
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -25,8 +24,6 @@ import BlogImage1 from "./assets/sumo-squat-tile.jpg";
 import BlogImage2 from "./assets/blog2.jpg";
 import BlogImage3 from "./assets/blog3.jpg";
 import UserImage from "./assets/user-reviews.png";
-=======
->>>>>>> main
 
 const isUserSignedIn = !!localStorage.getItem("token");
 

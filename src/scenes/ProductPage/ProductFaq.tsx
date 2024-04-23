@@ -2,28 +2,35 @@ import React, { useState } from "react";
 import faqImage from "../../assets/faq.webp";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { ProductType } from "@/shared/types";
+
 const FaqsArray = [
   {
-    question: "How does BUFF Pack differ from Muscle Mass?",
+    question: "What are the key benefits of MUSCLE MASS PREMIUM?",
     answer:
-      "While BUFF Pack is an excellent choice for daily support, BUFF Pack Elite is specifically formulated for intense workouts and high-performance athletes. It contains more electrolytes and performance-enhancing ingredients.",
+      "MUSCLE MASS PREMIUM is designed to revitalize your body and mind with sustained energy throughout the day. It enhances mental clarity, focus, and provides a healthy natural boost to your energy levels.",
   },
   {
-    question: "How does Elite support energy and stamina?",
+    question: "How does MUSCLE MASS PREMIUM differ from BOOST PLUS?",
     answer:
-      "Elite contains a potent blend of 5 key electrolytes along with trace minerals that are essential for maintaining fluid balance in the body, especially during intense workouts. It also contains taurine, which supports cellular hydration.",
+      "While both supplements offer energy and performance boosts, MUSCLE MASS PREMIUM focuses on sustained energy throughout the day with natural ingredients. BOOST PLUS, on the other hand, provides maximum boost for intense workouts with improved endurance and recovery.",
   },
   {
-    question: "How does BUFF Pack Elite support ATP production?",
+    question: "What ingredients are in POWER GAIN?",
     answer:
-      "You boil the sectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "POWER GAIN contains a clinically tested formula designed to build lean muscle mass, increase strength and power, and optimize muscle recovery. It is formulated with ingredients backed by scientific research to ensure effectiveness.",
   },
   {
-    question: "Is Elite available in sample packs?",
+    question: "How do I use these supplements for best results?",
     answer:
-      "You boil the hell out of it. Lorer adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "For optimal results, it's essential to follow the recommended dosage instructions provided on the product packaging. Additionally, incorporating a balanced diet and regular exercise routine can further enhance the benefits of these supplements.",
+  },
+  {
+    question: "Are these supplements safe and free from side effects?",
+    answer:
+      "Yes, these supplements are formulated with natural ingredients and are free from harmful additives and fillers. However, it's always recommended to consult with a healthcare professional before starting any new supplement regimen, especially if you have pre-existing health conditions or are taking other medications.",
   },
 ];
+
 
 const ProductFaq = ({ images }: ProductType) => {
   const [accordionOpen, setAccordionOpen] = useState(

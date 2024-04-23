@@ -4,7 +4,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import cardsIcons from "@/assets/cardsIcons.png";
 import checkIcon from "@/assets/checkIcon.png";
 import ProductSlider from "./ProductSlider";
-import { ProductType} from "@/shared/types";
+import { ProductType } from "@/shared/types";
 
 function classNames(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(" ");
@@ -36,11 +36,7 @@ export default function Product({
 
   return (
     <div>
-<<<<<<< HEAD
-      <div className=" flex justify-center  items-center  min-h-full lg:w-4/6 sm:w-4/6  xxs:w-5/6 w-4/6  mx-auto max-sm:flex-wrap ">
-=======
-      <div className=" flex justify-center  items-center  min-h-full w-5/6 lg:w-4/6 mx-auto max-sm:flex-wrap ">
->>>>>>> main
+      <div className=" flex justify-center  items-center  min-h-full lg:w-4/6 sm:w-5/6  xxs:w-5/6 w-4/6  mx-auto max-sm:flex-wrap ">
         <ProductSlider images={images} />
 
         <section className="py-2 h-full w-full md:w-1/2 flex justify-items-center	justify-center">
@@ -82,8 +78,6 @@ export default function Product({
 
             {/* Options */}
             <div className="mt-1 lg:row-span-3 lg:mt-0">
-            
-
               <div className="flex gap-2">
                 <div className="text-2xl  font-bold tracking-tight text-gray-900">
                   {formatCurrency(price)}

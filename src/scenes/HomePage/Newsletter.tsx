@@ -31,7 +31,3 @@ export default function  Newsletter() {
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main

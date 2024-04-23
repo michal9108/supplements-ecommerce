@@ -1,4 +1,4 @@
-import Accordion from "./Accordion";
+import Accordion from "../../HomePage/FAQ/Accordion";
 import H2 from "@/shared/H2";
 
 export default function Faq() {

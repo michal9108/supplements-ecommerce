@@ -1,10 +1,6 @@
 export default function UserIcon() {
   return (
-<<<<<<< HEAD
     <div className="w-6 h-6 my-auto">
-=======
-    <div className="w-11 h-11 my-auto">
->>>>>>> main
       
       <svg
         xmlns="http://www.w3.org/2000/svg"

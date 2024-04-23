@@ -70,7 +70,3 @@ export default function Carousel(){
 }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> main

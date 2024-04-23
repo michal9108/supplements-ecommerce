@@ -5,16 +5,10 @@ export default function InfoSales() {
   return (
     <>
       {/* SALES INFO */}
-<<<<<<< HEAD
       <section className="mx-auto min-h-full w-5/6 lg:w-4/6 py-1">
         <div className="flex flex-wrap items-center  justify-center relative">
           {/* Image */}
           <span className="flex  p-2 lg:my-8 lg:w-1/2 md:w-1/2 ">
-=======
-      <section className="mx-auto min-h-full w-5/6 lg:w-4/6  py-1">
-        <div className="items-center justify-between gap-20 md:flex-wrap ">
-          <span className="">
->>>>>>> main
             <img
               className="w-full"
               alt="benefits-page-graphic"

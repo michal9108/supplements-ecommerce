@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/scenes/ProductPage/Features/Features.tsx
 
 import aboutus from "../../../assets/about-us-1copy.webp";
 import { Featurestype, ProductType } from "@/shared/types";
@@ -14,23 +13,19 @@ import {
 } from "@heroicons/react/24/solid";
 import { HeartIcon as HearIconOutlined } from "@heroicons/react/24/outline";
 const indicators = () => <div className="indicator pr-8  m-px"></div>;
-export default function Features({ features, images, name }: ProductType) {
 
+
+
+  
+
+export default function FeaturesContainer({ features, images, name }: ProductType) {
   const properties = {
     duration: 3000,
     transitionDuration: 300,
     indicators: true,
   };
-  
-=======
-import FeatureBox from "./FeatureBox";
-import fitPortrait from "../../../assets/fitPortrait.png";
->>>>>>> main:src/scenes/ProductPage/Features/FeaturesContainer.tsx
-
-export default function FeaturesContainer() {
   return (
     <div>
-<<<<<<< HEAD:src/scenes/ProductPage/Features/Features.tsx
       <section className="bg-primary-100 ">
         <span className="md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 m-auto  ">
           {/* Features Container */}
@@ -40,37 +35,6 @@ export default function FeaturesContainer() {
               <h2 className="text-4xl font-bold  italic md:text-5xl my-10">
                 Why {name}? 
               </h2>
-=======
-      <section>
-        <div className="mx-auto w-5/6 lg:w-4/6 py-8 md:px-10 md:py-24 lg:py-32 flex max-sm:flex-col-reverse">
-          {/* Features Title  & Grid */}
-          <div className="flex flex-col">
-            <h4 className="mx-auto mb-8 mt-4 max-w-lg text-black md:mb-12 lg:mb-16 text-center">
-              Buff Pack allows you to:
-            </h4>
-
-            <div className="grid gap-3 sm:grid-cols-4  md:grid-rows-1 md:grid-cols-4">
-              <FeatureBox
-                name="Enhance your libido"
-                text="  Take your intimate experiences to new heights.
-             
-      aliquam, purus sit."
-              />
-              <FeatureBox
-                name="Trim body fat & Develop lean muscle"
-                text="   Attain a toned and sculpted physique.
-              "
-              />
-              <FeatureBox
-                name="Increase Quality of Life"
-                text=" Enhance overall well-being and fulfillment.
-            "
-              />
-              <FeatureBox
-                name="Boost your ambition."
-                text="Enhance overall well-being and fulfillment."
-              />
->>>>>>> main:src/scenes/ProductPage/Features/FeaturesContainer.tsx
             </div>
           </div>
         </span>

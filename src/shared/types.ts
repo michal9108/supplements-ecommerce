@@ -184,23 +184,8 @@ export interface AuthFormType {
   setPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
-<<<<<<< HEAD
 export interface BenefitType {
   benefittitle: string;
-=======
-export interface AuthFormType  {
-  title: string;
-  buttonText:string;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  username: string;
-  setUsername: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export interface FeatureType {
-  name: string;
->>>>>>> main
   text: string;
 }
 
@@ -209,7 +194,6 @@ export interface TestimonialTypes {
   age: number;
   city: string;
   src: string;
-<<<<<<< HEAD
 }
 
 export interface RedirectIfAuthenticatedProps {
@@ -251,6 +235,3 @@ section3:BlogSectionType
 title:string;
 
 } 
-=======
-}
->>>>>>> main

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import AuthForm from "@/shared/AuthForm";
+// import AuthForm from "@/shared/AuthForm";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 
 export default function SignIn() {

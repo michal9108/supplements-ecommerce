@@ -10,12 +10,10 @@ import ButtonLink from "@/shared/ButtonLink";
 
 
 export function ShoppingCart({ isOpen }: ShoppingCartType, id: number) {
-<<<<<<< HEAD
+
   const { closeCart, cartItems,setCartItems, subtotal, savedAmount } = useProductCart();
-=======
-  const { closeCart, cartItems, subtotal, savedAmount } = useProductCart();
->>>>>>> main
- 
+
+
 
   //request to STRIPE on checkout
   const checkout = async () => {
