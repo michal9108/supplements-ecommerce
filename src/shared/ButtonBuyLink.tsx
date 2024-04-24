@@ -7,11 +7,12 @@ export default function ButtonBuyLink({
   className,
   onClick,
   disabled,
+  
 }: ButtonBuyLinkTypes) {
   // <-- Add product type here
 
   return (
-    <Link to={to}>
+    <Link to={to} >
       <button className={className} onClick={onClick} disabled={disabled}>
         {children}
       </button>

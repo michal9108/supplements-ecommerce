@@ -12,7 +12,7 @@ const useOnMOuseOver = () => {
     if (product) {
       setProductImages(prevState => ({
         ...prevState,
-        [id]: storeItems.find(product => product.id === id)?.images[1]?.src
+        [id]: storeItems.find(product => product.id === id)?.images[3]?.src
       }));
       
     }

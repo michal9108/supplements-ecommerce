@@ -17,7 +17,7 @@ export default function ProductReviews({ reviews, name }: ProductType) {
 
       <Tab.Group
         as="div"
-        className="lg:w-4/6 md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 m-auto "
+        className="lg:w-4/6 md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 mx-auto my-5"
       >
         <Tab.Panels as={Fragment}>
           <Tab.Panel className="-mb-13">
@@ -120,7 +120,7 @@ export default function ProductReviews({ reviews, name }: ProductType) {
               reviewType.featured.map((review, reviewIdx) => (
                 <div
                   key={review.id}
-                  className="flex  flex-col text-sm text-gray-500 items-start"
+                  className="flex  flex-col text-sm text-gray-500 items-start mt-4"
                 >
                   <span className="flex">
                     {/* AVATAR */}

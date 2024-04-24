@@ -89,9 +89,9 @@ const blogPosts = [
 
 function Blog() {
   return (
-    <div className="mx-auto mt-20 w-5/6 px-6 sm:mt-10 lg:px-8">
+    <div className="mx-auto  lg:w-4/6 md:w-5/6 w-5/6 px-6  lg:px-8">
       <H2 color={"black-900"}>Blog</H2>
-      <div className="mx-auto m-10 grid max-w-4xl auto-rows-fr grid-cols-1 md:grid-cols-3 sm:grid-cols-2  gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <div className="mx-auto mb-10 grid max-w-4xl auto-rows-fr grid-cols-1 md:grid-cols-3 sm:grid-cols-2  gap-8  lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {blogPosts.map((post: BlogPostType) => (
           <Link key={post.id} to={`/blog/${post.id}`} className="no-underline">
             <BlogPostContainer

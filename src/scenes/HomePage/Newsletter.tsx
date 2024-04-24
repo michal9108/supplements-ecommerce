@@ -1,9 +1,16 @@
-export default function  Newsletter() {
+export default function Newsletter() {
   return (
     <div className="flex w-full ">
-      <div className="  flex justify-center items-center  w-full overflow-hidden bg-secondary-500 sm:px-3.5 py-5">
+      <div className="  flex justify-center items-center  w-full overflow-hidden bg-secondary-500  py-5 ">
         <div>
-          <form className="flex gap-y-2 gap-x-2 items-center justify-between max-md:flex-col ">
+          <form
+            className="flex w-full 
+          gap-y-2
+           gap-x-2
+            items-center 
+            justify-center 
+             max-md:flex-col "
+          >
             <div className="flex text-center">
               <p className="text-sm  text-primary-100 mt-3 mx-4">
                 <strong className="font-semibold text-3xl">
@@ -29,5 +36,3 @@ export default function  Newsletter() {
     </div>
   );
 }
-
-

@@ -14,10 +14,9 @@ import Blog from "./Blog";
 import DiscountBanner from "@/scenes/HomePage/DiscountBanner";
 import { useProductCart } from "@/scenes/cart/ProductCartContext";
 
-import Carousel from "../scenes/HomePage/carousel"
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Slider from "@/scenes/HomePage/slider";
+
 
 
 
@@ -27,24 +26,17 @@ export default function HomePage() {
   const { storeItems } = useProductCart();
   return (
     <div className="">
-
       <HomeCarousel />
-      <Incentives />
       <BrandCarousel />
-
-      <Slider />
-      <Carousel />
-
+      <Incentives />
       <Shop />
       <InfoSales />
       <Trending products={storeItems} />
       <Reviews />
       <DiscountBanner />
       <Transformations />
-
       <Faq />
       <Blog />
-
       <Newsletter />
     </div>
   );

@@ -4,6 +4,7 @@ import H2 from "@/shared/H2";
 import { useProductCart } from "../cart/ProductCartContext";
 import useOnMOuseOver from "@/hooks/useOnMouseOver";
 import { ProductType } from "@/shared/types";
+import { useNavigate } from "react-router-dom";
 
 function Trending({ products }: { products: ProductType[] }) {
   const {
@@ -17,8 +18,12 @@ function Trending({ products }: { products: ProductType[] }) {
 
   const trendingProducts = products.slice(0, 4);
   const { handleMouseOver, handleMouseout, productImages } = useOnMOuseOver();
+  const navigate = useNavigate();
 
-  const handleBuyNowClick = (id: string) => {
+
+
+  
+  const handleCardClick = (id: string) => {
     const product = storeItems.find((item) => item.id === id);
 
     if (product) {
@@ -38,17 +43,21 @@ function Trending({ products }: { products: ProductType[] }) {
         features: product.features,
       });
     }
+    navigate('/productpage');
   };
 
-  const handleToggleFavoriteClick = (product: ProductType) => {
+  const handleToggleFavoriteClick = (product: ProductType, e:React.MouseEvent) => {
+    e.stopPropagation();
     toggleFavorite(product.id);
   };
 
   const handleButtonClick = (product: ProductType) => {
-    handleBuyNowClick(product.id); // Passing only the ID to handleBuyNowClick
+    handleCardClick(product.id);
     increaseCartQuantity(product.id);
     openCart();
+  
   };
+
 
   return (
     <section aria-labelledby="trending-heading">
@@ -57,6 +66,7 @@ function Trending({ products }: { products: ProductType[] }) {
         <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8">
           {trendingProducts.map((product) => (
             <div
+            onClick={() => handleCardClick(product.id) }
               key={product.id}
               className="group  border-1 border-black-900 rounded-lg relative"
             >
@@ -90,7 +100,7 @@ function Trending({ products }: { products: ProductType[] }) {
               </div>
 
               <div className="w-10  top-2 right-2 ">
-                <button onClick={() => handleToggleFavoriteClick(product)}>
+                <button onClick={(e) => handleToggleFavoriteClick(product,e)}>
                   {" "}
                   {isProductFavorite(product.id) ? (
                     <div className=" absolute top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">

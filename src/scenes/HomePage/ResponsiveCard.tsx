@@ -7,6 +7,8 @@ import useOnMOuseOver from "@/hooks/useOnMouseOver";
 import useCardStyle from "@/hooks/useCardStyle";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useProductActions } from "@/hooks/useProductActions";
+import { ProductDetails } from "@/hooks/useProductActions";
 
 export default function ResponsiveCard({
   id,
@@ -22,7 +24,26 @@ export default function ResponsiveCard({
   reviews = [],
   benefits = [],
   features,
-}: ProductType) {
+}:ProductType) {
+
+  const productDetails: ProductDetails = {
+    id,
+    name,
+    price,
+    oldprice,
+    inStock,
+    images,
+    details,
+    highlights,
+    reviews,
+    href,
+    description,
+    benefits,
+    features,
+  };
+
+  const { handleToggleFavoriteClick, handleButtonClick } = useProductActions(productDetails);
+
   const {
     setProductDetails,
     isProductFavorite,
@@ -31,53 +52,20 @@ export default function ResponsiveCard({
     openCart,
   } = useProductCart();
 
-  const handleBuyNowClick = (id: string) => {
-    setProductDetails({
-      id,
-      name,
-      price,
-      oldprice,
-      inStock,
-      images,
-      details,
-      highlights,
-      reviews,
-      href,
-      description,
-      benefits,
-      features,
-    });
-  };
 
   const { cardStyle, isAboveMediumScreens } = useCardStyle();
 
   const { handleMouseOver, handleMouseout, productImages } = useOnMOuseOver();
 
 
-  const handleToggleFavoriteClick = () => {
-    toggleFavorite(id);
-  };
-
-  const handleButtonClick = (action: string) => {
-    if (action === "buy") {
-      handleBuyNowClick(id);
-      increaseCartQuantity(id);
-      openCart();
-    } else if (action === "toggleFavorite") {
-      handleToggleFavoriteClick();
-    }
-  };
-
   return (
-    <div
-      onClick={() => handleButtonClick(id)}
-      className="no-underline"
-      // to={"/productpage"}
-    >
+    <div onClick={() => handleButtonClick("regularClick")} className="no-underline">
+
+   
       <Card style={cardStyle} className="border-1 border-black">
         <span className="relative">
           {inStock ? (
-            <div className=" absolute top-2 left-2 max-w-fit border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
+            <div className=" absolute top-2 left-2 max-w-fit  border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
               <div className="text-xs tracking-tight text-primary-100 ">
                 ✔️ in stock
               </div>
@@ -118,7 +106,7 @@ export default function ResponsiveCard({
           <div className="mt-auto mb-2 flex justify-center items-center flex-col">
             {" "}
             <span className="flex  justify-center xxs:flex-col gap-2  xxs:text-xs">
-              <button onClick={() => handleButtonClick("toggleFavorite")}>
+            <button onClick={(e) => handleToggleFavoriteClick(e)}>
                 {" "}
                 {isProductFavorite(id) ? (
                   <div className="absolute top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">
@@ -160,29 +148,32 @@ export default function ResponsiveCard({
                 {oldprice}$
               </p>
             </span>
-            {/* {inStock ? ( */}
+           {inStock ? ( 
               <ButtonBuyLink
                 onClick={() => {
-                  handleButtonClick("buy")
+                  handleButtonClick("buy" )
                  
                 }}
                 to={"/productpage"}
                 children={"BUY NOW"}
                 disabled={false}
-                className=" bg-black   text-primary-100 no-underline  px-6 py-2.5 rounded-lg font-semibold text-xl w-full box-border;
-                  "
-              />
-            {/* ) : (
+                className="bg-black text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl w-full box-border "
+              
+                />
+            ) : (
               <ButtonBuyLink
                 to={"/productpage"}
                 children={"SOLD OUT"}
                 disabled={true}
                 className=" bg-neutral-400   text-primary-100 no-underline px-6 py-2.5 rounded-lg font-semibold text-xl "
+                
+                
               />
-            )} */}
+            )}
           </div>
         </Card.Body>
       </Card>
+   
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import faqImage from "../../assets/faq.webp";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { ProductType } from "@/shared/types";
+import H2 from "@/shared/H2";
 
 const FaqsArray = [
   {
@@ -31,7 +32,6 @@ const FaqsArray = [
   },
 ];
 
-
 const ProductFaq = ({ images }: ProductType) => {
   const [accordionOpen, setAccordionOpen] = useState(
     Array(FaqsArray.length).fill(false),
@@ -44,12 +44,15 @@ const ProductFaq = ({ images }: ProductType) => {
   };
 
   return (
-    <div className="w-full mx-auto sm:px-0 py-24 sm:pt-32 lg:px-0 lg:py-40">
+    <>
+          <H2 children="FAQs" color={"black-900"}></H2>
+    <h2 className="pl-3 text-2xl font-bold leading-10 tracking-tight text-gray-900">
+    
+  </h2>
+    <div className="w-full mx-auto sm:px-0">
       <div className="sm:grid sm:grid-cols-12 bg-gray-300 w-full">
         <div className=" sm:col-span-6 my-auto sm:mr-6 divide-y divide-gray-900/10">
-          <h2 className="pl-3 text-2xl font-bold leading-10 tracking-tight text-gray-900">
-            FAQs
-          </h2>
+         
           <dl className="space-y-4 divide-y divide-gray-900/10">
             {FaqsArray.map((faq, index) => (
               <div key={faq.question} className="mb-4">
@@ -114,6 +117,7 @@ const ProductFaq = ({ images }: ProductType) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

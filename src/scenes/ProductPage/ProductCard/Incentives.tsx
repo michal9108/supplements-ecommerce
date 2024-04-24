@@ -84,7 +84,7 @@ export default function Incentives() {
         aria-labelledby="perks-heading"
         className="border-t border-orange-200 bg-secondary-500"
       >
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-20 lg:px-8">
+        <div className="lg:w-4/6 md:w-5/6 sm:w-5/6 xs:w-5/6  xxs:w-5/6 mx-auto  max-w-7xl px-4 py-20 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
             {perks.map((perk) => (
               <div

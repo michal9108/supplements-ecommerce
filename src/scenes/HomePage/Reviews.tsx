@@ -20,13 +20,13 @@ export default function Reviews() {
     setCurrentIndex(newIndex);
 
     controls.start({
-      x: `-${newIndex * 12.5}%`,
+      x: `-${newIndex * 13.5}%`,
       transition: { type: "spring", stiffness: 300, damping: 30 },
     });
   };
 
   return (
-    <div className="bg-black pb-20 relative">
+    <div className="bg-black  md:pt-20 pb-20 relative">
       <section className="w-full bg-black block   border-black">
         <div className="block mx-auto ld: bg-black">
           <motion.div>
@@ -37,9 +37,9 @@ export default function Reviews() {
               </div>
             </div>
 
-            <div className="h-[480px] w-5/6 lg:w-4/6 mx-auto no-scrollbar  overflow-y-hidden relative">
+            <div className="h-[500px] w-5/6 lg:w-4/6 mx-auto no-scrollbar  overflow-y-hidden relative">
               <motion.ul
-                className="w-[2800px] whitespace-nowrap pl-0"
+                className="w-[2800px] whitespace-nowrap pl-0 "
                 animate={controls}
               >
                 {storeReviews.length > 0 &&
@@ -60,19 +60,20 @@ export default function Reviews() {
                     </motion.li>
                   ))}
               </motion.ul>
-              <button
-                className=" z-30 absolute top-1/2 -translate-y-1/2 left-0 bg-gray-400 text-white rounded-full w-10 h-10 ml-6"
+              
+            </div>
+            <button
+                className=" z-30 absolute top-1/2 -translate-y-1/2 left-5 bg-secondary-500 text-white rounded-full w-10 h-10 "
                 onClick={() => handleArrowClick("prev")}
               >
                 {"<"}
               </button>
               <button
-                className=" z-30 absolute top-1/2 -translate-y-1/2 right-0 bg-gray-400 text-white rounded-full w-10 h-10 mr-6"
+                className=" z-30 absolute top-1/2 -translate-y-1/2 right-5 bg-secondary-500 text-white rounded-full w-10 h-10 "
                 onClick={() => handleArrowClick("next")}
               >
                 {">"}
               </button>
-            </div>
           </motion.div>
         </div>
       </section>

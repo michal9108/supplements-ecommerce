@@ -4,7 +4,7 @@ import { ProductType } from "@/shared/types";
 
 const InfoMessage = ({ description }: ProductType) => {
   return (
-    <section className=" md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 mx-auto">
+    <section className=" md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 mx-auto mb-10">
       <span className="mx-auto min-h-full  py-1">
         <div className="mx-auto p-2 w-full border-dotted rounded-lg border-3 border-secondary-500 md:mx-auto 2xl-mx-2">
           <div className="flex gap-2 ">

@@ -2,12 +2,11 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 export default function ProductProofs() {
   const isAbovePhoneScreens = useMediaQuery("(min-width:480px)");
 
-//TODO : refactor
 
   return (
     <>
       {isAbovePhoneScreens ? (
-        <div className="flex justify-center py-4  max-sm:flex-wrap md:my-2 mx-auto w-5/6 lg:w-4/6">
+        <div className="flex justify-center py-4  max-sm:flex-wrap md:my-2 mx-auto lg:w-4/6 w-5/6 ">
           <div className="  flex gap-3  border-box  mx-auto  ">
             <div className="flex my-3 p-1 border-dotted rounded-lg border-3 border-secondary-500 ">
               <div className="rounded-full border-1 border-gray-100 bg-primary-100 p-2 h-15 w-15   my-auto mx-2">

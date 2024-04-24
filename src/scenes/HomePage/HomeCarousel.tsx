@@ -48,7 +48,7 @@ export default function HomeCarousel() {
 
       <div className="max-w-2xl grid gap-2 absolute bottom-10 xs:left-10 text-primary-100 p-4">
         <div className="font-group-2 text-theme-overlay-text ">
-          <p className="_p">
+          <p className="_p text-black-900" >
             <span className="relative inline-flex items-center h-[1em] align-middle  justify-center">
               <svg
                 className="w-auto h-full"
@@ -110,13 +110,13 @@ export default function HomeCarousel() {
           </p>
         </div>
 
-        <div className="font-group-2 text-theme-overlay-text">
-          <h1 className="">
+        <div className="font-group-2 text-theme-overlay-text text-black-900">
+          <h1 className="font-bold size-lg">
             Elite Supplements, <div>Backed by Science.</div>
           </h1>
         </div>
         <div className="font-group-1 text-theme-overlay-text">
-          <p className="_p">
+          <p className="_p text-black-900">
             To help you get stronger, live healthier, and become a better you.{" "}
             <div>Take the fitness quiz below to start your transformation.</div>
           </p>

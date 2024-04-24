@@ -28,10 +28,6 @@ export interface ProductReviewType {
   verifiedBuyer: boolean;
 }
 
-// export interface BenefitsType {
-//   storeItems: ProductType[];
-//   proofs: ProofType[];
-// }
 
 export interface CardTemplateTypes {
   img?: string;

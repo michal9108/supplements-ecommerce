@@ -37,7 +37,7 @@ export default function BenefitsContainer({
         </div>
       </div>
 
-      <div className=" mx-auto md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 py-4 md:px-10 md:py-24 lg:py-32 flex max-sm:flex-col-reverse">
+      <div className=" mx-auto md:w-4/6 sm:w-4/6 xs:w-4/6 xxs:w-5/6 py-4 md:px-10 md:py-24 lg:py-32 flex max-sm:flex-col-reverse mt-6">
         <div className="flex flex-col">
           {/* Benefits  Grid */}
 

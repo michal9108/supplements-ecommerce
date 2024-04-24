@@ -13,7 +13,7 @@ export default function Accordion({ title, answer }: AccordionType) {
         className="flex justify-between w-full bg-orange-400 border-1  border-secondary-500 p-3 rounded-lg"
       >
 
-        <span>{title}</span>
+        <span className="text-primary-100">{title}</span>
        
 
         <svg
