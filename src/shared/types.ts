@@ -134,6 +134,10 @@ export type ProductCartContextType = {
   setIsMenuToggled: any;
   removeFromWishlist: (id: string) => void;
   toggleFavorite: (id: string) => void;
+  setnewsletterModalShow: React.Dispatch<React.SetStateAction<boolean>>;
+  handleCloseModal: () => void;
+  visibleModal: boolean;
+  newsletterModalShow: boolean;
 };
 
 export interface ButtonBuyLinkTypes {

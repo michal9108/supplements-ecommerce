@@ -12,6 +12,7 @@ import {
   UserType,
 } from "@/shared/types";
 import { RotatingLines } from "react-loader-spinner";
+import NewsletterModal from "../Newsletter-modal";
 
 
 //CONTEXT
@@ -194,7 +195,10 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
   }
 
 
-  
+  const [visibleModal, setVisible] = useState(true);
+  const [newsletterModalShow, setnewsletterModalShow] = useState(false);
+  const handleCloseModal = () => setVisible(false);
+
 
   if (isLoading) {
     return (
@@ -214,6 +218,10 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
   if (storeReviews === null) {
     return <div>No data available.</div>;
   }
+
+
+
+
 
   return (
     <ProductCartContext.Provider
@@ -244,12 +252,16 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
         setWishlist,
          isMenuToggled,
          setIsMenuToggled,
+         setnewsletterModalShow,
+         handleCloseModal,
+         visibleModal,
+         newsletterModalShow,
         
     
       }}
     >
       {children}
-
+      <NewsletterModal newsletterModalShow={visibleModal} />
       <ShoppingCart isOpen={isOpen} />
       <MobileMenu isMenuToggled={isMenuToggled}/>
     </ProductCartContext.Provider>

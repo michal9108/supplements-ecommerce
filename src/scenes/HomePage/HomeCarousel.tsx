@@ -9,6 +9,7 @@ import slider4 from "@/assets/homeSlider11.png";
 import slider5 from "@/assets/HomeBanner3.webp";
 
 import slider8 from "@/assets/HomeBanner2.webp";
+import { Link } from "react-router-dom";
 export default function HomeCarousel() {
   const [isAboveMd, setIsAboveMd] = useState(false);
 
@@ -123,9 +124,9 @@ export default function HomeCarousel() {
         </div>
 
         <div className="mt-4  flex flex-col sm:flex-row sm:justify-start text-left w-full ">
-          <button className="rounded-lg bg-secondary-500 px-20 py-3 text-primary-100 no-underline font-semibold text-xl">
+          <Link className="rounded-lg bg-secondary-500 px-20 py-3 text-primary-100 no-underline font-semibold text-xl" to="/">
             BUY NOW
-          </button>
+          </Link>
         </div>
       </div>
     </section>

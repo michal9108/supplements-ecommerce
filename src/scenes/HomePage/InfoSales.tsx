@@ -1,5 +1,6 @@
 
 import homebecomebuffimg from "@/assets/becomebuff.png";
+import { Link } from "react-router-dom";
 
 export default function InfoSales() {
   return (
@@ -52,9 +53,9 @@ export default function InfoSales() {
 
             {/* BUTTON */}
             <div className="relative w-full my-8 max-sm:mx-auto flex sm:justify-start  xs:justify-center  xxs:justify-center items-center">
-              <button className="rounded-lg bg-secondary-500 px-20 py-3 text-primary-100 no-underline font-semibold text-xl" >
+              <Link className="rounded-lg bg-secondary-500 px-20 py-3 text-primary-100 no-underline font-semibold text-xl"  to='/'>
                 BUY NOW
-              </button>
+              </Link>
             </div>
           </span>
         </div>
