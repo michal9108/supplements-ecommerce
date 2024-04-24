@@ -144,13 +144,16 @@ export default function SignIn() {
                   </div>
                 </div>
 
-                <div>
-                  <button
-                    type="submit"
-                    className=" uppercase flex w-full justify-center rounded-md bg-orange-600 px-3 py-3 text-xl font-bold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-                  >
-                    Sign in
-                  </button>
+                <button
+                  type="submit"
+                  className=" uppercase flex w-full justify-center rounded-md bg-orange-600 px-3 py-3 text-xl font-bold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                >
+                  Sign in
+                </button>
+                <div className="text-sm font-bold  text-orange-500">
+                  <p className=""> For testing purposes:</p>
+                  <p>UserName: User12</p>
+                  <p>Password: User12</p>
                 </div>
               </form>
             </div>

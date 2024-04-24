@@ -177,7 +177,7 @@ export default function SignUpPage() {
                       to="/signin"
                       className="uppercase no-underline font-semibold leading-6 text-orange-600 hover:text-black-900"
                     >
-                      Log in
+                      Sign In
                     </Link>
                   </div>
                  
