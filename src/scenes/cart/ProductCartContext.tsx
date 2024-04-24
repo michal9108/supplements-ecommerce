@@ -195,7 +195,7 @@ const [wishlist, setWishlist] = useLocalStorage<ProductType[]>("wishlist",[]);
   }
 
 
-  const [visibleModal, setVisible] = useState(false);
+  const [visibleModal, setVisible] = useState(true);
   const [newsletterModalShow, setnewsletterModalShow] = useState(false);
   const handleCloseModal = () => setVisible(false);
 
