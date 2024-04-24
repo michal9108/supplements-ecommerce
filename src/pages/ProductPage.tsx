@@ -43,13 +43,14 @@ export default function ProductPage() {
         {selectedProduct && <BenefitsContainer {...selectedProduct} />}
 
         {selectedProduct && <FeaturesContainer {...selectedProduct} />}
-
+        <Guarantee />
         {selectedProduct && <ProductFaq {...selectedProduct} />}
+   
         {selectedProduct &&   <ProductReviews  {...selectedProduct} />}
       
         <Newsletter />
         <Community />
-        <Guarantee />
+     
         <BrandCarousel />
 
        
