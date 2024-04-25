@@ -17,7 +17,7 @@ export default function SignUpPage() {
 
   const fetchUsers = () => {
     axios
-      .get("https://server-be-node-express-mongo.fly.dev/register")
+      .get(import.meta.env.VITE_URL + "/register")
       .then((res) => {
         console.log(res.data);
       });
@@ -26,7 +26,7 @@ export default function SignUpPage() {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     axios
-      .post("https://server-be-node-express-mongo.fly.dev/register", {
+      .post(import.meta.env.VITE_URL + "/register", {
         email,
         username,
         password,
@@ -190,15 +190,7 @@ export default function SignUpPage() {
         </div>
       </div>
     </div>
-    {/* <AuthForm
-      title="Sign up to your new account"
-      buttonText="Sign up"
-      handleSubmit={handleSubmit}
-      username={username}
-      setUsername={setUsername}
-      password={password}
-      setPassword={setPassword}
-    /> */}
+  
     </>
   );
 }

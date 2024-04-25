@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-// import AuthForm from "@/shared/AuthForm";
 import { useLocalStorage } from "@/scenes/cart/useLocalStorage";
 
 export default function SignIn() {
@@ -14,7 +13,7 @@ export default function SignIn() {
 
   const fetchUsers = () => {
     axios
-      .get("https://server-be-node-express-mongo.fly.dev/register")
+      .get(import.meta.env.VITE_URL + "/register")
       .then((res) => {
         console.log(res.data);
       });
@@ -23,7 +22,7 @@ export default function SignIn() {
   const handleLogin = async (username: string, password: string) => {
     try {
       const response = await axios.post(
-        "https://server-be-node-express-mongo.fly.dev/login",
+        import.meta.env.VITE_URL + "/login",
         {
           username,
           password,
