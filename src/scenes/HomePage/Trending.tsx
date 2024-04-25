@@ -20,9 +20,6 @@ function Trending({ products }: { products: ProductType[] }) {
   const { handleMouseOver, handleMouseout, productImages } = useOnMOuseOver();
   const navigate = useNavigate();
 
-
-
-  
   const handleCardClick = (id: string) => {
     const product = storeItems.find((item) => item.id === id);
 
@@ -43,10 +40,13 @@ function Trending({ products }: { products: ProductType[] }) {
         features: product.features,
       });
     }
-    navigate('/productpage');
+    navigate("/productpage");
   };
 
-  const handleToggleFavoriteClick = (product: ProductType, e:React.MouseEvent) => {
+  const handleToggleFavoriteClick = (
+    product: ProductType,
+    e: React.MouseEvent,
+  ) => {
     e.stopPropagation();
     toggleFavorite(product.id);
   };
@@ -55,9 +55,7 @@ function Trending({ products }: { products: ProductType[] }) {
     handleCardClick(product.id);
     increaseCartQuantity(product.id);
     openCart();
-  
   };
-
 
   return (
     <section aria-labelledby="trending-heading">
@@ -66,9 +64,9 @@ function Trending({ products }: { products: ProductType[] }) {
         <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8">
           {trendingProducts.map((product) => (
             <div
-            onClick={() => handleCardClick(product.id) }
+              onClick={() => handleCardClick(product.id)}
               key={product.id}
-              className="group  border-1 border-black-900 rounded-lg relative"
+              className="group  border-1 rounded-lg relative"
             >
               {product.inStock ? (
                 <div className=" absolute top-2 left-2 max-w-fit border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
@@ -100,7 +98,7 @@ function Trending({ products }: { products: ProductType[] }) {
               </div>
 
               <div className="w-10  top-2 right-2 ">
-                <button onClick={(e) => handleToggleFavoriteClick(product,e)}>
+                <button onClick={(e) => handleToggleFavoriteClick(product, e)}>
                   {" "}
                   {isProductFavorite(product.id) ? (
                     <div className=" absolute top-2 right-2 border-1 border-black  bg-primary-100 rounded-lg my-auto p-2">

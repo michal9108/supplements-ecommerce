@@ -19,9 +19,9 @@ const useCardStyle = () => {
   } else if (isMediumScreens) {
     cardStyle = { width: "16rem", height: "30rem", margin: "0.5rem" };
   } else if (isAboveMediumScreens) {
-    cardStyle = { width: "17rem", height: "42rem", margin: "0.5rem" };
+    cardStyle = { width: "17rem", height: "30rem", margin: "0.5rem" };
   } else if (isAboveLargeScreens) {
-    cardStyle = { width: "20rem", height: "44rem", margin: "0.5rem" };
+    cardStyle = { width: "20rem", height: "40rem", margin: "0.5rem" };
   }
 
   return {

@@ -62,7 +62,7 @@ export default function ResponsiveCard({
     <div onClick={() => handleButtonClick("regularClick")} className="no-underline">
 
    
-      <Card style={cardStyle} className="border-1 border-black">
+      <Card style={cardStyle} className="">
         <span className="relative">
           {inStock ? (
             <div className=" absolute top-2 left-2 max-w-fit  border-solid border-black bg-green-500 rounded-lg mt-auto p-2">
@@ -98,12 +98,8 @@ export default function ResponsiveCard({
             </Card.Title>
           </div>
 
-          {isAboveMediumScreens && (
-            <div>
-              <Card.Text className="text-center">{details}</Card.Text>
-            </div>
-          )}
-          <div className="mt-auto mb-2 flex justify-center items-center flex-col">
+         
+          <div className="flex justify-center items-center flex-col">
             {" "}
             <span className="flex  justify-center xxs:flex-col gap-2  xxs:text-xs">
             <button onClick={(e) => handleToggleFavoriteClick(e)}>
