@@ -1,4 +1,13 @@
-# React + TypeScript + Vite
+# Full-Stack Finance Dashboard App | React 18 | Typescript | Mui Material | Redux Toolkit | Recharts | MongoDB
+
+<a href="https://supplements-ecommerce-five.vercel.app/" target="blank"> <img src="https://github.com/michal9108/supplements-ecommerce/blob/main/finance-hero-img.png" width="100%" height="100%"/>
+</a>
+
+## Link
+
+[Dashboard finance App](https://supplements-ecommerce-five.vercel.app/)
+
+## Setup
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
