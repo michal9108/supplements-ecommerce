@@ -113,7 +113,7 @@ export default function HomeCarousel() {
 
         <div className="font-group-2 text-theme-overlay-text text-black-900">
           <h1 className="font-bold size-lg">
-            Elite Supplements, <div>Backed by Science.</div>
+            Elite Supplements.<div>Backed by Science.</div>
           </h1>
         </div>
         <div className="font-group-1 text-theme-overlay-text">
